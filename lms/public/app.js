@@ -9,7 +9,15 @@ const MONTHS = ['Yan', 'Fev', 'Mar', 'Apr', 'May', 'Iyn', 'Iyl', 'Avg', 'Sen', '
 const MONTHS_FULL = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr'];
 const WEEKDAYS = ['Yakshanba', 'Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba'];
 const DAY_NAMES = ['', 'Du', 'Se', 'Chor', 'Pay', 'Ju', 'Sha', 'Yak'];
-const ROLE = { admin: 'Administrator', teacher: "O'qituvchi", student: "O'quvchi", parent: 'Ota-ona' };
+const ROLE = { dev: 'Egasi (Dev)', admin: 'Administrator', teacher: "O'qituvchi", student: "O'quvchi", parent: 'Ota-ona' };
+// Kirgan foydalanuvchi 'dev' bo'lsa — barcha admin ekranlari ishlashi uchun rolni 'admin' qilamiz,
+// asl egalik rolini is_dev bilan belgilab qo'yamiz (nishon va huquqlar uchun).
+function adoptUser(u) {
+  if (u && u.role === 'dev') { u.is_dev = true; u.role = 'admin'; }
+  return u;
+}
+// ko'rsatiladigan rol: egasi uchun 'dev', aks holda asl rol
+const dispRole = (u) => (u && u.is_dev ? 'dev' : u && u.role);
 const STATUS = {
   berilmagan: 'Berilmagan', kutilmoqda: 'Topshirilmagan', bajarilmagan: 'Bajarilmagan',
   tekshirilmoqda: 'Tekshirilmoqda', qaytarilgan: 'Qaytarilgan', qabul: 'Qabul qilingan',
@@ -49,7 +57,7 @@ const daysText = (d) => String(d || '').split(',').map((x) => DAY_NAMES[+x]).fil
 const badge = (st) => `<span class="badge st-${esc(st)}">${esc(STATUS[st] || st)}</span>`;
 const initials = (n) => String(n || '?').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 // Profil rasmi bo'lmasa — rolga mos ikonka (administrator / o'qituvchi / o'quvchi)
-const ROLE_ICON = { admin: 'shieldCheck', teacher: 'presentation', student: 'graduation', parent: 'heart' };
+const ROLE_ICON = { dev: 'code', admin: 'shieldCheck', teacher: 'presentation', student: 'graduation', parent: 'heart' };
 const avatar = (name, uid, cls = '', role = 'student', photo = null) => (photo
   ? `<span class="avatar ${cls} has-photo" title="${esc(name)}"><img src="${esc(photo)}" alt="" loading="lazy"></span>`
   : `<span class="avatar ${cls} av-${ROLE_ICON[role] ? role : 'student'}" title="${esc(name)} · ${ROLE[role] || ''}">${ic(ROLE_ICON[role] || 'graduation')}</span>`);
@@ -235,7 +243,7 @@ function layout(html) {
       <div class="brand"><span class="logo-glow"><img src="/img/yuksalish-logo-light.png" alt=""></span><div>yuksalish<span class="dot-dev">.dev</span></div></div>
       <div class="nav-label">Menyu</div>
       <nav class="nav">${nav}</nav>
-      <div class="me">${avatar(u.name, u.id, '', u.role, u.avatar)}<div class="who"><b>${esc(u.name)}</b><span class="role-${u.role}">${ROLE[u.role]}</span></div>
+      <div class="me">${avatar(u.name, u.id, '', dispRole(u), u.avatar)}<div class="who"><b>${esc(u.name)}</b><span class="role-${dispRole(u)}">${ROLE[dispRole(u)]}</span></div>
         <button class="icon-btn" id="logout" title="Chiqish">${ic('logout')}</button></div>
     </aside>
     <div style="min-width:0">
@@ -329,7 +337,7 @@ function viewLogin() {
   $('#pwEye').onclick = () => { const i = $('input[name=password]'); i.type = i.type === 'password' ? 'text' : 'password'; };
   $('#loginForm').onsubmit = async (e) => {
     e.preventDefault();
-    try { const r = await api('POST', '/api/login', formData(e.target)); state.user = r.user; state.unread = 0; go('#/'); refreshUnread(); }
+    try { const r = await api('POST', '/api/login', formData(e.target)); state.user = adoptUser(r.user); state.unread = 0; go('#/'); refreshUnread(); }
     catch (err) { toast(err.message, true); }
   };
 }
@@ -1295,7 +1303,7 @@ async function viewUsers(role = '', q = '') {
   layout(`<div class="page-head"><div><h1>Foydalanuvchilar</h1><p>${users.length} ta</p></div>
     <div class="row"><button class="btn" id="bulkUser">${ic('upload')}Ro'yxatdan qo'shish</button><button class="btn primary" id="newUser">${ic('plus')}Yangi foydalanuvchi</button></div></div>
     <div class="row" style="margin-bottom:16px">
-      <div class="tabs" style="margin:0">${[['', 'Hammasi'], ['student', "O'quvchilar"], ['parent', 'Ota-onalar'], ['teacher', "O'qituvchilar"], ['admin', 'Administratorlar']].map(([r, t]) => `<button data-role="${r}" class="${r === role ? 'active' : ''}">${t}</button>`).join('')}</div>
+      <div class="tabs" style="margin:0">${[['', 'Hammasi'], ['student', "O'quvchilar"], ['parent', 'Ota-onalar'], ['teacher', "O'qituvchilar"], ['admin', 'Administratorlar'], ...(state.user.is_dev ? [['dev', 'Egasi']] : [])].map(([r, t]) => `<button data-role="${r}" class="${r === role ? 'active' : ''}">${t}</button>`).join('')}</div>
       <span class="spacer"></span><div class="search">${ic('search')}<input id="userQ" placeholder="Ism yoki login..." value="${esc(q)}"></div></div>
     <div class="card table-wrap">${users.length ? `<table><tr><th>Foydalanuvchi</th><th>Rol</th><th>Telefon</th><th>Qo'shilgan</th><th>Holat</th><th></th></tr>
     ${users.map((u) => `<tr><td class="click" data-href="#/students/${u.id}" style="cursor:pointer"><div class="user-cell">${avatar(u.name, u.id, 'sm', u.role, u.avatar)}<div>${esc(u.name)}<div class="small muted mono">${esc(u.login)}</div></div></div></td>
@@ -1324,7 +1332,7 @@ async function userForm(u, currentRole) {
     <label class="f"><span>Ism-familiya</span><input name="name" required value="${esc(u?.name || '')}" placeholder="Ali Valiyev"></label>
     <div class="form-grid">
       <label class="f"><span>Login</span><input name="login" required value="${esc(u?.login || '')}" ${u ? 'disabled' : ''} placeholder="ali.valiyev"></label>
-      <label class="f"><span>Rol</span><select name="role">${Object.entries(ROLE).map(([r, t]) => `<option value="${r}" ${(u?.role || currentRole || 'student') === r ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+      <label class="f"><span>Rol</span><select name="role">${Object.entries(ROLE).filter(([r]) => r !== 'dev' || state.user.is_dev).map(([r, t]) => `<option value="${r}" ${(u?.role || currentRole || 'student') === r ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
     </div>
     <div class="form-grid">
       <label class="f"><span>Telefon</span><input name="phone" value="${esc(u?.phone || '')}" placeholder="+998 90 123 45 67"></label>
@@ -1989,7 +1997,7 @@ async function viewProfile() {
     <section class="pf-hero ${g ? lvlClass(g.level.level) : ''} ${g && lvlStyle(g.level.level) ? 'has-img' : ''}" ${g ? lvlStyle(g.level.level) : ''}>
       <div class="av-edit pf-av" id="avEdit">${avatar(u.name, u.id, 'xl', u.role, u.avatar)}</div>
       <h1>${esc(u.name)}</h1>
-      <div class="pf-sub"><span class="pf-role role-${u.role}">${ic(ROLE_ICON[u.role])}${ROLE[u.role]}</span><span class="pf-login">@${esc(u.login)}</span></div>
+      <div class="pf-sub"><span class="pf-role role-${dispRole(u)}">${ic(ROLE_ICON[dispRole(u)])}${ROLE[dispRole(u)]}</span><span class="pf-login">@${esc(u.login)}</span></div>
       ${g ? `<div class="pf-stats">
         <a href="#/coins">${coinHtml(state.coins ?? 0)}<small>Coin</small></a>
         <a href="#/achievements"><b>${g.level.level}</b><small>Daraja</small></a>
@@ -2382,7 +2390,7 @@ async function route() {
   const certM = hash.match(/^#\/cert\/([\w-]+)$/);
   if (certM) return viewCert(certM[1]);
   if (!state.user && hash !== '#/login') {
-    try { state.user = (await api('GET', '/api/me')).user; refreshUnread(); } catch { return viewLogin(); }
+    try { state.user = adoptUser((await api('GET', '/api/me')).user); refreshUnread(); } catch { return viewLogin(); }
   }
   if (hash === '#/login') return state.user ? go('#/') : viewLogin();
   if (state.user && !state.assets) { try { state.assets = await api('GET', '/api/assets'); } catch { state.assets = { levels: {}, badges: {} }; } }

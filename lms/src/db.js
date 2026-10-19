@@ -312,6 +312,26 @@ for (const sql of ['ALTER TABLE groups ADD COLUMN price INTEGER NOT NULL DEFAULT
   }
 }
 
+// 'dev' (egasi / dasturchi) rolini qo'shamiz — eng yuqori huquq
+{
+  const row = db.prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'users'").get();
+  if (row && !row.sql.includes("'dev'")) {
+    const newSql = row.sql
+      .replace("CHECK (role IN ('admin','teacher','student','parent'))", "CHECK (role IN ('admin','teacher','student','parent','dev'))")
+      .replace(/^CREATE TABLE "?users"?/, 'CREATE TABLE users_new');
+    if (!newSql.includes("'dev'") || !newSql.startsWith('CREATE TABLE users_new')) throw new Error('users jadvaliga dev rolini qo\'shib bo\'lmadi');
+    db.exec('PRAGMA foreign_keys = OFF');
+    try {
+      db.exec('BEGIN');
+      db.exec(newSql);
+      db.exec('INSERT INTO users_new SELECT * FROM users');
+      db.exec('DROP TABLE users');
+      db.exec('ALTER TABLE users_new RENAME TO users');
+      db.exec('COMMIT');
+    } catch (e) { db.exec('ROLLBACK'); throw e; } finally { db.exec('PRAGMA foreign_keys = ON'); }
+  }
+}
+
 // kichik yordamchilar
 const one = (sql, ...p) => db.prepare(sql).get(...p);
 const all = (sql, ...p) => db.prepare(sql).all(...p);

@@ -1505,6 +1505,7 @@ body::after { z-index: -2; }
 .chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--line); }
 .chat-form input { flex: 1; }
 .role-parent { color: #f9a8d4; }
+.role-dev { color: #67e8f9; }
 .avatar.av-parent { background: rgba(236, 72, 153, 0.14); color: #f9a8d4; box-shadow: inset 0 0 0 1px rgba(236, 72, 153, 0.28); }
 
 .cmsg .bubble { box-shadow: none; }

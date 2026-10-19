@@ -30,7 +30,7 @@ const wrap = (fn) => (req, res, next) => { try { const r = fn(req, res, next); i
 const str = (v, max = 5000) => (v === undefined || v === null ? '' : String(v).trim().slice(0, max));
 const id = (v) => { const n = Number(v); if (!Number.isInteger(n) || n <= 0) fail(400, "Noto'g'ri ID"); return n; };
 const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s || '');
-const publicUser = (u) => u && ({ id: u.id, name: u.name, login: u.login, role: u.role, phone: u.phone, avatar: u.avatar || null, active: !!u.active, created_at: u.created_at });
+const publicUser = (u) => u && ({ id: u.id, name: u.name, login: u.login, role: u.is_dev ? 'dev' : u.role, phone: u.phone, avatar: u.avatar || null, active: !!u.active, created_at: u.created_at });
 
 // Bildirishnoma: bir yoki bir nechta foydalanuvchiga
 function notify(userIds, kind, text, link) {
@@ -58,7 +58,13 @@ function loadUser(req) {
                    WHERE s.token = ? AND s.expires_at > datetime('now') AND u.active = 1`, token);
   return row || null;
 }
-app.use((req, res, next) => { req.user = loadUser(req); next(); });
+// 'dev' (egasi) — barcha huquqlar bo'yicha administrator kabi ishlaydi, ustiga dev-himoyasi bor.
+// Serverdagi barcha tekshiruvlar soddaligi uchun rolni 'admin' ga tenglashtiramiz, asl rolni is_dev bilan saqlaymiz.
+app.use((req, res, next) => {
+  req.user = loadUser(req);
+  if (req.user && req.user.role === 'dev') { req.user.is_dev = true; req.user.role = 'admin'; }
+  next();
+});
 const auth = (...roles) => (req, res, next) => {
   if (!req.user) return next(new HttpError(401, 'Tizimga kiring'));
   if (roles.length && !roles.includes(req.user.role)) return next(new HttpError(403, "Bu bo'lim uchun ruxsat yo'q"));
@@ -116,7 +122,8 @@ app.post('/api/users', auth('admin'), wrap((req) => {
   const password = String(req.body.password || '');
   if (!name || !login) fail(400, 'Ism va login majburiy');
   if (!/^[a-z0-9._-]{3,}$/.test(login)) fail(400, "Login kamida 3 ta belgi: lotin harflari, raqam, . _ -");
-  if (!['admin', 'teacher', 'student', 'parent'].includes(role)) fail(400, "Rol noto'g'ri");
+  if (!['admin', 'teacher', 'student', 'parent', 'dev'].includes(role)) fail(400, "Rol noto'g'ri");
+  if (role === 'dev' && !req.user.is_dev) fail(403, "Dev rolini faqat dev biriktira oladi");
   if (password.length < 6) fail(400, 'Parol kamida 6 ta belgi');
   if (one('SELECT 1 FROM users WHERE lower(login) = ?', login)) fail(409, 'Bu login band');
   const r = run('INSERT INTO users (name, login, password_hash, role, phone) VALUES (?,?,?,?,?)', name, login, bcrypt.hashSync(password, 10), role, str(req.body.phone, 30) || null);
@@ -128,10 +135,12 @@ app.patch('/api/users/:id', auth('admin'), wrap((req) => {
   const uid = id(req.params.id);
   const u = one('SELECT * FROM users WHERE id = ?', uid) || fail(404, 'Foydalanuvchi topilmadi');
   const b = req.body;
-  if (uid === req.user.id && (b.active === false || (b.role && b.role !== 'admin'))) fail(400, "O'zingizni bloklay yoki rolingizni o'zgartira olmaysiz");
+  if (u.role === 'dev' && !req.user.is_dev) fail(403, "Dev hisobini faqat dev o'zgartira oladi");
+  if (uid === req.user.id && (b.active === false || (b.role && !['admin', 'dev'].includes(b.role)))) fail(400, "O'zingizni bloklay yoki egalik huquqingizni ayira olmaysiz");
   const name = b.name !== undefined ? str(b.name, 120) : u.name;
   const role = b.role !== undefined ? str(b.role, 20) : u.role;
-  if (!['admin', 'teacher', 'student', 'parent'].includes(role)) fail(400, "Rol noto'g'ri");
+  if (!['admin', 'teacher', 'student', 'parent', 'dev'].includes(role)) fail(400, "Rol noto'g'ri");
+  if (role === 'dev' && !req.user.is_dev) fail(403, "Dev rolini faqat dev biriktira oladi");
   const phone = b.phone !== undefined ? (str(b.phone, 30) || null) : u.phone;
   const active = b.active !== undefined ? (b.active ? 1 : 0) : u.active;
   run('UPDATE users SET name=?, role=?, phone=?, active=? WHERE id=?', name || u.name, role, phone, active, uid);
@@ -148,6 +157,7 @@ app.delete('/api/users/:id', auth('admin'), wrap((req) => {
   const uid = id(req.params.id);
   if (uid === req.user.id) fail(400, "O'zingizni o'chira olmaysiz");
   const du = one('SELECT name, login, role FROM users WHERE id = ?', uid);
+  if (du && du.role === 'dev' && !req.user.is_dev) fail(403, "Dev hisobini faqat dev o'chira oladi");
   run('DELETE FROM users WHERE id = ?', uid);
   if (du) audit(req.user, 'delete', 'user', uid, du.name, `${du.login} · ${du.role}`);
   return { ok: true };
@@ -188,7 +198,7 @@ function audit(user, action, entity, entityId, title, details) {
   run('INSERT INTO audit_log (user_id, user_name, user_role, action, entity, entity_id, title, details) VALUES (?,?,?,?,?,?,?,?)',
     user ? user.id : null, user ? user.name : null, user ? user.role : null, action, entity, entityId ?? null, title ?? null, details ?? null);
 }
-const adminIds = (exceptId) => all("SELECT id FROM users WHERE role = 'admin' AND active = 1 AND id != ?", exceptId || 0).map((r) => r.id);
+const adminIds = (exceptId) => all("SELECT id FROM users WHERE role IN ('admin','dev') AND active = 1 AND id != ?", exceptId || 0).map((r) => r.id);
 
 function myGroups(user) {
   const base = `SELECT g.*, c.title AS course_title, c.slug, u.name AS teacher_name, cb.name AS created_by_name,
