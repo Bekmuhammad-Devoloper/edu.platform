@@ -323,6 +323,7 @@ function viewLogin() {
         <button type="button" id="pwEye" title="Ko'rsatish">${ic('eye')}</button></div></label>
       <button class="btn primary" style="width:100%;padding:12px">Kirish</button>
     </form>
+    ${isStandalone() ? '' : `<a class="app-dl" href="/ilova/">${ic('smartphone')}<span><b>Telefon ilovasini o'rnating</b><small>Android va iPhone — bepul</small></span>${ic('download')}</a>`}
     <div class="roles-row"><span class="chip">${ic('shieldCheck')} Administrator</span><span class="chip">${ic('presentation')} O'qituvchi</span><span class="chip">${ic('graduation')} O'quvchi</span><span class="chip">${ic('heart')} Ota-ona</span></div>
   </div></div></div>`;
   $('#pwEye').onclick = () => { const i = $('input[name=password]'); i.type = i.type === 'password' ? 'text' : 'password'; };

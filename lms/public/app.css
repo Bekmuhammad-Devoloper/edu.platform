@@ -1680,3 +1680,12 @@ body::after { z-index: -2; }
 .tg-chip { display: inline-flex; align-items: center; gap: 6px; flex: none; height: 32px; padding: 0 12px 0 3px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); color: #aab8c6; font: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
 .tg-chip .avatar.sm { width: 26px; height: 26px; border-radius: 50%; }
 .tg-chip.on { background: #2b5278; border-color: #3a6a99; color: #fff; }
+
+/* Kirish sahifasi: ilovani yuklab olish havolasi */
+.app-dl { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: rgba(34, 197, 139, 0.1); border: 1px solid rgba(34, 197, 139, 0.28); color: #dffbef; transition: background 0.2s; }
+.app-dl:hover { background: rgba(34, 197, 139, 0.16); }
+.app-dl > svg:first-child { width: 36px; height: 36px; padding: 8px; border-radius: 11px; background: rgba(34, 197, 139, 0.18); color: #3fe0a4; flex: none; }
+.app-dl span { flex: 1; min-width: 0; line-height: 1.3; }
+.app-dl b { display: block; font-size: 0.9rem; font-weight: 600; }
+.app-dl small { color: #9aa3c0; font-size: 0.78rem; }
+.app-dl > svg:last-child { width: 18px; height: 18px; color: #3fe0a4; }
