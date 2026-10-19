@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./icons/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>JavaScript</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Nodejs</h2>
+                    <div class="panel">
+                        <p>Nima bu Node.js?
+                            JavaScript odatda brauzerda ishlaydigan til deb bilamiz. U foydalanuvchi interfeysini
+                            interaktiv qilish uchun ishlatiladi. Lekin, Node.js JavaScript-ni brauzerdan tashqarida,
+                            ya'ni serverda yoki kompyuterning o'zida ishlashiga imkon beruvchi bir runtime environment
+                            (ishlash muhiti) hisoblanadi. <br>
+
+                            Node.js Google tomonidan ishlab chiqilgan V8 JavaScript engine ustiga qurilgan. V8 juda tez
+                            va samarali. Node.js esa bu V8 dvigateliga fayl tizimi, tarmoq ulanishlari va boshqa server
+                            vazifalarini bajarish imkoniyatini beradi. <br>
+
+                            Node.js Nimaga Kerak?
+                            Server yaratish: Eng muhim vazifasi bu server tomonida dasturlar yozish. Masalan,
+                            veb-ilovalarning API (ma'lumotlar bazasi bilan aloqa qiluvchi qismi) qismini Node.js da
+                            yaratish mumkin. <br>
+
+                            CLI (Command Line Interface) dasturlari: Komanda satrida ishlaydigan dasturlar yaratish
+                            uchun ham qulay. Masalan, "create-react-app" kabi vositalar Node.js da yozilgan. <br>
+
+                            Real-time ilovalar: Chat dasturlari, onlayn o'yinlar kabi tezkor aloqa talab qiladigan
+                            ilovalar uchun ideal.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Nodejs install</h2>
+                    <div class="panel">
+                        <p>Node.js va NPM ni Yuklab Olish: <br>
+                            Node.js ning rasmiy veb-saytiga (https://nodejs.org/) kiring. <br>
+                            Siz ikkita versiyani ko'rasiz: LTS (Long Term Support) va Current. Yangi boshlovchilar uchun
+                            LTS versiyasini o'rnatish tavsiya etiladi, chunki u barqaror va sinovdan o'tgan. <br>
+                            Yuklab olingan .exe (Windows), .pkg (macOS) yoki .tar.xz (Linux) faylini ishga tushirib,
+                            o'rnatish jarayonini yakunlang. O'rnatish jarayonida hech qanday maxsus sozlamani
+                            o'zgartirish shart emas. <br>
+                            O'rnatilganini Tekshirish: <br>
+                            Terminal yoki Command Prompt (CMD) ni oching. <br>
+                            Quyidagi buyruqlarni kiriting: <br>
+                            node -v <br>
+                            npm -v <br>
+                            Agar versiya raqamlari ko'rinsa (masalan, v18.17.0 va 9.6.7), demak Node.js va NPM
+                            muvaffaqiyatli o'rnatilgan.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">NPM (Node Package Manager)</h2>
+                    <div class="panel">
+                        <p>NPM Node.js bilan birga keladigan paket menejeri hisoblanadi. Paket (yoki modul) boshqa
+                            dasturchilar tomonidan yozilgan va sizning loyihangizda qayta ishlatiladigan kodlar
+                            to'plami. NPM butun dunyo bo'ylab dasturchilar tomonidan yaratilgan juda katta miqdordagi
+                            paketlarni o'z ichiga olgan markaziy baza hisoblanadi.
+                            <br>
+                            NPM ning asosiy vazifalari:
+                            Paketlarni yuklab olish: Boshqa birovning kodini loyihangizga qo'shish.
+                            <br>
+                            Paketlarni yangilash: Loyihangizdagi paketlarning yangi versiyalarini o'rnatish.
+                            <br>
+                            Loyihani boshqarish: package.json fayli yordamida loyiha sozlamalarini boshqarish.
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">NPX (Node Package Execute)</h2>
+                    <div class="panel">
+                        <p>NPX bu NPM 5.2 versiyasidan boshlab Node.js bilan birga keladigan yana bir vosita. NPX ning
+                            asosiy maqsadi — o'rnatilmagan paketlarni to'g'ridan-to'g'ri ishga tushirish.
+                            <br>
+                            NPX va NPM o'rtasidagi farq:
+                            NPM paketlarni o'rnatadi (install). O'rnatilgan paket node_modules papkasiga va package.json
+                            ga yoziladi.
+                            <br>
+                            NPX paketlarni ishga tushiradi (execute) va ish tugagach ularni o'chirib tashlaydi.
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+                        <h3>Masala 1: Massivda elementlar sonini hisoblash</h3>
+                        <p>Massiv va bitta element berilgan. Massivda shu element necha marta takrorlanganini toping.
+                        </p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>[1, 2, 2, 3, 2]</code>, element: <code>2</code></li>
+                            <li>Output: <code>3</code></li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 2: Harorat konvertatsiyasi</h3>
+                        <p>Selsiy bo'yicha berilgan haroratni Farengeytga o'tkazing.</p>
+                        <p><strong>Formula:</strong> <code>F = C * 1.8 + 32</code></p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>0</code> (Selsiy)</li>
+                            <li>Output: <code>32</code> (Farengeyt)</li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 3: Massivdagi musbat va manfiy sonlar soni</h3>
+                        <p>Massivda nechta son musbat va nechta son manfiy ekanligini hisoblang.</p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>[1, -2, 4, -5]</code></li>
+                            <li>Output: <code>2 ta musbat, 2 ta manfiy</code></li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 4: Gapni belgilarsiz (punctuation) qilish</h3>
+                        <p>Berilgan gapdagi tinish belgilarini (vergul, undov, nuqta va h.k.) olib tashlab, yangi gapni
+                            qaytaring.</p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>"Salom, dunyo!"</code></li>
+                            <li>Output: <code>"Salom dunyo"</code></li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 5: Toq indeksdagi elementlarni ajratish</h3>
+                        <p>Berilgan massivdagi faqat toq indeksda joylashgan elementlardan iborat yangi massiv yarating.
+                        </p>
+                        <ol>
+                            <li>Misol:</li>
+                            <li>Input: <code>[10, 20, 30, 40, 50]</code></li>
+                            <li>Output: <code>[20, 40]</code></li>
+                        </ol>
+
+                        <h3>Masala 6: Stringni CamelCase formatga o‘tkazish</h3>
+                        <p>Bo'sh joy bilan ajratilgan so'zlardan iborat matn berilgan. Bu matnni CamelCase formatiga
+                            o'tkazing.</p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>"salom dunyo"</code></li>
+                            <li>Output: <code>"SalomDunyo"</code></li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 7: Ikki son orasidagi barcha sonlarni chiqarish</h3>
+                        <p>Ikki butun son berilgan. Ularning orasidagi barcha sonlarni o'z ichiga olgan massiv yarating.
+                        </p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>3, 7</code></li>
+                            <li>Output: <code>[4, 5, 6]</code></li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 8: Yil kabisa (kabisa emas) ekanligini aniqlash</h3>
+                        <p>Kiritilgan yil kabisa yilmi yoki yo‘q — aniqlang.</p>
+                        <p><strong>Qoidasi:</strong> Agar yil 4 ga bo‘linsa va (100 ga bo‘linmasa yoki 400 ga bo‘linsa)
+                            — kabisa yil hisoblanadi.</p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>2024</code></li>
+                            <li>Output: <code>Kabisa yil</code></li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 9: Eng ko‘p takrorlangan element</h3>
+                        <p>Massivdagi eng ko‘p uchragan elementni toping.</p>
+                        <ul>
+                            <li>Misol:</li>
+                            <li>Input: <code>[1, 2, 2, 3, 2, 1]</code></li>
+                            <li>Output: <code>2</code></li>
+                        </ul>
+
+                        <hr>
+
+                        <h3>Masala 10: Massivda ketma-ket 2 ta bir xil son bormi?</h3>
+                        <p>Massivda ketma-ket joylashgan ikkita bir xil son bor yoki yo‘qligini tekshiring.</p>
+                        <ul>
+                            <li>Misollar:</li>
+                            <li>Input: <code>[1, 2, 2, 3]</code></li>
+                            <li>Output: <code>true</code></li>
+                            <li>Input: <code>[1, 2, 3, 4]</code></li>
+                            <li>Output: <code>false</code></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+                        <h3>Masala: Shaxsiy NPM paketi yaratish va uni e'lon qilish</h3>
+                        <p>Ushbu masala sizdan Node.js va NPM bo'yicha olgan bilimlaringizni amalda qo'llashni talab
+                            qiladi. Siz o'z ism-familiyangiz bilan nomlangan o'zingizning shaxsiy NPM paketingizni
+                            yaratishingiz va uni hamma uchun ochiq (public) qilish uchun NPM registriga yuklashingiz
+                            kerak bo'ladi.</p>
+
+                        <h4>Asosiy Shartlar</h4>
+                        <p>Yaratiladigan paket:</p>
+                        <ul>
+                            <li>O'z ism va familiyangiz asosida noyob nomga ega bo'lishi kerak.</li>
+                            <li><code>getInfo</code> nomli bitta funksiyani eksport qilishi kerak.</li>
+                            <li>Bu funksiya chaqirilganda, konsolga bugungi darsdagi asosiy tushunchalar haqida qisqacha
+                                ma'lumot (mini-konspekt) chiqarishi lozim.</li>
+                        </ul>
+
+                        <h4>Vazifani Bajarish uchun Qadamlar</h4>
+                        <p>Quyidagi qadamlarni bosqichma-bosqich bajarish orqali masalani hal qiling:</p>
+
+                        <ol>
+                            <li>
+                                <strong>Loyihani o'rnatish:</strong>
+                                <p>Yangi papka yarating va terminalda ushbu papkaga kiring. Loyiha uchun
+                                    <code>package.json</code> faylini yaratish maqsadida <code>npm init -y</code>
+                                    buyrug'ini bajaring. Bu loyiha haqidagi asosiy ma'lumotlarni saqlash uchun zarur.
+                                </p>
+                            </li>
+                            <li>
+                                <strong>Paket nomini tanlash:</strong>
+                                <p>Yaratilgan <code>package.json</code> faylini oching va <code>"name"</code> maydonini
+                                    o'zgartiring. NPM'dagi boshqa paketlar bilan nomlarning to'qnashmasligi uchun ism va
+                                    familiyangizni kichik harflarda, defis orqali ajratib yozish tavsiya etiladi. Misol
+                                    uchun: <code>"ali-valiyev"</code>.</p>
+                            </li>
+                            <li>
+                                <strong>Paket kodini yozish:</strong>
+                                <p>Loyihaning asosiy fayli bo'lgan <code>index.js</code> (yoki <code>package.json</code>
+                                    da belgilangan boshqa fayl) ni yarating. Bu faylda <code>getInfo</code> funksiyasini
+                                    yozing. Funksiya ichida siz bugun o'rgangan Node.js, NPM, va boshqa tushunchalar
+                                    haqida <code>console.log()</code> orqali ma'lumot chiqaring. Funksiyani boshqa
+                                    loyihalarda foydalanish mumkin bo'lishi uchun <code>module.exports</code> orqali
+                                    eksport qilishni unutmang.</p>
+                            </li>
+                            <li>
+                                <strong>NPM'ga kirish:</strong>
+                                <p>Paketni publish qilishdan oldin, siz NPM hisobingizga kirishingiz kerak. Terminalda
+                                    <code>npm login</code> buyrug'ini bajaring va so'ralgan ma'lumotlarni (foydalanuvchi
+                                    nomi, parol, elektron pochta) kiriting.</p>
+                            </li>
+
+                            <li>
+                                <strong>Paketni e'lon qilish:</strong>
+                                <p>Barcha tayyorgarliklar yakunlangach, terminalda <code>npm publish</code> buyrug'ini
+                                    bajaring. Bu buyruq sizning paketingizni NPM registriga yuklaydi va u hamma uchun
+                                    ochiq bo'ladi.</p>
+                            </li>
+                            <li>
+                                <strong>Natijani bo'lishish:</strong>
+                                <p>Paket muvaffaqiyatli e'lon qilingandan so'ng, sizga paket nomi va unga tegishli NPM
+                                    havola ko'rsatiladi. Bu ma'lumotlarni (paket nomi va havola) ustozingizga yuboring.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="./icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="./icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="./icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="./icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+  <!-- Video fon -->
+  <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"
+    id="bg-video">
+    <source src="./video/Oqqushlar.mp4" type="video/mp4">
+  </video>
+
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>Promise</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p>Promise — bu JavaScript’dagi asinxron operatsiyalarni boshqarish uchun ishlatiladigan obyekt.</p>
+              <p>U kelajakda biror natija bo‘lishini (yoki xato) va’da qiladi.
+              <p>Promise 3 ta holatga ega:</p>
+              <ol>
+                <li>
+                  <p>pending – boshlang‘ich holat (hali bajarilmagan, kutish holatida).</p>
+                </li>
+                <li>
+                  <p>fulfilled – muvaffaqiyatli bajarilgan (resolve chaqirilgan).</p>
+                </li>
+                <li>
+                  <p>rejected – xatolik yuz bergan (reject chaqirilgan).</p>
+                </li>
+              </ol>
+              </p>
+            </li>
+            <li>
+              <p>Oddiy Promise yaratish</p>
+              <pre>
+                const myPromise = new Promise((resolve, reject) => {
+                let success = true;
+            
+                setTimeout(() => {
+                    if (success) {
+                        resolve("✅ Ma'lumot muvaffaqiyatli olindi!");
+                    } else {
+                        reject("❌ Xatolik yuz berdi!");
+                    }
+                }, 2000);
+            });
+            
+            // Promise natijasini olish
+            myPromise
+                .then(result => {
+                    console.log(result); 
+                })
+                .catch(error => {
+                    console.error(error); 
+                })
+                .finally(() => {
+                    console.log("⌛ Operatsiya tugadi");
+                });
+            </pre>
+              <p>
+                then → muvaffaqiyatli holat,<br>
+                catch → xato holati,<br>
+                finally → har ikkala holatda ham ishlaydi.</p>
+            </li>
+            <li>
+              <p>Promise zanjirlash (chaining)</p>
+              <pre>
+            new Promise((resolve) => {
+                resolve(2);
+            })
+            .then(num => {
+                console.log(num); // 2
+                return num * 2;
+            })
+            .then(num => {
+                console.log(num); // 4
+                return num * 2;
+            })
+            .then(num => {
+                console.log(num); // 8
+            });
+            </pre>
+              <p>💡 Har bir then yangi Promise qaytaradi, shu sababli zanjir tuzish mumkin. </p>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Promise Methods</span></h2>
+        <div class="panel">
+          <ol>
+            <p>Promise Methodlari.</p>
+            <ol>
+              <li>
+                <p>Promise.then(onFulfilled, onRejected)</p>
+                <p>Promise muvaffaqiyatli tugaganda onFulfilled chaqiriladi. </p>
+                <p>Birinchi call back (resolve) onFulfilled chiqaradi, agar ikkinchi parametrga ham call back bersak u
+                  call back (catch) xato ushlaydi.</p>
+                <pre>
+                    promise.then(result => {
+                      console.log("Natija:", result);
+                  });
+                  
+                </pre>
+              </li>
+              <li>
+                <p>Promise.catch(onRejected)</p>
+                <p>Xatolik yuz berganda ishlaydi.</p>
+                <pre>
+                  promise.catch(error => {
+                  console.log("Xato:", error);
+              });
+              </pre>
+              </li>
+              <li>
+                <p>Promise.finally(onFinally)</p>
+                <p>Natijadan qat’i nazar, har doim bajariladi.</p>
+                <p>Asosan tozalash (cleanup) ishlarida ishlatiladi.</p>
+                <pre>
+                  promise
+                  .then(res => console.log(res))
+                  .catch(err => console.log(err))
+                  .finally(() => console.log("Tugadi"));
+              </pre>
+              </li>
+              <li>
+                <p>Promise.all(iterable)</p>
+                <p>Barcha promise’lar muvaffaqiyatli tugashini kutadi.</p>
+                <p>Bittasi xato bo‘lsa, natija catch ga tushadi.</p>
+                <pre>
+              Promise.all([
+                  Promise.resolve(1),
+                  Promise.resolve(2),
+                  Promise.resolve(3)
+              ]).then(console.log); // [1, 2, 3]
+              
+              Promise.all([
+                  Promise.resolve(1),
+                  Promise.reject("Xato"),
+                  Promise.resolve(3)
+              ]).catch(console.log); // Xato
+              </pre>
+              </li>
+              <li>
+                <p>Promise.allSettled(iterable)</p>
+                <p>Barcha promise’lar tugashini kutadi (natija yoki xato bo‘lishidan qat’i nazar).</p>
+                <p>Har birining status va value yoki reason qiymatini qaytaradi.</p>
+                <pre>
+              Promise.allSettled([
+                  Promise.resolve("Ok"),
+                  Promise.reject("Xato")
+              ]).then(console.log);
+              </pre>
+              </li>
+              <li>
+                <p>Promise.race(iterable)</p>
+                <p>Birinchi tugagan promise natijasini qaytaradi (muvaffaqiyat yoki xato bo‘lishi mumkin).</p>
+                <pre>
+              Promise.race([
+                  new Promise(res => setTimeout(() => res("Tez"), 100)),
+                  new Promise(res => setTimeout(() => res("Sekin"), 500))
+              ]).then(console.log); // Tez
+              </pre>
+              </li>
+              <li>
+                <p>Promise.any(iterable)</p>
+                <p>Birinchi muvaffaqiyatli tugagan promise natijasini qaytaradi.</p>
+                <p>Agar hammasi xato bo‘lsa, AggregateError qaytaradi. </p>
+                <pre>
+              Promise.any([
+                  Promise.reject("Xato 1"),
+                  Promise.reject("Xato 2"),
+                  Promise.resolve("Muvaffaqiyatli")
+              ]).then(console.log); // Muvaffaqiyatli
+              </pre>
+              </li>
+            </ol>
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"><span>Amaliyot(Promise Methods)</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              Masala: Onlayn kurs platformasi yuklanishi <br>
+              Tasavvur qil, sen onlayn ta’lim platformasi yaratding. <br>
+              Sahifa yuklanganda 3 ta asosiy ma’lumot serverdan olinishi kerak: <br><br>
+
+              Kurslar ro‘yxati (getCourses()) — ~3 soniyada keladi. <br>
+
+              O‘qituvchi haqida ma’lumot (getTeacherInfo()) — ~2 soniyada keladi. <br>
+
+              Talaba reytingi (getStudentRank()) — ~4 soniyada keladi. <br><br>
+
+              Talablar: <br>
+              Barcha ma’lumotlar kelgach, ularni bir vaqtda chiqarish kerak (Promise.all). <br>
+
+              Lekin foydalanuvchi kutmasligi uchun, eng tez kelgan ma’lumotni darhol ko‘rsatish (Promise.race). <br>
+
+              Agar ma’lumotlardan bittasi xato bersa, shunga qaramay qolganlarini ko‘rsatish (Promise.allSettled). <br>
+
+              5 soniyadan oshsa, "⏳ Server javob bermadi" deb xabar chiqarish (timeout promise). <br>
+
+              Agar barcha so‘rovlar muvaffaqiyatli bo‘lsa, "✅ Barcha ma’lumotlar yuklandi" degan xabar chiqsin. <br>
+
+              Qo‘shimcha qoidalar: <br>
+              API’lar setTimeout bilan simulyatsiya qilinadi. <br>
+
+              Har bir API ba’zan xato (reject) qaytarishi mumkin. <br>
+
+              Kod oxirida barcha usullarning (all, race, allSettled) ishlatilganini ko‘rish kerak. <br><br>
+            </li>
+            <li>
+              Masala: Online magazin buyurtma tizimi <br>
+              Tasavvur qil, sen onlayn do‘kon yaratding. <br>
+              Sahifa yuklanganda mijoz buyurtmasini tayyorlash uchun 3 ta API chaqiriladi: <br><br>
+
+              Mahsulot zaxirasini tekshirish (checkStock()) — ~2-4 soniyada keladi. <br>
+              To‘lovni tasdiqlash (processPayment()) — ~1-3 soniyada keladi. <br>
+              Kuryerni tayinlash (assignCourier()) — ~2-5 soniyada keladi. <br><br>
+
+              Talablar: <br>
+              Barcha jarayonlar tugagach, "✅ Buyurtma qabul qilindi" xabarini chiqarish (Promise.all). <br>
+              Eng tez tugagan jarayonni darhol ko‘rsatish (Promise.race). <br>
+              Agar jarayonlardan biri xato bersa, qolganlarini ko‘rsatish (Promise.allSettled). <br>
+              6 soniyadan oshsa, "⏳ Jarayon juda uzoq davom etyapti" deb xabar chiqarish (timeout promise). <br>
+              Har bir API ba’zan xato (reject) qaytarishi mumkin. <br>
+              Kod oxirida barcha usullarning (all, race, allSettled) ishlatilganini ko‘rish kerak. <br><br>
+            </li>
+
+            <li>
+              Masala: Ijtimoiy tarmoq post yuklash <br>
+              Tasavvur qil, sen yangi post joylash funksiyasini yozmoqchisan. <br>
+              Post joylash jarayoni 3 bosqichdan iborat: <br><br>
+
+              Rasm yoki video yuklash (uploadMedia()) — ~2-6 soniyada keladi. <br>
+              Post matnini saqlash (savePostText()) — ~1-2 soniyada keladi. <br>
+              Foydalanuvchi profilini yangilash (updateProfile()) — ~1-3 soniyada keladi. <br><br>
+
+              Talablar: <br>
+              Har bir bosqich natijasini olish, xato bo‘lsa ham jarayonni tugatish (Promise.allSettled). <br>
+              Eng birinchi muvaffaqiyatli jarayonni ko‘rsatish (Promise.any). <br>
+              Agar hamma bosqich muvaffaqiyatli tugasa, "✅ Post muvaffaqiyatli joylandi" deb chiqarish. <br>
+              Xatolik bo‘lsa, "⚠️ Ba’zi jarayonlar bajarilmadi" deb ko‘rsatish. <br>
+              Har bir API ba’zan xato (reject) qaytarishi mumkin. <br><br>
+            </li>
+
+            <li>
+              <p> Masala: Xalqaro yangiliklar saytida ma’lumot olish <br>
+                Tasavvur qil, sen xalqaro yangiliklar to‘playdigan sayt tuzyapsan. <br>
+                Sahifa yuklanganda 3 ta manbadan yangiliklar olinadi: <br><br>
+
+                UzNews API — ~2-4 soniyada keladi. <br>
+                BBC News API — ~1-5 soniyada keladi. <br>
+                CNN News API — ~3-6 soniyada keladi. <br><br>
+
+                Talablar: <br>
+                Eng tez javob bergan manbani birinchi ko‘rsatish (Promise.race). <br>
+                Barcha manbalarni yig‘ib, yangiliklarni birlashtirish (Promise.all). <br>
+                Agar 1 yoki 2 ta manba ishlamasa ham qolganlari ko‘rsatilishi kerak (Promise.allSettled). <br>
+                Har bir API uchun 5 soniyalik timeout qo‘yish. <br>
+                Agar barcha manbalar muvaffaqiyatli tugasa, "✅ Barcha yangiliklar yangilandi" deb chiqarish. <br>
+                Har bir API ba’zan xato (reject) qaytarishi mumkin. <br><br>
+              </p>
+            </li>
+            <li>
+              <h3>Real Masala</h3>
+              <ul>
+
+                <li>
+                  <b>Masala: Oddiy mehmonxona buyurtmasi simulyatsiyasi (Promises yordamida)</b><br><br>
+
+                  <b>1. Tayyorlash:</b><br>
+                  <code>checkAvailability()</code> nomli funksiya yarating, u mehmonxonada xonalar mavjudligini
+                  tekshirishni simulyatsiya qiladi.
+                  Bu funksiya <b>2 soniyadan keyin</b> va'da (Promise) qaytarishi kerak.
+                  Agar xonalar mavjud bo'lsa, <code>true</code>, mavjud bo'lmasa <code>false</code> qiymatini
+                  qaytarsin.<br><br>
+
+                  <b>2. Buyurtma jarayoni:</b><br>
+                  <code>makeReservation()</code> nomli yana bir funksiya yarating, u mavjudlik natijasini qabul qiladi.
+                  Agar xonalar mavjud bo'lsa, va'da (Promise) <code>"Buyurtma tasdiqlandi!"</code> kabi xabar bilan
+                  amalga
+                  oshadi (<code>resolve</code>).
+                  Agar mavjud bo'lmasa, va'da rad etiladi (<code>reject</code>) va
+                  <code>"Kechirasiz, xonalar mavjud emas."</code> xabarini qaytaradi.<br><br>
+
+                  <b>3. Xatoliklarni boshqarish:</b><br>
+                  <code>.then()</code> va <code>.catch()</code> orqali promis natijalarini boshqaring.
+                  Agar buyurtma muvaffaqiyatli bo'lsa, tasdiqlash xabarini ko'rsating.
+                  Agar muvaffaqiyatsiz bo'lsa, rad etilgan xatoni ushlang va tegishli xabarni chiqaring.
+                </li>
+
+                <br>
+
+                <li>
+                  <b>Masala: Bir nechta mustaqil API so'rovlarini amalga oshirish va natijalarni yig'ish</b><br><br>
+
+                  <b>4. Tayyorlash:</b><br>
+                  Quyidagi uchta funksiya yarating. Har biri va'da (Promise) qaytaradi va <b>2 soniyadan keyin</b>
+                  tegishli ma'lumotlarni qaytaradi:
+                  <ul>
+                    <li><code>getHotelDetails()</code> — "Mehmonxona ma'lumotlari olingan."</li>
+                    <li><code>getFlightDetails()</code> — "Parvoz ma'lumotlari olingan."</li>
+                    <li><code>getWeatherDetails()</code> — "Ob-havo ma'lumotlari olingan."</li>
+                  </ul>
+
+                  <b>5. Promise.all() bilan ishlash:</b><br>
+                  <code>bookTrip()</code> nomli funksiya yarating va u <code>Promise.all()</code> yordamida yuqoridagi
+                  barcha funksiyalarni bir vaqtda chaqirsin.
+                  Ularning natijalari to'plangach, sayohat ma'lumotlarini konsolga chiqaring.<br><br>
+
+                  ● Agar va'dalardan biri muvaffaqiyatsiz bo'lsa (masalan, biron-bir xato yoki rad etilgan holat),
+                  <code>.catch()</code> orqali xatoni ushlang va xatolik xabarini chiqaring.<br>
+                  ● Natija: Agar barcha va'dalar muvaffaqiyatli bajarilsa, konsolda quyidagi ma'lumotlarni ko'rishingiz
+                  kerak:
+                  <ul>
+                    <li>"Mehmonxona ma'lumotlari olingan."</li>
+                    <li>"Parvoz ma'lumotlari olingan."</li>
+                    <li>"Ob-havo ma'lumotlari olingan."</li>
+                  </ul>
+                  Agar biror funksiya muvaffaqiyatsiz bo'lsa, bitta umumiy xato xabari chiqadi.
+                </li>
+
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Amaliyot(Promise)</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              Masala: Yaxshi kayfiyat generatori <br>
+              Tasavvur qil, sen foydalanuvchi kayfiyatini tasodifiy aniqlovchi dastur tuzmoqchisan. <br>
+              getMood() degan funksiya yaratiladi, u 1 soniyadan keyin Promise qaytaradi va natijasi quyidagilardan
+              tasodifiy bo‘ladi:
+              <b>"Happy", "Sad", "Excited", "Angry"</b>. <br><br>
+
+              Talablar: <br>
+              Funksiya har chaqirilganda 1 soniya kutib, tasodifiy kayfiyat qaytarsin. <br>
+              Kayfiyatni olish jarayonida xato bo‘lish ehtimoli ham bo‘lsin (reject). <br>
+              5 marta ketma-ket chaqirib, barcha natijalarni olish uchun <b>Promise.all</b> ishlatilsin. <br>
+              Eng birinchi kelgan kayfiyatni ko‘rsatish uchun <b>Promise.race</b> ishlatilsin. <br>
+              Barcha natijalar, xato bo‘lsa ham, ko‘rsatish uchun <b>Promise.allSettled</b> ishlatilsin. <br>
+              Agar kayfiyat javobi 2 soniyadan oshsa, "⏳ Javob kechikdi" degan xabar chiqsin (timeout promise). <br><br>
+            </li>
+            <li>
+              Masala: Matn uzunligini topuvchi Promise <br>
+              Tasavvur qil, sen foydalanuvchi kiritgan matn uzunligini topadigan funksiya tuzmoqchisan. <br>
+              <b>getLength(text)</b> funksiyasi yaratiladi, u string qabul qiladi va 1.5 soniya ichida uning uzunligini
+              Promise orqali qaytaradi. <br><br>
+
+              Talablar: <br>
+              Agar matn bo‘sh bo‘lsa (""), Promise <b>reject</b> bo‘lishi kerak va <b>Error: Empty string</b>
+              qaytarilsin. <br>
+              Bir nechta matn uzunligini bir vaqtda topish uchun <b>Promise.all</b> ishlatilsin. <br>
+              Eng tez hisoblangan uzunlikni ko‘rsatish uchun <b>Promise.race</b> ishlatilsin. <br>
+              Barcha natijalar (xatolar bo‘lsa ham) chiqishi uchun <b>Promise.allSettled</b> ishlatilsin. <br>
+              Agar uzunlik hisoblash 2 soniyadan oshsa, "⏳ Hisoblash kechikdi" degan xabar chiqsin (timeout promise).
+              <br><br>
+            </li>
+            <li>
+              Masala: Raqamni tekshiruvchi <br>
+              Tasavvur qil, sen foydalanuvchi kiritgan raqamni tekshirish funksiyasini tuzmoqchisan. <br>
+              <b>checkNumber(num)</b> funksiyasi yaratiladi va u Promise qaytaradi. <br><br>
+
+              Talablar: <br>
+              ● Agar num 10 dan katta bo‘lsa, <b>resolve("Big number")</b>. <br>
+              ● Aks holda, <b>resolve("Small number")</b>. <br>
+              ● Asinxron ishlashni <b>.then()</b> bilan tekshirish kerak. <br>
+              ● Bir nechta raqamlarni bir vaqtda tekshirish uchun <b>Promise.all</b> ishlatilsin. <br>
+              ● Eng tez natijani ko‘rsatish uchun <b>Promise.race</b> ishlatilsin. <br>
+              ● Barcha natijalarni (xatolar bo‘lsa ham) ko‘rsatish uchun <b>Promise.allSettled</b> ishlatilsin. <br><br>
+            </li>
+            <li>
+              Masala: Tasodifiy quiz savoli <br>
+              Tasavvur qil, sen JavaScript bo‘yicha onlayn test platformasi qilyapsan. <br>
+              <b>getQuestion()</b> nomli funksiya yaratiladi. <br><br>
+
+              Talablar: <br>
+              ● Funksiya <b>2 soniyadan keyin</b> Promise orqali natija qaytaradi. <br>
+              ● Natija quyidagi ro‘yxatdan tasodifiy bittasi bo‘lishi kerak: <br>
+              [
+              "JavaScript nima?",
+              "Callback va Promise farqi nima?",
+              "Event loop nima qiladi?",
+              "setTimeout qanday ishlaydi?"
+              ] <br>
+              ● Asinxron ishlashni <b>.then()</b> va <b>.catch()</b> bilan tekshirish kerak. <br>
+              ● Agar ro‘yxat bo‘sh bo‘lsa, Promise <b>reject</b> bo‘lishi va "Savollar mavjud emas" xabarini qaytarishi
+              kerak. <br>
+              ● Bir nechta savol olish uchun <b>Promise.all</b> ishlatilsin. <br>
+              ● Eng tez kelgan savolni ko‘rsatish uchun <b>Promise.race</b> ishlatilsin. <br>
+            </li>
+            <li>
+              Masala: Mahsulot topuvchi mini backend <br>
+              Tasavvur qil, sen kichik bir backend API yaratmoqchisan va u mahsulotlar bazasidan ID orqali qidiradi.
+              <br>
+              Mahsulotlar ro‘yxati: <br>
+              <pre>
+            const products = [
+              { id: 1, name: "Phone" },
+              { id: 2, name: "Laptop" },
+              { id: 3, name: "Tablet" }
+            ];
+              </pre>
+              Talablar: <br>
+              ● <b>getProductById(id)</b> funksiyasi yaratiladi va u Promise qaytaradi. <br>
+              ● Agar mahsulot topilsa, <b>1 soniyadan keyin</b> <code>resolve(product)</code> bo‘ladi. <br>
+              ● Agar topilmasa, <code>reject("Mahsulot topilmadi")</code> bo‘ladi. <br>
+              ● Funksiyani <b>.then()</b> va <b>.catch()</b> orqali tekshirish kerak. <br>
+              ● Bir nechta ID’larni bir vaqtda qidirish uchun <b>Promise.all</b> ishlatilsin. <br>
+              ● Eng tez topilgan mahsulotni ko‘rsatish uchun <b>Promise.race</b> ishlatilsin. <br>
+              ● Agar biror qidiruv xato bersa ham, qolgan natijalarni olish uchun <b>Promise.allSettled</b> ishlatilsin.
+              <br><br>
+            </li>
+            <li>
+              Masala: Reja bajaruvchisi <br>
+              Tasavvur qil, sen kundalik rejangni JavaScript yordamida ketma-ket bajaradigan dastur yozmoqchisan.
+              <br><br>
+
+              Talablar: <br>
+              1. <b>wakeUp()</b> – 1 soniyadan keyin <code>"Turdim"</code> qaytarsin. <br>
+              2. <b>haveBreakfast()</b> – 1.5 soniyadan keyin <code>"Nonushta qildim"</code> qaytarsin. <br>
+              3. <b>goToWork()</b> – 2 soniyadan keyin <code>"Ishga bordim"</code> qaytarsin. <br><br>
+
+              ● Har biri <b>Promise</b> qaytarishi kerak. <br>
+              ● Ishlar <b>tartib bilan</b> bajarilishi shart (Promise chaining orqali). <br>
+              ● Har bir qadamning natijasini <b>.then()</b> ichida chiqarish kerak. <br>
+              ● Agar qadamlarning birortasi xato bersa (<code>reject</code>), jarayon <b>.catch()</b> ga o‘tadi. <br>
+              ● Yakunda barcha ishlar muvaffaqiyatli tugasa, "✅ Reja tugadi" degan xabar chiqsin. <br><br>
+            </li>
+
+
+
+          </ol>
+
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span>
+        </h2>
+        <div class="panel">
+          <ol>
+
+            <h3>Promise</h3>
+            <ol>
+              <li>
+                Masala: Transactional Checkout (rezerv → to‘lov → yetkazib berish) — atomiklik va rollback <br>
+                Oddiy so‘zlarda tushuntirish: <br>
+                Bu masalada biz onlayn do‘konda buyurtma qilish jarayonini simulyatsiya qilamiz. Jarayon 3 asosiy
+                bosqichdan iborat: <br><br>
+
+                <ul>
+                  <li>Inventarni rezerv qilish — mahsulotni boshqa odam olib qo‘ymasligi uchun vaqtincha “sizga
+                    tegishli” qilib qo‘yish.</li>
+                  <li>To‘lovni amalga oshirish — kartadan pulni yechish.</li>
+                  <li>Yetkazib berishni rejalashtirish — qaysi kuni va kim olib kelishini belgilash.</li>
+                </ul>
+
+                Agar jarayonning istalgan bosqichida xato bo‘lsa, oldingi qadamlar bekor qilinadi: <br>
+                ● Rezerv o‘chiriladi (<code>releaseInventory</code>)<br>
+                ● Pul qaytariladi (<code>refundPayment</code>)<br>
+                Bu atomiklik deyiladi — hammasi birgalikda bo‘lishi yoki umuman bo‘lmasligi. <br><br>
+
+                Talablar: <br>
+                <b>reserveInventory(order)</b><br>
+                ● 2 soniyada bajariladi.<br>
+                ● Ba’zan xato beradi.<br>
+                ● Agar xato bersa, 2 marta qayta uriniladi (jami 3 urinish).<br>
+                ● Har urinish orasida exponential backoff (500ms, 1000ms) bo‘lishi kerak.<br><br>
+
+                <b>processPayment(paymentInfo)</b><br>
+                ● 2–4 soniyada bajariladi.<br>
+                ● Ba’zan xato beradi.<br>
+                ● Agar 5 sekunddan oshsa → timeout va xato sifatida qabul qilinadi.<br><br>
+
+                <b>scheduleDelivery(order)</b><br>
+                ● 1–2 soniyada bajariladi.<br>
+                ● Ba’zan xato beradi.<br>
+                ● Agar xato bo‘lsa rollback ishlaydi:<br>
+                — Agar rezerv muvaffaqiyatli bo‘lsa, <code>releaseInventory</code> chaqiriladi.<br>
+                — Agar to‘lov muvaffaqiyatli bo‘lsa, lekin delivery xato qilsa → <code>refundPayment</code>
+                chaqiriladi.<br><br>
+
+                Natija: <br>
+                ● Hammasi muvaffaqiyatli → <code>resolve({status: 'ok', orderId, details})</code><br>
+                ● Xato → <code>reject({status: 'failed', reason})</code><br><br>
+
+                Promise usullari ishlatiladi: <br>
+                ● <code>Promise.allSettled</code> — parallel bajarilgan ishlarda natijalarni tekshirish uchun.<br>
+                ● <code>Promise.race</code> — timeout strategiyasi uchun.<br><br>
+
+                Edge case’lar (maxsus test holatlari): <br>
+                ● Inventar birinchi urinishda xato, ikkinchi urinishda muvaffaqiyatli → jarayon davom etadi.<br>
+                ● To‘lov timeout bo‘lsa → rezerv bekor qilinadi, jarayon xato bilan tugaydi.<br>
+                ● Delivery xato qilsa → rezerv bekor qilinadi va to‘lov refund qilinadi.<br>
+                ● Barcha bosqichlar muvaffaqiyatli bo‘lsa → jarayon ok.<br><br>
+
+                Kerakli funksiyalar (simulyatsiya uchun): <br>
+                ● <code>reserveInventory(order)</code> — mahsulotni rezerv qiladi.<br>
+                ● <code>releaseInventory(order)</code> — rezervni bekor qiladi.<br>
+                ● <code>processPayment(paymentInfo)</code> — pulni yechadi.<br>
+                ● <code>refundPayment(paymentInfo)</code> — pulni qaytaradi.<br>
+                ● <code>scheduleDelivery(order)</code> — yetkazib berishni rejalashtiradi.<br><br>
+              </li>
+              <li>
+                Masala: Parallel Data Aggregator (bir nechta API so‘rovlarini yig‘ish) <br>
+                Oddiy so‘zlarda tushuntirish: <br>
+                Sening vazifang — bir vaqtning o‘zida bir nechta mustaqil servisdan ma’lumot olib, ularni bitta
+                javobga yig‘ish.
+                Masalan, sayohat rejalashtirish: mehmonxona, parvoz va ob-havo ma’lumotlarini birga olish.
+                Har bir so‘rov alohida Promise qaytaradi va ular parallel ishlaydi — natijani faqat barcha so‘rovlar
+                tugagach yoki xato yuz berganda qaytarasan. <br><br>
+
+                Talablar: <br>
+                <b>getHotelDetails()</b><br>
+                ● 2 soniya ichida bajarilishi kerak.<br>
+                ● Muvaffaqiyatli bo‘lsa: "Mehmonxona ma'lumotlari olingan."<br>
+                ● Ba’zan <code>reject</code> bo‘lishi mumkin.<br><br>
+
+                <b>getFlightDetails()</b><br>
+                ● 2–3 soniya ichida bajariladi.<br>
+                ● Muvaffaqiyatli bo‘lsa: "Parvoz ma'lumotlari olingan."<br>
+                ● Ba’zan <code>reject</code> bo‘lishi mumkin.<br><br>
+
+                <b>getWeatherDetails()</b><br>
+                ● 1–2 soniya ichida bajariladi.<br>
+                ● Muvaffaqiyatli bo‘lsa: "Ob-havo ma'lumotlari olingan."<br>
+                ● Ba’zan <code>reject</code> bo‘lishi mumkin.<br><br>
+
+                <b>bookTrip()</b> funksiyasi:<br>
+                ● Ushbu uchta funksiyani parallel ishga tushiradi.<br>
+                ● Asosiy mexanizm: <code>Promise.all()</code> (ya’ni hammasi muvaffaqiyatli bo‘lishi kerak).<br>
+                ● Agar hammasi muvaffaqiyatli bo‘lsa → <code>resolve</code> bilan barcha natijalarni qaytaradi.<br>
+                ● Agar bittasi ham <code>reject</code> qilsa → umumiy xato (<code>reject</code>) qaytaradi.<br>
+                ● Har bir so‘rov uchun 5 soniya umumiy timeout (agar umumiy yoki individual so‘rov 5s dan oshsa —
+                xato).<br><br>
+
+                Qo‘shimcha talab: <br>
+                ● <code>Promise.allSettled</code> dan foydalanish imkoniyati (masalan, diagnostika yoki loglash
+                uchun), ammo yakuniy biznes-natija <code>Promise.all</code> mantig‘iga bog‘liq.<br><br>
+
+                Edge case’lar: <br>
+                ● Hammasi muvaffaqiyatli: uchta xabar qaytadi va <code>bookTrip()</code> yakunida ko‘rsatiladi.<br>
+                ● Bittasi <code>reject</code>: masalan, <code>getFlightDetails()</code> xato qilsa → umumiy xato.<br>
+                ● Biror so‘rov juda sekin: agar 5s dan oshsa → timeout va xato.<br>
+                ● Bir nechta <code>reject</code>: bir vaqtning o‘zida xatolar bo‘lsa → umumiy xato (qaysi servislar
+                xato qilgani logda ko‘rinishi mumkin).<br>
+                ● Service intermittent: ba’zi servislar vaqti-vaqti bilan <code>reject</code> bo‘lsa, test holatida
+                ham ko‘rib chiqiladi.<br><br>
+
+                Kerakli funksiyalar (simulyatsiya uchun): <br>
+                ● <code>getHotelDetails()</code> — Promise, 2s, success yoki reject.<br>
+                ● <code>getFlightDetails()</code> — Promise, 2–3s, success yoki reject.<br>
+                ● <code>getWeatherDetails()</code> — Promise, 1–2s, success yoki reject.<br>
+                ● <code>bookTrip()</code> — boshqaruvchi funksiya; unda Promise.all, timeout va xato boshqaruvi amalga
+                oshiriladi.<br>
+                ● (Ixtiyoriy) <code>withTimeout(promise, ms)</code> — berilgan promise uchun timeout mexanizmi.<br>
+                ● (Ixtiyoriy) <code>logResults(results)</code> — allSettled natijalarini diagnostika uchun qayd
+                etish.<br><br>
+              </li>
+              <li>
+                Masala: Batch Job Processor (navbat bilan va parallel bajarish) <br>
+                Oddiy so‘zlarda tushuntirish: <br>
+                Senga bir qator «vazifalar» (jobs) beriladi. Ularni guruhlarga (batch) bo‘lib bajarish kerak:
+                Har bir batch ichida bir nechta job parallel ishlaydi (<code>batchSize</code> ga muvofiq),
+                keyingi batch esa faqat oldingi to‘liq tugagandan so‘ng boshlanadi.
+                Har bir job <code>Promise</code> qaytaradi va ba’zan xato bo‘lishi mumkin.
+                Yakunda har bir job uchun muvaffaqiyat yoki muvaffaqiyatsizlik qaytariladi. <br><br>
+
+                Talablar: <br>
+                <b>simulateJob(name)</b><br>
+                ● Ishlash vaqti: 1–3 soniya tasodifiy.<br>
+                ● Ba’zan <code>reject</code> bo‘lishi mumkin (tasodifiy xatolik).<br><br>
+
+                <b>runJobsInBatches(jobs, batchSize)</b><br>
+                ● <code>jobs</code> — job funksiyalari ro‘yxati (Promise qaytaruvchi).<br>
+                ● <code>batchSize</code> — har bir batch ichida parallel bajariladigan joblar soni.<br>
+                ● Ishlash tartibi:<br>
+                &nbsp;&nbsp;1. Birinchi batch: <code>jobs[0..batchSize-1]</code> parallel bajariladi.<br>
+                &nbsp;&nbsp;2. Keyingi batch: <code>jobs[batchSize..2*batchSize-1]</code> — faqat oldingi batch
+                tugagach boshlanadi.<br>
+                &nbsp;&nbsp;3. Oxirigacha shu tartibda.<br>
+                ● Har batch ichida <code>Promise.allSettled()</code> ishlatiladi, shunda xato bo‘lsa ham batch
+                oxirigacha yetadi.<br>
+                ● Yakuniy natija: barcha job’lar uchun
+                <code>{ name, status: 'fulfilled'|'rejected', value|reason }</code> kabi obyektlar ro‘yxati.<br>
+                ● Agar butun protsessni bekor qilish kerak bo‘lsa (masalan, critical error), <code>reject</code>
+                mexanizmi bo‘lishi kerak.<br><br>
+
+                Edge case’lar: <br>
+                ● Barcha job’lar muvaffaqiyatli → hammasi <code>fulfilled</code> bo‘ladi.<br>
+                ● Ba’zilari xato → allSettled natijalarida muvaffaqiyat va xato ro‘yxati qaytariladi.<br>
+                ● <code>batchSize = 1</code> → job’lar ketma-ket bajariladi.<br>
+                ● <code>batchSize >= jobs.length</code> → barcha job’lar bir martada parallel bajariladi.<br>
+                ● jobs bo‘sh → bo‘sh natija qaytariladi.<br>
+                ● Bir job juda uzoq davom etsa → ixtiyoriy timeout bilan boshqarish mumkin.<br><br>
+
+                Kerakli funksiyalar (simulyatsiya uchun): <br>
+                ● <code>simulateJob(name)</code> — 1–3s ichida <code>resolve(name + ' done')</code> yoki
+                <code>reject(error)</code> qaytaradi.<br>
+                ● <code>runJobsInBatches(jobs, batchSize)</code> — batch boshqaruvi va natijalarni yig‘ish.<br>
+                ● (Ixtiyoriy) <code>collectResults(allSettledResults)</code> — yakuniy formatlash.<br>
+                ● (Ixtiyoriy) <code>withTimeout(promise, ms)</code> — har job yoki batch uchun timeout.<br><br>
+              </li>
+
+
+            </ol>
+      </li>
+      </ol>
+  </div>
+  </li>
+
+
+  </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+
+</body>
+
+</html>

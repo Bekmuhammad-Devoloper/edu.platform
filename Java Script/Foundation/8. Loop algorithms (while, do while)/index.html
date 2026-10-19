@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Shartli sikllar: while va do-while</h2>
+                    <div class="panel">
+<p>Takrorlanishlar soni oldindan <em>noma'lum</em> bo'lsa — shartli sikllar ishlatiladi: sikl shart rost bo'lguncha davom etadi.</p>
+<h4>while — oldindan shartli sikl</h4>
+<pre>Psevdokod:                      JavaScript:
+TOKI shart BO'LSA               while (shart) {
+   tana                            // tana
+TAMOM                           }
+Shart AVVAL tekshiriladi: yolg'on bo'lsa tana umuman bajarilmaydi (0 marta).</pre>
+<h4>do-while — keyin shartli sikl</h4>
+<pre>Psevdokod:                      JavaScript:
+BAJAR                           do {
+   tana                            // tana
+TOKI shart BO'LSA               } while (shart);
+Tana AVVAL bajariladi, keyin shart tekshiriladi: kamida 1 marta bajariladi.</pre>
+<h4>Qaysi birini tanlash?</h4>
+<pre>for       - takrorlar soni ma'lum:          1 dan n gacha
+while     - soni noma'lum, avval tekshirish: fayl tugaguncha o'qi
+do-while  - kamida 1 marta kerak:            menyu ko'rsat, to'g'ri javob kelguncha so'ra</pre>
+<h4>Misol 1: parol (do-while)</h4>
+<pre>BAJAR
+   KIRIT parol
+   AGAR parol != "bek123" BO'LSA CHIQAR "Qayta urinib ko'ring"
+TOKI parol != "bek123" BO'LSA
+CHIQAR "Xush kelibsiz!"</pre>
+<h4>Misol 2: raqamlar soni (while)</h4>
+<pre>KIRIT n          // 48213
+k = 0
+TOKI n > 0 BO'LSA
+   k = k + 1
+   n = n div 10
+TAMOM
+CHIQAR k         // 5</pre>
+<h4>Misol 3: Evklid algoritmi — EKUB</h4>
+<pre>KIRIT a, b       // 48, 18
+TOKI b != 0 BO'LSA
+   r = a mod b
+   a = b
+   b = r
+TAMOM
+CHIQAR a         // 6
+
+Kuzatuv: (48,18) -> (18,12) -> (12,6) -> (6,0) -> EKUB = 6</pre>
+<h4>break va continue (tushuncha)</h4>
+<ul>
+  <li><strong>break</strong> — siklni darhol to'xtatish (masalan, kerakli son topilganda).</li>
+  <li><strong>continue</strong> — joriy takrorni o'tkazib yuborib, keyingisiga o'tish.</li>
+</ul>
+<h4>Bayroq (flag) o'zgaruvchi</h4>
+<pre>topildi = yolg'on
+TOKI (EMAS topildi) VA (i <= n) BO'LSA
+   AGAR massiv[i] == x BO'LSA topildi = rost
+   i = i + 1
+TAMOM</pre>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Parol</strong></p><p>To'g'ri parol («bek123») kiritilguncha «Qayta urinib ko'ring» chiqsin; to'g'ri bo'lsa «Xush kelibsiz!». do-while bilan yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Raqamlar soni</strong></p><p>Son kiritiladi. Necha xonali ekanini while bilan toping.</p></li>
+  <li class="lvl-oson"><p><strong>2 ning darajalari</strong></p><p>1000 dan oshmaydigan 2 ning barcha darajalarini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Nolgacha</strong></p><p>Foydalanuvchi 0 kiritguncha sonlar kiritadi. Kiritilgan sonlar yig'indisini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>while va do-while</strong></p><p>x = 10 bo'lsa ikki algoritm nima chiqaradi? Farqini tushuntiring.</p><pre>A)  TOKI x &lt; 5 BO'LSA          B)  BAJAR
+       CHIQAR x                       CHIQAR x
+       x = x + 1                      x = x + 1
+    TAMOM                          TOKI x &lt; 5 BO'LSA</pre></li>
+  <li class="lvl-oson"><p><strong>Sanab borish</strong></p><p>Sonlar kiritiladi, manfiy son kiritilganda to'xtaydi. Nechta son kiritilganini chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Sonni teskari yozish</strong></p><p>Son kiritiladi. Uni teskari tartibda yozing (while, <code>mod</code> va <code>div</code> bilan).</p><pre>Kiritish: 1234</pre></li>
+  <li class="lvl-orta"><p><strong>EKUB</strong></p><p>Evklid algoritmi bilan ikki sonning EKUBini toping va kuzatuv jadvalini to'ldiring.</p><pre>Kiritish: 84 va 36</pre></li>
+  <li class="lvl-orta"><p><strong>Depozit</strong></p><p>1 000 000 so'm yiliga 20% bilan qo'yildi. Necha yildan keyin summa 2 000 000 dan oshadi?</p></li>
+  <li class="lvl-orta"><p><strong>Menyu</strong></p><p>Menyu ko'rsatiladi: 1 — Salom, 2 — Vaqt, 0 — Chiqish. 0 kiritilguncha takrorlansin (do-while + TANLA).</p></li>
+  <li class="lvl-orta"><p><strong>Juftlar yig'indisi</strong></p><p>0 kiritilguncha sonlar kiritiladi. Faqat juft sonlar yig'indisini chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Birinchi bo'luvchi</strong></p><p>N kiritiladi. 1 dan katta birinchi bo'luvchisini toping va topilganda to'xtating.</p><pre>Kiritish: 91</pre></li>
+  <li class="lvl-qiyin"><p><strong>Tub sonmi?</strong></p><p>Son kiritiladi. Tub ekanini while va bayroq (flag) o'zgaruvchi bilan aniqlang.</p></li>
+  <li class="lvl-qiyin"><p><strong>Kollats</strong></p><p>n juft bo'lsa n/2, toq bo'lsa 3n+1. n kiritiladi. 1 ga yetguncha necha qadam kerakligini toping.</p></li>
+  <li class="lvl-qiyin"><p><strong>Son topish o'yini</strong></p><p>Kompyuter son «o'yladi» (masalan, 42). Foydalanuvchi topguncha «Katta»/«Kichik» chiqsin. Urinishlar sonini chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Raqamlar ildizi</strong></p><p>Son kiritiladi. Raqamlari yig'indisini olib, natija bir xonali bo'lguncha takrorlang.</p><pre>Kiritish: 9875</pre></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Raqamlar ko'paytmasi</strong></p><p>Son kiritiladi. Raqamlari ko'paytmasini while bilan toping.</p></li>
+  <li class="lvl-oson"><p><strong>Ism kiritish</strong></p><p>«stop» kiritilguncha ismlar kiritiladi. Nechta ism kiritilganini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>3 ning darajalari</strong></p><p>500 dan oshmaydigan 3 ning darajalarini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Musbat son</strong></p><p>Foydalanuvchi musbat son kiritguncha qayta so'rang (do-while).</p></li>
+  <li class="lvl-oson"><p><strong>Yig'indi 100 dan oshguncha</strong></p><p>1, 2, 3, ... sonlarni qo'shib boring. Yig'indi 100 dan oshganda nechanchi songa yetganini chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>EKUK</strong></p><p>Ikki son kiritiladi. EKUK = a × b / EKUB formulasi bilan toping.</p></li>
+  <li class="lvl-orta"><p><strong>Eng uzun ism</strong></p><p>«stop» kiritilguncha ismlar kiritiladi (har biri bilan uzunligi). Eng uzun ismni chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Jinsiy raqamlar</strong></p><p>Son kiritiladi. Undagi juft raqamlar soni va toq raqamlar sonini toping.</p></li>
+  <li class="lvl-orta"><p><strong>Omonat</strong></p><p>Har oyda 500 000 so'm yig'iladi. 10 000 000 so'mga necha oyda yetadi?</p></li>
+  <li class="lvl-orta"><p><strong>Ikkilikka o'tkazish</strong></p><p>O'nlik son kiritiladi. 2 ga bo'lib borib, ikkilik ko'rinishini toping.</p></li>
+  <li class="lvl-qiyin"><p><strong>Palindrommi?</strong></p><p>Son kiritiladi. Teskari yozilganda o'ziga tengmi — aniqlang.</p></li>
+  <li class="lvl-qiyin"><p><strong>Bankomat</strong></p><p>Balans 500 000. Foydalanuvchi summa kiritadi; yetarli bo'lsa yechiladi. «0» kiritilguncha takrorlanadi. Har safar qoldiqni chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Mukammal sonmi?</strong></p><p>Son kiritiladi. Bo'luvchilari yig'indisi o'ziga tengmi — while bilan aniqlang.</p></li>
+  <li class="lvl-qiyin"><p><strong>Fibonachchi chegarasi</strong></p><p>1000 dan kichik barcha Fibonachchi sonlarini chiqaring.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. while va do-while farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>while — shart avval tekshiriladi (0 marta bajarilishi mumkin); do-while — tana avval bajariladi (kamida 1 marta).</p></details></li><li><p class="q">2. Qachon for, qachon while?</p><details class="answer"><summary>Javobni ko'rish</summary><p>for — takrorlar soni ma'lum; while — noma'lum, shartga bog'liq.</p></details></li><li><p class="q">3. break va continue nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>break — siklni to'xtatadi; continue — joriy takrorni o'tkazib yuboradi.</p></details></li><li><p class="q">4. Evklid algoritmi nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>EKUB topish: toki b != 0: (a, b) = (b, a mod b); javob a.</p></details></li><li><p class="q">5. Bayroq (flag) o'zgaruvchi nima uchun?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Biror hodisa yuz berganini (topildi/topilmadi) eslab qolish uchun.</p></details></li><li><p class="q">6. Sonni teskari yozish algoritmi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>r = 0; toki n > 0: r = r*10 + n mod 10; n = n div 10.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

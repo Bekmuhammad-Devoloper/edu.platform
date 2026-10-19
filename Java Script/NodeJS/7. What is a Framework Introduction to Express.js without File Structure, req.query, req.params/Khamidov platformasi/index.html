@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="frontend.css" />
+
+    <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">📚 Book Store</h2>
+                <div class="panel">
+                    <ol>
+                        <div class="container">
+                            <div class="header">
+                                <h1><span class="emoji">📚</span> Book Store - CRUD Operatsiyalar</h1>
+                                <p>JSON fayl bazali mini kitob do'koni tizimi</p>
+                            </div>
+
+                            <div class="content">
+                                <div class="section">
+                                    <h2><span class="emoji">🎯</span> MAQSAD</h2>
+                                    <div class="highlight">
+                                        <p>Oddiy <strong>Book Store API</strong> yaratish. Har bir modul uchun to'liq
+                                            <strong>CRUD (Create, Read, Update, Delete)</strong> operatsiyalarini amalga
+                                            oshirish. Ma'lumotlar <strong>JSON fayllarda saqlanadi</strong>.</p>
+                                    </div>
+                                </div>
+
+                                <div class="section">
+                                    <h2><span class="emoji">📂</span> LOYIHA STRUKTURASI</h2>
+                                    <div class="folder-structure">
+                                        nodejs/<br>
+                                        &nbsp;&nbsp;Book-Store/<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;package.json<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;package-lock.json<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;server.js<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;database/<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;users.json<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;books.json<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;categories.json<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orders.json<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;lib/<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repository.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resData.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userEntity.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bookEntity.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;categoryEntity.js&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orderEntity.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+
+                                <div class="section">
+                                    <h2><span class="emoji">📋</span> CRUD OPERATSIYALAR TUSHUNTIRISHI</h2>
+
+                                    <div class="module-grid">
+                                        <div class="module-card">
+                                            <h4><span class="emoji">👤</span> 1. USER MODULI - CRUD</h4>
+                                            <p><strong>Vazifasi:</strong> Foydalanuvchilar bilan bog'liq barcha CRUD
+                                                operatsiyalari</p>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> Yangi foydalanuvchi qo'shish</li>
+                                                <li><strong>READ:</strong> Foydalanuvchilarni ko'rish</li>
+                                                <li><strong>UPDATE:</strong> Foydalanuvchini yangilash</li>
+                                                <li><strong>DELETE:</strong> Foydalanuvchini o'chirish</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="module-card">
+                                            <h4><span class="emoji">📚</span> 2. BOOK MODULI - CRUD</h4>
+                                            <p><strong>Vazifasi:</strong> Kitoblar bilan bog'liq CRUD operatsiyalari
+                                            </p>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> Yangi kitob qo'shish</li>
+                                                <li><strong>READ:</strong> Kitoblarni ko'rish</li>
+                                                <li><strong>UPDATE:</strong> Kitobni yangilash</li>
+                                                <li><strong>DELETE:</strong> Kitobni o'chirish</li>
+                                                <li><strong>Qo'shimcha:</strong> getBooksByCategory(categoryId)</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="module-card">
+                                            <h4><span class="emoji">📦</span> 3. CATEGORY MODULI - CRUD</h4>
+                                            <p><strong>Vazifasi:</strong> Kategoriyalar bilan bog'liq CRUD
+                                                operatsiyalari</p>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> Yangi kategoriya qo'shish</li>
+                                                <li><strong>READ:</strong> Kategoriyalarni ko'rish</li>
+                                                <li><strong>UPDATE:</strong> Kategoriya yangilash</li>
+                                                <li><strong>DELETE:</strong> Kategoriya o'chirish</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="module-card">
+                                            <h4><span class="emoji">🛒</span> 4. ORDER MODULI - CRUD</h4>
+                                            <p><strong>Vazifasi:</strong> Buyurtmalar bilan bog'liq CRUD operatsiyalari
+                                            </p>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> Yangi buyurtma yaratish</li>
+                                                <li><strong>READ:</strong> Buyurtmalarni ko'rish</li>
+                                                <li><strong>UPDATE:</strong> Buyurtma yangilash</li>
+                                                <li><strong>DELETE:</strong> Buyurtmani o'chirish</li>
+                                                <li><strong>Qo'shimcha:</strong> getOrdersByUser(userId)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section">
+                                    <h2><span class="emoji">🔧</span> CRUD OPERATSIYALARI BATAFSIL</h2>
+
+                                    <div class="crud-operations">
+                                        <div class="crud-card">
+                                            <h4><span class="emoji">👤</span> USER MODULI</h4>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> createUser(name, email, password)</li>
+                                                <li><strong>READ:</strong> getAllUsers(), getUserById(id)</li>
+                                                <li><strong>UPDATE:</strong> updateUser(id, data)</li>
+                                                <li><strong>DELETE:</strong> deleteUser(id)</li>
+                                                <li><strong>Qo'shimcha:</strong> loginUser(email, password)</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="crud-card">
+                                            <h4><span class="emoji">📚</span> BOOK MODULI</h4>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> createBook(title, author, price, categoryId, stock)</li>
+                                                <li><strong>READ:</strong> getAllBooks(), getBookById(id)</li>
+                                                <li><strong>UPDATE:</strong> updateBook(id, data), updateStock(id, stock)</li>
+                                                <li><strong>DELETE:</strong> deleteBook(id)</li>
+                                                <li><strong>Qo'shimcha:</strong> getBooksByCategory(categoryId)</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="crud-card">
+                                            <h4><span class="emoji">📦</span> CATEGORY MODULI</h4>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> createCategory(name, description)</li>
+                                                <li><strong>READ:</strong> getAllCategories(), getCategoryById(id)</li>
+                                                <li><strong>UPDATE:</strong> updateCategory(id, name, description)</li>
+                                                <li><strong>DELETE:</strong> deleteCategory(id)</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="crud-card">
+                                            <h4><span class="emoji">🛒</span> ORDER MODULI</h4>
+                                            <ul>
+                                                <li><strong>CREATE:</strong> createOrder(userId, bookId, quantity)</li>
+                                                <li><strong>READ:</strong> getAllOrders(), getOrderById(id)</li>
+                                                <li><strong>UPDATE:</strong> updateOrderStatus(id, status)</li>
+                                                <li><strong>DELETE:</strong> cancelOrder(id), deleteOrder(id)</li>
+                                                <li><strong>Qo'shimcha:</strong> getOrdersByUser(userId)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section">
+                                    <h2><span class="emoji">🌐</span> API ENDPOINTS - CRUD</h2>
+
+                                    <h3><span class="emoji">👤</span> USER APIs:</h3>
+                                    <div class="api-endpoint">POST /api/users # CREATE - Yangi user</div>
+                                    <div class="api-endpoint">GET /api/users # READ - Barcha users</div>
+                                    <div class="api-endpoint">GET /api/users/:id # READ - Bitta user</div>
+                                    <div class="api-endpoint">PUT /api/users/:id # UPDATE - User yangilash</div>
+                                    <div class="api-endpoint">DELETE /api/users/:id # DELETE - User o'chirish</div>
+                                    <div class="api-endpoint">POST /api/users/login # Qo'shimcha - Login</div>
+
+                                    <h3><span class="emoji">📚</span> BOOK APIs:</h3>
+                                    <div class="api-endpoint">POST /api/books # CREATE - Yangi kitob</div>
+                                    <div class="api-endpoint">GET /api/books # READ - Barcha kitoblar</div>
+                                    <div class="api-endpoint">GET /api/books/:id # READ - Bitta kitob</div>
+                                    <div class="api-endpoint">PUT /api/books/:id # UPDATE - Kitob yangilash</div>
+                                    <div class="api-endpoint">DELETE /api/books/:id # DELETE - Kitob o'chirish</div>
+                                    <div class="api-endpoint">GET /api/categories/:categoryId/books # READ - Kategoriya kitoblari</div>
+
+                                    <h3><span class="emoji">📦</span> CATEGORY APIs:</h3>
+                                    <div class="api-endpoint">POST /api/categories # CREATE - Yangi kategoriya</div>
+                                    <div class="api-endpoint">GET /api/categories # READ - Barcha kategoriyalar</div>
+                                    <div class="api-endpoint">GET /api/categories/:id # READ - Bitta kategoriya</div>
+                                    <div class="api-endpoint">PUT /api/categories/:id # UPDATE - Kategoriya yangilash</div>
+                                    <div class="api-endpoint">DELETE /api/categories/:id # DELETE - Kategoriya o'chirish</div>
+
+                                    <h3><span class="emoji">🛒</span> ORDER APIs:</h3>
+                                    <div class="api-endpoint">POST /api/orders # CREATE - Yangi buyurtma</div>
+                                    <div class="api-endpoint">GET /api/orders # READ - Barcha buyurtmalar</div>
+                                    <div class="api-endpoint">GET /api/orders/:id # READ - Bitta buyurtma</div>
+                                    <div class="api-endpoint">PUT /api/orders/:id # UPDATE - Buyurtma yangilash</div>
+                                    <div class="api-endpoint">DELETE /api/orders/:id # DELETE - Buyurtmani o'chirish</div>
+                                    <div class="api-endpoint">GET /api/users/:userId/orders # READ - User buyurtmalari</div>
+                                </div>
+
+                                <div class="section">
+                                    <h2><span class="emoji">🎯</span> LOYIHA MUVAFFAQIYATI MEZONLARI</h2>
+                                    <div class="success-criteria">
+                                        <h4>Loyiha muvaffaqiyatli yakunlanganligi uchun quyidagilar bajarilishi kerak:</h4>
+                                        <ul>
+                                            <li><strong>CREATE:</strong> Har bir modulda yangi ma'lumot qo'shish to'g'ri ishlaydi</li>
+                                            <li><strong>READ:</strong> Barcha va individual ma'lumotlarni o'qish to'g'ri ishlaydi</li>
+                                            <li><strong>UPDATE:</strong> Mavjud ma'lumotlarni yangilash to'g'ri ishlaydi</li>
+                                            <li><strong>DELETE:</strong> Ma'lumotlarni xavfsiz o'chirish to'g'ri ishlaydi</li>
+                                            <li><strong>JSON:</strong> Barcha ma'lumotlar JSON fayllarda to'g'ri saqlanadi</li>
+                                            <li><strong>API:</strong> Barcha CRUD endpoint'lar to'g'ri ishlaydi va javob beradi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="footer">
+                                <p><span class="emoji">🚀</span> Bu tarzda har bir modul uchun to'liq CRUD
+                                    operatsiyalari sizning mavjud strukturangiz asosida amalga oshiriladi.</p>
+                            </div>
+                        </div>
+                    </ol>
+            </li>
+            </ol>
+
+    </div>
+    </li>
+
+
+
+    </ul>
+    </div>
+
+
+
+    <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+
+    </div>
+    </div>
+    <canvas id="floatingWordsCanvas"></canvas>
+    <script src="frontend.js"></script>
+
+
+    <script src="./script3.js"></script>
+    <script src="./script4.js"></script>
+    <script src="./hover.js"></script>
+</body>
+
+</html>

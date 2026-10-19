@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <h1>JavaScript</h1>
+        <ul class="course-topics">
+            <li>
+                <h2 class="accordion">Git and GitHub</h2>
+                <div class="panel">
+                    <ul>
+                        <li>
+                            <h3>Git dasturini o'rnatish:</h3>
+                            <ol>
+                                <li>Brauzeringizda git-scm.com manziliga o'ting. Bu Gitning rasmiy veb-sayti.</li>
+                                <li>Saytning bosh sahifasida sizning operatsion tizimingiz (Windows, macOS yoki Linux)
+                                    uchun mos keladigan "Download" (Yuklab olish) tugmasini toping va uni bosing. Git
+                                    avtomatik ravishda operatsion tizimingizni aniqlaydi va sizga mos versiyani taklif
+                                    qiladi.</li>
+                                <li>Agar Windows operatsion tizimidan foydalanayotgan bo'lsangiz, "64-bit Git for
+                                    Windows Setup" (64-bitli Windows uchun Git o'rnatish) faylini yuklab olishingiz
+                                    kerak bo'ladi. <br><br>
+
+                                    Agar macOS operatsion tizimidan foydalanayotgan bo'lsangiz, Homebrew yoki MacPorts
+                                    orqali o'rnatish tavsiya etiladi. Veb-saytda barcha kerakli ko'rsatmalar mavjud.
+                                    <br><br>
+
+                                    Agar Linux operatsion tizimidan foydalanayotgan bo'lsangiz, terminalda buyruqlar
+                                    yordamida o'rnatish eng oson yo'li hisoblanadi (masalan, Debian/Ubuntu uchun sudo
+                                    apt-get install git).
+                                </li>
+                                <li>Yuklab olingan .exe (Windows uchun) yoki .dmg (macOS uchun) faylini toping va ustiga
+                                    ikki marta bosing. Bu o'rnatish jarayonini boshlaydi.</li>
+                                <li>O'rnatish oynasidagi ko'rsatmalarga rioya qiling. Ko'pincha, hech narsani
+                                    o'zgartirmasdan, faqatgina "Next" (Keyingi) tugmasini bosib o'tish kifoya. O'rnatish
+                                    jarayoni sizga turli xil sozlamalarni taklif qilishi mumkin, lekin yangi
+                                    foydalanuvchilar uchun standart sozlamalar eng maqbul hisoblanadi.</li>
+                                <li>Terminal (macOS/Linux) yoki Command Prompt / Git Bash (Windows) dasturini oching.
+                                    Quyidagi buyruqni kiriting va Enter tugmasini bosing:
+                                    <pre><code>git --version</code></pre>
+                                    Agar terminalda Gitning versiyasi ko'rinsa (masalan, git version 2.37.1), demak,
+                                    dastur muvaffaqiyatli o'rnatilgan.
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <ol>
+                                <h3>GitHub Account ochish:</h3>
+                                <li>Brauzeringizda github.com manziliga o'ting. <br>
+                                    Saytning bosh sahifasining yuqori o'ng burchagida joylashgan "Sign up" tugmasini
+                                    bosing.</li>
+                                <li>Elektron pochta manzili: Aktiv elektron pochta manzilingizni kiriting. Bu manzil
+                                    orqali sizga tasdiqlash xabarlari keladi. <br><br>
+
+                                    Parol: Kuchli parol o'ylab toping. Parolingizda harflar, raqamlar va belgilar
+                                    (simvollar) bo'lsa, xavfsizroq bo'ladi. <br><br>
+
+                                    Foydalanuvchi nomi (Username): O'zingizga qulay va boshqa foydalanuvchilarda
+                                    takrorlanmaydigan ism tanlang. Masalan, ali-dev, vali-coder kabi. <br><br>
+
+                                    Elektron pochta xabarlari: "Product updates" (Mahsulot yangilanishlari) haqida
+                                    ma'lumot olishni istasangiz, tasdiqlash katakchasiga belgi qo'ying.</li>
+                                <li>Sahifadagi ko'rsatmalarga amal qilib, robot emasligingizni isbotlang. Bu odatda
+                                    biror rasmni tanlash yoki boshqa bir oddiy vazifani bajarish orqali amalga
+                                    oshiriladi.</li>
+                                <li>Ro'yxatdan o'tishni yakunlash uchun elektron pochtangizga kirib, GitHub'dan kelgan
+                                    tasdiqlash xabarini toping. <br><br>
+
+                                    Xabardagi "Verify email address" (Elektron pochtani tasdiqlash) tugmasini bosing. Bu
+                                    sizni yana GitHub saytiga qaytaradi va akkauntingiz to'liq aktivlashadi.</li>
+                            </ol>
+
+                        </li>
+                    </ul>
+                    <div class="image-toggle">Github(1)</div>
+                    <div class="image-panel">
+                        <img src="./images/1.png" alt="Git and GitHub">
+                    </div>
+                    <div class="image-toggle">Github(2)</div>
+                    <div class="image-panel">
+                        <img src="./images/2.png" alt="Git and GitHub">
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Repository (Private or Public)</h2>
+                <div class="panel">
+                    <ul>
+                        <li>
+                            <ol>
+                                <h3>Repository: Private (shaxsiy) va Public (ommaviy) </h3>
+                                <li>Git va GitHub'da "repository" (repo) bu sizning loyihangiz fayllari saqlanadigan
+                                    joy. Bu loyihaning barcha versiyalari, o'zgarishlari va tarixi yozib boriladigan
+                                    omborxona. Repositoriy yaratishda uni Private (shaxsiy) yoki Public (ommaviy) qilish
+                                    imkoniyati mavjud.</li>
+                                <li>Public (Ommaviy) Repository: <br><br>
+                                    Bu repodagi kodni hamma ko'rishi mumkin. <br><br>
+                                    Sizning profilingizga kirgan har qanday odam ushbu loyihani ko'ra oladi, yuklab
+                                    oladi yoki o'z loyihasida foydalanishi mumkin. <br><br>
+                                    Bu repolar ochiq kodli (open-source) loyihalar uchun juda qulay. Agar siz o'z
+                                    ishingizni butun dunyo bilan bo'lishmoqchi bo'lsangiz yoki portfoliongizni
+                                    ko'rsatmoqchi bo'lsangiz, uni public qilib yaratishingiz kerak. <br><br>
+                                    Boshqa dasturchilar sizning loyihangizga hissa qo'shish (contribution) imkoniyatiga
+                                    ega bo'ladi.</li>
+                                <li>Private (Shaxsiy) Repository: <br><br>
+                                    Bu repodagi kodni faqat siz va siz ruxsat bergan odamlar ko'ra oladi. <br><br>
+                                    Kodni faqat siz yoki siz loyihaga qo'shgan hamkorlar (collaborators) ko'ra oladi,
+                                    tahrirlay oladi va boshqara oladi. <br><br>
+                                    Bu repolar maxfiy loyihalar, kompaniya ichki kodlari yoki shaxsiy o'quv ishlari
+                                    uchun juda qulay.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <ol>
+                                <h3>Lokal kodni GitHub'ga joylash:</h3>
+                                <li>GitHub akkauntingizga kiring. <br><br>
+                                    Bosh sahifaning yuqori o'ng burchagidagi '+' belgisini bosing va "New repository" ni
+                                    tanlang. <br><br>
+                                    "Repository name" (Repository nomi) bo'limiga loyihangiz uchun nom kiriting
+                                    (masalan, my-first-project). <br><br>
+                                    Public yoki Private ekanligini tanlang. Agar o'quv loyihasi bo'lsa, Public qilish
+                                    yaxshi tanlov. <br><br>
+                                    "Create repository" tugmasini bosing.</li>
+                                <li>Loyihangiz papkasiga o'ting. Agar VScodedan foydalansangiz, Terminalni oching.
+                                    <br><br>
+                                    Quyidagi buyruqlarni ketma-ket kiriting: <br> <br>
+                                    Loyihangizda Git'ni ishga tushiring: <br>
+                                    <pre><code>git init</code></pre>
+                                    Barcha fayllarni Git'ga qo'shing: <br>
+                                    <pre><code>git add .</code></pre>
+                                    O'zgarishlarga izoh (commit) bering: <br>
+                                    <pre><code>git commit -m "First commit"</code></pre>
+                                    "First commit" o'rniga istalgan izohni yozishingiz mumkin.
+                                </li>
+                                <li>GitHub'da yaratgan repoingiz sahifasiga qayting. U yerda sizga "…or push an existing
+                                    repository from the command line" bo'limida ikkita buyruq ko'rsatiladi. Ularni
+                                    nusxalash tugmasi orqali nusxalab oling. Buyruqlar taxminan quyidagicha bo'ladi:
+                                    <br><br>
+                                    Lokal repoga masofaviy (remote) manzilni qo'shish: <br><br>
+                                    <pre><code>git remote add origin https://github.com/SizningIsmingiz/loyihangiz-nomi.git</code></pre>
+                                    Fayllarni GitHub'ga yuklash: <br><br>
+                                    <pre>
+                                    <code>
+                                        git branch -M main
+                                        git push -u origin main
+                                    </code></pre>
+
+                                    Ushbu ikkala buyruqni ham terminalga joylab, Enter tugmasini bosing.
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Celebration</h2>
+                <div class="panel">
+                    <ul>
+                        <li>
+                            <h3>GitHub'da "Collaborator" (Hamkor) qo'shish va birgalikda ishlash </h3>
+                            <ol>
+                                <li>
+                                    Private repository yaratish
+                                    GitHub akkauntingizga kiring. <br><br>
+                                    Bosh sahifaning yuqori o'ng burchagidagi '+' tugmasini bosib, **"New repository"**ni
+                                    tanlang. <br><br>
+                                    Repository nomini kiriting (masalan, private-team-project). <br><br>
+                                    "Private" variantini tanlang. <br><br>
+                                    "Create repository" tugmasini bosing.
+                                </li>
+
+                            </ol>
+                        </li>
+                        <li>
+                            <h3>Repoga hamkor (collaborator) qo'shish</h3>
+                            <ol>
+                                <li>
+                                    Yangi yaratilgan repongizga o'ting. <br><br>
+                                    Yuqori qatordagi tugmalar orasidan "Settings" (Sozlamalar) bo'limiga kiring.
+                                    <br><br>
+                                    Chap tomondagi menyudan **"Collaborators and teams"**ni tanlang. <br><br>
+                                    "Add collaborator" tugmasini bosing. <br><br>
+                                    O'zingizning sherigingizning GitHub foydalanuvchi nomini (username) kiriting va uni
+                                    ro'yxatdan topib, tanlang. <br><br>
+                                    "Add [username] to this repository" tugmasini bosing.
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <h3>Sherik rolida ishlash: </h3>
+                            <ol>
+                                <li>Sherik o'zining terminalini (yoki Git Bash'ni) ochadi. <br><br>
+                                    GitHub'dagi repoga o'tadi va kodni klonlash uchun HTTPS manzilini nusxalaydi.
+                                    <br><br>
+                                    Terminalga quyidagi buyruqni kiritadi: <br>
+                                    <pre><code>git clone https://github.com/SizningIsmingiz/private-team-project.git</code></pre>
+                                    Bu buyruq loyihaning to'liq nusxasini uning kompyuteriga yuklab oladi.
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <h3>Kodga o'zgarish kiritish va repoga joylash (push)</h3>
+                            <ol>
+                                <li>
+                                    Sherik klon qilingan papkaga kiradi va kodga o'zgarish kiritadi (masalan, index.html
+                                    fayliga biror matn qo'shadi). <br><br>
+                                    O'zgarishlarni Git'ga qo'shish uchun terminalda quyidagi buyruqlarni ketma-ket
+                                    kiritadi: <br><br>
+                                    <pre><code>git add .</code></pre>
+                                    Bu o'zgartirilgan fayllarni "sahnalashtirish" (staging area) qismiga qo'shadi. <br>
+                                    O'zgarishlarga izoh beradi: <br><br>
+                                    <pre><code>git commit -m "Sherik tomonidan kiritilgan o'zgarishlar"</code></pre>
+                                    O'zgartirilgan kodni GitHub'dagi repoga yuklaydi: <br>
+                                    <pre><code>git push origin main</code></pre>
+                                    Yoki sizda asosiy (default) filial nomi master bo'lishi ham mumkin. Bu holda git
+                                    push origin master buyrug'i ishlatiladi.
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Amaliyot</h2>
+                <div class="panel">
+                    <ul>
+                        <li>
+                            <h1>GitHub'da hamkorlikda ishlash</h1>
+
+                            <p>Ushbu amaliy mashg'ulotda siz <strong>shaxsiy (private) repository</strong> bilan
+                                ishlash, undan kodni kompyuteringizga yuklab olish (clone), masalalarni yechish,
+                                o'zgarishlarni qayta yuklash (push) va shu jarayonda commit izohida ismingizni yozish
+                                ko'nikmalarini oshirasiz.</p>
+
+                            <h3>Yechilishi kerak bo'lgan masalalar:</h3>
+                            <ol>
+                                <li>
+                                    <p class="task-description">Berilgan sonni tub sonligini tekshirish</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">7</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">true</span></p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Massivdagi ikkinchi eng katta sonni topish</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">[3, 5, 7, 2, 8]</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">7</span></p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Stringda eng ko'p qatnashgan harfni topish</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">"javascript"</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">"a"</span></p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Massivdagi barcha juft sonlar yig'indisini hisoblash</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">[1, 2, 3, 4, 5, 6]</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">12</span></p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Massivdagi barcha kombinatsiyalarni (subsetlarni)
+                                        chiqarish</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">[1, 2]</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">[[], [1], [2], [1, 2]]</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Matndan faqat unli harflarni olib qolish</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">"salom dunyo"</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">"aouo"</span></p>
+                                    <p><strong>Izoh:</strong> Faqat a, o, u, e, i harflarini qoldiring (katta va kichik
+                                        harflarni hisobga oling).</p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Stringdagi barcha raqamlar yig'indisini hisoblash</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">"a1b2c3"</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">6</span></p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Massivni aylantirish (rotate)</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">[1, 2, 3, 4, 5], k = 2</span>
+                                    </p>
+                                    <p><strong>Natija:</strong> <span class="input-output">[4, 5, 1, 2, 3]</span></p>
+                                    <p><strong>Izoh:</strong> Har bir elementni o'ngga k marta siljiting.</p>
+                                </li>
+                                <li>
+                                    <p class="task-description">So'zlar sonini hisoblash</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">"Bugun havo juda
+                                            yaxshi."</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">4</span></p>
+                                </li>
+                                <li>
+                                    <p class="task-description">Massivdagi eng kichik sonni topish</p>
+                                    <p><strong>Kirish:</strong> <span class="input-output">[8, 3, 5, 1, 9]</span></p>
+                                    <p><strong>Natija:</strong> <span class="input-output">1</span></p>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Uyga vazifa</h2>
+                <div class="panel">
+                    <ul>
+                        <li>
+                            <h3>OOP prinsiplari asosida hamkorlikda ishlash</h3>
+
+                            <div class="note">
+                                <p>Ushbu amaliy mashg'ulotda siz <strong>Object-Oriented Programming (OOP)</strong>
+                                    prinsiplaridan foydalangan holda masalalarni yechasiz va natijalarni shaxsiy
+                                    (private) repositoryga joylaysiz.</p>
+                                <p>Yakuniy qadamda esa repoga <strong>Bekmuhammad-Devoloper</strong> akkauntini hamkor
+                                    (collaborator) sifatida qo'shasiz.</p>
+                            </div>
+
+                            <h3>Yechilishi kerak bo'lgan masalalar:</h3>
+
+                            <ol>
+                                <li>
+                                    <h3 class="task-title">Inkapsulyatsiya (Encapsulation)</h3>
+                                    <p><strong>Masala:</strong> Foydalanuvchi ma'lumotlarini (ismi, yoshi, paroli)
+                                        saqlaydigan `User` klassini yarating. Foydalanuvchi yoshini tashqi tomondan
+                                        to'g'ridan-to'g'ri o'zgartirishning oldini oling.</p>
+                                    <p><strong>Talab:</strong> `User` klassida `name` va `age` uchun public getter
+                                        metodlar (masalan, `getName()`, `getAge()`) va faqat `age` uchun private setter
+                                        metod yaratib, yoshni faqat konstruktor orqali o'rnatishni ta'minlang.</p>
+                                </li>
+                                <li>
+                                    <h3 class="task-title">Vorislash (Inheritance)</h3>
+                                    <p><strong>Masala:</strong> Avtomobillar haqida ma'lumot saqlaydigan `Car` klassini
+                                        yarating (`make`, `model`, `year` xususiyatlari bilan). Keyin `ElectricCar`
+                                        nomli yangi klassni `Car` klassidan voris qilib oling va unga `batteryRange`
+                                        nomli qo'shimcha xususiyat qo'shing.</p>
+                                    <p><strong>Talab:</strong> `Car` va `ElectricCar` klasslarini yaratib, har birida
+                                        ma'lumotlarni konsolga chiqaruvchi metod (masalan, `displayInfo()`) yozing.</p>
+                                </li>
+                                <li>
+                                    <h3 class="task-title">Polimorfizm (Polymorphism)</h3>
+                                    <p><strong>Masala:</strong> Turli hayvonlar ovozini chiqaradigan tizim yarating.</p>
+                                    <p><strong>Talab:</strong> `Animal` nomli asosiy klass yarating. Keyin `Dog` va
+                                        `Cat` klasslarini `Animal`dan voris qilib oling. Har bir klassda `makeSound()`
+                                        metodini yarating, lekin ularning ichki mantiqi har xil bo'lsin (masalan, it
+                                        uchun "woof", mushuk uchun "meow" qaytarsin).</p>
+                                </li>
+                                <li>
+                                    <h3 class="task-title">Abstraksiya (Abstraction)</h3>
+                                    <p><strong>Masala:</strong> Bank hisoblarini boshqarish uchun tizim yarating.</p>
+                                    <p><strong>Talab:</strong> `BankAccount` nomli abstrakt klass yarating, uning ichida
+                                        `deposit(amount)` (pul qo'yish) va `withdraw(amount)` (pul yechish) kabi
+                                        metodlar mavjud bo'lsin. So'ngra `SavingsAccount` (jamg'arma hisob) klassini
+                                        `BankAccount`dan voris qilib olib, bu abstrakt metodlarni implementatsiya
+                                        qiling.</p>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="social-links">
+        <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+            <img src="./icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+            <span class="social-text">Telegram</span>
+        </a>
+        <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+            target="_blank">
+            <img src="./icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+        <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+            <img src="./icons/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+        <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+            <img src="./icons/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">YouTube</span>
+        </a>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

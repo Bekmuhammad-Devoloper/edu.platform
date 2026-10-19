@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tizimli prompt (System prompt) nima?</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="stylesheet" href="../_assets/ai.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Kelajak va loyihalar</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Mavzu</h2>
+                    <div class="panel">
+<div class="dars-info">
+<p><strong>Dars maqsadi:</strong> Tizimli ko'rsatmalar, maxsus yordamchilar va API qanday ishlashini tushunish.</p>
+<p><strong>Asosiy faoliyat:</strong> Maxsus yordamchi (Custom GPT, Claude Project yoki Gem) yaratish va API namunasini ko'rish.</p>
+<p><strong>Davomiyligi:</strong> 45 daqiqa · Dushanba</p>
+</div>
+<h3>Tizimli prompt nima?</h3>
+<p><strong>System prompt</strong> — AIning <em>butun suhbat davomidagi</em> xulq-atvorini belgilaydigan doimiy ko'rsatma: kim ekani, qanday javob berishi, nimani qilmasligi.</p>
+<pre>Sen "Matematika do'sti" nomli yordamchisan.
+- 6-sinf o'quvchilari bilan gaplashasan.
+- Hech qachon to'g'ridan-to'g'ri javob bermaysan, savollar bilan yo'naltirasan.
+- Har javob 5 jumladan oshmaydi.
+- Mavzudan tashqari savollarga muloyimlik bilan rad javobini berasan.</pre>
+<h3>Qayerda ishlatiladi?</h3>
+<ul>
+  <li><strong>Maxsus yordamchilar</strong>: ChatGPT'da Custom GPT, Claude'da Project, Gemini'da Gem — ko'rsatma va fayllar bilan o'z yordamchingizni yaratish.</li>
+  <li><strong>Shaxsiy sozlamalar</strong>: «Custom instructions» — har suhbatda hisobga olinadi.</li>
+  <li><strong>API</strong> — dasturchilar AIni o'z ilovasiga ulaydi; system prompt ilova uchun qoidalarni belgilaydi.</li>
+</ul>
+<pre>API namunasi (tushunish uchun):
+system: "Sen qisqa javob beradigan geografiya yordamchisisan."
+user:   "Eng uzun daryo qaysi?"</pre>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir topshiriqni AI vositasi bilan bajaring va natijani AI jurnaliga yozing. Shaxsiy ma'lumot kiritmang.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Tuzilma</strong></p><p>Tizimli promptning 4 qismini (kim, kim bilan, qoidalar, cheklovlar) yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Oddiy va tizimli</strong></p><p>Bitta savolni oddiy chatda va «Matematika do'sti» ko'rsatmasi bilan so'rang. Farqni yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Qoida sinovi</strong></p><p>Yordamchiga mavzudan tashqari savol bering — qoidaga amal qildimi?</p></li>
+  <li class="lvl-orta"><p><strong>O'z yordamchingiz</strong></p><p>O'qituvchi akkauntida bitta fan uchun maxsus yordamchi yarating (Custom GPT, Claude Project yoki Gem).</p></li>
+  <li class="lvl-orta"><p><strong>Fayl qo'shish</strong></p><p>Yordamchiga konspekt yoki darslik bo'limini fayl qilib qo'shing va undan savol bering.</p></li>
+  <li class="lvl-orta"><p><strong>Sinab ko'rish</strong></p><p>Sinfdoshingiz yordamchingizni 5 ta savol bilan sinasin va xato joylarni yozsin.</p></li>
+  <li class="lvl-qiyin"><p><strong>Takomillashtirish</strong></p><p>Sinov natijalariga ko'ra tizimli promptni 2 marta yaxshilang.</p></li>
+  <li class="lvl-qiyin"><p><strong>API namunasi</strong></p><p>O'qituvchi ko'rsatgan API namunasida system va user xabarlari farqini tushuntiring.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha topshiriqlarni ketma-ket bajaring. Oxirgi topshiriqlar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Ko'rsatma yozish</strong></p><p>Ingliz tili mashqi uchun yordamchining tizimli promptini yozing.</p></li>
+  <li class="lvl-oson"><p><strong>AI jurnali</strong></p><p>Maxsus yordamchi yaratish tajribangizni yozing.</p></li>
+  <li class="lvl-orta"><p><strong>Custom instructions</strong></p><p>O'zingiz uchun shaxsiy ko'rsatmalar matnini yozing (shaxsiy ma'lumotsiz): qanday javob kerak, qanday uslubda.</p></li>
+  <li class="lvl-orta"><p><strong>Qoidalar</strong></p><p>Bolalar uchun xavfsiz yordamchining 6 ta qoidasini yozing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Yordamchilar to'plami</strong></p><p>3 ta turli maqsad uchun tizimli promptlar to'plamini tuzing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Taqqoslash</strong></p><p>Bir xil vazifani tizimli prompt bilan va usiz bajarib, natijalarni tahlil qiling.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Nazorat savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">System prompt nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>AIning butun suhbat davomidagi xulq-atvorini belgilovchi doimiy ko'rsatma.</p></details></li><li><p class="q">Maxsus yordamchilarga misollar?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Custom GPT, Claude Project, Gemini Gem.</p></details></li><li><p class="q">API nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Dasturlarni AIga ulash usuli.</p></details></li><li><p class="q">Tizimli promptning qismlari?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Rol, auditoriya, qoidalar, cheklovlar.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

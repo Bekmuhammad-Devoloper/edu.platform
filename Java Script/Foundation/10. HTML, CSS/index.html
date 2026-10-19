@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">CSS asoslari</h2>
+                    <div class="panel">
+<p><strong>CSS</strong> (Cascading Style Sheets) — sahifaning <em>ko'rinishi</em>ni belgilaydi: ranglar, shriftlar, o'lchamlar, joylashuv. HTML — skelet, CSS — kiyim va dizayn.</p>
+<h4>CSS ni qo'shish usullari</h4>
+<pre>1) Inline (tegning ichida):      &lt;p style="color: red;"&gt;...&lt;/p&gt;
+2) Internal (head ichida):       &lt;style&gt; p { color: red; } &lt;/style&gt;
+3) External (alohida fayl) ✅:   &lt;link rel="stylesheet" href="style.css"&gt;</pre>
+<h4>Sintaksis</h4>
+<pre>selektor {
+  xususiyat: qiymat;
+  xususiyat: qiymat;
+}
+
+h1 { color: #14c7d7; font-size: 32px; }</pre>
+<h4>Selektorlar</h4>
+<pre>p            teg selektori        barcha &lt;p&gt;
+.card        class selektori      class="card" (ko'p marta ishlatiladi)
+#header      id selektori         id="header" (sahifada 1 ta)
+*            universal            hammasi
+div p        avlod (descendant)   div ichidagi barcha p
+a:hover      holat (pseudo-class) sichqoncha ustida turganda
+h1, h2       guruh                ikkalasi ham</pre>
+<h4>Ranglar</h4>
+<pre>color: red;                    nom bilan
+color: #ff0000;  #f00;         hex (16 lik)
+color: rgb(255, 0, 0);         rgb
+color: rgba(255, 0, 0, 0.5);   shaffoflik bilan</pre>
+<h4>Matn va shrift</h4>
+<pre>font-family: Arial, sans-serif;   font-size: 18px;      font-weight: bold;
+text-align: center;               line-height: 1.6;     text-decoration: none;
+color: #333;                      text-transform: uppercase;</pre>
+<h4>Box model (quti modeli) — eng muhim tushuncha</h4>
+<pre>+---------------------------- margin (tashqi masofa) ----+
+|  +----------------------- border (chegara) ---------+  |
+|  |  +------------------ padding (ichki masofa) --+  |  |
+|  |  |                                             |  |  |
+|  |  |              content (width x height)       |  |  |
+|  |  |                                             |  |  |
+|  |  +---------------------------------------------+  |  |
+|  +---------------------------------------------------+  |
++---------------------------------------------------------+
+
+.card {
+  width: 300px;
+  padding: 20px;              /* ichki */
+  border: 2px solid #ccc;     /* chegara */
+  margin: 10px auto;          /* tashqi; auto — markazlash */
+  border-radius: 12px;        /* burchaklarni yumaloqlash */
+  box-sizing: border-box;     /* width ga padding va border kiradi */
+}
+margin: 10px 20px;         -> yuqori/past 10, chap/o'ng 20
+margin: 5px 10px 15px 20px; -> yuqori, o'ng, past, chap (soat strelkasi)</pre>
+<h4>Fon</h4>
+<pre>background-color: #f4f4f4;
+background: url("images/bg.jpg") no-repeat center / cover;</pre>
+<h4>display</h4>
+<pre>display: block;         yangi qator, to'liq kenglik (div)
+display: inline;        matn ichida, width ishlamaydi (span)
+display: inline-block;  matn ichida, lekin width/height ishlaydi
+display: none;          butunlay yashirish
+display: flex;          moslashuvchan joylashtirish (quyida)</pre>
+<h4>Flexbox asoslari</h4>
+<pre>.container {
+  display: flex;                 /* bolalarni qatorga teradi */
+  justify-content: space-between;/* gorizontal: flex-start | center | space-between | space-around */
+  align-items: center;           /* vertikal: flex-start | center | flex-end */
+  gap: 16px;                     /* elementlar orasidagi masofa */
+  flex-wrap: wrap;               /* sig'masa keyingi qatorga */
+  flex-direction: column;        /* ustun qilib terish */
+}</pre>
+<h4>hover va o'tish (transition)</h4>
+<pre>.btn { background: #00c925; color: #fff; padding: 10px 20px; border-radius: 8px; transition: 0.3s; }
+.btn:hover { background: #00961c; transform: translateY(-2px); }</pre>
+<h4>Kaskad va ustuvorlik</h4>
+<p>Bir elementga bir nechta qoida tegsa: <strong>inline &gt; id &gt; class &gt; teg</strong>; teng bo'lsa — keyin yozilgani g'olib. <code>!important</code> — eng kuchli, lekin iloji boricha ishlatmang.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>CSS ulash</strong></p><p>«Men haqimda» sahifasiga <code>style.css</code> ulang. body ga shrift va fon rangi, h1 ga rang va markazlash bering.</p></li>
+  <li class="lvl-oson"><p><strong>Uch usul</strong></p><p>Bitta p ga rangni inline, internal va external usulda bering. Qaysi biri g'olib bo'ladi?</p></li>
+  <li class="lvl-oson"><p><strong>Ranglar</strong></p><p>Bir xil qizil rangni nom, hex, rgb va rgba (yarim shaffof) ko'rinishida yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Matn</strong></p><p>Abzatsga: shrift o'lchami 18px, qator balandligi 1.6, rang kulrang, matn markazda.</p></li>
+  <li class="lvl-oson"><p><strong>Class va id</strong></p><p>3 ta p yarating: biriga <code>.muhim</code> class, biriga <code>#asosiy</code> id bering va turli rang qo'ying.</p></li>
+  <li class="lvl-oson"><p><strong>Hover</strong></p><p>Havola ustiga sichqoncha kelganda rangi o'zgarsin va tagidagi chiziq yo'qolsin.</p></li>
+  <li class="lvl-orta"><p><strong>Box model</strong></p><p>3 ta <code>.box</code> div: 150×150px, turli fon, padding 20px, border 3px, margin 10px. DevTools da box modelni ko'ring.</p></li>
+  <li class="lvl-orta"><p><strong>Kartochka</strong></p><p>Mahsulot kartochkasi: rasm, nomi, narxi, «Sotib olish» tugmasi. 280px kenglik, soya, burchaklar yumaloq, hover da ko'tarilsin.</p></li>
+  <li class="lvl-orta"><p><strong>Navbar</strong></p><p>header ichida logo (chapda) va 4 ta havola (o'ngda) — flexbox, <code>justify-content: space-between</code>.</p></li>
+  <li class="lvl-orta"><p><strong>3 kartochka</strong></p><p>Kartochkadan 3 ta qiling va flex konteynerda joylang: gap 20px, markazda, <code>flex-wrap: wrap</code>.</p></li>
+  <li class="lvl-orta"><p><strong>Selektorlar</strong></p><p>p — kulrang; <code>.muhim</code> — qizil va qalin; <code>#sarlavha</code> — 40px; <code>ul li</code> — markersiz; <code>a:hover</code> — tagiga chiziq.</p></li>
+  <li class="lvl-orta"><p><strong>Ustuvorlik</strong></p><p>Element teg, class, id va inline uslub bilan bir vaqtda bo'yalgan. Qaysi rang chiqadi? Har birini ketma-ket olib tashlab tekshiring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Markazlash</strong></p><p>Ekran o'rtasida (vertikal va gorizontal) turadigan 300×200px blok yasang — flexbox bilan.</p></li>
+  <li class="lvl-qiyin"><p><strong>Hero bo'lim</strong></p><p>To'liq ekran balandligidagi hero: fon rasmi, ustida qoraytirish qatlami, markazda sarlavha va 2 ta tugma.</p></li>
+  <li class="lvl-qiyin"><p><strong>Responsive</strong></p><p><code>@media (max-width: 600px)</code> da kartochkalar ustun bo'lib tushsin, navbar havolalari kichraysin.</p></li>
+  <li class="lvl-qiyin"><p><strong>CSS o'zgaruvchilar</strong></p><p>Barcha ranglarni <code>:root</code> dagi o'zgaruvchilarga o'tkazing va bitta o'zgaruvchini almashtirib butun sahifa rangini o'zgartiring.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Rangli sahifa</strong></p><p>«Men haqimda» sahifasini 3 ta rang va 1 ta shrift bilan bezang.</p></li>
+  <li class="lvl-oson"><p><strong>Tugmalar</strong></p><p>3 xil uslubdagi tugma: to'ldirilgan, chegarali, yumaloq. Hammasida hover bo'lsin.</p></li>
+  <li class="lvl-oson"><p><strong>Ro'yxat bezagi</strong></p><p>ul markerlarini olib tashlang va har bir li ga fon, padding va chegara bering.</p></li>
+  <li class="lvl-oson"><p><strong>Rasm</strong></p><p>Rasmni yumaloq qiling (<code>border-radius: 50%</code>) va soya bering.</p></li>
+  <li class="lvl-oson"><p><strong>Jadval bezagi</strong></p><p>Dars jadvalingizga chegara, sarlavha qatori uchun fon va qatorlar hover ini qo'shing.</p></li>
+  <li class="lvl-orta"><p><strong>Landing sahifa</strong></p><p>header (logo + nav), hero (sarlavha, matn, tugma), «Xizmatlar» — 3 ta kartochka (flex), «Biz haqimizda» — matn + rasm yonma-yon, footer.</p></li>
+  <li class="lvl-orta"><p><strong>Forma bezagi</strong></p><p>Ro'yxatdan o'tish formasini bezang: inputlar to'liq kenglikda, <code>:focus</code> da chegara rangi o'zgarsin.</p></li>
+  <li class="lvl-orta"><p><strong>Galereya</strong></p><p>6 ta rasmni flex bilan 3 tadan 2 qatorga joylang, hover da biroz kattalashsin (<code>transform: scale</code>).</p></li>
+  <li class="lvl-orta"><p><strong>Narxlar</strong></p><p>3 ta tarif kartochkasi; o'rtadagisi «Eng ommabop» belgisi bilan ajralib tursin.</p></li>
+  <li class="lvl-orta"><p><strong>Footer</strong></p><p>4 ustunli footer: kompaniya haqida, havolalar, aloqa, ijtimoiy tarmoqlar.</p></li>
+  <li class="lvl-qiyin"><p><strong>Talaba kundaligi</strong></p><p>To'liq sahifa: profil (rasm + ma'lumot), dars jadvali, baholar kartochkalari (90+ yashil, 60 dan past qizil chegara), aloqa formasi, footer.</p></li>
+  <li class="lvl-qiyin"><p><strong>Mobil versiya</strong></p><p>Landing sahifangizni 375px kenglikda chiroyli ko'rinadigan qiling: navbar, hero va kartochkalar.</p></li>
+  <li class="lvl-qiyin"><p><strong>Animatsiya</strong></p><p>Tugma va kartochkalarga <code>transition</code> qo'shing; hero sarlavhasiga <code>@keyframes</code> bilan paydo bo'lish animatsiyasi bering.</p></li>
+  <li class="lvl-qiyin"><p><strong>Maket bo'yicha</strong></p><p>Istalgan mashhur saytning bosh sahifasidan bir qismini (header + hero) HTML/CSS bilan takrorlang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. CSS nima va HTML dan farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>CSS — ko'rinish (uslub); HTML — tuzilma (kontent).</p></details></li><li><p class="q">2. CSS ni ulashning 3 usuli? Qaysi biri tavsiya etiladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Inline, internal, external. External (alohida fayl) — qayta ishlatish va tartib uchun.</p></details></li><li><p class="q">3. class va id farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>class — ko'p elementga, bir elementda bir nechta bo'lishi mumkin; id — sahifada yagona.</p></details></li><li><p class="q">4. Box model nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Element: content + padding + border + margin. box-sizing: border-box bilan width ga padding va border kiradi.</p></details></li><li><p class="q">5. margin va padding farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>padding — chegara ichidagi masofa; margin — chegaradan tashqaridagi masofa.</p></details></li><li><p class="q">6. display: block, inline, inline-block farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>block — yangi qator, to'liq kenglik; inline — matn ichida, width ishlamaydi; inline-block — matn ichida, width/height ishlaydi.</p></details></li><li><p class="q">7. Flexbox nima uchun? justify-content va align-items farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Elementlarni qator/ustunda moslashuvchan joylashtirish. justify-content — asosiy o'q bo'ylab (gorizontal), align-items — ko'ndalang o'q (vertikal).</p></details></li><li><p class="q">8. Selektorlar ustuvorligi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>inline > id > class > teg; teng bo'lsa keyingisi g'olib; !important eng kuchli.</p></details></li><li><p class="q">9. :hover nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Sichqoncha element ustida turganda qo'llanadigan pseudo-class.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

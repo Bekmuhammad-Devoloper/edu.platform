@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Video fon -->
+  <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"
+    id="bg-video">
+    <source src="./video/everest.mp4" type="video/mp4">
+  </video>
+
+  <div class="main-content" id="mainContent">
+    <h1 id="mainTitle">JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>DOM and DOM Tree</span> </h2>
+        <div class="panel">
+          <ul>
+            <li>DOM nima? <br>
+
+              DOM (Document Object Model) – bu HTML (yoki XML) hujjatning obyektlar ko‘rinishidagi modeli. <br>
+
+              HTML kodni brauzer o‘qiydi. <br>
+
+              Uni daraxt (tree) shaklida tuzadi. <br>
+
+              JavaScript orqali biz shu daraxtdagi elementlarni ko‘ramiz, o‘zgartiramiz yoki ularga qo‘shimcha
+              qo‘shamiz. <br> <br>
+
+              👉 Oddiy qilib aytganda: <br>
+              HTML – uy qurilish loyihasi <br>
+              DOM – uyning qurilib bo‘lingan modeli <br>
+              JavaScript – usta (uyni o‘zgartiradi: devor rangini bo‘yab beradi, eshik qo‘yadi, oynani almashtiradi).
+            </li>
+            <li>
+              <h4>DOM Tree Structure</h4>
+              <span class="image-toggle">DOM Tree</span>
+              <div class="image-panel" style="display: none;">
+                <img src="./img/image.png" alt="DOM Tree Structure">
+              </div>
+            </li>
+            <li>
+              <pre><code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="uz"&gt;
+                &lt;head&gt;
+                  &lt;meta charset="UTF-8"&gt;
+                  &lt;title&gt;DOM metodlari&lt;/title&gt;
+                  &lt;style&gt;
+                    .fruit {
+                      font-size: 20px;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;!-- ID orqali ishlatamiz --&gt;
+                  &lt;h1 id="sarlavha"&gt;Salom!&lt;/h1&gt;
+                
+                  &lt;!-- Tag nomi orqali ishlatamiz --&gt;
+                  &lt;p&gt;Paragraf 1&lt;/p&gt;
+                  &lt;p&gt;Paragraf 2&lt;/p&gt;
+                  &lt;p&gt;Paragraf 3&lt;/p&gt;
+                
+                  &lt;!-- Class nomi orqali ishlatamiz --&gt;
+                  &lt;div class="fruit"&gt;Olma&lt;/div&gt;
+                  &lt;div class="fruit"&gt;Banan&lt;/div&gt;
+                  &lt;div class="fruit"&gt;Uzum&lt;/div&gt;
+                
+                  &lt;script&gt;
+                    // 1) getElementById → ID orqali faqat bitta element topadi
+                    const h1 = document.getElementById("sarlavha")
+                    h1.textContent = "ID orqali o‘zgartirildi!"
+                    h1.style.color = "blue"
+                
+                    // 2) getElementsByTagName → teg nomi bo‘yicha hamma elementlarni topadi
+                    const paragraphs = document.getElementsByTagName("p")
+                    for (let i = 0; i &lt; paragraphs.length; i++) {
+                      paragraphs[i].style.color = "red"
+                      paragraphs[i].textContent = "Paragraf " + (i + 1) + " o‘zgartirildi!"
+                    }
+                
+                    // 3) getElementsByClassName → class nomi bo‘yicha elementlarni topadi
+                    const fruits = document.getElementsByClassName("fruit")
+                    for (let i = 0; i &lt; fruits.length; i++) {
+                      fruits[i].style.color = "green"
+                      fruits[i].style.fontWeight = "bold"
+                      fruits[i].textContent = "Meva: " + fruits[i].textContent
+                    }
+                  &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                </code></pre>
+              <p>📌 Bu kodda nima bo‘ladi? <br>
+                getElementById("sarlavha") <br>
+                ichidagi matn "ID orqali o‘zgartirildi!" bo‘ladi
+                rangini ko‘k qiladi. <br>
+                getElementsByTagName("p") <br>
+                Uchta
+              <p> topiladi. <br>
+                Har biri qizil rangda chiqadi. <br>
+                Matni "Paragraf 1 o‘zgartirildi!", "Paragraf 2 o‘zgartirildi!" bo‘lib ketadi. <br>
+                getElementsByClassName("fruit") <br>
+                Uchta .fruit (Olma, Banan, Uzum) topiladi. <br>
+                Ranglari yashil bo‘ladi, matnlari oldiga "Meva:" qo‘shiladi.</p>
+            </li>
+            <li>
+              <h4>1️⃣ HTML Elementlarini o‘zgartirish</h4>
+
+              <h5>a) element.innerHTML</h5>
+              <p>👉 Biror elementning ichidagi HTML kodini o‘zgartiradi.</p>
+
+              <pre><code>
+            &lt;p id="demo"&gt;Eski matn&lt;/p&gt;
+            
+            &lt;script&gt;
+              const p = document.getElementById("demo")
+              p.innerHTML = "&lt;b&gt;Yangi matn&lt;/b&gt;"  // ichiga yangi HTML yozildi
+            &lt;/script&gt;
+            </code></pre>
+
+              ✅ Natija:
+              `<p><b>Yangi matn</b></p>`
+
+              ---
+
+              <h5>b) element.attribute = new value</h5>
+              <p>👉 Elementning atributini bevosita o‘zgartirish.</p>
+
+              <pre><code>
+            &lt;img id="rasm" src="old.png"&gt;
+            
+            &lt;script&gt;
+              const img = document.getElementById("rasm")
+              img.src = "new.png"   // src atributi o‘zgartirildi
+            &lt;/script&gt;
+            </code></pre>
+
+              ---
+
+              <h5>c) element.style.property = value</h5>
+              <p>👉 CSS uslubini (style) o‘zgartirish.</p>
+
+              <pre><code>
+            &lt;p id="matn"&gt;Matn&lt;/p&gt;
+            
+            &lt;script&gt;
+              const p = document.getElementById("matn")
+              p.style.color = "red"      // qizil rang
+              p.style.fontSize = "24px"  // kattaligi 24px
+            &lt;/script&gt;
+            </code></pre>
+
+              ---
+
+              <h5>d) element.setAttribute(attribute, value)</h5>
+              <p>👉 Atribut qo‘shish yoki o‘zgartirish.</p>
+
+              <pre><code>
+            &lt;a id="link"&gt;Havola&lt;/a&gt;
+            
+            &lt;script&gt;
+              const a = document.getElementById("link")
+              a.setAttribute("href", "https://google.com")
+              a.setAttribute("target", "_blank") // yangi tabda ochiladi
+            &lt;/script&gt;
+            </code></pre>
+
+              ---
+
+              <h4>2️⃣ Element qo‘shish va o‘chirish</h4>
+
+              <h5>a) document.createElement(element)</h5>
+              <p>👉 Yangi HTML element yaratadi.</p>
+
+              <pre><code>
+            &lt;ul id="list"&gt;
+              &lt;li&gt;Olma&lt;/li&gt;
+            &lt;/ul&gt;
+            
+            &lt;script&gt;
+              const ul = document.getElementById("list")
+              const newItem = document.createElement("li") // yangi &lt;li&gt; yaratildi
+              newItem.innerHTML = "Banan"
+              ul.appendChild(newItem) // ro‘yxatga qo‘shildi
+            &lt;/script&gt;
+            </code></pre>
+
+              ✅ Natija:
+              Olma
+              Banan
+
+              ---
+
+              <h5>b) document.removeChild(element)</h5>
+              <p>👉 Elementni o‘chirish.</p>
+
+              <pre><code>
+            &lt;ul id="list"&gt;
+              &lt;li id="first"&gt;Olma&lt;/li&gt;
+              &lt;li&gt;Banan&lt;/li&gt;
+            &lt;/ul&gt;
+            
+            &lt;script&gt;
+              const ul = document.getElementById("list")
+              const first = document.getElementById("first")
+              ul.removeChild(first)   // Olma o‘chirildi
+            &lt;/script&gt;
+            </code></pre>
+
+              ✅ Natija:
+              Banan
+
+              ---
+
+              <h5>c) document.appendChild(element)</h5>
+              <p>👉 Elementni ota elementga qo‘shish.</p>
+
+              <pre><code>
+            &lt;div id="box"&gt;&lt;/div&gt;
+            
+            &lt;script&gt;
+              const box = document.getElementById("box")
+              const p = document.createElement("p")
+              p.innerHTML = "Salom, yangi paragraf!"
+              box.appendChild(p)   // &lt;div&gt; ichiga qo‘shildi
+            &lt;/script&gt;
+            </code></pre>
+
+              ---
+
+              <h5>d) document.replaceChild(new, old)</h5>
+              <p>👉 Eski elementni yangisi bilan almashtirish.</p>
+
+              <pre><code>
+            &lt;ul id="list"&gt;
+              &lt;li id="old"&gt;Olma&lt;/li&gt;
+            &lt;/ul&gt;
+            
+            &lt;script&gt;
+              const ul = document.getElementById("list")
+              const oldItem = document.getElementById("old")
+            
+              const newItem = document.createElement("li")
+              newItem.innerHTML = "Banan"
+            
+              ul.replaceChild(newItem, oldItem)  // Olma o‘rniga Banan
+            &lt;/script&gt;
+            </code></pre>
+
+              ✅ Natija:
+              Banan
+
+              ---
+
+              <h5>e) document.write(text)</h5>
+              <p>👉 HTMLni to‘g‘ridan-to‘g‘ri sahifaga yozadi.</p>
+
+              ⚠️ Diqqat: document.write() sahifa yuklangandan keyin ishlatilsa, butun sahifani o‘chirib tashlaydi va
+              faqat yozilgan matn qoladi.
+
+              <pre><code>
+            &lt;script&gt;
+              document.write("&lt;h4&gt;Salom!&lt;/h4&gt;")
+            &lt;/script&gt;
+            </code></pre>
+
+              ✅ Sahifaga:
+              `<h4>Salom!</h4>`
+
+              ---
+
+              <h5>🔑 Xulosa</h5>
+              <ul>
+                <li><b>innerHTML</b> → element ichidagi HTML kodni o‘zgartiradi.</li>
+                <li><b>attribute</b> yoki <b>setAttribute</b> → atributlarni o‘zgartiradi.</li>
+                <li><b>style.property</b> → CSS xossasini o‘zgartiradi.</li>
+                <li><b>createElement</b> → yangi element yaratadi.</li>
+                <li><b>appendChild</b> → yangi element qo‘shadi.</li>
+                <li><b>removeChild</b> → elementni o‘chiradi.</li>
+                <li><b>replaceChild</b> → elementni yangisi bilan almashtiradi.</li>
+                <li><b>document.write</b> → sahifaga yozadi (kam ishlatiladi).</li>
+              </ul>
+            </li>
+            <li>
+              <h4>🔹 1. querySelector va querySelectorAll</h4>
+              <h5>👉 Eng qulay metodlar, ular orqali CSS selektor bo‘yicha element tanlash mumkin.</h5>
+
+              <pre><code>
+            &lt;p class="test"&gt;Matn 1&lt;/p&gt;
+            &lt;p class="test"&gt;Matn 2&lt;/p&gt;
+            
+            &lt;script&gt;
+              const firstP = document.querySelector(".test")  
+              // faqat 1-ta element oladi
+              firstP.style.color = "red"
+            
+              const allP = document.querySelectorAll(".test")  
+              // barcha elementlarni oladi
+              allP.forEach(el =&gt; el.style.fontWeight = "bold")
+            &lt;/script&gt;
+              </code></pre>
+
+
+              <h4>🔹 2. parentNode, children, firstChild, lastChild</h4>
+              <h5>👉 Elementlarning ota-ona va farzandlarini olish.</h5>
+
+              <pre><code>
+            &lt;div id="box"&gt;
+              &lt;p&gt;Paragraf 1&lt;/p&gt;
+              &lt;p&gt;Paragraf 2&lt;/p&gt;
+            &lt;/div&gt;
+            
+            &lt;script&gt;
+              const box = document.getElementById("box")
+              console.log(box.children)     // [&lt;p&gt;Paragraf 1&lt;/p&gt;, &lt;p&gt;Paragraf 2&lt;/p&gt;]
+              console.log(box.firstChild)   // birinchi bola
+              console.log(box.lastChild)    // oxirgi bola
+              console.log(box.parentNode)   // ota element
+            &lt;/script&gt;
+              </code></pre>
+
+
+              <h4>🔹 3. innerText vs textContent</h4>
+              <h5>👉 Ikkalasi ham matnni olish va o‘zgartirish uchun ishlatiladi, lekin farqi bor:</h5>
+              <ul>
+                <li><b>innerText</b> → faqat ko‘rinadigan matnni qaytaradi.</li>
+                <li><b>textContent</b> → yashirin (hidden) matnni ham oladi.</li>
+              </ul>
+
+              <pre><code>
+            &lt;p id="demo"&gt;Salom &lt;span style="display:none"&gt;Yashirin&lt;/span&gt;&lt;/p&gt;
+            
+            &lt;script&gt;
+              const el = document.getElementById("demo")
+              console.log(el.innerText)    // "Salom"
+              console.log(el.textContent)  // "Salom Yashirin"
+            &lt;/script&gt;
+              </code></pre>
+
+
+              <h4>🔹 4. Eventlar (onClick, addEventListener)</h4>
+              <h5>👉 DOMdagi eng muhim qismi — hodisalar (eventlar).</h5>
+
+              <pre><code>
+            &lt;button id="btn"&gt;Bos!&lt;/button&gt;
+            
+            &lt;script&gt;
+              const btn = document.getElementById("btn")
+            
+              // Usul 1
+              btn.onclick = () =&gt; alert("Bosildi!")
+            
+              // Usul 2 (tavsiya etiladi)
+              btn.addEventListener("click", () =&gt; {
+                alert("addEventListener ishladi!")
+              })
+            &lt;/script&gt;
+              </code></pre>
+
+
+              <h4>🔹 5. classList bilan ishlash</h4>
+              <h5>👉 Elementning classlarini boshqarish uchun.</h5>
+
+              <pre><code>
+            &lt;p id="matn" class="red"&gt;Salom&lt;/p&gt;
+            
+            &lt;script&gt;
+              const p = document.getElementById("matn")
+              p.classList.add("big")       // yangi class qo‘shadi
+              p.classList.remove("red")    // classni o‘chiradi
+              p.classList.toggle("blue")   // yo‘q bo‘lsa qo‘shadi, bo‘lsa o‘chiradi
+            &lt;/script&gt;
+              </code></pre>
+
+
+              <h4>🔹 6. cloneNode()</h4>
+              <h5>👉 Elementni nusxalash.</h5>
+
+              <pre><code>
+            &lt;ul id="list"&gt;
+              &lt;li&gt;Olma&lt;/li&gt;
+            &lt;/ul&gt;
+            
+            &lt;script&gt;
+              const li = document.querySelector("li")
+              const newLi = li.cloneNode(true)  // ichidagi bilan birga nusxa oladi
+              document.getElementById("list").appendChild(newLi)
+            &lt;/script&gt;
+            
+            ✅ Natija:
+            Olma
+            Olma
+              </code></pre>
+
+
+              <h4>🔹 7. Traversing – qo‘shni elementlarga o‘tish</h4>
+              <h5>👉 Biroz professionalroq ishlarda kerak bo‘ladi.</h5>
+
+              <pre><code>
+            &lt;ul&gt;
+              &lt;li id="first"&gt;Olma&lt;/li&gt;
+              &lt;li&gt;Banan&lt;/li&gt;
+              &lt;li&gt;Uzum&lt;/li&gt;
+            &lt;/ul&gt;
+            
+            &lt;script&gt;
+              const first = document.getElementById("first")
+              console.log(first.nextElementSibling)  // Banan
+              console.log(first.previousElementSibling) // null (oldin element yo‘q)
+            &lt;/script&gt;
+              </code></pre>
+
+
+              <h4>🔑 Xulosa</h4>
+              <ul>
+                <li><b>Elementlarni tanlash</b> → getElementById, querySelector, getElementsByClassName</li>
+                <li><b>O‘zgartirish</b> → innerHTML, textContent, style, setAttribute</li>
+                <li><b>Qo‘shish/o‘chirish</b> → createElement, appendChild, removeChild, replaceChild</li>
+                <li><b>Eventlar</b> → onclick, addEventListener</li>
+                <li><b>Navigatsiya</b> → parentNode, children, nextElementSibling, previousElementSibling</li>
+                <li><b>Classlar bilan ishlash</b> → classList.add, classList.remove, classList.toggle</li>
+                <li><b>Nusxalash</b> → cloneNode()</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"> <span>Amaliyot</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <h4>Mashina taqdimodi shablonini DOM bilan yozish</h4>
+              <pre><code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="uz"&gt;
+                &lt;head&gt;
+                  &lt;meta charset="UTF-8"&gt;
+                  &lt;title&gt;Mashina Taqdimoti&lt;/title&gt;
+                  &lt;style&gt;
+                    body {
+                      font-family: Arial, sans-serif;
+                      background: #f2f2f2;
+                      margin: 0;
+                      padding: 0;
+                    }
+                    header {
+                      background: #333;
+                      color: #fff;
+                      padding: 15px;
+                      text-align: center;
+                    }
+                    .container {
+                      max-width: 900px;
+                      margin: 20px auto;
+                      padding: 20px;
+                      background: #fff;
+                      border-radius: 10px;
+                      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                    }
+                    h1, h2 {
+                      text-align: center;
+                    }
+                    .car-image {
+                      text-align: center;
+                      margin: 20px 0;
+                    }
+                    .car-image img {
+                      max-width: 100%;
+                      border-radius: 10px;
+                    }
+                    .details {
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 20px;
+                      margin: 20px 0;
+                    }
+                    .details div {
+                      background: #f7f7f7;
+                      padding: 15px;
+                      border-radius: 8px;
+                    }
+                    .buttons {
+                      text-align: center;
+                      margin-top: 20px;
+                    }
+                    button {
+                      padding: 10px 20px;
+                      border: none;
+                      border-radius: 6px;
+                      margin: 5px;
+                      background: #3498db;
+                      color: #fff;
+                      cursor: pointer;
+                    }
+                    button:hover {
+                      background: #2980b9;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                
+                  &lt;header&gt;
+                    &lt;h1&gt;Mashina Taqdimoti&lt;/h1&gt;
+                  &lt;/header&gt;
+                
+                  &lt;div class="container"&gt;
+                    &lt;h2&gt;BMW M5&lt;/h2&gt;
+                    &lt;div class="car-image"&gt;
+                      &lt;img src="https://avatars.mds.yandex.net/i?id=cfeabae91f6b8ecf472dd5288a33c2b91739807d-8565700-images-thumbs&amp;n=13" alt="BMW M5"&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="details"&gt;
+                      &lt;div&gt;
+                        &lt;h3&gt;Texnik Xususiyatlari&lt;/h3&gt;
+                        &lt;ul&gt;
+                          &lt;li&gt;Motor: 4.4L V8 Twin Turbo&lt;/li&gt;
+                          &lt;li&gt;Ot kuchi: 600 HP&lt;/li&gt;
+                          &lt;li&gt;0-100 km/h: 3.4 soniya&lt;/li&gt;
+                          &lt;li&gt;Maks tezlik: 305 km/h&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                      &lt;div&gt;
+                        &lt;h3&gt;Narxi va Afzalliklari&lt;/h3&gt;
+                        &lt;ul&gt;
+                          &lt;li&gt;Narxi: $105,000&lt;/li&gt;
+                          &lt;li&gt;Lüks salon&lt;/li&gt;
+                          &lt;li&gt;Yuqori texnologiya&lt;/li&gt;
+                          &lt;li&gt;Premium xavfsizlik tizimlari&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="buttons"&gt;
+                      &lt;button id="showMore"&gt;Ko‘proq ma’lumot&lt;/button&gt;
+                      &lt;button id="contact"&gt;Bog‘lanish&lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                
+                  &lt;script&gt;
+                    /*
+                      📝 DOM AMALIYOT TOPSHIRIQLARI:
+                      
+                      1. "Ko‘proq ma’lumot" tugmasi bosilganda mashina haqida qo‘shimcha info chiqsin.
+                      2. "Bog‘lanish" tugmasi bosilganda alert("Sotuvchi bilan bog‘laning!") chiqsin.
+                      3. Mashina rasmi ustiga bosilganda alert("BMW M5 rasmi") chiqsin.
+                      4. Mashina xususiyatlari listiga DOM orqali yangi element qo‘shing (masalan: "Yoqilg‘i sarfi: 12L/100km").
+                    */
+                  &lt;/script&gt;
+                
+                &lt;/body&gt;
+                &lt;/html&gt;
+                </code></pre>
+
+            </li>
+            <li>
+              <h4>Oxford universiteti shablonini domda yozish</h4>
+              <pre><code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="uz"&gt;
+                &lt;head&gt;
+                  &lt;meta charset="UTF-8"&gt;
+                  &lt;title&gt;Oxford Universitet Taqdimoti&lt;/title&gt;
+                  &lt;style&gt;
+                    body {
+                      font-family: Arial, sans-serif;
+                      background: #f5f7fa;
+                      margin: 0;
+                      padding: 0;
+                      color: #333;
+                    }
+                    header {
+                      background: #2c3e50;
+                      color: white;
+                      padding: 20px;
+                      text-align: center;
+                    }
+                    header h1 {
+                      margin: 0;
+                      font-size: 28px;
+                    }
+                    header p {
+                      margin: 5px 0 0;
+                      font-size: 16px;
+                      color: #ddd;
+                    }
+                    .container {
+                      max-width: 900px;
+                      margin: 20px auto;
+                      padding: 20px;
+                    }
+                    .card {
+                      background: white;
+                      border-radius: 10px;
+                      padding: 20px;
+                      margin-bottom: 20px;
+                      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                    }
+                    h2 {
+                      margin-top: 0;
+                      color: #2c3e50;
+                    }
+                    .image-box {
+                      text-align: center;
+                      margin-bottom: 20px;
+                    }
+                    .image-box img {
+                      width: 100%;
+                      max-width: 600px;
+                      border-radius: 10px;
+                    }
+                    ul {
+                      padding-left: 20px;
+                    }
+                    footer {
+                      text-align: center;
+                      padding: 15px;
+                      background: #2c3e50;
+                      color: white;
+                      font-size: 14px;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;header&gt;
+                    &lt;h1 id="uniName"&gt;Oxford Universiteti&lt;/h1&gt;
+                    &lt;p id="uniMotto"&gt;“Bilim va Ilm markazi”&lt;/p&gt;
+                  &lt;/header&gt;
+                
+                  &lt;div class="container"&gt;
+                    &lt;div class="card image-box"&gt;
+                      &lt;img id="campusImg" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Oxford Campus"&gt;
+                      &lt;p id="imgDesc"&gt;Oxford Universitetining go‘zal kampusi&lt;/p&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                      &lt;h2&gt;Asosiy yo‘nalishlar&lt;/h2&gt;
+                      &lt;ul id="programsList"&gt;
+                        &lt;li&gt;Kompyuter fanlari&lt;/li&gt;
+                        &lt;li&gt;Falsafa&lt;/li&gt;
+                        &lt;li&gt;Biznes boshqaruvi&lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                      &lt;h2&gt;Professorlar&lt;/h2&gt;
+                      &lt;ul id="profList"&gt;
+                        &lt;li&gt;Dr. A. Smith — Kompyuter fanlari&lt;/li&gt;
+                        &lt;li&gt;Prof. M. Brown — Falsafa&lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                      &lt;h2&gt;Yaqin tadbirlar&lt;/h2&gt;
+                      &lt;ul id="eventList"&gt;
+                        &lt;li&gt;Ochilish marosimi — 12-sentabr 2025&lt;/li&gt;
+                        &lt;li&gt;Ilmiy konferensiya — 5-oktyabr 2025&lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                
+                  &lt;footer&gt;
+                    © &lt;span id="year"&gt;2025&lt;/span&gt; Oxford Universiteti — Taqdimot shabloni
+                  &lt;/footer&gt;
+                
+                  &lt;!-- DOM bilan ishlash uchun joy --&gt;
+                  &lt;script&gt;
+                    // Bu yerga DOM kodlaringizni yozishingiz mumkin
+                  &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                </code></pre>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span></h2>
+        <div class="panel">
+          <ol>
+            <h4>Login Register Shablonini Dom bilan yozish.</h4>
+            <pre><code>
+              &lt;!DOCTYPE html&gt;
+              &lt;html lang="uz"&gt;
+              &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;title&gt;DOM Amaliyot - Login/Register&lt;/title&gt;
+                &lt;style&gt;
+                  body { font-family: Arial, sans-serif; background:#f7f7f7; padding:20px; }
+                  .card { background:#fff; padding:20px; border-radius:10px; width:300px; margin:20px auto; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+                  h2 { text-align:center; }
+                  input { width:100%; padding:8px; margin:5px 0; border:1px solid #ccc; border-radius:5px; }
+                  button { width:100%; padding:10px; background:#3498db; color:white; border:none; border-radius:5px; cursor:pointer; }
+                  button:hover { background:#2980b9; }
+                  #usersList { margin-top:20px; }
+                  .user { padding:8px; background:#eee; border-radius:5px; margin:5px 0; }
+                  .hidden { display:none; }
+                &lt;/style&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+              
+                &lt;!-- LOGIN --&gt;
+                &lt;div class="card" id="loginBox"&gt;
+                  &lt;h2&gt;Login&lt;/h2&gt;
+                  &lt;input type="email" id="loginEmail" placeholder="Email"&gt;
+                  &lt;input type="password" id="loginPassword" placeholder="Parol"&gt;
+                  &lt;button id="loginBtn"&gt;Kirish&lt;/button&gt;
+                  &lt;p&gt;Akkaunt yo‘qmi? &lt;a href="#" id="goRegister"&gt;Ro‘yxatdan o‘tish&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              
+                &lt;!-- REGISTER --&gt;
+                &lt;div class="card hidden" id="registerBox"&gt;
+                  &lt;h2&gt;Register&lt;/h2&gt;
+                  &lt;input type="text" id="regName" placeholder="Ism"&gt;
+                  &lt;input type="email" id="regEmail" placeholder="Email"&gt;
+                  &lt;input type="password" id="regPassword" placeholder="Parol"&gt;
+                  &lt;button id="registerBtn"&gt;Ro‘yxatdan o‘tish&lt;/button&gt;
+                  &lt;p&gt;Akkaunt bormi? &lt;a href="#" id="goLogin"&gt;Login&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              
+                &lt;!-- USERS --&gt;
+                &lt;div class="card hidden" id="usersBox"&gt;
+                  &lt;h2&gt;Foydalanuvchilar&lt;/h2&gt;
+                  &lt;div id="usersList"&gt;&lt;/div&gt;
+                  &lt;button id="logoutBtn"&gt;Chiqish&lt;/button&gt;
+                &lt;/div&gt;
+              
+                &lt;!-- Sizning DOM kodlaringiz shu yerga yoziladi --&gt;
+                &lt;script&gt;
+                  // Bu yerda siz DOM orqali elementlarni boshqarasiz
+                &lt;/script&gt;
+              &lt;/body&gt;
+              &lt;/html&gt;
+              </code></pre>
+
+          </ol>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div class="fullscreen-overlay" id="fullscreenOverlay">
+    <video autoplay muted loop playsinline disablepictureinpicture
+      controlslist="nodownload nofullscreen noremoteplayback" id="fullscreen-video" class="fullscreen-video"
+      style="display: none;">
+      <source id="fullscreen-video-source" src="" type="video/mp4">
+    </video>
+    <div class="fullscreen-header">
+      <h1 id="closeTitle">JavaScript</h1>
+    </div>
+    <div class="fullscreen-content" id="fullscreenContent">
+      <!-- Content will be injected here -->
+    </div>
+    <div class="fullscreen-footer">
+      <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+          <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+          <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+          target="_blank">
+          <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+          <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+          <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+          <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+          <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+          <span class="social-text">You Tube</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

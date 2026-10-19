@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+  <!-- Video fon -->
+  <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"
+    id="bg-video">
+    <source src="./video/manzara.mp4" type="video/mp4">
+  </video>
+
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>async/await</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>🔹 Asosiy G‘oya <br><br>
+
+              JavaScript’da 3 bosqichda asinxron ishlash mexanizmi rivojlangan: <br>
+
+              1. Callback (eski usul) <br>
+
+
+              2. Promise (zamonaviyroq) <br>
+
+
+              3. Async/Await (Promise’ning soddalashtirilgan ko‘rinishi) <br> </li>
+            <li>1️⃣ Promise – poydevor
+
+              Promise – bu kelajakdagi qiymatni bildiradi. <br>
+              Masalan, serverdan ma’lumot olish vaqt talab qiladi. Promise natijani keyinroq beradi.
+              <pre>
+            function getData() {
+                return new Promise((resolve, reject) => {
+                  setTimeout(() => {
+              if(Math.random()>0.2){
+                    resolve("✅ Ma’lumot keldi");
+              }else{
+                    reject("❌ Xatolik yuz berdi");} 
+                  }, 2000);
+                });
+              }
+              
+              getData()
+                .then((data) => console.log(data))
+                .catch((err) => console.log(err));
+              </pre>
+            </li>
+            <li>2️⃣ Async/Await – Promiseni chiroyli yozish <br>
+              Bir xil ishni async/await bilan yozsak:
+              <pre>
+            function getData() {
+                return new Promise((resolve) => {
+                  setTimeout(() => resolve("✅ Ma’lumot keldi"), 2000);
+                });
+              }
+              
+              async function run() {
+                try {
+                  console.log("⏳ Kutilyapti...");
+                  let result = await getData(); // Promise tugashini kutadi
+                  console.log(result);
+                  console.log("✔️ Tugadi");
+                } catch (err) {
+                  console.log("❌ Xato:", err);
+                }
+              }
+              
+              run();
+            </pre>
+            </li>
+            <li>3️⃣ Hayotiy misol bilan
+              <pre>
+            function haveBreakfast() {
+                return new Promise((resolve) => {
+                  setTimeout(() => resolve("🍳 Nonushta qildim"), 1000);
+                });
+              }
+              
+              function goToWork() {
+                return new Promise((resolve) => {
+                  setTimeout(() => resolve("🏢 Ishga bordim"), 2000);
+                });
+              }
+              
+              haveBreakfast()
+                .then((msg) => {
+                  console.log(msg);
+                  return goToWork();
+                })
+                .then((msg) => console.log(msg));</pre>
+            </li>
+            <li>async/await bilan
+              <pre>
+            function haveBreakfast() {
+                return new Promise((resolve) => {
+                  setTimeout(() => resolve("🍳 Nonushta qildim"), 1000);
+                });
+              }
+              
+              function goToWork() {
+                return new Promise((resolve) => {
+                  setTimeout(() => resolve("🏢 Ishga bordim"), 2000);
+                });
+              }
+              
+              async function dailyRoutine() {
+                let breakfast = await haveBreakfast();
+                console.log(breakfast);
+              
+                let work = await goToWork();
+                console.log(work);
+              }
+              
+              dailyRoutine();</pre>
+            </li>
+            <li>4️⃣ Parallel ishlash (Promise.all bilan) <br>
+
+              Ba’zan ikkita ish bir-biriga bog‘liq emas, parallel bajarish kerak.
+              <pre>
+          function boilWater() {
+                return new Promise((resolve) => setTimeout(() => resolve("💧 Suv qaynadi"), 2000));
+              }
+              function fryEggs() {
+                return new Promise((resolve) => setTimeout(() => resolve("🍳 Tuxum qovurildi"), 1500));
+              }
+              
+              async function breakfast() {
+                let [water, eggs] = await Promise.all([boilWater(), fryEggs()]);
+                console.log(water);
+                console.log(eggs);
+              }
+              
+              breakfast();</pre>
+            </li>
+            <li>
+              Promise – kelajakdagi qiymatni qaytaradi. <br>
+
+              Async/Await – Promise bilan ishlashni soddalashtiradi. <br>
+
+              async → funksiya doim Promise qaytaradi. <br>
+
+              await → Promise tugashini kutib, natijani qaytaradi. <br>
+
+              try/catch → xatoni ushlash uchun ishlatiladi. <br>
+
+              Promise.all → parallel ishlash uchun.</li>
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"> <span>Amaliyot (Promise or async/await)</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <h4>✅ Vazifa 1: Login tekshiruvi (2 soniyalik kechikish bilan)</h4>
+              <p><strong>Vazifa:</strong> Foydalanuvchi login-parolini tekshiradigan asinxron funksiya yozing.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>Foydalanuvchi <code>username</code> va <code>password</code> kiritadi.</li>
+                <li>2 soniyalik kechikishdan so‘ng tekshiruv bajariladi.</li>
+                <li>Agar parol <code>"12345"</code> bo‘lsa — konsolga "Login muvaffaqiyatli" chiqadi.</li>
+                <li>Aks holda — "Parol noto‘g‘ri" degan xatolik chiqadi.</li>
+                <li>Ushbu masalani 2 xil usulda yeching:</li>
+                <ul>
+                  <li><strong>1)</strong> Promise bilan (.then() va .catch() yordamida)</li>
+                  <li><strong>2)</strong> async/await va try/catch yordamida</li>
+                </ul>
+                <li>Ikkala usuldagi kod farqini solishtiring: qaysi biri toza, osonroq yoki tushunarliroq.</li>
+              </ul>
+            </li>
+            <li>
+              <h4>✅ Vazifa 2: Foydalanuvchining postlarini olish</h4>
+              <p><strong>Vazifa:</strong> Berilgan foydalanuvchi ID bo‘yicha uning ma’lumotlari va postlarini olib
+                chiqaring.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>Foydalanuvchi ID (masalan, <code>1</code>) beriladi.</li>
+                <li>Avval <code>https://jsonplaceholder.typicode.com/users/1</code> orqali foydalanuvchi ma’lumotlarini
+                  oling.</li>
+                <li>So‘ng <code>https://jsonplaceholder.typicode.com/posts?userId=1</code> orqali shu foydalanuvchining
+                  postlarini oling.</li>
+                <li>Konsolga quyidagilarni chiqaring:</li>
+                <ul>
+                  <li>Foydalanuvchining <strong>ismi</strong></li>
+                  <li>U yozgan barcha postlarning <strong>sarlavhalari</strong></li>
+                </ul>
+                <li>Masalani 2 xil usulda yeching:</li>
+                <ul>
+                  <li><strong>1)</strong> Promise (.then() zanjiri bilan)</li>
+                  <li><strong>2)</strong> async/await bilan (try/catch ishlatib)</li>
+                </ul>
+                <li>Ikkala usuldagi kod tuzilmasini solishtiring.</li>
+              </ul>
+            </li>
+            <li>
+              <h4>✅ Vazifa 3: Ob-havo ma’lumotini olish (simulyatsiya)</h4>
+              <p><strong>Vazifa:</strong> Ob-havo ma’lumotini olib keladigan asinxron funksiya yozing.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>Shahar nomi beriladi (masalan, <code>"Tashkent"</code>).</li>
+                <li>Simulyatsiya sifatida ob-havo API’ga so‘rov yuborgandek 3 soniya kuting.</li>
+                <li>Kechikishdan so‘ng, iqlim ma’lumotini qaytaring (masalan, <code>"25°C, Quyoshli"</code>).</li>
+                <li>Agar shahar nomi bo‘sh bo‘lsa — "Shahar nomi kiritilmadi" degan xatolik chiqaring.</li>
+                <li>Ushbu masalani 2 xil usulda yeching:</li>
+                <ul>
+                  <li><strong>1)</strong> Promise bilan (.then() va .catch() yordamida)</li>
+                  <li><strong>2)</strong> async/await va try/catch yordamida</li>
+                </ul>
+                <li>Har ikkala yechimda kod qanday yozilishini solishtiring.</li>
+              </ul>
+            </li>
+
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"> <span>Amaliyot(async/await)</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <h4>✅ Vazifa 1: Timer bilan ishlash</h4>
+              <p><strong>Vazifa:</strong> 3 soniyalik kechikishdan so‘ng "Vaqt tugadi!" degan xabarni konsolga
+                chiqaring.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>setTimeout funksiyasini Promise ichiga joylang.</li>
+                <li>await yordamida 3 soniyani kuting.</li>
+                <li>Kechikish tugagach, konsolga "Vaqt tugadi!" deb chiqaring.</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>✅ Vazifa 2: Matematika amallarini bajarish</h4>
+              <p><strong>Vazifa:</strong> Ikkita sonni qo‘shish va ko‘paytirish uchun alohida asinxron funksiyalar
+                yarating.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>Qo‘shish uchun alohida async funksiya yarating.</li>
+                <li>Ko‘paytirish uchun ham shunday funksiya yarating.</li>
+                <li>await yordamida natijalarni kutib oling.</li>
+                <li>Natijalarni konsolga chiqarish kerak.</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>✅ Vazifa 3: Random raqam bilan ishlash</h4>
+              <p><strong>Vazifa:</strong> 1 soniyadan so‘ng tasodifiy raqam qaytarsin. Raqam 50 dan katta bo‘lsa "Katta
+                raqam!", kichik bo‘lsa "Kichik raqam!" deb chiqaring.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>Math.random() orqali 0 dan 100 gacha tasodifiy raqam yarating.</li>
+                <li>1 soniyalik kechikish qo‘shing (Promise bilan).</li>
+                <li>Raqamni tekshirib, if yordamida kerakli matnni chiqaring.</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>✅ Vazifa 4: Maxsus va'da yaratuvchi funksiya</h4>
+              <p><strong>Vazifa:</strong> Asinxron funksiya yarating, u 1 dan 5 soniyagacha bo‘lgan tasodifiy vaqtda
+                natijani qaytarsin.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>Math.random() yordamida 1000–5000 ms orasida vaqt belgilang.</li>
+                <li>setTimeout yordamida va'dani bajaring.</li>
+                <li>await orqali kutib, konsolga natijani chiqaring.</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>✅ Vazifa 5: Oddiy login tizimi (simulyatsiya)</h4>
+              <p><strong>Vazifa:</strong> Asinxron funksiya yozing, u foydalanuvchi nomi va parolni tekshiradi, va 2
+                soniyadan so‘ng natija beradi.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>async funksiya yarating va unga username hamda password yuboring.</li>
+                <li>2 soniyalik kechikish qo‘shing (Promise bilan).</li>
+                <li>Agar password "12345" bo‘lsa — login muvaffaqiyatli, bo‘lmasa — muvaffaqiyatsiz deb chiqaring.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+
+      </li>
+
+
+
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span>
+        </h2>
+        <div class="panel">
+          <ol>
+
+            <li>
+              <h4>✅ Vazifa 1: Barcha postlarni olib kelish</h4>
+              <p><strong>Vazifa:</strong> 'https://jsonplaceholder.typicode.com/posts' API manzilidan barcha postlarni
+                olib keling.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li><code>fetch</code> funksiyasidan foydalaning.</li>
+                <li>Ma’lumotlar asinxron tarzda olinishi kerak.</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>✅ Vazifa 2: Post muallifini ko‘rsatish</h4>
+              <p><strong>Vazifa:</strong> Har bir post sarlavhasini va uni yozgan foydalanuvchining ismini konsolga
+                chiqaring.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>Postlar uchun <code>https://jsonplaceholder.typicode.com/posts</code> dan ma’lumot oling.</li>
+                <li>Foydalanuvchilar uchun <code>https://jsonplaceholder.typicode.com/users</code> dan ma’lumot oling.
+                </li>
+                <li>Har bir postga mos <code>userId</code> orqali <code>user.name</code> ni toping.</li>
+                <li>Konsolga quyidagicha chiqaring:</li>
+                <li>
+                  <pre>
+          Post: sunt aut facere repellat provident occaecati
+          Muallif: Leanne Graham
+                  </pre>
+                </li>
+                <li>2 ta <code>fetch</code> va <code>async/await</code> dan foydalaning.</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>✅ Vazifa 3: Eng uzun postni topish</h4>
+              <p><strong>Vazifa:</strong> Barcha postlar ichidan matni eng uzun bo‘lgan postni toping va uni muallifi
+                bilan birga konsolga chiqaring.</p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>Postlarning <code>body</code> uzunligini solishtiring.</li>
+                <li>Eng uzun postni aniqlang.</li>
+                <li>Sarlavha, muallif va matnni konsolga chiqaring.</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>✅ Vazifa 4: Foydalanuvchining postlar sonini hisoblash</h4>
+              <p><strong>Vazifa:</strong> Har bir foydalanuvchi nechtadan post yozganini hisoblab, konsolga chiqaring.
+              </p>
+              <p><strong>Yo‘riqnoma:</strong></p>
+              <ul>
+                <li>Barcha postlarni <code>fetch</code> orqali oling.</li>
+                <li>userId ga qarab har bir userning postlarini sanang.</li>
+                <li>Foydalanuvchi ismi bilan birga quyidagicha chiqaring:</li>
+                <li>
+                  <pre>
+          Leanne Graham – 10 ta post
+          Ervin Howell – 5 ta post
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h4>🎯 Bonus: Eng faol foydalanuvchilarni top!</h4>
+              <p><strong>Vazifa:</strong> Postlar va kommentlar asosida eng ko‘p izohga ega postni va eng faol
+                foydalanuvchini aniqlang.</p>
+              <ul>
+                <li>
+                  <h4>1. Postlarni olish</h4>
+                  <p><strong>Yo‘riqnoma:</strong></p>
+                  <ul>
+                    <li><code>https://jsonplaceholder.typicode.com/posts</code> API orqali barcha postlarni olib keling.
+                    </li>
+                    <li><code>fetch</code> va <code>async/await</code> dan foydalaning.</li>
+                  </ul>
+                </li>
+
+                <li>
+                  <h4>2. Commentlarni tahlil qilish</h4>
+                  <p><strong>Yo‘riqnoma:</strong></p>
+                  <ul>
+                    <li><code>https://jsonplaceholder.typicode.com/comments</code> API orqali barcha kommentlarni olib
+                      keling.</li>
+                    <li>Har bir <code>postId</code> uchun commentlar sonini hisoblang.</li>
+                    <li>Konsolga quyidagi shaklda chiqaring:</li>
+                    <li>
+                      <pre>
+          Post: alias odio sit – 8 ta izoh
+          Post: adipisci placeat illum aut reiciendis – 12 ta izoh
+                      </pre>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <h4>3. Eng ko‘p izohga ega postni aniqlash</h4>
+                  <p><strong>Yo‘riqnoma:</strong></p>
+                  <ul>
+                    <li>Har bir postga tegishli izohlar sonini taqqoslang.</li>
+                    <li>Eng ko‘p commentga ega postni ajrating.</li>
+                    <li>Sarlavha va izohlar sonini konsolga chiqaring.</li>
+                  </ul>
+                </li>
+
+                <li>
+                  <h4>4. Eng faol userni aniqlash</h4>
+                  <p><strong>Yo‘riqnoma:</strong></p>
+                  <ul>
+                    <li>Barcha postlar bo‘yicha <code>userId</code> ni hisoblang.</li>
+                    <li>Har bir user nechta post yozganini chiqaring.</li>
+                    <li>Eng ko‘p post yozgan foydalanuvchini toping.</li>
+                    <li>Konsolga quyidagicha yozing:</li>
+                    <li>
+                      <pre>
+          Eng faol user: Leanne Graham (10 ta post)
+                      </pre>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <h4>5. Eng faol foydalanuvchi haqida ma’lumot chiqarish</h4>
+                  <p><strong>Yo‘riqnoma:</strong></p>
+                  <ul>
+                    <li>Topilgan foydalanuvchining ma’lumotlarini
+                      <code>https://jsonplaceholder.typicode.com/users</code> orqali oling.
+                    </li>
+                    <li>Konsolga quyidagi ko‘rinishda yozing:</li>
+                    <li>
+                      <pre>
+          Eng faol user: Leanne Graham (10 ta post)
+          Email: Sincere@april.biz
+          Company: Romaguera-Crona
+                      </pre>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+            <li>
+              <h4> Oddiy Promise yaratish</h4>
+              <p>delay(ms) funksiyasini yozing, u berilgan millisekunddan keyin Promise qaytarsin.</p>
+              <p>Masalan: delay(2000) keyin "2 soniya o'tdi" degan xabar chiqsin.</p>
+            </li>
+
+            <li>
+              <h4> Promise zanjiri yaratish</h4>
+              <p>fetchData() funksiyasini yozing, u 1 soniyadan keyin "Ma’lumot olindi" degan Promise qaytarsin.</p>
+              <p>Natijani then() bilan konsolga chiqaring.</p>
+            </li>
+
+            <li>
+              <h4> Promise rad qilish</h4>
+              <p>checkNumber(num) funksiyasini yozing, u son juft bo‘lsa Promise resolve, toq bo‘lsa reject qilsin.</p>
+              <p>Natijani then() va catch() bilan konsolga chiqaring.</p>
+            </li>
+
+            <li>
+              <h4> Promise.all() ishlatish</h4>
+              <p>task1(), task2(), task3() funksiyalarini yozing, har biri turli vaqtda bajariladigan Promise qaytarsin.
+              </p>
+              <p>Promise.all() yordamida barchasini kuting va natijani konsolga chiqaring.</p>
+            </li>
+
+            <li>
+              <h4> Promise.race() ishlatish</h4>
+              <p>task1, task2, task3 funksiyalaridan foydalanib, Promise.race() dan foydalaning.</p>
+              <p>Eng tez bajarilgan Promise natijasini konsolga chiqaring.</p>
+            </li>
+
+            <li>
+              <h4>API chaqiruvi bilan Promise yaratish</h4>
+              <p>fetchUserData() funksiyasini yozing.</p>
+              <p>U https://jsonplaceholder.typicode.com/users/1 dan foydalanuvchi ma’lumotini olib, ismini konsolga
+                chiqarsin.</p>
+            </li>
+
+            <li>
+              <h4> setTimeout yordamida Promise yaratish</h4>
+              <p>wait(ms) funksiyasini yozing, u berilgan vaqt o'tgach Promise qaytarsin.</p>
+              <p>Masalan: wait(3000) keyin "3 soniya o'tdi" degan xabar chiqsin.</p>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+
+    </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+/* 🕒 Soat joylashuvi */
+#exam-timer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #2c3e50;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  opacity: 0.4;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  user-select: none;
+}
+
+/* 👆 Hover yoki bosilganda ko‘rinarli bo‘ladi */
+#exam-timer:hover,
+#exam-timer:focus,
+#exam-timer:active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 🔴 Vaqt tugaganda */
+#exam-timer.expired {
+  color: red;
+  animation: flash 1s infinite;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Yonib-o'chish */
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* 💥 Shisha sinish */
+.glass-break {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./img/glass-break.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: fadeOut 2.5s forwards;
+}
+
+/* 🔚 Yakuniy sinish (qaytmaydi) */
+.glass-break.permanent {
+  animation: none;
+}
+
+/* Sekin yo‘qolish */
+@keyframes fadeOut {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 💢 Real ekran tebranishi (dars ketdi) */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-3px, -3px);
+  }
+  20% {
+    transform: translate(3px, -2px);
+  }
+  30% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, 3px);
+  }
+  50% {
+    transform: translate(-1px, -2px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  70% {
+    transform: translate(-2px, 1px);
+  }
+  80% {
+    transform: translate(2px, -1px);
+  }
+  90% {
+    transform: translate(-1px, 2px);
+  }
+}
+
+/* 🔅 Yorug‘lik chaqnashi */
+@keyframes flashLight {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.6) saturate(1.4);
+  }
+}
+
+/* 💥 Dars ketgan paytda ekran o‘zgaradi */
+.breaking-effect {
+  animation: shake 0.5s ease-in-out, flashLight 1s ease-in-out;
+}

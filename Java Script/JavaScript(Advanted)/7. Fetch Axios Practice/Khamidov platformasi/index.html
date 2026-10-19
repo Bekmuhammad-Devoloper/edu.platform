@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Video fon -->
+  <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"
+    id="bg-video">
+    <source src="./video/pilot.mp4" type="video/mp4">
+  </video>
+
+  <div class="main-content" id="mainContent">
+    <h1 id="mainTitle">JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>Fetch and Axios</span> </h2>
+        <div class="panel">
+          <ul>
+            <li>1️⃣ fetch nima?<br><br>
+
+              fetch – bu brauzer ichida mavjud bo‘lgan API, u serverdan ma’lumot olib kelish uchun ishlatiladi. <br>
+              👉 U Promise qaytaradi. <br>
+              Misol: API’dan ma’lumot olish
+              <pre>
+                // GET so'rovi
+                fetch("https://jsonplaceholder.typicode.com/posts/1")
+                  .then(res => res.json())   // javobni JSON ga aylantiramiz
+                  .then(data => console.log("✅ Fetch natija:", data))
+                  .catch(err => console.error("❌ Xato:", err))
+                </pre>
+              POST (yangi ma’lumot yuborish)
+              <pre>
+                fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  title: "Salom",
+                  body: "Bu fetch orqali yuborildi",
+                  userId: 1
+                })
+              })
+                .then(res => res.json())
+                .then(data => console.log("✅ Yuborildi:", data))
+                .catch(err => console.error(err))
+              </pre>
+            </li>
+            <li>2️⃣ axios nima? <br>
+              axios – bu kutubxona (npm orqali o‘rnatiladi). <br> U fetchdan qulayroq va ko‘proq imkoniyatlarga ega:
+              <br>
+              JSON ni avtomatik o‘qiydi (res.data bilan ishlaysiz). <br>
+              Interceptorlar mavjud (token qo‘shish oson). <br>
+              Xatolarni boshqarish osonroq. <br>
+              👉 O‘rnatish: <br>
+              <pre>
+                npm install axios
+              </pre>
+              GET misol <br>
+              <pre>
+                import axios from "axios"
+
+                axios.get("https://jsonplaceholder.typicode.com/posts/1")
+                  .then(res => {
+                    console.log("✅ Axios natija:", res.data)
+                  })
+                  .catch(err => {
+                    console.error("❌ Xato:", err.message)
+                  })
+                </pre>
+              POST misol <br>
+              <pre>
+                axios.post("https://jsonplaceholder.typicode.com/posts", {
+                  title: "Salom",
+                  body: "Bu axios orqali yuborildi",
+                  userId: 1
+                })
+                  .then(res => {
+                    console.log("✅ Yuborildi:", res.data)
+                  })
+                  .catch(err => {
+                    console.error(err)
+                  })                
+              </pre>
+            </li>
+            <li>
+              <ul>
+                <li>Fetch va Axios farqlari:</li>
+
+                <li> JSON parse:</li>
+                <ul>
+                  <li> fetch → res.json() qilish kerak.</li>
+                  <li>axios → res.data tayyor.</li>
+                </ul>
+                <li>Kutubxona:</li>
+                <ul>
+                  <li>fetch → brauzerda bor.</li>
+                  <li>axios → alohida o‘rnatish kerak.</li>
+                </ul>
+                <li>Xato:</li>
+                <ul>
+                  <li>fetch → faqat internet xatoni ushlaydi.</li>
+                  <li>axios → internet + server (status) xatolarni ham ushlaydi.</li>
+                </ul>
+                <li>Qulayliklar:</li>
+                <ul>
+                  <li>fetch → oddiy imkoniyatlar.</li>
+                  <li>axios → qo‘shimcha: interceptor, timeout, cancel, progress.</li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"> <span>Amaliyot</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <h4>Maqsad</h4>
+              <p>JSONPlaceholder API bilan <strong>fetch()</strong> va <strong>axios</strong> orqali ishlash. Har ikkisi
+                uchun <em>async/await</em> yondashuvi qo‘llanadi.</p>
+              <h4>API manzillari</h4>
+              <ul>
+                <li>GET — https://jsonplaceholder.typicode.com/posts</li>
+                <li>GET — https://jsonplaceholder.typicode.com/posts/1</li>
+                <li>POST — https://jsonplaceholder.typicode.com/posts</li>
+                <li>PUT — https://jsonplaceholder.typicode.com/posts/1</li>
+                <li>DELETE — https://jsonplaceholder.typicode.com/posts/1</li>
+              </ul>
+              <h4>Talablar</h4>
+              <ol>
+                <li>Har bir CRUD amalini (Create, Read, Update, Delete) alohida funksiya qilib yozish.</li>
+                <li>Har bir funksiya ikki xil ko‘rinishda yozilsin: <strong>fetch</strong> va <strong>axios</strong>.
+                </li>
+                <li>Barcha funksiyalarda <strong>async/await</strong> ishlatilishi kerak.</li>
+                <li>Xatolarni <strong>try/catch</strong> orqali ushlash va konsolga chiqarish.</li>
+              </ol>
+              <h4>Natijani chiqarish</h4>
+              <ul>
+                <li>Har bir so‘rov muvaffaqiyatli bajarilganda: <em>status kodi</em> va JSON <em>ma’lumot</em> konsolga
+                  chiqarilsin.</li>
+                <li>Agar xato bo‘lsa, tushunarli xabar bilan konsolga yozilsin.</li>
+              </ul>
+              <h4>POST/PUT uchun namunaviy body</h4>
+              <ul>
+                <li>title</li>
+                <li>body</li>
+                <li>userId</li>
+              </ul>
+              <p>Qiymatlar ixtiyoriy test ma’lumotlari bo‘lishi mumkin.</p>
+              <h4>async/await yondashuvi uchun qadamlar</h4>
+              <ol>
+                <li><strong>async</strong> funksiya yaratish.</li>
+                <li><strong>await fetch(url, options)</strong> yoki <strong>await axios.method(url, data)</strong>
+                  yordamida so‘rov yuborish.</li>
+                <li>Statusni tekshirish va <strong>response.data</strong> yoki <strong>await res.json()</strong>
+                  natijasini olish.</li>
+                <li>Natijani konsolga chiqarish.</li>
+                <li><strong>try/catch</strong> orqali xatolarni ushlash va konsolga yozish.</li>
+              </ol>
+              <h4>Header va body talablari</h4>
+              <ul>
+                <li>POST/PUT da sarlavha: <em>Content-Type: application/json</em>.</li>
+                <li>JSON body: <em>{ title, body, userId }</em>.</li>
+              </ul>
+              <h4>Qo‘shimcha eslatmalar</h4>
+              <ul>
+                <li>DevTools → Console oynasini ochib natijalarni tekshirish.</li>
+                <li>Har bir CRUD amalida log yozing: amal nomi, status, va natija.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <h4>Maqsad</h4>
+              <p>JSONPlaceholder API yordamida <strong>foydalanuvchilar (users)</strong> va ularning
+                <strong>postlari</strong> bilan ishlovchi mini tizim yaratish. Har bir amal <em>async/await</em>
+                yondashuvi bilan, ikkita usulda bajariladi: <strong>fetch</strong> va <strong>axios</strong>.
+              </p>
+              <h4>API manzillari</h4>
+              <ul>
+                <li>GET — https://jsonplaceholder.typicode.com/users</li>
+                <li>GET — https://jsonplaceholder.typicode.com/users/1</li>
+                <li>POST — https://jsonplaceholder.typicode.com/users</li>
+                <li>PUT — https://jsonplaceholder.typicode.com/users/1</li>
+                <li>DELETE — https://jsonplaceholder.typicode.com/users/1</li>
+                <li>GET (user postlari) — https://jsonplaceholder.typicode.com/users/1/posts</li>
+              </ul>
+              <h4>Talablar</h4>
+              <ol>
+                <li><strong>User CRUD</strong> (yaratish, olish, yangilash, o‘chirish) funksiyalarini yozish.</li>
+                <li>Har bir user uchun <strong>postlar ro‘yxatini</strong> olish funksiyasini yozish.</li>
+                <li>Har bir funksiya <strong>fetch</strong> va <strong>axios</strong> bilan yozilsin.</li>
+                <li>Barcha funksiyalarda <strong>async/await</strong> va <strong>try/catch</strong> ishlatilishi shart.
+                </li>
+              </ol>
+              <h4>Natijani chiqarish</h4>
+              <ul>
+                <li>Har bir so‘rovdan keyin status kodi va natija konsolga yozilsin.</li>
+                <li>Xato bo‘lsa, tushunarli xabar chiqsin.</li>
+              </ul>
+              <h4>POST/PUT uchun namunaviy body</h4>
+              <ul>
+                <li>name</li>
+                <li>username</li>
+                <li>email</li>
+                <li>phone</li>
+                <li>website</li>
+              </ul>
+              <p>Qiymatlar test uchun berilishi mumkin.</p>
+              <h4>Qo‘shimcha topshiriqlar</h4>
+              <ul>
+                <li>User yaratgandan so‘ng, uni <strong>user.id</strong> orqali postlar ro‘yxatini olib keling.</li>
+                <li>User yangilanganda, faqatgina <em>name</em> va <em>email</em> ni o‘zgartiring.</li>
+                <li>User o‘chirilgandan keyin, "User muvaffaqiyatli o‘chirildi" degan xabarni konsolga yozing.</li>
+              </ul>
+              <h4>Qo‘shimcha eslatmalar</h4>
+              <ul>
+                <li>DevTools → Console’da natijalarni ko‘ring.</li>
+                <li>Funksiyalarning nomi aniq bo‘lsin: <em>createUser()</em>, <em>getUsers()</em>,
+                  <em>updateUser()</em>, <em>deleteUser()</em>, <em>getUserPosts()</em>.
+                </li>
+                <li>Ikkala yondashuv (fetch va axios) uchun alohida bo‘lim qiling.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div class="fullscreen-overlay" id="fullscreenOverlay">
+    <video autoplay muted loop playsinline disablepictureinpicture
+      controlslist="nodownload nofullscreen noremoteplayback" id="fullscreen-video" class="fullscreen-video"
+      style="display: none;">
+      <source id="fullscreen-video-source" src="" type="video/mp4">
+    </video>
+    <div class="fullscreen-header">
+      <h1 id="closeTitle">JavaScript</h1>
+    </div>
+    <div class="fullscreen-content" id="fullscreenContent">
+      <!-- Content will be injected here -->
+    </div>
+    <div class="fullscreen-footer">
+      <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+          <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+          <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+          target="_blank">
+          <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+          <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+          <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+          <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+          <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+          <span class="social-text">You Tube</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

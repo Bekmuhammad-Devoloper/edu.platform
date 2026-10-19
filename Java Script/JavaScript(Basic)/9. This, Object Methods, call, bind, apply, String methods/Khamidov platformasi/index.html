@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="icon" href="/icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">This, Object ichida Function(Method)</h2>
+                <div class="panel">
+                    <p>This object hisoblanib object ichidagi functionda this ishlatilsa aynan shu objectga murojat
+                        qilishga yordam beradi. Object ichida constructor function va declaration function expression
+                        functiondan foydalanish tavsiya qilinadi, Arrow functiondan foydalanilsa ham boladi ammo arrow
+                        funtiondi ichida thisdan foydalanilsa Global Objectga murojat qiladi osha objectga emas. </p>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">IIFE</h2>
+                <div class="panel">
+                    <p>Immediately Invoked Function Expression (IIFE) bu functiondan js da darhol chaqirish kerak
+                        bolganda foydalanamiz.IIFE yordamida maxfiy ma'lumotlarni tashqi koddan himoya qilish mumkin.
+                        Faqat IIFE qaytaradigan natijalarga tashqaridan kirish mumkin.</p>
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Call-back function (call apply bind)</h2>
+                <div class="panel">
+                    <p>JavaScript’da har bir funksiya obyekt hisoblanadi va call, apply, bind metodlari funksiyalarning
+                        qanday chaqirilishini va this qiymati nima bo‘lishini nazorat qiladi:
+
+                        this konteksti: Funksiya ichida this qaysi ob’ektga ishora qilishini belgilaydi.
+                        Argumentlar: Funksiyaga qanday ma’lumotlar uzatilishini boshqaradi.
+                        Bu metodlar callback funksiyalar bilan ishlaganda yoki ma’lumotlar bazasi operatsiyalarida
+                        (masalan, MongoDB so‘rovlari) kontekstni to‘g‘ri sozlash uchun ishlatiladi.</p>
+                    <p>call va aply bir hill ishlaydi.Ularni farqi functionga paramatr berishda aply array sifatida
+                        parametr qabul qiladi.Bind faqat object methodi shu deb korsatib qoyadi lekin call qilmaydi
+                        ozimiz ishlatganimizda call qilishimiz kerak. </p>
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot(This va Function(Method))</h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Animal object yasaberadigon Object constructor function yasash name, count, year
+                                parametrla qabul qisin.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Computer object model, price, count propertiylati bo'sin va getInfo methodi bo'lsin
+                                chaqirilsa hamma malumotlarini qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p>Book nomli Object yasash title, pages, published, parametrlari bo'lsin.</p>
+                        </li>
+                        <li>
+                            <p>Car nomli Objectini yasash brand, price, cauntparametrlari bolsin. GetOwner() functioni
+                                user parametri qabul qilsin chaqirilganda user brend price ni qaytarsin. </p>
+                        </li>
+                        <li>
+                            <p>Student nomli Object yasash fullName grade va entryYear parametrlari bo‘lsin. Va
+                                student() functioni course parametri bolsin function chaqirilganda fullname garde va
+                                course qaytarsin course qiymati hozirgi yildan kirgan yilini(entryYearni) ayriganga teng
+                                bolsin.(Oylarigaca aniq hisoblansin.) </p>
+                        </li>
+                    </ol>
+
+                </div>
+
+
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot(IIFE)</h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Password masalasi foydalanuvchi passwordni kiritsin togri bolsa true hato bolsa false
+                                qaytsin.</p>
+                        </li>
+                        <li>
+                            <p>Brauzer ishga tushganda faqat bir marta Welcome yozuvi chiqsin.</p>
+                        </li>
+                    </ol>
+
+                </div>
+
+
+            </li>
+
+            <li>
+                <h2 class="accordion">Amaliyot(Call Apply Bind)
+                </h2>
+                <div class="panel">
+                    <ol>
+
+                        <li>
+                            <p>Bitta sayHello funksiyasi bor. U har xil odamlar uchun chaqirilsin.</p>
+                            <p>Call va Apply Bind uchun ishlansin.</p>
+                        </li>
+                        <li>
+                            <p>introduce age, city parametrlari bolsin. console da (`Salom, men ${this.name}, yoshim
+                                ${age}, ${city}da yashayman.`) chiqarish.Object person = { name: "Bekmuhammad" };</p>
+                            <p>Call va Apply Bind uchun ishlansin.</p>
+                        </li>
+                        <li>
+                            <p>greating functionni position parametri bolsin. Consolega (`${position}, men
+                                ${this.name}man.`) </p>
+                            <p>Call va Apply Bind uchun ishlansin.</p>
+                        </li>
+                        <li>
+                            <p>describe functionni age city parametri bolsin. Consolega (`${this.name} ${age} yoshda,
+                                ${city}da yashaydi.`) Object person = { name: "Zara" }; </p>
+                            <p>Call va Apply Bind uchun ishlansin.</p>
+                        </li>
+                    </ol>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot(methods)
+                </h2>
+                <div class="panel">
+                    <ol>
+                        <h3>Object.Methods</h3>
+                        <li>
+                            <p>Berilgan car ob’ektining barcha kalitlarini (key) konsolga chiqaring. Agar ob’ekt bo‘sh
+                                bo‘lsa, “Ob’ekt bo‘sh” deb chiqaring.</p>
+                            <pre>const car = {
+                                    brand: "Toyota",
+                                    model: "Camry",
+                                    year: 2020
+                                  };</pre>
+                            <p>Ishlatiladigan metod: Object.keys()</p>
+                        </li>
+                        <li>
+                            <p>Berilgan scores ob’ektida talabalarning ballari berilgan. Barcha ballarni yig‘indisini
+                                hisoblang.</p>
+                            <pre>const scores = {
+                                    Ali: 85,
+                                    Bek: 90,
+                                    Ziyo: 100
+                                  };</pre>
+                            <p>Ishlatiladigan metod: Object.values() va reduce()</p>
+                        </li>
+                        <li>
+                            <p>Ikki ob’ektni (student va info) birlashtirib, yangi ob’ekt yarating va natijani konsolga
+                                chiqaring.</p>
+                            <pre>const student = {
+                                    name: "Ali",
+                                    age: 20
+                                  };
+                                  
+                                  const info = {
+                                    city: "Toshkent",
+                                    grade: "A"
+                                  };</pre>
+                            <p>Ishlatiladigan metod: Object.assign()</p>
+                        </li>
+                        <li>
+                            <p>Berilgan user ob’ektida faqat “email” xususiyati mavjud bo‘lsa, uni konsolga chiqaring.
+                                Agar yo‘q bo‘lsa, barcha xususiyatlar ro‘yxatini chiqaring.</p>
+                            <pre>const user = {
+                                    name: "Soli",
+                                    age: 25,
+                                    email: "soli@gmail.com"
+                                  };</pre>
+                            <p>Ishlatiladigan metodlar: Object.hasOwnProperty(), Object.entries()</p>
+                        </li>
+                        <li>
+                            <p>product ob’ektini o‘zgarmas (immutable) qiling va undagi xususiyatlarni o‘zgartirishga
+                                urinib ko‘ring. Natijani konsolga chiqaring.</p>
+                            <pre>const product = {
+                                    name: "Laptop",
+                                    price: 1500
+                                  };</pre>
+                            <p>Ishlatiladigan metodlar: Object.freeze(), Object.hasOwnProperty()</p>
+                        </li>
+                        <li>
+                            <p>Quyidagi config obyektini butunlay muzlatib qo‘ying. So‘ng qiymatini o‘zgartirish, yangi
+                                property qo‘shish va o‘chirishga harakat qiling.</p>
+                            <pre>const config = {
+                                    debug: true,
+                                    version: "1.0"
+                                  };</pre>
+                            <p>Ishlatiladigan metodlar: Object.freeze()</p>
+
+                        </li>
+                        <li>
+                            <p>settings obyektini muhrlang. Mavjud qiymatni o‘zgartirishga, yangi qiymat qo‘shishga va
+                                o‘chirishga harakat qiling.</p>
+                            <pre>const settings = {
+                                    theme: "light",
+                                    fontSize: 14
+                                  };</pre>
+                            <p>Ishlatiladigan metodlar: Object.seal()</p>
+
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>Array Methods</h3>
+                        <h4>Basic Array Methods</h4>
+                        <li>
+                            <p>Foydalanuvchi xarid savatiga mahsulotlar qo'shadi, keyin oxirgi mahsulotni olib
+                                tashlaydi, va barcha mahsulotlarni vergul bilan ajratilgan satrga aylantiring. ("non",
+                                "sut", "shakar")</p>
+                            <p>Metodlar: push(), pop(), join()</p>
+                        </li>
+                        <li>
+                            <p>Topshiriqlar ro‘yxati["uy vazifasi", "sport", "kitob o'qish"]ga yangi elementni boshidan
+                                qo‘shing("ertalabki duolar"), keyin esa birinchi elementni
+                                olib tashlang va uzunligini toping.</p>
+                            <p>Metodlar: unshift(), shift(), length</p>
+                        </li>
+                        <li>
+                            <p>2 xil do‘kon mahsulotlarini birlashtiring, 1-elementni at() bilan oling va toString()
+                                bilan ko‘rsating.</p>
+                            <pre>   let shop1 = ["olma", "banan"];
+                                    let shop2 = ["nok", "shaftoli"];</pre>
+                            <p>Metodlar: concat(), at(), toString()</p>
+                        </li>
+                        <li>
+                            <p> Kino nomlari ro'yxatidagi o'rtadagi 2 ta elementni olib tashlang va yangilarini o'rniga
+                                qo'shing. Keyin toSpliced() bilan asl ro'yxatni buzmasdan nusxa yarating.</p>
+                            <pre>let movies = ["Titanic", "Avatar", "Matrix", "Shrek"];
+                                </pre>
+                            <p>Metodlar: splice(), toSpliced()
+
+
+                            </p>
+                        </li>
+                        <li>
+                            <p> Ichma-ich massivni bitta tekis massivga aylantiring, undan 3ta elementni olib oling.</p>
+                            <pre>let numbers = [1, [2, 3], [4, 5]];
+                        </pre>
+                            <p>Metodlar: flat(), slice()</p>
+                        </li>
+                        <li>
+                            <p>Massivning ayrim qismini boshqa joyga nusxalash.</p>
+                            <pre>let arr = [10, 20, 30, 40, 50];
+                            </pre>
+                            <p>Metodlar: copyWithin()
+                            </p>
+                        </li>
+                        <li>
+                            <p>Massivdan aniq indeksdagi qiymatni delete yordamida olib tashlang (e'tibor bering:
+                                uzunlik o'zgarmaydi).</p>
+                            <pre>let nums = [1, 2, 3, 4];
+                                </pre>
+                            <p>Metodlar: delete</p>
+                        </li>
+
+                    </ol>
+                    <ol>
+                        <h4>Array Sort Methods</h4>
+                        <li>
+                            <p>Bir nechta sonlar massivini tasodifiy tarzda tartiblang va ularni ekranga chiqarish.</p>
+                            <pre>let numbers = [5, 8, 2, 1, 9];
+                        </pre>
+                            <p>Metodlar: sort(), Math.random()
+                            </p>
+                        </li>
+                        <li>
+                            <p> Massivdagi eng kichik va eng katta sonni aniqlang.</p>
+                            <pre>let nums = [4, 1, 9, 15, 2];
+                            </pre>
+                            <p>Metodlar: Math.min(), Math.max()
+                            </p>
+                        </li>
+                        <li>
+                            <p>Massivdagi raqamlarni o'sish tartibida saralash.</p>
+                            <pre>let nums = [10, 5, 8, 1, 6];
+                            </pre>
+                            <p>Metodlar: sort()</p>
+                        </li>
+                        <li>
+                            <p>Massivdagi raqamlarni teskari tartibda joylashtiring.</p>
+                            <pre>let nums = [1, 2, 3, 4, 5];
+                            </pre>
+                            <p>Metodlar: reverse()</p>
+                        </li>
+                        <li>
+                            <p> Ob'ektlarning ro'yxatini yoshga qarab o'sish tartibida saralash.</p>
+                            <pre>let people = [
+                                { name: "Ali", age: 22 },
+                                { name: "Olim", age: 25 },
+                                { name: "Aziza", age: 20 }
+                              ];</pre>
+                            <p>Metodlar: sort()</p>
+                        </li>
+                        <li>
+                            <p> Bir massivdagi sonlarni o'sish tartibida va kamayish tartibida saralang.</p>
+                            <pre>let numbers = [5, 8, 2, 1, 9];
+                            </pre>
+                            <p>Metodlar: toSorted(), toReversed()
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>Massivni toSorted() yordamida saralash va toReversed() bilan teskari tartibda chiqarish.
+                            </p>
+                            <pre>let nums = [5, 3, 7, 2, 8];
+                            </pre>
+                            <p>Metodlar: toSorted(), toReversed()</p>
+                        </li>
+                        <li>
+                            <p>Massivni birlashtiring va uni vergul bilan ajratib, satr ko'rinishida chiqarib bering.
+                            </p>
+                            <pre>let fruits = ["apple", "banana", "cherry"];
+                            </pre>
+                            <p>Metodlar: join()</p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h4>Array Iteration Methods</h4>
+                        <li>
+                            <p>Barcha baholar 60 dan katta yoki yo‘qligini tekshiring</p>
+                            <pre>let grades = [72, 84, 90, 65, 58];
+                            </pre>
+                            <p>Metodlar: every(), some()</p>
+                        </li>
+                        <li>
+                            <p>String'dan harflar massivini yaratish</p>
+                            <pre>let word = "hello";
+                            </pre>
+                            <p>Metodlar: Array.from(), map()</p>
+                        </li>
+                        <li>
+                            <p>Massiv kalitlarini va qiymatlarini ajratish</p>
+                            <pre>let fruits = ["olma", "nok", "banan"];
+                            </pre>
+                            <p>Metodlar: keys(), entries()</p>
+                        </li>
+                        <li>
+                            <p>Faqat bitta qiymatni o‘zgartirib, massiv nusxasini olish</p>
+                            <pre>let numbers = [10, 20, 30, 40];
+                            </pre>
+                            <p>Metodlar: with(), spread (...)</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchilarning ismlarini ekranga chiqarish</p>
+                            <pre>let users = [
+                                { name: "Ali" },
+                                { name: "Vali" },
+                                { name: "Hasan" }
+                              ];</pre>
+                            <p>Metodlar: forEach()</p>
+                        </li>
+                        <li>
+                            <p>Har bir raqamni 2 ga ko‘paytirish</p>
+                            <pre>let nums = [1, 2, 3, 4];
+                            </pre>
+                            <p>Metodlar: map()</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchilar postlarini bitta massivga yig‘ish</p>
+                            <pre>let users = [
+                                { name: "Ali", posts: ["salom", "hello"] },
+                                { name: "Vali", posts: ["yoz", "bahor"] }
+                              ];</pre>
+                            <p>Metodlar: flatMap()</p>
+                        </li>
+                        <li>
+                            <p>Faqat juft raqamlarni ajratib olish</p>
+                            <pre>let numbers = [1, 2, 3, 4, 5, 6];
+                            </pre>
+                            <p>Metodlar: filter()</p>
+                        </li>
+                        <li>
+                            <p>Haridorlarning umumiy xarajatini hisoblash</p>
+                            <pre>let costs = [12000, 8000, 15000];
+                            </pre>
+                            <p>Metodlar: reduce()</p>
+                        </li>
+                        <li>
+                            <p>So‘zni teskari qilish</p>
+                            <pre>let word = "salom";
+                            </pre>
+                            <p>Metodlar: split(), reduceRight()</p>
+                        </li>
+                        <ol>
+                            <h3>String Methods</h3>
+                            <li>
+                                <p>Foydalanuvchi ismining uzunligini tekshirish</p>
+                                <pre>let name = "JavaScript";
+                            </pre>
+                                <p>Metod: length</p>
+                            </li>
+                            <li>
+                                <p>Ismning birinchi harfini chiqarish</p>
+                                <pre>let name = "Ali";
+                            </pre>
+                                <p>Metodlar: charAt(), at(), [ ]</p>
+                            </li>
+                            <li>
+                                <p>Belgining ASCII kodini bilish</p>
+                                <pre>let letter = "A";
+                            </pre>
+                                <p>Metod: charCodeAt()
+                                </p>
+                            </li>
+                            <li>
+                                <p>Telefon raqamining oxirgi 4 raqamini ajratish</p>
+                                <pre>let phone = "+998901234567";
+                            </pre>
+                                <p>Metod: slice()</p>
+                            </li>
+                            <li>
+                                <p>FISH (familiya ism) dan ismni ajratib olish</p>
+                                <pre>let fullName = "Najmiddinov Ziyodullox";</pre>
+                                <p>Metod: substring()
+                                </p>
+                            </li>
+                            <li>
+                                <p>3 ta belgidan boshlab 5 ta belgi olish</p>
+                                <pre>let word = "Javascript";
+                            </pre>
+                                <p>Metod: substr()</p>
+                            </li>
+                            <li>
+                                <p>Matnni katta harflarda chiqarish</p>
+                                <pre>let city = "Andijon";
+                            </pre>
+                                <p>Metod: toUpperCase()</p>
+                            </li>
+                            <li>
+                                <p>Matnni kichik harflarda chiqarish</p>
+                                <pre>let greeting = "SALOM";</pre>
+                                <p>Metod: toLowerCase()</p>
+                            </li>
+                            <li>
+                                <p>Ikkita so‘zni birlashtirish</p>
+                                <pre>let first = "Hello";
+                                let second = "World";
+
+                            </pre>
+                                <p>Metod: concat()</p>
+                            </li>
+                            <li>
+                                <p>Foydalanuvchi kiritgan matndan bo‘sh joylarni olib tashlash</p>
+                                <pre>let input = "   salom   ";
+                            </pre>
+                                <p>Metod: trim()</p>
+                            </li>
+                            <li>
+                                <p>Matnning boshidagi bo‘sh joylarni olib tashlash</p>
+                                <pre>let text = "    hello";
+                            </pre>
+                                <p>Metod: trimStart()
+                                </p>
+                            </li>
+                            <li>
+                                <p>Matnning oxiridagi bo‘sh joylarni olib tashlash</p>
+                                <pre>let text = "world    ";
+                            </pre>
+                                <p>Metod: trimEnd()</p>
+                            </li>
+                            <li>
+                                <p>Karta raqamining oxirini 4 ta raqamga to‘ldirish</p>
+                                <pre>let lastDigits = "1234";
+                            </pre>
+                                <p>Metod: padStart()</p>
+                            </li>
+                            <li>
+                                <p>Raqamni o‘ngidan to‘ldirish</p>
+                                <pre>let id = "ID";
+                            </pre>
+                                <p>Metod: padEnd()</p>
+                            </li>
+                            <li>
+                                <p>Parolni 5 marta takrorlash (misol uchun testda)</p>
+                                <pre>let pass = "abc";
+                            </pre>
+                                <p>Metod: repeat()</p>
+                            </li>
+                            <li>
+                                <p>Matndan ma’lum so‘zni boshqa so‘zga almashtirish</p>
+                                <pre>let message = "Salom dunyo!";
+                            </pre>
+                                <p>Metod: replace()</p>
+                            </li>
+                            <li>
+                                <p>Barcha "a" harflarini "*" ga almashtirish</p>
+                                <pre>let txt = "banana";
+                            </pre>
+                                <p>Metod: replaceAll()</p>
+                            </li>
+                            <li>
+                                <p>elefon raqamini kod va raqamga ajratish</p>
+                                <pre>let phone = "+998-90-123-45-67";
+                            </pre>
+                                <p>Metod: split()</p>
+                            </li>
+                        </ol>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Uyga Vazifa</h2>
+                <div class="panel">
+                    <ol>
+                        <h3>IIFE</h3>
+                        <li>
+                            <p>Talaba universitetga kirgan sanasini kiritsa, hozirgi yilga nisbatan kursi avtomatik
+                                hisoblanadi.</p>
+                            <pre></pre>
+                            <p>IIFE function da ishlansin</p>
+                        </li>
+                        <li>
+                            <p>Mahsulot uchun asosiy narx va chegirma foizi kiritilsin! va function hozirgi chegirmadagi
+                                narxni chiqazib bersin.</p>
+                            <pre></pre>
+                            <p>IIFE function da ishlansin</p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>This va Function(Method)</h3>
+
+                        <li>
+                            <p>Telefon modelini, narxini va zaxiradagi sonini saqlaydi. getInfo() metodini chaqirsak,
+                                barcha ma’lumotlarni chiqaradi.</p>
+                            <pre></pre>
+                            <p></p>
+                        </li>
+                        <li>
+                            <p>Filmning nomi, davomiyligi (daqiqa) va chiqarilgan sanasi berilgan. getDetails() metodi
+                                orqali barcha ma’lumot qaytariladi.</p>
+                            <pre></pre>
+                            <p></p>
+                        </li>
+                        <li>
+                            <p>Ishchining to‘liq ismi, ishga kirgan sanasi beriladi. getExperience() metodi hozirgi
+                                vaqtga nisbatan necha yil ishlaganini (oyigacha) hisoblaydi.</p>
+                            <pre></pre>
+                            <p></p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>Call Apply Bind</h3>
+                        <li>
+                            <p>getWorkerInfo Funktsiyasi ishchining ismi va lavozimini chiqaradi. Biz bu funksiyani
+                                call, apply, bind
+                                orqali turli odamlar uchun chaqiramiz.</p>
+                            <pre>                                 const worker1 = { name: "Ali", position: "Dasturchi" };
+                                 const worker2 = { name: "Vali", position: "Tester" };
+                                </pre>
+                            <p>Call Apply Bind da ishlansin.</p>
+                        </li>
+                        <li>
+                            <p></p>
+                            <pre>function calculateArea(p) {
+                                const area = this.length * this.width
+                                    return p + " " + area
+                                }
+                                
+                                const rectangle1 = { length: 5, width: 10 };
+                                const rectangle2 = { length: 7, width: 3 };</pre>
+                            <p>calculateArea("yuza") - shu functioni chaqirganda yuzani topib bersin (call)</p>
+                            <p>calculateArea("yuza") - shu functioni chaqirganda yuzani topib bersin (apply)</p>
+                            <p>calculateArea("yuza") - shu functioni chaqirganda yuzani topib bersin (bind)</p>
+                        </li>
+                        <li>
+                            <p>(printStudentInfo parametrlari course faculty ) Talabaning kursini va fakultetini
+                                chiqarish. thisda talaba obyekti.</p>
+                            <pre>
+                                const student1 = { fullName: "Ozoda Karimova" };
+                                const student2 = { fullName: "Javlon Abdullayev" };
+                                </pre>
+                            <p>Call Apply Bind da ishlansin.</p>
+                        </li>
+                        <li>
+                            <p>(showPrice(discount, currency)) Mahsulot nomi, narxi va chegirma asosida yakuniy narxni
+                                ko‘rsatish.</p>
+                            <pre>
+                                const product1 = { name: "Smartfon", price: 500 };
+                                const product2 = { name: "Noutbuk", price: 1000 };
+                                </pre>
+                            <p>Call Apply Bind da ishlansin.</p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>Object Methods</h3>
+                        <li>
+                            <p> Foydalanuvchi profilini nusxalash va ma'lumotlarini tekshirish</p>
+                            <pre>const user = {
+                                name: "Ali",
+                                age: 23,
+                                isAdmin: false
+                              };</pre>
+                            <p>Ishlatilgan metodlar: Object.assign, Object.keys, Object.values, Object.hasOwn</p>
+                        </li>
+                        <li>
+                            <p>Obyektni freeze qilib, o‘zgartirishdan saqlash</p>
+                            <pre>const settings = {
+                                theme: "dark",
+                                language: "uz",
+                              };</pre>
+                            <p>Ishlatilgan metodlar: Object.freeze, Object.isFrozen</p>
+                        </li>
+                        <li>
+                            <p>API dan kelgan massiv ma’lumotni obyektga aylantirish</p>
+                            <pre>// 1. API'dan kelgan juftliklar (massiv shaklida)
+                                const arr = [["name", "Hasan"], ["age", 30], ["active", true]];
+                               
+ // 2. Obyektga aylantiramiz
+....................................         
+// 3. Obyektni kalit-qiymat juftliklariga qaytarib chiqaramiz
+....................................
+
+                            </pre>
+                            <p> Ishlatilgan metodlar: Object.fromEntries, Object.entries</p>
+                        </li>
+                        <li>
+                            <p>Maxfiy (private) obyektni seal qilib, xususiyatlar o‘zgarsin, lekin yangisi qo‘shilmasin
+                            </p>
+                            <pre>const bankAccount = {
+                                balance: 1000,
+                                currency: "USD"
+                              };</pre>
+                            <p>Ishlatilgan metodlar: Object.seal</p>
+                        </li>
+
+                    </ol>
+                    <ol>
+                        <h3>Array Methods</h3>
+                        <h4>Basic Array Methods
+                        </h4>
+                        <li>
+                            <p>Yangi o'quvchilarni ro'yxatga qo'shish va eski o'chirish</p>
+                            <pre>let students = ["Ali", "Vali", "Hasan"];
+                            </pre>
+                            <p>Metodlar: unshift(), pop(), length</p>
+                            <p>Natija:
+                                Ro'yxat: Diyor,Ali,Vali, Jami: 3 ta</p>
+                        </li>
+                        <li>
+                            <p>Mahsulotlar ro'yxatini yangilash (eski o‘chirish, yangi qo‘shish, to‘liq ko‘rish)</p>
+                            <pre>let products = ["non", "sut", "tuxum", "shakar"];
+                            </pre>
+                            <p>Metodlar: splice(), join(), at()</p>
+                            <p>Natija:
+                                Mahsulotlar: non | sut | pishloq | shakar
+                                Oxirgi mahsulot: shakar</p>
+                        </li>
+                        <li>
+                            <p>Navbatdagi bemorni ro'yxatdan chiqarish va yangi bemor qo'shish</p>
+                            <pre>let patients = ["Aziz", "Diyor", "Lola"];
+                            </pre>
+                            <p>Metodlar: shift(), push(), toString()</p>
+                            <p>Natija:
+                                Aziz chiqdi. Yangi ro'yxat: Diyor,Lola,Malika
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>Telefon raqamlarini formatlash va faqat kerakli qismini olish</p>
+                            <pre>let phone = ["+998", "90", "123", "45", "67"];
+                            </pre>
+                            <p>Metodlar: slice(), join()</p>
+                            <p>Natija: "90-123-45-67"</p>
+                        </li>
+                        <li>
+                            <p>Reytingdagi eng yaxshi 3 sportchini olish va chiqarish</p>
+                            <pre>let players = ["Ali", "Vali", "Hasan", "Diyor", "Sardor"];
+</pre>
+                            <p>Metodlar: slice(), concat(), length</p>
+                            <p>Natija:
+                                Finalchilar: ['Ali', 'Vali', 'Hasan', 'Zafar'] Jami: 4</p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h4>Array Sort Methods</h4>
+                        <li>
+                            <p>Berilgan raqamlar massivini oldin numeric tartibda sort qiling, keyin Math.min() va
+                                Math.max() yordamida eng kichik va eng katta qiymatlarni toping.</p>
+                            <pre>let numbers = [15, 3, 22, 8, 5];
+                            </pre>
+                            <p>Metodlar: sort(), Math.min(), Math.max()</p>
+                        </li>
+                        <li>
+                            <p>Berilgan massivdagi elementlarni tasodifiy (xiyoliy) tartibda aralashtiring.</p>
+                            <pre>let items = ["olma", "banan", "shaftoli", "nok"];
+                            </pre>
+                            <p>Metodlar: sort() (random funktsiya qo‘llanilishi)</p>
+                        </li>
+                        <li>
+                            <p>Berilgan massivdan nusxa olgan holda (asl massiv o‘zgarmasin) toSorted() yordamida
+                                tartiblash va toReversed() yordamida teskari tartibni hosil qiling.</p>
+                            <pre>let original = [40, 10, 30, 20];
+                            </pre>
+                            <p>Metodlar: toSorted(), toReversed()
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>Berilgan massivni sort() yordamida tartiblang va keyin reverse() yordamida teskari
+                                tartibda ko‘rsating.</p>
+                            <pre>let data = [3, 1, 4, 5, 2];
+                            </pre>
+                            <p>Metodlar: sort(), reverse()</p>
+                        </li>
+                        <li>
+                            <p>Mahsulotlar ro‘yxati berilgan (har bir mahsulotning nomi va narxi mavjud). Massivni
+                                mahsulotlar narxi bo‘yicha osilish tartibida sortlang.</p>
+                            <pre>let products = [
+                                { name: "Televizor", price: 1500 },
+                                { name: "Telefon", price: 800 },
+                                { name: "Noutbuk", price: 2200 },
+                                { name: "Kamera", price: 1200 }
+                              ];</pre>
+                            <p>Metodlar: sort(), reverse() (agar kerak bo‘lsa)</p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <li>
+                            <h4>Array Iteration Methods</h4>
+                            <p>Talabalar ro‘yxati berilgan (har bir talabaning ismi va bahosi mavjud).
+                                Hamma talabalar 60 dan yuqori baho olganmi? Kamida bittasi 90 dan yuqori baho olganmi?
+                            </p>
+                            <pre>let students = [
+                          { name: "Ali", grade: 85 },
+                          { name: "Vali", grade: 90 },
+                          { name: "Hasan", grade: 70 }
+                        ];</pre>
+                            <p>Metodlar: <code>every()</code>, <code>some()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Foydalanuvchi ismi string sifatida berilgan. Harflarni alohida arrayga aylantiring va
+                                ularni kichik harflarga o‘tkazing.</p>
+                            <pre>let username = "JAVASCRIPT";</pre>
+                            <p>Metodlar: <code>Array.from()</code>, <code>map()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Mahsulotlar narxi ro‘yxati berilgan. Har bir mahsulotning tartib raqami (indeksi) va
+                                narxini chiqaruvchi kod yozing.
+                                Keyin faqat indekslarini alohida chiqaruvchi kod yozing.</p>
+                            <pre>let prices = [12000, 15000, 10000];</pre>
+                            <p>Metodlar: <code>entries()</code>, <code>keys()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Raqamlar ro‘yxati berilgan. 2-indexdagi qiymatni 10 ga o‘zgartirib, yangi array hosil
+                                qiling. Asl array o‘zgarmasin.</p>
+                            <pre>let numbers = [1, 2, 3, 4];</pre>
+                            <p>Metod: <code>with()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Frontend va Backend texnologiyalari alohida massivlarda berilgan. Ularni bitta arrayga
+                                birlashtiring.
+                                So‘ng, ichida 'JS' so‘zi bor texnologiyalarni ajrating.</p>
+                            <pre>let frontend = ["HTML", "CSS"];
+                      let backend = ["Node.js", "MongoDB"];</pre>
+                            <p>Metodlar: <code>spread (...)</code>, <code>filter()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Ismlar ro‘yxati berilgan. Har bir ismgа salom yozing va ularning uzunligini alohida
+                                arrayga oling.</p>
+                            <pre>let names = ["Ali", "Vali", "Hasan"];</pre>
+                            <p>Metodlar: <code>forEach()</code>, <code>map()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Foydalanuvchilar va ularning postlari ro‘yxati berilgan. Barcha postlarni bitta arrayga
+                                ajrating.</p>
+                            <pre>let users = [
+                          { name: "Ali", posts: ["Post1", "Post2"] },
+                          { name: "Vali", posts: ["Post3"] }
+                        ];</pre>
+                            <p>Metod: <code>flatMap()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Baholar ro‘yxati berilgan. Ularning o‘rtacha qiymatini toping.</p>
+                            <pre>let grades = [80, 90, 70];</pre>
+                            <p>Metod: <code>reduce()</code></p>
+                        </li>
+
+                        <li>
+                            <p>So‘zlar ro‘yxati berilgan. Ularni orqadan boshlab qo‘shib, bitta gap hosil qiling.</p>
+                            <pre>let words = ["Hello", "World", "!"];</pre>
+                            <p>Metod: <code>reduceRight()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Mahsulotlar va ularning narxlari berilgan. 100 dan katta mahsulotlar narxini 10%
+                                arzonlashtirib, umumiy narxini hisoblang.</p>
+                            <pre>let products = [
+                          { name: "Phone", price: 100 },
+                          { name: "TV", price: 500 },
+                          { name: "Cable", price: 20 }
+                        ];</pre>
+                            <p>Metodlar: <code>filter()</code>, <code>map()</code>, <code>reduce()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Raqamlar ro‘yxati berilgan. Har bir raqamni 2 ga ko‘paytiring, faqat 10 dan katta
+                                bo‘lganlarini olib, ularning yig‘indisini toping.</p>
+                            <pre>let nums = [2, 5, 10, 12, 20];</pre>
+                            <p>Metodlar: <code>map()</code>, <code>filter()</code>, <code>reduce()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Talabalar ro‘yxati berilgan. Bahosi 90 dan yuqori bo‘lganlar ismlarini ro‘yxat qilib
+                                qaytaring.</p>
+                            <pre>let students = [
+                          { name: "Ali", grade: 85 },
+                          { name: "Vali", grade: 95 },
+                          { name: "Hasan", grade: 92 }
+                        ];</pre>
+                            <p>Metodlar: <code>filter()</code>, <code>map()</code></p>
+                        </li>
+
+                        <li>
+                            <p>Mahsulotlar ro‘yxati berilgan (har bir mahsulotning nomi va narxi mavjud). Massivni
+                                mahsulotlar narxi bo‘yicha osilish tartibida sortlang.</p>
+                            <pre>let products = [
+                          { name: "Televizor", price: 1500 },
+                          { name: "Telefon", price: 800 },
+                          { name: "Noutbuk", price: 2200 },
+                          { name: "Kamera", price: 1200 }
+                        ];</pre>
+                            <p>Metodlar: <code>sort()</code>, <code>reverse()</code> (agar kerak bo‘lsa)</p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>String Method</h3>
+                        <li>
+                            <p>Foydalanuvchi to‘liq ismini formatlash</p>
+                            <p>Masala: Foydalanuvchi ismi " aBDuRashid " ko‘rinishida kelsa, uni Abdurashid ko‘rinishiga
+                                keltiring.</p>
+                            <pre>let fullName = "  aBDuRashid    ";
+                            </pre>
+                            <p>Ishlatiladigan metodlar: trim(), toLowerCase(), charAt(), slice()</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi parolida maxfiy belgilarni yashirish</p>
+                            <p>Masala: Parol "MySecret123" ko‘rinishida kelsa, uni *********123 shaklida ko‘rsating
+                                (faqat oxirgi 3 belgisi ochiq).</p>
+                            <pre>let password = "MySecret123";
+                            </pre>
+                            <p>Metodlar: slice(), padStart()</p>
+                        </li>
+                        <li>
+                            <p>Email tekshiruv</p>
+                            <p>Email "Test@GMAIL.Com " kelsa, uni kichik harflarga aylantirib, oxiri @gmail.com ekanini
+                                tekshiring.</p>
+                            <pre>let email = "Test@GMAIL.Com ";
+                            </pre>
+                            <p>Metodlar: trim(), toLowerCase(), endsWith()</p>
+                        </li>
+                        <li>
+                            <p>Mahsulot kodidan qisqa ma’lumot chiqarish</p>
+                            <p>Mahsulot kodi "PRD-009823-XX" bo‘lsa, undan "009823" qismini ajrating.</p>
+                            <pre>let code = "PRD-009823-XX";</pre>
+                            <p>Metodlar: split()</p>
+                        </li>
+                        <li>
+                            <p>Matndan maxsus so‘zni izlash va almashtirish</p>
+                            <p>Masala: "Bugun juda sovuq" matnida "sovuq" so‘zini "issiq" bilan almashtiring va unda
+                                "juda" borligini tekshiring.</p>
+                            <pre>let text = "Bugun juda sovuq";
+                            </pre>
+                            <p>Metodlar: replace(), includes()</p>
+                        </li>
+
+                    </ol>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+
+    </div>
+    </div>
+
+    <script src="./script3.js"></script>
+    <script src="./script4.js"></script>
+
+    <script src="./hover.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Chiziqli algoritmlar</h2>
+                    <div class="panel">
+<p><strong>Chiziqli algoritm</strong> — barcha qadamlar yuqoridan pastga, ketma-ket, hech qanday shart va takrorsiz bajariladigan algoritm. Har bir qadam aynan bir marta bajariladi.</p>
+<h4>O'zgaruvchi tushunchasi</h4>
+<p><strong>O'zgaruvchi</strong> — nomi bor xotira katakchasi; unga qiymat saqlanadi va keyin o'zgartirilishi mumkin. Masalan: <code>a = 5</code> — "a" nomli katakchaga 5 ni yoz. <code>a = a + 1</code> — a ning eski qiymatiga 1 qo'shib, yana a ga yoz (endi a = 6).</p>
+<pre>  a = 5        a = a + 1        b = a * 2
+ +-----+       +-----+          +-----+
+ |  5  |  -->  |  6  |          | 12  |
+ +-----+       +-----+          +-----+
+    a             a                b</pre>
+<h4>Asosiy amallar</h4>
+<pre>+   qo'shish          10 + 3 = 13
+-   ayirish           10 - 3 = 7
+*   ko'paytirish      10 * 3 = 30
+/   bo'lish           10 / 4 = 2.5
+div butun bo'lish     10 div 4 = 2     (JS: Math.floor(10 / 4))
+mod qoldiq            10 mod 4 = 2     (JS: 10 % 4)
+^   daraja            2 ^ 3 = 8        (JS: 2 ** 3)</pre>
+<h4>Kiritish va chiqarish</h4>
+<p><strong>KIRIT</strong> — foydalanuvchidan qiymat olish; <strong>CHIQAR</strong> — natijani ekranga chiqarish. Dasturlashda bu <code>prompt()</code> / <code>console.log()</code> bo'ladi (JavaScript modulida).</p>
+<h4>Misol 1: Haroratni Selsiydan Farengeytga</h4>
+<pre>BOSHLANISH
+  KIRIT c
+  f = c * 9 / 5 + 32
+  CHIQAR f
+TUGASH
+Tekshiruv: c = 25  ->  f = 77</pre>
+<h4>Misol 2: Sekundlarni soat:minut:sekundga ajratish</h4>
+<pre>BOSHLANISH
+  KIRIT t                 // 3725
+  soat   = t div 3600     // 1
+  minut  = (t mod 3600) div 60   // 2
+  sekund = t mod 60       // 5
+  CHIQAR soat, minut, sekund     // 1:2:5
+TUGASH</pre>
+<h4>Kuzatuv jadvali (trace table)</h4>
+<p>Algoritmni "qo'lda bajarish" — har qadamdan keyin o'zgaruvchilar qiymatini jadvalga yozish. Bu xatolarni topishning eng yaxshi usuli.</p>
+<pre>Qadam | a | b | s
+------+---+---+----
+KIRIT | 3 | 4 | -
+s=a+b | 3 | 4 | 7
+CHIQAR| 3 | 4 | 7   -> ekranda: 7</pre>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Mahsulot narxi</strong></p><p>Mahsulot narxi va miqdori kiritiladi. Jami narxni hisoblovchi algoritmni psevdokodda yozing va kuzatuv jadvalini to'ldiring.</p><pre>Kiritish: narx = 25000, miqdor = 3</pre></li>
+  <li class="lvl-oson"><p><strong>To'liq ism</strong></p><p>Ism va familiya kiritiladi. «To'liq ism: ...» ko'rinishida chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Kvadrat</strong></p><p>Kvadrat tomoni kiritiladi. Yuzi va perimetrini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Yosh</strong></p><p>Tug'ilgan yil va joriy yil kiritiladi. Yoshni chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Valyuta</strong></p><p>Dollar miqdori va kurs kiritiladi. So'mdagi qiymatini chiqaring.</p><pre>Kiritish: 50, 12500</pre></li>
+  <li class="lvl-oson"><p><strong>Selsiydan Farengeytga</strong></p><p>Selsiy harorati kiritiladi. Farengeytga o'tkazing: F = C × 9 / 5 + 32.</p></li>
+  <li class="lvl-orta"><p><strong>O'rtacha baho</strong></p><p>Talabaning 5 ta bahosi kiritiladi. O'rtacha bahoni chiqaring.</p><pre>Kiritish: 4, 5, 3, 4, 5</pre></li>
+  <li class="lvl-orta"><p><strong>Chegirma</strong></p><p>Narx va chegirma foizi kiritiladi. Chegirma summasini va to'lanadigan summani chiqaring.</p><pre>Kiritish: 120000, 15</pre></li>
+  <li class="lvl-orta"><p><strong>Ish haqi</strong></p><p>Ish haqi va soliq foizi kiritiladi. Soliq summasini va toza ish haqini chiqaring.</p><pre>Kiritish: 5000000, 12</pre></li>
+  <li class="lvl-orta"><p><strong>O'rinlarni almashtirish</strong></p><p>a va b o'zgaruvchilari qiymatlarini uchinchi o'zgaruvchi yordamida almashtiring. Kuzatuv jadvalini to'ldiring.</p><pre>Kiritish: a = 3, b = 7</pre></li>
+  <li class="lvl-orta"><p><strong>Doira</strong></p><p>Radius kiritiladi. Doira uzunligi (2πr) va yuzini (πr²) chiqaring, π = 3.14.</p></li>
+  <li class="lvl-orta"><p><strong>Tezlik</strong></p><p>Yo'l (km) va vaqt (soat) kiritiladi. Tezlikni (km/soat) chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Raqamlar yig'indisi</strong></p><p>Uch xonali son kiritiladi. Raqamlari yig'indisini <code>div</code> va <code>mod</code> yordamida toping.</p><pre>Kiritish: 472</pre></li>
+  <li class="lvl-qiyin"><p><strong>Teskari son</strong></p><p>Uch xonali son kiritiladi. Raqamlarini teskari tartibda yozilgan sonni hosil qiling.</p><pre>Kiritish: 123</pre></li>
+  <li class="lvl-qiyin"><p><strong>Vaqtni ajratish</strong></p><p>Sekundlar kiritiladi. Soat, minut va sekundga ajrating.</p><pre>Kiritish: 3725</pre></li>
+  <li class="lvl-qiyin"><p><strong>Uchinchi o'zgaruvchisiz</strong></p><p>a va b qiymatlarini uchinchi o'zgaruvchisiz, faqat qo'shish va ayirish bilan almashtiring. Kuzatuv jadvali bilan tekshiring.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Yig'indi va ayirma</strong></p><p>Ikki son kiritiladi. Yig'indisi, ayirmasi, ko'paytmasi va bo'linmasini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>To'g'ri to'rtburchak</strong></p><p>Bo'yi va eni kiritiladi. Yuzi va perimetrini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Minut va soat</strong></p><p>Minutlar kiritiladi. Soat va minutga ajrating.</p><pre>Kiritish: 135</pre></li>
+  <li class="lvl-oson"><p><strong>Kub</strong></p><p>Kub qirrasi kiritiladi. Hajmi (a³) va to'la sirti (6a²) ni chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Narxni oshirish</strong></p><p>Mahsulot narxi kiritiladi. 10% qimmatlashgandan keyingi narxni chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Taksi</strong></p><p>Taksida kirish narxi 5000 so'm, har km 2500 so'm. Masofa kiritiladi. To'lov summasini chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Uchta son</strong></p><p>Uchta son kiritiladi. Yig'indisi, ko'paytmasi va o'rtacha arifmetigini chiqaring. Har biri uchun kuzatuv jadvali tuzing.</p></li>
+  <li class="lvl-orta"><p><strong>Kunlarni ajratish</strong></p><p>Kunlar soni kiritiladi. Uni hafta va kunlarga ajrating.</p><pre>Kiritish: 45</pre></li>
+  <li class="lvl-orta"><p><strong>Bank foizi</strong></p><p>Bankka qo'yilgan summa va yillik foiz kiritiladi. 1 yildan keyingi summani chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Ikki nuqta</strong></p><p>To'g'ri chiziqdagi ikki nuqta koordinatasi kiritiladi. Ular orasidagi masofani toping (ayirmaning moduli emas — kattadan kichikni ayiring deb faraz qiling).</p></li>
+  <li class="lvl-qiyin"><p><strong>To'rt xonali son</strong></p><p>To'rt xonali son kiritiladi. Birinchi va oxirgi raqamlari yig'indisini toping.</p><pre>Kiritish: 4729</pre></li>
+  <li class="lvl-qiyin"><p><strong>Raqamlar ko'paytmasi</strong></p><p>Uch xonali son kiritiladi. Raqamlari ko'paytmasini toping.</p></li>
+  <li class="lvl-qiyin"><p><strong>Pul maydalash</strong></p><p>Summa kiritiladi (masalan, 2750). Uni 1000, 500, 100 va 50 so'mlik pullarga ajrating: har biridan nechta kerak?</p></li>
+  <li class="lvl-qiyin"><p><strong>Soatlar farqi</strong></p><p>Ikki vaqt kiritiladi (soat va minut). Ular orasida necha minut borligini toping (ikkinchi vaqt birinchisidan keyin deb oling).</p><pre>Kiritish: 9:45 va 13:20</pre></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. Chiziqli algoritm nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Qadamlar ketma-ket, shartsiz va takrorsiz, har biri bir marta bajariladigan algoritm.</p></details></li><li><p class="q">2. O'zgaruvchi nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Nomlangan xotira katakchasi; qiymat saqlaydi va uni o'zgartirish mumkin.</p></details></li><li><p class="q">3. a = a + 1 nimani bildiradi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>a ning joriy qiymatiga 1 qo'shib, natijani yana a ga saqlash (o'zlashtirish, tenglama emas).</p></details></li><li><p class="q">4. div va mod farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>div — butun bo'lish (10 div 3 = 3); mod — qoldiq (10 mod 3 = 1).</p></details></li><li><p class="q">5. Kuzatuv jadvali nima uchun kerak?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Algoritmni qo'lda bajarib, har qadamda o'zgaruvchilar qiymatini kuzatish va xatoni topish uchun.</p></details></li><li><p class="q">6. Uch xonali sonning o'rta raqamini qanday topamiz?</p><details class="answer"><summary>Javobni ko'rish</summary><p>(n div 10) mod 10. Masalan 472: 472 div 10 = 47, 47 mod 10 = 7.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

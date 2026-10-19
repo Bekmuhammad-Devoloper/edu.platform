@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+  <canvas id="rainCanvas"></canvas>
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>CommonJS va ES Modules (ESM)</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>CommonJS: Node.js'ning eski, an'anaviy moduli. require() orqali import qilinadi va module.exports orqali
+              eksport qilinadi.</li>
+            <li>ESM: JavaScript'ning yangi standarti. import va export kalit so'zlari orqali ishlaydi. Hozirda
+              Node.js'da keng tarqalmoqda.</li>
+            <li>Node.js Global Obyektlari
+              Bu obyektlarga dasturning istalgan joyidan to'g'ridan-to'g'ri murojaat qilish mumkin.
+              <br><br>
+              global: Node.js'ning asosiy global obyekti.
+              <br>
+              process: Node.js dasturi (jarayoni) haqida ma'lumot beradi.
+              <br>
+              console: Konsolga ma'lumot chiqarish uchun.
+              <br>
+              __dirname & __filename: Joriy fayl va uning katalogi yo'lini ko'rsatadi (CommonJS'da).
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Core, Local, Third-Party</span></h2>
+        <div class="panel">
+          <ol>
+            <li>Core (Asosiy) Modullar: Node.js bilan birga keladigan tayyor modullar. Masalan, http va fs (fayl
+              tizimi).</li>
+            <li>Local (Mahalliy) Modullar: O'zingiz yaratgan va loyihangizda ishlatadigan modullar.</li>
+            <li>Third-Party (Uchinchi tomon) Modullar: Boshqa dasturchilar tomonidan yozilgan va npm orqali
+              o'rnatiladigan modullar. Masalan, express.</li>
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"><span>Amaliyot</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <ul>
+                <li><b><code>kvadrat.js</code>:</b> Modul yarating.
+                  <ul>
+                    <li><code>square(n)</code> nomli funksiya yozing, u sonning kvadratini hisoblab qaytarsin.</li>
+                    <li>Bu funksiyani <b>CommonJS</b> formatida eksport qiling.</li>
+                  </ul>
+                </li>
+                <li><b><code>index.js</code>:</b> Asosiy fayl.
+                  <ul>
+                    <li><code>require</code> orqali <code>kvadrat.js</code> modulini chaqiring.</li>
+                    <li><code>square(5)</code> natijasini konsolga chiqaring.</li>
+                  </ul>
+                </li>
+                <li><b>ESModule ga o‘tkazish:</b>
+                  <ul>
+                    <li>Yuqoridagi kodni <b>ESModule</b> formatiga (<code>import</code>/<code>export</code>) o‘tkazing
+                      va natijasini konsolga chiqaring.</li>
+                  </ul>
+                </li>
+              </ul><br>
+            <li>
+              <ul>
+                <li><b><code>user.js</code>:</b> Modul yarating.
+                  <ul>
+                    <li><code>getFullName(name, surname)</code> funksiyasi: Ism va familiyani birlashtirib qaytarsin.
+                    </li>
+                    <li><code>isAdult(age)</code> funksiyasi: Yosh 18 dan katta yoki teng bo‘lsa <code>true</code>, aks
+                      holda <code>false</code> qaytarsin.</li>
+                    <li>Bu funksiyalarni <b>CommonJS</b> formatida eksport qiling.</li>
+                  </ul>
+                </li>
+                <li><b><code>app.js</code>:</b> Asosiy fayl.
+                  <ul>
+                    <li><code>require</code> orqali <code>user.js</code> modulini chaqiring.</li>
+                    <li><code>getFullName("Ali", "Valiyev")</code> va <code>isAdult(20)</code> natijalarini konsolga
+                      chiqaring.</li>
+                  </ul>
+                </li>
+                <li><b>ESModule ga o‘tkazish:</b>
+                  <ul>
+                    <li>Yuqoridagi kodni <b>ESModule</b> formatiga (<code>import</code>/<code>export</code>) o‘tkazing.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li><br>
+            <li>
+              <ul>
+                <li><b><code>dateUtils.js</code>:</b> Modul yarating.
+                  <ul>
+                    <li><code>getCurrentYear()</code>: Hozirgi yilni qaytaradigan funksiya.</li>
+                    <li><code>getCurrentMonth()</code>: Hozirgi oy raqamini (1 dan 12 gacha) qaytaradigan funksiya.</li>
+                    <li>Bu funksiyalarni <b>CommonJS</b> formatida eksport qiling.</li>
+                  </ul>
+                </li>
+                <li><b><code>main.js</code>:</b> Asosiy fayl.
+                  <ul>
+                    <li><code>require</code> orqali <code>dateUtils.js</code> modulini chaqiring.</li>
+                    <li>Hozirgi yil va oy raqamini konsolga chiqaring.</li>
+                  </ul>
+                </li>
+                <li><b>ESModule ga o‘tkazish:</b>
+                  <ul>
+                    <li>Yuqoridagi kodni <b>ESModule</b> formatiga o‘tkazing.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li><br>
+            <li>
+              <ul>
+                <li><b><code>mathOperations.js</code>:</b> Modul yarating.
+                  <ul>
+                    <li><code>multiply(a, b)</code> funksiyasi: Ikki sonni ko‘paytirsin.</li>
+                    <li><code>divide(a, b)</code> funksiyasi: Bir sonni ikkinchisiga bo‘lsin. Agar bo‘luvchi 0 bo‘lsa,
+                      "Error" xabarini qaytarsin.</li>
+                    <li>Bu funksiyalarni <b>CommonJS</b> formatida eksport qiling.</li>
+                  </ul>
+                </li>
+                <li><b><code>test.js</code>:</b> Asosiy fayl.
+                  <ul>
+                    <li>Modulni chaqirib, turli sonlar bilan amallar natijasini konsolga chiqaring.</li>
+                  </ul>
+                </li>
+                <li><b>ESModule ga o‘tkazish:</b>
+                  <ul>
+                    <li>Yuqoridagi kodni <b>ESModule</b> formatiga o‘tkazing.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li><br>
+            <li>
+              <ul>
+                <li><b><code>greet.js</code>:</b> Modul yarating.
+                  <ul>
+                    <li><code>greetUser(name)</code> funksiyasi: Foydalanuvchi ismini qabul qilib, "Hello, [ism]!"
+                      ko‘rinishidagi xabarni qaytarsin.</li>
+                    <li>Bu funksiyani <b>CommonJS</b> formatida eksport qiling.</li>
+                  </ul>
+                </li>
+                <li><b><code>hello.js</code>:</b> Asosiy fayl.
+                  <ul>
+                    <li><code>require</code> orqali <code>greet.js</code> modulini chaqiring.</li>
+                    <li><code>greetUser("Jasur")</code> natijasini konsolga chiqaring.</li>
+                  </ul>
+                </li>
+                <li><b>ESModule ga o‘tkazish:</b>
+                  <ul>
+                    <li>Yuqoridagi kodni <b>ESModule</b> formatiga o‘tkazib, <code>import</code> yordamida ishlating.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+      </li>
+      </ol>
+  </div>
+
+
+  </li>
+
+  <li>
+    <h2 class="accordion"><span>Uyga Vazifa</span></h2>
+    <div class="panel">
+      <ol>
+        <li>Restoran Mini-Tizimi: events Modulidan Foydalanish
+          <p>Ushbu topshiriqda sizdan Node.js’ning events o‘rnatilgan modulidan foydalangan holda restoran uchun sodda
+            tizimni yaratish talab qilinadi. Asosiy maqsad – tizimning turli qismlari (oshiyona, buxgalteriya,
+            omborxona) o‘zaro bevosita bog‘lanmasdan, hodisalar (events) orqali aloqa o‘rnatishini ko‘rsatib berish.</p>
+
+          Tizim Shartlari:
+          <ul>
+            <li>
+              <h3><b><code>EventEmitter</code> Ob'ekti:</b></h3>
+              <p>Restoran nomli asosiy ob'ekt (yoki klass) yaratish lozim. Bu ob'ekt
+                <b><code>events.EventEmitter</code></b> klassidan vorislik olishi kerak. Bu unga hodisalarni e'lon
+                qilish va tinglash imkonini beradi.
+              </p>
+            </li>
+            <li>
+              <h3><b>Yagona Hodisa (Event):</b></h3>
+              <p>Tizimda faqat bitta hodisa bo‘lsin. Bu hodisa nomi <b>"buyurtma-berildi"</b> deb nomlansin. Bu hodisa
+                har safar mijoz buyurtma berganida ishga tushishi kerak.</p>
+            </li>
+            <li>
+              <h3><b>Hodisa Tinglovchilari (Event Listeners):</b></h3>
+              <p><b>"buyurtma-berildi"</b> hodisasini tinglovchi uchta alohida funksiya (yoki komponent) bo‘lishi shart:
+              </p>
+              <ol>
+                <li><b>Oshxona:</b> Bu funksiya buyurtma ma’lumotini qabul qilib, uni tayyorlash jarayonini simulyatsiya
+                  qilsin (masalan, konsolga "Buyurtma tayyorlanmoqda..." deb chiqarsin).</li>
+                <li><b>Buxgalteriya:</b> Bu funksiya buyurtma narxini olib, girgittonlarning ish haqini hisoblasin. Har
+                  bir buyurtmadan <b>10%</b> miqdorida ish haqi hisoblab, umumiy summani yangilab borsin.</li>
+                <li><b>Omborxona:</b> Bu funksiya buyurtma tarkibiga qarab mahsulotlar (masalan, pomidor, bodring,
+                  go‘sht) miqdorini kamaytirsin. Agar buyurtmada go‘sht bo‘lsa, ombordan go‘sht miqdorini 1 ga
+                  kamaytirsingiz mumkin. Boshlang‘ich mahsulotlar zaxirasini (masalan, pomidor: 50, bodring: 40) alohida
+                  o‘zgaruvchida saqlab turing.</li>
+              </ol>
+            </li>
+            <li>
+              <h3><b>Natijani Konsolga Chiqarish:</b></h3>
+              <p>Barcha funksiyalar o‘z vazifalarini bajarganda, bu haqda konsolga aniq xabarlar chiqarsin. Masalan:</p>
+              <ul>
+                <li>Restoran: Yangi buyurtma qabul qilindi.</li>
+                <li>Oshxona: Buyurtma tayyorlanmoqda...</li>
+                <li>Buxgalteriya: Ish haqi hisoblandi...</li>
+                <li>Omborxona: Pomidor miqdori kamaytirildi. Qolgan: XX</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p>Ushbu vazifani bajarganingizda, asosiy restoran ob'ekti o'zining "buyurtma-berildi" hodisasini e'lon qiladi
+            va tizimning qolgan qismlari o'ziga tegishli vazifalarni mustaqil ravishda bajaradi. Bu esa kodlarning
+            o‘zaro bog‘liqligini kamaytirib, ularni yanada modul formatiga keltiradi.</p>
+        </li>
+        <li>ES Modules: Person (Shaxs) Ma’lumotlarini Boshqarish
+          <p>Ushbu topshiriqda sizdan JavaScript ES Modules (import/export) yordamida bir nechta alohida funksiyalarni
+            yaratib, ularni bitta asosiy faylda birlashtirish talab qilinadi. Tizim shaxs ma'lumotlarini ko'rsatishdan
+            oldin ma'lum bir vaqt kutib turishi kerak.</p>
+
+          1. Loyiha Tuzilishi
+          <p>Loyiha quyidagi alohida fayllardan iborat bo‘ladi:</p>
+          <ul>
+            <li>sleep.mjs</li>
+            <li>random.mjs</li>
+            <li>person.mjs</li>
+            <li>main.mjs</li>
+          </ul>
+
+          2. Modullar Uchun Shartlar
+          <ol>
+            <li>
+              <h3><b>sleep.mjs (Uxlash moduli)</b></h3>
+              <p>Bu modulda <b>sleep()</b> nomli asinxron funksiya yozing. Bu funksiya milisaniyalarda qiymat qabul
+                qilib, o‘sha vaqt davomida kodning bajarilishini to‘xtatib tursin. Funksiya quyidagicha tuzilgan
+                bo‘lishi kerak:</p>
+              <p>
+                <code>export async function sleep(ms) { ... }</code>
+              </p>
+            </li>
+            <li>
+              <h3><b>random.mjs (Tasodifiy son moduli)</b></h3>
+              <p>Bu modulda <b>random()</b> nomli funksiya yarating. Funksiya <b>100 dan 999 gacha</b> bo‘lgan tasodifiy
+                butun sonni qaytarsin.</p>
+              <p>
+                <code>export function random() { ... }</code>
+              </p>
+            </li>
+            <li>
+              <h3><b>person.mjs (Person klassi moduli)</b></h3>
+              <p>Bu modulda <b>Person</b> nomli klass yarating. Klass quyidagi xususiyatlarga ega bo‘lsin:</p>
+              <ul>
+                <li><b>Constructor:</b> <b>fullName</b> va <b>birthYear</b> (tug‘ilgan yil) qiymatlarini qabul qilsin.
+                </li>
+                <li><b>getInfo() methodi:</b> Bu metod shaxsning ma’lumotlarini, ya'ni to'liq ismini va hozirgi yoshini
+                  hisoblab matn ko'rinishida qaytarsin.</li>
+                <li><b>Getter:</b> Klass ichida shaxsning yoshini hisoblab beruvchi getter funksiyasi yozing. getInfo()
+                  metodi aynan shu getterdan foydalansin.</li>
+                <li>Klassni eksport qiling.</li>
+              </ul>
+            </li>
+            <li>
+              <h3><b>main.mjs (Asosiy fayl)</b></h3>
+              <p>Bu fayl barcha modullarni birlashtirib, quyidagi amallarni bajarsin:</p>
+              <ul>
+                <li>sleep.mjs, random.mjs va person.mjs modullarini <b>import</b> qiling.</li>
+                <li>random() funksiyasi orqali 100 dan 999 gacha bo‘lgan tasodifiy sonni oling.</li>
+                <li>sleep() funksiyasini chaqirib, unga tasodifiy sonni milisaniyada bloklab turish uchun kiriting.</li>
+                <li>sleep() funksiyasi tugagach, Person klassining yangi instansiyasini yarating (masalan, o'z
+                  ism-familiyangiz va tug‘ilgan yilingiz bilan).</li>
+                <li>getInfo() metodi orqali olingan shaxs ma'lumotini konsolga chiqaring.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <p>Bu topshiriq sizga modullardan samarali foydalanish, asinxron funksiyalar va klasslar bilan ishlash
+            bo‘yicha amaliy ko‘nikmalarni beradi. Loyihani to‘g‘ri tuzish uchun <code>package.json</code> faylida
+            <b>&quot;type&quot;: &quot;module&quot;</b> ni kiritishni unutmang.</p>
+        </li>
+      </ol>
+    </div>
+  </li>
+  </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+</body>
+
+</html>

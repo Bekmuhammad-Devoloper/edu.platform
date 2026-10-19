@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Hardware (apparat ta'minot)</h2>
+                    <div class="panel">
+<p><strong>Hardware</strong> — kompyuterning "ushlab ko'rsa bo'ladigan" qismi: jismoniy qurilmalar. <strong>Software</strong> — dasturiy ta'minot: ushlab bo'lmaydigan, lekin hardware'ni boshqaradigan dasturlar. Oddiy qilib: hardware — tana, software — miya/ong.</p>
+<h4>Asosiy qismlar</h4>
+<ul>
+  <li><strong>CPU (protsessor)</strong> — kompyuterning "miyasi": buyruqlarni bajaradi, hisoblaydi. Xarakteristikalari: yadrolar soni (core), chastota (GHz). Misol: Intel Core i5, AMD Ryzen 5, Apple M2.</li>
+  <li><strong>RAM (operativ xotira)</strong> — tezkor, vaqtinchalik xotira. Dastur ishlayotganda ma'lumotlar shu yerda turadi; kompyuter o'chsa — tozalanadi. 8 GB, 16 GB, 32 GB.</li>
+  <li><strong>Doimiy xotira: HDD / SSD</strong> — fayllar doimiy saqlanadigan joy. SSD HDD dan 5–10 barobar tez. 256 GB, 512 GB, 1 TB.</li>
+  <li><strong>GPU (video karta)</strong> — grafika, video va og'ir hisoblashlar (o'yinlar, sun'iy intellekt).</li>
+  <li><strong>Motherboard (ona plata)</strong> — barcha qismlarni bog'lovchi plata.</li>
+  <li><strong>Quvvat bloki, sovutish tizimi</strong>.</li>
+  <li><strong>Kiritish qurilmalari</strong>: klaviatura, sichqoncha, mikrofon, kamera, skaner.</li>
+  <li><strong>Chiqarish qurilmalari</strong>: monitor, printer, karnay.</li>
+</ul>
+<h4>Ma'lumot o'lchov birliklari</h4>
+<pre>1 bit  = eng kichik birlik (0 yoki 1)
+1 bayt = 8 bit            (bitta belgi, masalan "A")
+1 KB   = 1024 bayt
+1 MB   = 1024 KB
+1 GB   = 1024 MB
+1 TB   = 1024 GB</pre>
+<h4>Ikkilik sanoq tizimi (kirish)</h4>
+<p>Kompyuter faqat <strong>0</strong> va <strong>1</strong> ni "tushunadi" (tok bor / tok yo'q). Har qanday ma'lumot — matn, rasm, video — oxir-oqibat 0 va 1 lar ketma-ketligi.</p>
+<pre>O'nlik:  0  1  2   3   4    5    6    7    8     9     10
+Ikkilik: 0  1  10  11  100  101  110  111  1000  1001  1010
+
+Ikkilikdan o'nlikka: 1011 = 1*8 + 0*4 + 1*2 + 1*1 = 11</pre>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Software (dasturiy ta'minot)</h2>
+                    <div class="panel">
+<h4>Software turlari</h4>
+<ol>
+  <li><strong>Tizim dasturlari</strong> — operatsion tizim (Windows, macOS, Linux, Android, iOS) va drayverlar. OS hardware'ni boshqaradi va boshqa dasturlarga "maydon" beradi.</li>
+  <li><strong>Amaliy dasturlar</strong> — foydalanuvchi uchun: Chrome, Telegram, Word, Photoshop, o'yinlar.</li>
+  <li><strong>Dasturlash vositalari</strong> — dasturchilar uchun: VS Code, Node.js, Git, kompilyatorlar/interpretatorlar.</li>
+</ol>
+<h4>Operatsion tizim vazifalari</h4>
+<ul>
+  <li>Fayl tizimini boshqarish (papka va fayllar).</li>
+  <li>Jarayonlar (process) va xotirani boshqarish.</li>
+  <li>Qurilmalar bilan ishlash (drayverlar).</li>
+  <li>Foydalanuvchi interfeysi (oynalar, terminal).</li>
+</ul>
+<h4>Fayllar va kengaytmalar</h4>
+<p>Fayl nomi ikki qismdan iborat: <code>nom.kengaytma</code>. Kengaytma faylning turini bildiradi:</p>
+<pre>index.html   - veb-sahifa
+style.css    - uslublar
+app.js       - JavaScript kodi
+rasm.png     - rasm       (jpg, gif, svg, webp)
+hujjat.pdf   - hujjat     (docx, xlsx, txt)
+video.mp4    - video      (avi, mkv)
+arxiv.zip    - arxiv      (rar, 7z)</pre>
+<h4>Dastur qanday ishlaydi? (qisqacha)</h4>
+<pre>Kod (app.js)  -->  Interpretator (Node.js / brauzer)  -->  CPU bajaradi
+                        |
+                   RAM da ma'lumotlar
+                        |
+                   Natija: ekran, fayl, tarmoq</pre>
+<p><strong>Kompilyator</strong> — butun kodni oldindan mashina tiliga o'giradi (C, C++, Go). <strong>Interpretator</strong> — kodni qatorma-qator o'qib bajaradi (JavaScript, Python). JavaScript brauzerda (V8 dvigateli) va Node.js da ishlaydi.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Kompyuter pasporti</strong></p><p>Kompyuteringiz xarakteristikalarini toping va jadvalni to'ldiring.</p><pre>Protsessor (CPU): ______
+RAM: ______ GB
+Doimiy xotira: ______ GB (SSD/HDD)
+Video karta: ______
+Operatsion tizim: ______</pre></li>
+  <li class="lvl-oson"><p><strong>Tasniflash</strong></p><p>Quyidagilarni 3 guruhga ajrating: hardware, tizim dasturi, amaliy dastur. Monitor, Windows 11, Telegram, SSD, Android, Excel, klaviatura, drayver, Chrome, RAM, VS Code, printer.</p></li>
+  <li class="lvl-oson"><p><strong>Kiritish va chiqarish</strong></p><p>Kiritish va chiqarish qurilmalaridan 5 tadan yozing. Ham kiritish, ham chiqarish bo'la oladigan qurilma bormi?</p></li>
+  <li class="lvl-oson"><p><strong>Kengaytmalar</strong></p><p>Quyidagi fayllar qaysi turdagi ekanini yozing: <code>index.html</code>, <code>style.css</code>, <code>app.js</code>, <code>photo.png</code>, <code>video.mp4</code>, <code>report.pdf</code>, <code>data.json</code>, <code>archive.zip</code>.</p></li>
+  <li class="lvl-oson"><p><strong>Bayt va bit</strong></p><p>1 bayt necha bit? «Salom» so'zi necha bayt va necha bit joy egallaydi?</p></li>
+  <li class="lvl-oson"><p><strong>O'lchov birliklari</strong></p><p>Quyidagilarni hisoblang: 2 KB = ? bayt, 3 MB = ? KB, 4 GB = ? MB, 1 TB = ? GB.</p></li>
+  <li class="lvl-orta"><p><strong>Telefon xotirasi</strong></p><p>Telefonda 64 GB xotira bor. Har bir rasm 4 MB. Nechta rasm sig'adi? Hisoblash yo'lini yozing.</p></li>
+  <li class="lvl-orta"><p><strong>Film yuklash</strong></p><p>Bitta film 1.5 GB. 128 GB fleshkaga nechta film sig'adi? Qoldiq joy qancha qoladi?</p></li>
+  <li class="lvl-orta"><p><strong>O'nlikdan ikkilikka</strong></p><p>Quyidagi sonlarni ikkilik sanoq tizimiga o'tkazing: 5, 9, 12, 20, 33.</p></li>
+  <li class="lvl-orta"><p><strong>Ikkilikdan o'nlikka</strong></p><p>Quyidagi ikkilik sonlarni o'nlikka o'tkazing: 110, 1001, 1111, 10100, 100000.</p></li>
+  <li class="lvl-orta"><p><strong>RAM yoki SSD?</strong></p><p>Quyidagi ma'lumot qayerda saqlanadi — RAM yoki SSD? Ochiq turgan Word hujjati, saqlangan rasm, ishlab turgan o'yin, o'rnatilgan dastur, brauzerdagi ochiq tab.</p></li>
+  <li class="lvl-orta"><p><strong>Fayl kengaytmalarini ko'rsatish</strong></p><p>Windowsda fayl kengaytmalarini ko'rsatishni yoqing. Bitta <code>.txt</code> faylini <code>.html</code> ga o'zgartiring va brauzerda oching. Nima bo'ldi?</p></li>
+  <li class="lvl-qiyin"><p><strong>Ikkilik qo'shish</strong></p><p>Ikkilik sonlarni qo'shing: 101 + 11, 1100 + 101, 1111 + 1. Natijani o'nlikda tekshiring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Eng katta son</strong></p><p>8 bit yordamida yozish mumkin bo'lgan eng katta son qancha? 16 bit-chi? Qanday qonuniyat bor?</p></li>
+  <li class="lvl-qiyin"><p><strong>Internet tezligi</strong></p><p>Internet tezligi 100 Mbit/s (megabit). 1 GB faylni yuklash taxminan necha soniya oladi? Bit va bayt farqiga e'tibor bering.</p></li>
+  <li class="lvl-qiyin"><p><strong>Kompyuter tanlash</strong></p><p>Dasturchi uchun kompyuter tanlang: byudjet cheklangan. CPU, RAM va SSD uchun minimal talablarni yozing va har birini asoslang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>10 ta kengaytma</strong></p><p>10 ta fayl kengaytmasini yozing va har biri qanday fayl ekanini tushuntiring.</p></li>
+  <li class="lvl-oson"><p><strong>Qurilmalar</strong></p><p>Uyingizdagi 8 ta qurilmani yozing va ularning hardware qismlaridan bittadan misol keltiring.</p></li>
+  <li class="lvl-oson"><p><strong>Operatsion tizimlar</strong></p><p>5 ta operatsion tizimni yozing: kompyuter va telefon uchun alohida.</p></li>
+  <li class="lvl-oson"><p><strong>Birliklar jadvali</strong></p><p>bit, bayt, KB, MB, GB, TB orasidagi bog'liqlik jadvalini yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Dasturlar turi</strong></p><p>Telefoningizdagi 10 ta ilovani «tizim» va «amaliy» guruhlarga ajrating.</p></li>
+  <li class="lvl-orta"><p><strong>0 dan 20 gacha</strong></p><p>0 dan 20 gacha sonlarning ikkilik ko'rinishini jadval qilib yozing.</p></li>
+  <li class="lvl-orta"><p><strong>Xotira hisob-kitobi</strong></p><p>Telefonda 32 GB bo'sh joy bor. Siz 300 ta rasm (har biri 5 MB) va 20 ta video (har biri 200 MB) saqlamoqchisiz. Joy yetadimi?</p></li>
+  <li class="lvl-orta"><p><strong>Kompilyator va interpretator</strong></p><p>Kompilyator va interpretator farqini 3–4 jumlada o'z so'zingiz bilan yozing va har biriga dasturlash tilidan misol keltiring.</p></li>
+  <li class="lvl-orta"><p><strong>Ikkilik o'tkazish</strong></p><p>25, 47, 64, 100 sonlarini ikkilikka, 11001, 101010, 1111111 sonlarini o'nlikka o'tkazing.</p></li>
+  <li class="lvl-orta"><p><strong>Fayl hajmi</strong></p><p>Kompyuteringizdan 5 ta turli fayl tanlang va hajmini yozing. Eng katta va eng kichigini toping.</p></li>
+  <li class="lvl-qiyin"><p><strong>Sakkizlik va o'n oltilik</strong></p><p>13 va 255 sonlarini o'n oltilik (hex) sanoq tizimida yozing. Hex ranglar (<code>#ff0000</code>) bilan qanday bog'liq?</p></li>
+  <li class="lvl-qiyin"><p><strong>Bit bilan rang</strong></p><p>Rasmning har bir pikseli 3 bayt (RGB). 1920×1080 o'lchamdagi siqilmagan rasm necha MB bo'ladi?</p></li>
+  <li class="lvl-qiyin"><p><strong>Kompyuter ichidagi yo'l</strong></p><p>Siz <code>app.js</code> faylini ishga tushirganingizda kompyuter ichida nima sodir bo'ladi? SSD, RAM, CPU va ekran ishtirokida qadamlar ketma-ketligini yozing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Ikkilik ayirish</strong></p><p>Ikkilik sonlarni ayiring: 1010 − 11, 10000 − 1. Natijani o'nlikda tekshiring.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. Hardware va software farqi nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Hardware — jismoniy qurilmalar (CPU, RAM, SSD, monitor). Software — ularni boshqaradigan dasturlar (OS, Chrome, VS Code).</p></details></li><li><p class="q">2. RAM bilan SSD farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>RAM — tezkor vaqtinchalik xotira, o'chganda tozalanadi. SSD — doimiy xotira, fayllar saqlanadi.</p></details></li><li><p class="q">3. CPU nima vazifa bajaradi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Buyruqlarni bajaradi va hisob-kitob qiladi — kompyuterning 'miyasi'.</p></details></li><li><p class="q">4. 1 bayt necha bit? 1 KB necha bayt?</p><details class="answer"><summary>Javobni ko'rish</summary><p>1 bayt = 8 bit. 1 KB = 1024 bayt.</p></details></li><li><p class="q">5. Operatsion tizim nima va misollar?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Hardware va dasturlar o'rtasidagi tizim dasturi: Windows, macOS, Linux, Android, iOS.</p></details></li><li><p class="q">6. Kompilyator va interpretator farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Kompilyator butun kodni oldindan mashina tiliga o'giradi; interpretator qatorma-qator o'qib bajaradi. JavaScript — interpretatsiya qilinadigan til (JIT bilan).</p></details></li><li><p class="q">7. Nega kompyuter faqat 0 va 1 ni tushunadi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Elektron sxemalarda ikki holat bor: tok bor (1) va tok yo'q (0). Barcha ma'lumotlar shu ikki holat ketma-ketligida kodlanadi.</p></details></li><li><p class="q">8. Fayl kengaytmasi nima uchun kerak?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Fayl turini bildiradi va OS qaysi dastur bilan ochishni aniqlaydi (.html — brauzer, .js — Node.js/brauzer).</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

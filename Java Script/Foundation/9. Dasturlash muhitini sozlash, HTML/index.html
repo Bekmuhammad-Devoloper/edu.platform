@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Dasturlash muhitini sozlash</h2>
+                    <div class="panel">
+<h4>1. Visual Studio Code</h4>
+<ol>
+  <li><a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a> dan yuklab oling va o'rnating (standart sozlamalar bilan "Next").</li>
+  <li>O'rnatishda <strong>"Add to PATH"</strong> va <strong>"Open with Code"</strong> belgilarini qo'ying.</li>
+  <li>Kengaytmalar (Extensions, <code>Ctrl + Shift + X</code>):
+    <ul>
+      <li><strong>Live Server</strong> — sahifani brauzerda jonli ko'rish (o'zgarish → avtomatik yangilanish).</li>
+      <li><strong>Prettier</strong> — kodni avtomatik formatlash.</li>
+      <li><strong>Auto Rename Tag</strong> — ochuvchi teg o'zgarsa, yopuvchisi ham o'zgaradi.</li>
+      <li><strong>Material Icon Theme</strong> — fayl ikonkalari (ixtiyoriy).</li>
+    </ul>
+  </li>
+</ol>
+<h4>2. Loyiha papkasi</h4>
+<pre>Dasturlash/
+  Foundation/
+    09-html/
+      index.html
+      images/</pre>
+<p>VS Code da: <em>File → Open Folder</em> → papkani tanlang. Yangi fayl: <code>Ctrl + N</code>, saqlash: <code>Ctrl + S</code>.</p>
+<h4>3. Foydali tugmalar</h4>
+<pre>Ctrl + S        saqlash             Ctrl + /        izoh (comment)
+Ctrl + Z        bekor qilish        Alt + Shift + F formatlash (Prettier)
+Ctrl + D        keyingi bir xil so'z Alt + ↑/↓      qatorni ko'chirish
+Ctrl + `        terminal            Ctrl + B        yon panel</pre>
+<h4>4. Emmet</h4>
+<p>Bo'sh <code>.html</code> faylda <code>!</code> yozib <code>Tab</code> bosing — tayyor shablon chiqadi. <code>ul>li*3</code> + Tab — 3 ta li bilan ro'yxat.</p>
+<h4>5. Chrome DevTools</h4>
+<p><code>F12</code> yoki <code>Ctrl + Shift + I</code>: <strong>Elements</strong> — HTML/CSS ni ko'rish va vaqtincha o'zgartirish; <strong>Console</strong> — xatolar va JavaScript. Live Server orqali ochilgan sahifa manzili: <code>http://127.0.0.1:5500</code>.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">HTML asoslari</h2>
+                    <div class="panel">
+<p><strong>HTML</strong> (HyperText Markup Language) — veb-sahifaning <em>tuzilishi</em>ni (skeletini) belgilaydigan til. U dasturlash tili emas — belgilash tili: teglar orqali "bu sarlavha, bu abzats, bu rasm" deb aytiladi.</p>
+<h4>Teg, element, atribut</h4>
+<pre>&lt;a href="https://google.com" target="_blank"&gt;Google&lt;/a&gt;
+ |   |_____________ atributlar ______________|  |     |
+ ochuvchi teg                                 kontent  yopuvchi teg
+ |________________________ element ___________________________|</pre>
+<h4>Hujjat tuzilishi</h4>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="uz"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mening sahifam&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Salom, dunyo!&lt;/h1&gt;
+  &lt;p&gt;Bu mening birinchi sahifam.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<ul>
+  <li><code>&lt;head&gt;</code> — sahifa haqida ma'lumot (sarlavha, kodirovka, uslublar) — ko'rinmaydi.</li>
+  <li><code>&lt;body&gt;</code> — ko'rinadigan kontent.</li>
+</ul>
+<h4>Asosiy teglar</h4>
+<pre>&lt;h1&gt; ... &lt;h6&gt;      sarlavhalar (h1 — eng katta, sahifada 1 ta)
+&lt;p&gt;                abzats
+&lt;a href=""&gt;        havola (link)
+&lt;img src="" alt=""&gt; rasm (yopuvchi tegi yo'q)
+&lt;ul&gt; &lt;li&gt;         tartibsiz ro'yxat        &lt;ol&gt; &lt;li&gt;   tartibli ro'yxat
+&lt;br&gt;               yangi qator               &lt;hr&gt;         gorizontal chiziq
+&lt;strong&gt; &lt;em&gt;     qalin / kursiv (ma'noli) &lt;b&gt; &lt;i&gt;      qalin / kursiv (ko'rinish)
+&lt;div&gt;              blok konteyner            &lt;span&gt;       qator ichidagi konteyner
+&lt;!-- izoh --&gt;      brauzer ko'rsatmaydi</pre>
+<h4>Semantik teglar</h4>
+<pre>&lt;header&gt;  sahifa/bo'lim boshi      &lt;nav&gt;      navigatsiya (menyu)
+&lt;main&gt;    asosiy kontent           &lt;section&gt;  bo'lim
+&lt;article&gt; mustaqil maqola          &lt;aside&gt;    yon panel
+&lt;footer&gt;  sahifa oxiri</pre>
+<h4>Jadval</h4>
+<pre>&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Ism&lt;/th&gt;&lt;th&gt;Yosh&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Ali&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</pre>
+<h4>Forma</h4>
+<pre>&lt;form&gt;
+  &lt;label&gt;Ism: &lt;input type="text" name="name" placeholder="Ismingiz"&gt;&lt;/label&gt;
+  &lt;label&gt;Email: &lt;input type="email" name="email"&gt;&lt;/label&gt;
+  &lt;label&gt;Parol: &lt;input type="password"&gt;&lt;/label&gt;
+  &lt;input type="checkbox"&gt; Shartlarga roziman
+  &lt;select&gt;&lt;option&gt;Toshkent&lt;/option&gt;&lt;option&gt;Andijon&lt;/option&gt;&lt;/select&gt;
+  &lt;textarea&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Yuborish&lt;/button&gt;
+&lt;/form&gt;</pre>
+<h4>Blok va qator elementlari</h4>
+<p><strong>Blok</strong> (div, p, h1, ul, section) — yangi qatordan boshlanadi, butun kenglikni egallaydi. <strong>Qator ichi</strong> (span, a, strong, img) — matn oqimida turadi.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Muhit</strong></p><p>VS Code o'rnating, Live Server va Prettier kengaytmalarini qo'shing. <code>Dasturlash/Foundation/09-html</code> papkasini VS Code da oching.</p></li>
+  <li class="lvl-oson"><p><strong>Birinchi sahifa</strong></p><p><code>index.html</code> yarating, Emmet <code>!</code> bilan shablon chiqaring, <code>title</code> ni «Men haqimda» qiling va Live Server bilan oching.</p></li>
+  <li class="lvl-oson"><p><strong>Sarlavhalar</strong></p><p>h1 dan h6 gacha 6 ta sarlavha yozing va farqini ko'ring.</p></li>
+  <li class="lvl-oson"><p><strong>Abzats va qator</strong></p><p>3 ta abzats yozing. Birinchisida <code>br</code> bilan yangi qator, ikkinchisida <code>strong</code>, uchinchisida <code>em</code> ishlating.</p></li>
+  <li class="lvl-oson"><p><strong>Ro'yxatlar</strong></p><p>Sevimli 5 ta taomingizni <code>ul</code> bilan, kun tartibingizni <code>ol</code> bilan yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Havola</strong></p><p>Google ga havola qo'ying. Yangi oynada ochilsin (<code>target</code>).</p></li>
+  <li class="lvl-orta"><p><strong>Men haqimda</strong></p><p>Sahifa: h1 — ismingiz; p — 2–3 jumla; h2 «Qiziqishlarim» + ul (4 ta); h2 «Maqsadlarim» + ol (3 ta); rasm va havola.</p></li>
+  <li class="lvl-orta"><p><strong>Rasm</strong></p><p>Rasm qo'ying, <code>alt</code> yozing. Rasm yuklanmasa nima ko'rinishini tekshiring (yo'lni ataylab xato yozing).</p></li>
+  <li class="lvl-orta"><p><strong>Jadval</strong></p><p>Haftalik dars jadvali: kun, vaqt, fan (kamida 5 qator, <code>th</code> sarlavhalar bilan).</p></li>
+  <li class="lvl-orta"><p><strong>Forma</strong></p><p>«Ro'yxatdan o'tish» formasi: ism, email, parol, telefon, shahar (select), «Shartlarga roziman» (checkbox), «Yuborish» tugmasi. Har bir input uchun label bo'lsin.</p></li>
+  <li class="lvl-orta"><p><strong>Ichki havolalar</strong></p><p>Sahifa boshida mundarija qiling: har bir bo'limga <code>#id</code> orqali sakrab o'tsin.</p></li>
+  <li class="lvl-orta"><p><strong>DevTools</strong></p><p>F12 bosib Elements bo'limida h1 matnini vaqtincha o'zgartiring. Sahifani yangilaganda nima bo'ladi?</p></li>
+  <li class="lvl-qiyin"><p><strong>Semantik tuzilma</strong></p><p>Sahifani header (logo + nav: 3 ta havola), main (2 ta section), footer (© va yil) ga bo'ling.</p></li>
+  <li class="lvl-qiyin"><p><strong>Ikki sahifa</strong></p><p><code>index.html</code> va <code>about.html</code> yarating. Ular orasida o'tish havolalari bo'lsin.</p></li>
+  <li class="lvl-qiyin"><p><strong>Murakkab jadval</strong></p><p>Sinf jurnali jadvali: <code>colspan</code> va <code>rowspan</code> ishlatib, «Choraklar» sarlavhasini 4 ustunga cho'zing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Video va audio</strong></p><p>Sahifaga <code>video</code> (controls bilan) va YouTube videoni <code>iframe</code> orqali joylang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>10 ta teg</strong></p><p>10 ta HTML tegini yozing va har biri nima qilishini bir jumlada tushuntiring.</p></li>
+  <li class="lvl-oson"><p><strong>Izohlar</strong></p><p>Sahifaga 3 ta HTML izoh (<code>&lt;!-- --&gt;</code>) yozing. Brauzerda ko'rinadimi?</p></li>
+  <li class="lvl-oson"><p><strong>Sevimli kitob</strong></p><p>Sevimli kitobingiz haqida sahifa: sarlavha, muqova rasmi, muallif, qisqa mazmun.</p></li>
+  <li class="lvl-oson"><p><strong>Ro'yxat ichida ro'yxat</strong></p><p>Fanlar ro'yxati, har bir fan ichida 2 ta mavzu (ichma-ich ul).</p></li>
+  <li class="lvl-oson"><p><strong>Email va telefon</strong></p><p><code>mailto:</code> va <code>tel:</code> havolalarini yozing va bosib ko'ring.</p></li>
+  <li class="lvl-orta"><p><strong>Rezyume</strong></p><p><code>resume.html</code>: ism, rasm, aloqa, «Ta'lim» va «Ko'nikmalar» ro'yxatlari, «Tajriba» jadvali.</p></li>
+  <li class="lvl-orta"><p><strong>Retsept</strong></p><p>Taom retsepti sahifasi: masalliqlar (ul), tayyorlash bosqichlari (ol), rasm.</p></li>
+  <li class="lvl-orta"><p><strong>So'rovnoma</strong></p><p>So'rovnoma formasi: radio (jins), checkbox (qiziqishlar), select (shahar), textarea (fikr), date (tug'ilgan sana).</p></li>
+  <li class="lvl-orta"><p><strong>Narxlar jadvali</strong></p><p>3 ta tarif (Basic, Pro, VIP) jadvali: narx, imkoniyatlar, «Tanlash» tugmasi.</p></li>
+  <li class="lvl-orta"><p><strong>Galereya</strong></p><p>6 ta rasm va har birining tagida nomi bo'lgan galereya sahifasi (<code>figure</code> va <code>figcaption</code>).</p></li>
+  <li class="lvl-qiyin"><p><strong>Mini sayt</strong></p><p>3 sahifali sayt: Bosh sahifa, Biz haqimizda, Aloqa. Har sahifada bir xil header va footer bo'lsin.</p></li>
+  <li class="lvl-qiyin"><p><strong>Semantik blog</strong></p><p>Blog sahifasi: header, nav, main ichida 3 ta article (sarlavha, sana, matn), aside (mashhur postlar), footer.</p></li>
+  <li class="lvl-qiyin"><p><strong>To'liq forma</strong></p><p>Ro'yxatdan o'tish formasida <code>required</code>, <code>minlength</code>, <code>pattern</code> (telefon uchun), <code>placeholder</code> ishlating. Bo'sh yuborib ko'ring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Izohli kod</strong></p><p>Rezyume sahifangizdagi har bir teg nima uchun ishlatilganini izohlar bilan yozing.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. HTML nima? U dasturlash tilimi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>HyperText Markup Language — sahifa tuzilishini belgilovchi belgilash tili; dasturlash tili emas.</p></details></li><li><p class="q">2. Teg, element va atribut farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Teg — <p> kabi belgi; element — ochuvchi teg + kontent + yopuvchi teg; atribut — tegga qo'shimcha ma'lumot (href, src).</p></details></li><li><p class="q">3. head va body farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>head — sahifa haqida ma'lumot (title, meta, css), ko'rinmaydi; body — ko'rinadigan kontent.</p></details></li><li><p class="q">4. Blok va qator ichi (inline) elementlar?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Blok — yangi qator, to'liq kenglik (div, p, h1). Inline — matn oqimida (span, a, img).</p></details></li><li><p class="q">5. Semantik teglar nima uchun kerak?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Kod o'qilishi, SEO va maxsus imkoniyatlar (screen reader) uchun ma'no beradi: header, nav, main, footer.</p></details></li><li><p class="q">6. img tegining alt atributi nima uchun?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Rasm yuklanmasa yoki ko'rish imkoni bo'lmasa, tavsif matni; SEO uchun ham muhim.</p></details></li><li><p class="q">7. Live Server nima qiladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Sahifani lokal serverda ochadi va fayl saqlanganda brauzerni avtomatik yangilaydi.</p></details></li><li><p class="q">8. DOCTYPE nima uchun?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Brauzerga hujjat HTML5 standartida ekanini bildiradi.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

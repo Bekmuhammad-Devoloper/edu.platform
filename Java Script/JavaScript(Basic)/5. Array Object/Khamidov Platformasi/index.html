@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">Object va Array methodlari</h2>
+                <div class="panel">
+                    <p>Array va Object methodlari bu method keysiga yozilgan kodlar hisoblanadi bu keyni kodda ishlatish
+                        orqali kodimizga keyga yozilgan funksiyalarini qoshamiz. </p>
+                    <h2 class="image-toggle">Object Methods</h2>
+                    <div class="image-panel">
+                        <img src="./img/photo_2024-12-11_16-45-38.jpg" alt="JavaScript Tarixi" style="width:100%;">
+                    </div>
+                    <h2 class="image-toggle">Array Methods</h2>
+                    <div class="image-panel">
+                        <img src="./img/2102.jpg" alt="JavaScript Tarixi 2" style="width:100%;">
+                    </div>
+                    <h2 class="image-toggle">Array Methods</h2>
+                    <div class="image-panel">
+                        <img src="./img/2103.jpg" alt="JavaScript Tarixi 2" style="width:100%;">
+                    </div>
+                </div>
+
+            </li>
+
+            <li>
+                <h2 class="accordion">Amaliyot (Object Methods)</h2>
+                <div class="panel">
+                    <ol>
+                        <h3>Object.keys()</h3>
+                        <li>
+                            <p> Foydalanuvchi haqidagi ma'lumotlarni olish: Foydalanuvchi obyektining kalitlarini olish,
+                                masalan, name, age va location kabi.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Mahsulotning xususiyatlarini olish: Mahsulotlar obyektidan barcha xususiyatlarni olish.
+                                (name,brend,price)</p>
+                        </li>
+                        <li>
+                            <p> Xodimlar ro'yxatining xususiyatlari: Xodimlar haqidagi barcha kalitlarni
+                                olish.(id,name,position)</p>
+                        </li>
+                        <li>
+                            <p>Mijozlar haqidagi ma'lumotlarni olish: Mijozlar obyektining barcha kalitlarini olish.
+                                (id,name,email)</p>
+                        </li>
+                        <h3>Object.values()</h3>
+                        <li>
+                            <p>Foydalanuvchi ma'lumotlarini olish: Foydalanuvchining barcha qiymatlarini olish.
+                                (name,age,location)
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>Mahsulotlar narxlarini olish: Mahsulot narxlarini olish. (name brend price)</p>
+                        </li>
+                        <li>
+                            <p> Xodimlarning maoshlarini olish: Xodimlarning maoshlarini olish. (id name maosh)</p>
+                        </li>
+                        <li>
+                            <p>Mijozning to'lov tarixini olish: Mijozning to'lovlarini olish. id name hisobi
+                            </p>
+                        </li>
+                        <h3>Object.entries()</h3>
+                        <li>
+                            <p>Foydalanuvchi haqida kalit-qiymat juftligini olish: Foydalanuvchining ma'lumotlarini
+                                kalit-qiymat juftligi sifatida olish. name age locatsion</p>
+                        </li>
+                        <li>
+                            <p>Mahsulot haqida ma'lumotlarni olish: Mahsulotning kalit-qiymat juftliklarini olish. name
+                                brand price
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>Xodimlar ro'yxatidagi ma'lumotlar: Xodimlar haqidagi ma'lumotlarni kalit-qiymat
+                                juftliklari sifatida olish. id name position</p>
+                        </li>
+                        <li>
+                            <p>Mijoz haqidagi ma'lumotlarni olish: Mijoz haqidagi kalit-qiymat juftliklarini olish. id
+                                name email </p>
+                        </li>
+                        <h3>Object.assign()</h3>
+                        <li>
+                            <p>Foydalanuvchi malumotlarini yangilash: Foydalanuvchining ma'lumotlarini yangilash
+                                (masalan, email qo'shish). name age email hobby</p>
+                        </li>
+                        <li>
+                            <p>Mahsulotni yangilash: Mahsulot haqida qo'shimcha ma'lumotlar qo'shish.
+                                name price brand
+                            </p>
+                        </li>
+                        <li>
+                            <p>Xodimlar ma'lumotlarini yangilash: Xodimning lavozimini yangilash. name position city</p>
+                        </li>
+                        <li>
+                            <p> Mijoz ma'lumotlarini yangilash: Mijozning telefon raqamini qo'shish. name password email
+                            </p>
+                        </li>
+                        <h3>Object.freeze()</h3>
+                        <li>
+                            <p>Foydalanuvchi obyektini muzlatish: Foydalanuvchi obyektini muzlatib, uni o'zgartirishni
+                                oldini olish. (ucer name age)</p>
+                        </li>
+                        <li>
+                            <p>Mahsulot obyektini muzlatish: Mahsulot obyektini muzlatish va uning qiymatini
+                                o'zgartirishni cheklash. (name price caunt)</p>
+                        </li>
+                        <li>
+                            <p>Xodimlar ro'yxatini muzlatish: Xodimlar ro'yxatidagi ma'lumotlarni o'zgartirishni
+                                cheklash. id name position</p>
+                        </li>
+                        <li>
+                            <p>Mijozlar obyektini muzlatish: Mijozlar obyektini muzlatib, uning ma'lumotlarini
+                                o'zgartirishni oldini olish.
+                                id name position
+                            </p>
+                        </li>
+                        <h3>Object.seal()</h3>
+                        <li>
+                            <p>Foydalanuvchi obyektini muhrlash: Foydalanuvchi obyektiga yangi kalit qo'shishni oldini
+                                olish, lekin qiymatini o'zgartirish mumkin bo'ladi. ucer password email</p>
+                        </li>
+                        <li>
+                            <p>Mahsulot obyektini muhrlash: Mahsulot obyektini muhrlab, uning narxini o'zgartirish, ammo
+                                yangi xususiyatlar qo'shishni taqiqlash. name price caunt</p>
+                        </li>
+                        <li>
+                            <p>Xodimlar ro'yxatini muhrlash: Xodimlar ro'yxatidagi ma'lumotlarni muhrlash va yangi
+                                xususiyatlarni qo'shishni cheklash. id name cauntry</p>
+                        </li>
+                        <li>
+                            <p>Mijozlar obyektini muhrlash: Mijozlar obyektini muhrlab, uning telefon raqamini
+                                qo'shishni oldini olish, ammo boshqa xususiyatlarini o'zgartirish mumkin bo'ladi. name
+                                password email</p>
+                        </li>
+                        <h3>Object.create()</h3>
+                        <li>
+                            <p>Prototip merosini yaratish Object.create() yordamida yangi obyekt yaratish va unga
+                                prototip sifatida boshqa obyektni bog'lash.</p>
+                        </li>
+                        <h3>Object.defineProperty()</h3>
+                        <li>
+                            <p>Obyektdagi xususiyatni o'zgartirilmas qilish Object.defineProperty() yordamida obyektning
+                                xususiyatini "readonly" (faqat o'qish) qilib belgilash.</p>
+                        </li>
+                        <h3>Object.defineProperties()</h3>
+                        <li>
+                            <p>Obyektdagi ko'plab xususiyatlarni bir vaqtning o'zida aniqlash Bir nechta xususiyatlarni
+                                bir vaqtning o'zida aniqlash va turli xususiyatlarni sozlash.</p>
+                        </li>
+                        <h3>Object.hasOwnProperty()</h3>
+                        <li>
+                            <p>Obyektda muayyan xususiyat borligini tekshirish hasOwnProperty() metodini obyektning
+                                o'zida mavjud bo'lgan xususiyatni tekshirishda ishlatish.</p>
+                        </li>
+                        <h3>Object.is()</h3>
+                        <li>
+                            <p>Ikki obyektning tengligini tekshirish Object.is() yordamida ikki obyektni yoki qiymatni
+                                tengligini tekshirish.</p>
+                        </li>
+                        <h3>Object.fromEntries()</h3>
+                        <li>
+                            <p>Kalit-qiymat juftlaridan obyekt yaratish Object.fromEntries() yordamida massivdagi
+                                kalit-qiymat juftlaridan obyekt yaratish.</p>
+                        </li>
+                    </ol>
+            <li>
+                <h2 class="accordion">Amaliyot (Array Methods)</h2>
+                <div class="panel">
+                    <ol>
+                        <h3>map()</h3>
+                        <li>
+                            <p>Sizda ['apple', 'banana', 'cherry'] massiv bor. Har bir elementni katta harflarga
+                                o‘tkazing.</p>
+                        </li>
+                        <li>
+                            <p>Talabalar ballari massivini berilgan balldan 5 ball ko‘tarib, yangi massiv hosil qiling.
+                            </p>
+                        </li>
+                        <h3>filter()</h3>
+                        <li>
+                            <p>Massivdan juft sonlarni ajratib oling: [1, 2, 3, 4, 5, 6].</p>
+                        </li>
+                        <li>
+                            <p>Ishchilar ro‘yxatidan faqat "developer" bo‘lganlarni ajratib oling: (ali menager, bek
+                                devoloper, zarina developer, dilshod designer.)</p>
+                        </li>
+
+                        <h3>reduce()</h3>
+                        <li>
+                            <p>Berilgan sonlar massivining yig‘indisini hisoblang: [1, 2, 3, 4, 5].</p>
+                        </li>
+                        <li>
+                            <p>Ishchilarning umumiy oyliklarini hisoblang:const salaries = [
+                                { name: 'Ali', salary: 1200 },
+                                { name: 'Bek', salary: 1500 },
+                                { name: 'Dilshod', salary: 1000 }
+                                ]; </p>
+                        </li>
+
+                        <h3>find()</h3>
+                        <li>
+                            <p>Massivdan 3 sonini toping: [1, 2, 3, 4, 5].</p>
+                        </li>
+                        <li>
+                            <p>Talabalardan birinchi bo‘lib 60 dan yuqori ball olgan talaba ma'lumotlarini toping: const
+                                students = [
+                                { name: 'Ali', score: 56 },
+                                { name: 'Bek', score: 78 },
+                                { name: 'Dilshod', score: 82 }
+                                ];</p>
+                        </li>
+
+                        <h3>sort()</h3>
+                        <li>
+                            <p>Sonlar massivini o‘sish tartibida saralang: [4, 2, 5, 1, 3].</p>
+                        </li>
+                        <li>
+                            <p>Talabalarni baliga qarab kamayish tartibida saralang: const students = [
+                                { name: 'Ali', score: 56 },
+                                { name: 'Bek', score: 78 },
+                                { name: 'Dilshod', score: 82 }
+                                ];</p>
+                        </li>
+
+                        <h3>forEach()</h3>
+                        <li>
+                            <p>Massivdagi har bir elementni konsolga chiqaring: [1, 2, 3].</p>
+                        </li>
+                        <li>
+                            <p>Talabalar ro‘yxatidagi har bir talabaning ismi va balini quyidagi shaklda konsolga
+                                chiqaring: const students = [
+                                { name: 'Ali', score: 56 },
+                                { name: 'Bek', score: 78 },
+                                { name: 'Dilshod', score: 82 }
+                                ];</p>
+                        </li>
+
+                        <h3>push</h3>
+                        <li>
+                            <p>Har bir yangi talaba qo‘shilganida ro‘yxatning oxiriga qo‘shib, yangi umumiy o‘rtacha
+                                ballni hisoblang. students = [{ name: 'Ali', score: 75 }, { name: 'Bek', score: 85 }];
+                                const newStudent = { name: 'Zarina', score: 90 };</p>
+                        </li>
+                        <li>
+                            <p>Chiqindilarni boshqarish tizimida yangi chiqindi qo‘shilganida ro‘yxatni yangilang va
+                                umumiy chiqindilarni kilogrammda hisoblang. const trashList = [{ type: 'plastic', kg: 5
+                                }, { type: 'glass', kg: 3 }];
+                                const newTrash = { type: 'metal', kg: 2 };
+                                trashList.push(newTrash);</p>
+                        </li>
+
+                        <h3>pop</h3>
+                        <li>
+                            <p>Ro‘yxatdan oxirgi elementni olib tashlang va o‘sha elementni logda saqlang.
+                                const tasks = ['Task 1', 'Task 2', 'Task 3'];
+                            </p>
+                        </li>
+                        <li>
+                            <p>Oxirgi qo‘shilgan mijozni ro‘yxatdan o‘chirib, qolgan mijozlar ro‘yxatini qaytaring.
+                                const customers = ['Ali', 'Bek', 'Zarina'];
+                            </p>
+                        </li>
+
+                        <h3>unshift</h3>
+                        <li>
+                            <p>Ro‘yxat boshiga yangi tovarni qo‘shing va ro‘yxat uzunligini qaytaring.</p>
+                        </li>
+                        <li>
+                            <p>Yangi boshlang‘ich talabalarni talaba ro‘yxati boshiga qo‘shing va qayta saralang.</p>
+                        </li>
+
+                        <h3>shift</h3>
+                        <li>
+                            <p>Kuzatuv ro‘yxatining birinchi elementini o‘chirib tashlang va qolgan elementlarni yangi
+                                massivga qaytaring. const queue = ['User1', 'User2', 'User3'];
+                            </p>
+                        </li>
+                        <li>
+                            <p>Kechikkan birinchi avtomobilni olib tashlang va logga kiriting. const cars = ['Car1',
+                                'Car2', 'Car3'];
+                            </p>
+                        </li>
+
+                        <h3>findIndex</h3>
+                        <li>
+                            <p>Ishchilar ro‘yxatidan birinchi bo‘lib "developer" bo‘lgan ishchining indeksini toping.
+                                const workers = [
+                                { name: 'Ali', role: 'manager' },
+                                { name: 'Bek', role: 'developer' },
+                                { name: 'Zarina', role: 'designer' }
+                                ]; </p>
+                        </li>
+                        <li>
+                            <p>Talabalardan birinchi bo‘lib 50 dan yuqori ball olgan talabaning indeksini toping. const
+                                scores = [35, 48, 78, 42];
+                            </p>
+                        </li>
+
+                        <h3>cancat</h3>
+                        <li>
+                            <p>Ikki massivni birlashtirib, yangi massiv yarating. const arr1 = [1, 2, 3];
+                                const arr2 = [4, 5, 6];</p>
+                        </li>
+                        <li>
+                            <p>Ikki talaba ro‘yxatini birlashtiring va alifbo tartibida saralang. const students1 =
+                                ['Ali', 'Bek'];
+                                const students2 = ['Zarina', 'Dilshod'];</p>
+                        </li>
+
+                        <h3>slice</h3>
+                        <li>
+                            <p>Massivning faqat o‘rtasidagi 2 elementini oling. const arr = [1, 2, 3, 4, 5];
+                            </p>
+                        </li>
+                        <li>
+                            <p>To‘liq massivni nusxalang va o‘zgaruvchan massiv hosil qiling. </p>
+                        </li>
+
+                        <h3>splice</h3>
+                        <li>
+                            <p>Massivning o‘rtasiga yangi elementlar qo‘shing.
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>Massivdan 2-elementni olib tashlang va olib tashlangan elementni qaytaring. const arr =
+                                [1, 2, 3, 4, 5];</p>
+                        </li>
+
+                        <h3>incloudes</h3>
+                        <li>
+                            <p>Foydalanuvchi kiritgan mahsulot nomining mavjudligini oziq-ovqat mahsulotlari ro‘yxatida
+                                tekshiring. Agar mavjud bo‘lsa, natija qaytaring.
+                                const products = ['non', 'shakar', 'guruch', 'makaron'];
+                                const userInput = 'shakar';
+                            </p>
+                        </li>
+                        <li>
+                            <p>Parolni tekshiring: agar parolda kamida bitta maxsus belgi (@, #, $, %) bo‘lsa, parol
+                                qabul qilinsin.</p>
+                        </li>
+
+                        <h3>reverse</h3>
+                        <li>
+                            <p>Foydalanuvchi kiritgan massivni teskariga o‘giring va har bir qiymatni kvadratga oshirib
+                                chop eting.</p>
+                        </li>
+                        <li>
+                            <p>Matnni teskariga aylantirib, undagi faqat unli harflarni o‘z tartibida chop eting.</p>
+                        </li>
+
+                        <h3>join</h3>
+                        <li>
+                            <p>Foydalanuvchi kiritgan raqamlarni massiv sifatida qabul qiling va ularni qo‘sh tirnoqli
+                                (") formatda chop eting.</p>
+                        </li>
+                        <li>
+                            <p>Tasodifiy generatsiya qilingan rang kodlarini (masalan, rgb(255,0,0)) vergul bilan
+                                ajratib, bir satrda chop eting.
+
+
+                            </p>
+                        </li>
+
+                        <h3>split</h3>
+                        <li>
+                            <p>Foydalanuvchi kiritgan jumlani har bir so‘zga ajratib, ularni o‘rta uzunligi (word.length
+                                / 2) dan katta bo‘lgan so‘zlarni chop eting.</p>
+                        </li>
+                        <li>
+                            <p>Sayt foydalanuvchisi kiritgan URL-ni analiz qilib, undagi param=value juftliklarini
+                                alohida massivga ajratib oling.</p>
+                        </li>
+
+
+
+                    </ol>
+                    <!-- <img src="5.jpg" alt="Uyga Vazifa" style="width:100%;"> -->
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Uyga vazifa</h2>
+                <div class="panel">
+                    <ol>
+                        <h3>Object.freeze()</h3>
+                        <li>
+                            <p>Obyektning shaxsiy ma'lumotlarini muzlatish Foydalanuvchi ma'lumotlari obyektini
+                                muzlatib, uni tahrirlashni oldini olish. Bu sizning ma'lumotlar xavfsizligini
+                                ta'minlashga yordam beradi. (ucer obyekti ichida id name email adress obyekti icida
+                                street city bolishi kerak.)</p>
+                        </li>
+                        <li>
+                            <p>Obyektni muzlatish va deep freeze qilish Object.freeze() faqat yuqori darajali
+                                xususiyatlarni himoya qiladi, ammo ichki obyektlar o'zgartirilishi mumkin. Bunday
+                                hollarda "deep freeze" funksiyasini yaratish zarur.</p>
+                        </li>
+                        <h3>Object.seal()</h3>
+                        <li>
+                            <p>Foydalanuvchi profilini muhrlash Foydalanuvchi profilini muhrlab, yangi xususiyatlarni
+                                qo'shishni oldini olish, ammo mavjud ma'lumotlarni o'zgartirishga ruxsat berish. id name
+                                emal qoshish kerak name ozgartir</p>
+                        </li>
+                        <li>
+                            <p>Mahsulot qo'shish va narxini o'zgartirish Mahsulotlar ro'yxatini muhrlash va yangi
+                                mahsulotlarni qo'shishning oldini olish, ammo narxini yangilashga ruxsat berish.</p>
+                        </li>
+                        <h3>Object.assign()</h3>
+                        <li>
+                            <p> Foydalanuvchi va admin ma'lumotlarini birlashtirish Foydalanuvchi va admin obyektlarini
+                                birlashtirib, foydalanuvchi ma'lumotlariga admin xususiyatlarini qo'shish.</p>
+                        </li>
+                        <li>
+                            <p> Default sozlamalarni o'rnatish Agar foydalanuvchi ma'lumotlarida ba'zi kalitlar mavjud
+                                bo'lmasa, ularni Object.assign() yordamida default qiymatlar bilan to'ldirish.</p>
+                        </li>
+                        <h3>Object.keys()</h3>
+                        <li>
+                            <p> Obyektdagi kalitlarni tekshirish Obyektning barcha kalitlarini olish va tekshirish,
+                                keyin esa bu kalitlar yordamida ishlash.</p>
+                        </li>
+                        <li>
+                            <p>Ma'lumotlar bazasini tekshirish Ma'lumotlar bazasidagi ma'lum bir obyektlar ichida
+                                muayyan kalit borligini tekshirish.</p>
+                        </li>
+                        <h3>Object.values()</h3>
+                        <li>
+                            <p>Obyekt qiymatlarini chiqarish Obyektning barcha qiymatlarini olish va konsolga chiqarish.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Obyekt qiymatlaridan statistikani olish Obyektning qiymatlaridan statistik ma'lumotlar
+                                olish (masalan, barcha yoshlar yig'indisi).</p>
+                        </li>
+                        <h3>Object.entries()</h3>
+                        <li>
+                            <p>Obyektning barcha kalit-qiymat juftlarini chiqarish Obyektning barcha kalit-qiymat
+                                juftlarini olish va konsolga chiqarish.</p>
+                        </li>
+                        <li>
+                            <p>Obyektni yangi shaklga o'zgartirish Kalit-qiymat juftlarini olish va yangi shaklda obyekt
+                                yaratish.</p>
+                        </li>
+                        <h3>Object.create()</h3>
+                        <li>
+                            <p>Dinamik prototipli obyektlar yaratish Object.create() yordamida dinamik prototipli
+                                obyektlar yaratish. Masalan, ishlov berish jarayonlarini boshqarish uchun turli task
+                                obyektlarini yaratish.</p>
+                        </li>
+                        <h3>Object.defineProperty()</h3>
+                        <li>
+                            <p>Xususiyatni faqat o'qish uchun qilish Object.defineProperty() yordamida obyekt
+                                xususiyatini faqat o'qish uchun sozlash, masalan, foydalanuvchi profilidagi age
+                                xususiyatini faqat ko'rsatish (o'zgartirishni oldini olish).</p>
+                        </li>
+                        <h3>Object.defineProperties()</h3>
+                        <li>
+                            <p> Bir nechta xususiyatlarni ta'sirli sozlash Object.defineProperties() yordamida bir
+                                nechta xususiyatni o'zgartirish va ularni turli usullar bilan belgilash, masalan,
+                                foydalanuvchi profilidagi email va isActive xususiyatlarini bir vaqtning o'zida
+                                yaratish.</p>
+                        </li>
+                        <h3>Object.hasOwnProperty()</h3>
+                        <li>
+                            <p>Obyektda kutilmagan xususiyat borligini aniqlash hasOwnProperty() yordamida kutilmagan
+                                xususiyatni tekshirish. Masalan, foydalanuvchi inputlari asosida yuborilgan obyektning
+                                haqiqiy xususiyatlarini tekshirish.</p>
+                        </li>
+                        <h3>Object.is()</h3>
+                        <li>
+                            <p>Ikki turli obyektni taqqoslash Object.is() yordamida ikki turli obyektni, jumladan NaN va
+                                -0 kabi maxsus qiymatlarni taqqoslash.</p>
+                        </li>
+                        <h3>Object.fromEntries()</h3>
+                        <li>
+                            <p>URL parametrlardan obyekt yaratish Object.fromEntries() yordamida URL parametrlarini
+                                parslash va obyekt yaratish, masalan, veb sahifadagi query stringni obyektga
+                                aylantirish.</p>
+                        </li>
+                        <h3>Array methods</h3>
+                        <h3>push()</h3>
+                        <li>
+                            <p>Massivga foydalanuvchi kiritgan yangi talabalarni qo‘shing.</p>
+                        </li>
+                        <h3>pop()</h3>
+                        <li>
+                            <p>Massivdagi oxirgi elementni olib tashlang va chop eting.</p>
+                        </li>
+                        <h3>shift()</h3>
+                        <li>
+                            <p>Massiv boshidagi birinchi mahsulotni olib tashlang va qaytarib bering.</p>
+                        </li>
+                        <h3>unshift()</h3>
+                        <li>
+                            <p>Massiv boshiga yangi elementlar qo‘shing.</p>
+                        </li>
+                        <h3>findIndex()</h3>
+                        <li>
+                            <p>Massivdagi birinchi 10 dan katta sonning indeksini toping.</p>
+                        </li>
+                        <h3>concat()</h3>
+                        <li>
+                            <p>Ikki kursdagi talabalar ro‘yxatini birlashtiring.</p>
+                        </li>
+                        <h3>slice()</h3>
+                        <li>
+                            <p>Foydalanuvchiga buyurtmalar ro‘yxatidan 2-dan 4-gacha buyurtmalarni qaytaring.
+                            </p>
+                        </li>
+                        <h3>splice()</h3>
+                        <li>
+                            <p>Massivning o‘rtasiga yangi element qo‘shing va eskilarni olib tashlang.</p>
+                        </li>
+                        <h3>includes()</h3>
+                        <li>
+                            <p>Berilgan massivda kerakli elementning borligini tekshiring.</p>
+                        </li>
+                        <h3>reverse()</h3>
+                        <li>
+                            <p>Massivdagi elementlarni teskariga aylantiring.
+
+                            </p>
+                        </li>
+                        <h3>join()</h3>
+                        <li>
+                            <p>Massivdagi so‘zlarni vergul bilan ajratib bir satrga birlashtiring.</p>
+                        </li>
+                        <h3>split()</h3>
+                        <li>
+                            <p>Matnni har bir so‘zga ajratib massiv hosil qiling.</p>
+                        </li>
+
+
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    
+
+    <div class="social-links">
+        <a href="https://t.me/Islom_Coder" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+    </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./hover.js"></script>
+</body>
+
+</html>

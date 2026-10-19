@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Few-shot prompting (misollar bilan)</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="stylesheet" href="../_assets/ai.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Ilg'or prompt texnikalari</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Mavzu</h2>
+                    <div class="panel">
+<div class="dars-info">
+<p><strong>Dars maqsadi:</strong> Namunalar yordamida AI javobining aniqligini oshirish.</p>
+<p><strong>Asosiy faoliyat:</strong> 3 ta few-shot prompt tuzish va natijani zero-shot bilan solishtirish.</p>
+<p><strong>Davomiyligi:</strong> 45 daqiqa · Chorshanba</p>
+</div>
+<h3>Few-shot nima?</h3>
+<p><strong>Few-shot</strong> — promptga bir nechta (odatda 2–5 ta) <strong>namuna</strong> qo'shish. AI namunadagi qonuniyat va formatni ko'rib, xuddi shunday javob beradi.</p>
+<pre>So'zni "mavzu" bo'yicha guruhla.
+olma -> meva
+sabzi -> sabzavot
+nok -> meva
+kartoshka -> sabzavot
+uzum -> </pre>
+<h3>Yaxshi namuna qoidalari</h3>
+<ul>
+  <li>Namunalar <strong>bir xil formatda</strong> bo'lsin.</li>
+  <li><strong>Turli holatlarni</strong> qamrasin (faqat bir xil javoblar emas).</li>
+  <li>Namunalar <strong>to'g'ri</strong> bo'lsin — xato namuna xato natija beradi.</li>
+  <li>Oxirgi qatorni ochiq qoldiring — AI uni to'ldiradi.</li>
+</ul>
+<h3>Qayerda foydali?</h3>
+<ul>
+  <li>O'z uslubingizdagi matn (masalan, sinf gazetasi sarlavhalari).</li>
+  <li>Maxsus formatdagi ma'lumot (kartochkalar, jadval qatorlari).</li>
+  <li>O'zingiz o'ylab topgan tasniflash qoidalari.</li>
+</ul>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir topshiriqni AI vositasi bilan bajaring va natijani AI jurnaliga yozing. Shaxsiy ma'lumot kiritmang.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Guruhlash</strong></p><p>Meva/sabzavot namunasidagi few-shot promptni yozing va 5 ta yangi so'z bilan sinang.</p></li>
+  <li class="lvl-oson"><p><strong>Antonimlar</strong></p><p>3 ta namuna bilan antonim topuvchi few-shot prompt yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Format</strong></p><p>«So'z — ma'nosi — misol» formatida 2 ta namuna berib, 5 ta yangi so'z kartochkasini yaratting.</p></li>
+  <li class="lvl-orta"><p><strong>Zero vs few</strong></p><p>O'tgan darsda zero-shot ishlamagan vazifani few-shot bilan qayta sinab, natijani solishtiring.</p></li>
+  <li class="lvl-orta"><p><strong>3 ta few-shot</strong></p><p>Turli vazifalar uchun 3 ta few-shot prompt tuzing va natijalarni baholang.</p></li>
+  <li class="lvl-orta"><p><strong>Xato namuna</strong></p><p>Ataylab bitta xato namuna qo'shib ko'ring — natija qanday o'zgardi?</p></li>
+  <li class="lvl-qiyin"><p><strong>O'z qoidangiz</strong></p><p>O'zingiz o'ylab topgan tasniflash qoidasi (masalan, filmlarni «oilaviy / sarguzasht / o'quv») bo'yicha few-shot prompt yozing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Uslub nusxasi</strong></p><p>Sinf gazetasi uchun 3 ta sarlavha namunasini berib, shu uslubda 5 ta yangi sarlavha yaratting.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha topshiriqlarni ketma-ket bajaring. Oxirgi topshiriqlar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Kartochkalar</strong></p><p>Ingliz tili so'zlari uchun few-shot bilan 10 ta kartochka yarating.</p></li>
+  <li class="lvl-oson"><p><strong>AI jurnali</strong></p><p>Zero-shot va few-shot natijalarini solishtirib yozing.</p></li>
+  <li class="lvl-orta"><p><strong>Matematika</strong></p><p>2 ta namunali masala bilan AIdan shu turdagi 5 ta yangi masala tuzdiring (javoblarsiz) va yeching.</p></li>
+  <li class="lvl-orta"><p><strong>Topishmoqlar</strong></p><p>3 ta topishmoq namunasi bilan 5 ta yangi topishmoq yaratting.</p></li>
+  <li class="lvl-qiyin"><p><strong>Namunalar sifati</strong></p><p>Namunalar soni (1, 3, 5) natijaga qanday ta'sir qilishini tajriba qilib yozing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Shaxsiy uslub</strong></p><p>O'zingiz yozgan 3 ta jumlani namuna qilib, AIdan sizning uslubingizda yozishni so'rang. O'xshadimi?</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Nazorat savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">Few-shot prompting nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Promptga bir nechta namuna qo'shib, AIga qonuniyat va formatni ko'rsatish.</p></details></li><li><p class="q">Yaxshi namuna qoidalari?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Bir xil format, turli holatlar, to'g'ri namunalar.</p></details></li><li><p class="q">Few-shot qachon zero-shot'dan yaxshi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Maxsus format, uslub yoki o'z qoidalaringiz kerak bo'lganda.</p></details></li><li><p class="q">Xato namuna nimaga olib keladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>AI ham xato natija beradi.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+/* Foundation darslari: kontent elementlari uchun qo'shimcha uslub (asosiy dizayn: style.css) */
+.panel h3, .panel h4 { color: #14c7d7; margin: 18px 0 8px; }
+.panel h3 { font-size: 22px; }
+.panel h4 { font-size: 19px; }
+.panel ul, .panel ol { padding-left: 22px; list-style: revert; }
+.panel li { background: none; border: none; margin-bottom: 8px; color: #fff; line-height: 1.6; }
+.panel li::marker { color: #14c7d7; }
+.panel code { font-family: Consolas, "Courier New", monospace; background: rgba(20, 199, 215, 0.15); color: #7ff1ff; padding: 1px 6px; border-radius: 4px; }
+.panel pre { background: rgba(0, 0, 0, 0.55); color: #aaffee; border: 1px solid rgba(20, 199, 215, 0.25); border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-family: Consolas, "Courier New", monospace; font-size: 15px; line-height: 1.5; margin: 10px 0; }
+.panel pre code { background: none; padding: 0; }
+.panel table { border-collapse: collapse; margin: 10px 0; width: 100%; color: #fff; }
+.panel th, .panel td { border: 1px solid rgba(255, 255, 255, 0.2); padding: 8px 10px; text-align: left; }
+.panel th { background: rgba(20, 199, 215, 0.2); }
+.panel details.answer { margin: 6px 0 12px; border: 1px solid rgba(20, 199, 215, 0.3); border-radius: 8px; background: rgba(0, 0, 0, 0.25); }
+.panel details.answer > summary { cursor: pointer; padding: 6px 12px; color: #14c7d7; font-weight: 600; }
+.panel details.answer > *:not(summary) { margin: 0 12px 10px; }
+.panel p.q { font-weight: 600; margin-bottom: 4px; }
+.panel ol.iv > li { margin-bottom: 14px; }
+.panel .hint { color: #c8d0dc; font-size: 0.95em; }
+.panel a { color: #14c7d7; }
+.status { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 14px; font-weight: 600; color: #fff; margin: 2px 4px 2px 0; }
+.st-berilmagan { background: #6c757d; }
+.st-bajarilmagan { background: #ff3b1f; }
+.st-qaytarilgan { background: #ffc107; color: #222; }
+.st-qabul { background: #2ecc40; }
+.lesson-sub { color: #fff; margin: -10px 0 20px; font-size: 20px; font-weight: 600; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
+.content-wrapper ul > li > h2.accordion { margin: 0; border-radius: 8px; }
+.content-wrapper ul > li > .panel { margin-top: 0; border-radius: 0 0 8px 8px; }
+.content-wrapper ul > li > h2.accordion.active { border-radius: 8px 8px 0 0; }
+/* standart chekkalari olib tashlandi */
+.lesson-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.lesson-nav a { padding: 10px 18px; border-radius: 25px; background: rgba(255, 255, 255, 0.1); color: #fff; text-decoration: none; transition: all 0.3s ease; }
+.lesson-nav a:hover { background: rgba(20, 199, 215, 0.3); }
+
+/* masala ro'yxati: sarlavha va shart orasini ixchamlash */
+.panel ol > li > p { margin: 2px 0 4px; }
+.panel ol > li { margin-bottom: 14px; }
+.panel ol > li > pre { margin-top: 6px; }
+
+/* masala nomi rangi qiyinlik darajasini bildiradi */
+.panel ol.tasks { padding-left: 26px; }
+.panel li.lvl-oson > p:first-child strong { color: #7dffb0; }
+.panel li.lvl-orta > p:first-child strong { color: #ffd166; }
+.panel li.lvl-qiyin > p:first-child strong { color: #ff8fa3; }
+.panel li.lvl-oson::marker { color: #7dffb0; }
+.panel li.lvl-orta::marker { color: #ffd166; }
+.panel li.lvl-qiyin::marker { color: #ff8fa3; }

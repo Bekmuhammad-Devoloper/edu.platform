@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel amaliyoti: hisob-kitob jadvali, filtr</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Kompyuter bilimlari</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Mavzu</h2>
+                    <div class="panel">
+<h3>Hisob-kitob jadvali qanday tuziladi?</h3>
+<ol>
+  <li>Birinchi qatorda <strong>sarlavhalar</strong>: Mahsulot, Narx, Miqdor, Summa.</li>
+  <li>Keyingi qatorlarda ma'lumotlar.</li>
+  <li><strong>Summa</strong> ustunida formula: <code>=B2*C2</code> va pastga avtoto'ldirish.</li>
+  <li>Oxirgi qatorda <strong>Jami</strong>: <code>=SUM(D2:D10)</code>.</li>
+</ol>
+<h3>Jadvalni chiroyli qilish</h3>
+<ul>
+  <li>Chegaralar (Границы) — barcha kataklar uchun.</li>
+  <li>Sarlavha qatori — qalin, fon rangi.</li>
+  <li><strong>Jadval sifatida formatlash</strong> — tayyor uslub va avtomatik filtr.</li>
+</ul>
+<h3>Saralash va filtr</h3>
+<ul>
+  <li><strong>Saralash</strong> — ma'lumotlarni alifbo yoki son bo'yicha tartiblash (o'sish / kamayish).</li>
+  <li><strong>Filtr</strong> — faqat kerakli qatorlarni ko'rsatish. <em>Ma'lumotlar → Filtr</em> — sarlavhalarda strelkalar paydo bo'ladi.</li>
+  <li>Masalan: faqat «Toshkent» dagi o'quvchilar yoki faqat 5 baho olganlar.</li>
+</ul>
+<h3>Shartli formula va formatlash</h3>
+<pre>=IF(B2>=60; "O'tdi"; "Yiqildi")     (ЕСЛИ)
+Shartli formatlash: Bosh sahifa → Условное форматирование
+  masalan, 5 baholarni yashil, 2 baholarni qizil qilish</pre>
+<h3>Diagramma</h3>
+<p>Ma'lumotlarni tanlab, <strong>Qo'shish → Diagramma</strong> (ustunli, doiraviy, chiziqli).</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir topshiriqni kompyuterda bajaring. Natijani o'z papkangizda saqlang.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Sarlavhalar</strong></p><p>Do'kon jadvali uchun sarlavhalar yozing: Mahsulot, Narx, Miqdor, Summa. Ularni qalin qiling.</p></li>
+  <li class="lvl-oson"><p><strong>Ma'lumotlar</strong></p><p>Jadvalga 6 ta mahsulot kiriting.</p></li>
+  <li class="lvl-oson"><p><strong>Summa</strong></p><p>Summa ustunini formula va avtoto'ldirish bilan to'ldiring.</p></li>
+  <li class="lvl-oson"><p><strong>Chegaralar</strong></p><p>Jadvalning barcha kataklariga chegara qo'ying.</p></li>
+  <li class="lvl-orta"><p><strong>Jami</strong></p><p>Jadval oxirida umumiy summani SUM bilan hisoblang.</p></li>
+  <li class="lvl-orta"><p><strong>Saralash</strong></p><p>Mahsulotlarni narx bo'yicha qimmatdan arzonga saralang.</p></li>
+  <li class="lvl-orta"><p><strong>Filtr</strong></p><p>Filtr qo'shing va faqat miqdori 5 dan katta mahsulotlarni ko'rsating.</p></li>
+  <li class="lvl-orta"><p><strong>Jadval uslubi</strong></p><p>«Jadval sifatida formatlash» bilan tayyor uslub tanlang.</p></li>
+  <li class="lvl-qiyin"><p><strong>O'tdi-yiqildi</strong></p><p>10 ta o'quvchi va ballari. IF bilan «O'tdi» (60 va undan yuqori) yoki «Yiqildi» deb yozing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Shartli formatlash</strong></p><p>Ballar ustunida 90 dan yuqorilar yashil, 60 dan pastlar qizil bo'lsin.</p></li>
+  <li class="lvl-qiyin"><p><strong>Diagramma</strong></p><p>Mahsulotlar summasi bo'yicha ustunli diagramma yarating.</p></li>
+  <li class="lvl-qiyin"><p><strong>Shahar filtri</strong></p><p>O'quvchilar jadvaliga «Shahar» ustunini qo'shing va faqat bitta shahar o'quvchilarini filtrlang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha topshiriqlarni ketma-ket bajaring. Oxirgi topshiriqlar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Kitoblar</strong></p><p>O'qigan 8 ta kitobingiz jadvali: nomi, muallif, sahifalar soni.</p></li>
+  <li class="lvl-oson"><p><strong>Alifbo bo'yicha</strong></p><p>Kitoblarni nomi bo'yicha alifbo tartibida saralang.</p></li>
+  <li class="lvl-oson"><p><strong>Jami sahifa</strong></p><p>Barcha kitoblardagi jami sahifalar sonini hisoblang.</p></li>
+  <li class="lvl-oson"><p><strong>Bezash</strong></p><p>Jadval sarlavhasiga fon rangi bering va chegaralar qo'ying.</p></li>
+  <li class="lvl-orta"><p><strong>Oylik xarajat</strong></p><p>Bir oylik oila xarajatlari jadvali: sana, nima uchun, summa. Jami va o'rtacha kunlik xarajat.</p></li>
+  <li class="lvl-orta"><p><strong>Kategoriya filtri</strong></p><p>Xarajatlarga «Kategoriya» (oziq-ovqat, transport, ...) ustunini qo'shing va filtr bilan har birini alohida ko'ring.</p></li>
+  <li class="lvl-orta"><p><strong>Doiraviy diagramma</strong></p><p>Xarajatlar kategoriyalari bo'yicha doiraviy diagramma yarating.</p></li>
+  <li class="lvl-qiyin"><p><strong>Sinf jurnali</strong></p><p>10 o'quvchi, 4 fan. Har o'quvchi uchun o'rtacha ball, IF bilan «A'lochi» (o'rtacha 4.5+) belgisi.</p></li>
+  <li class="lvl-qiyin"><p><strong>Eng yaxshi uchlik</strong></p><p>Sinf jurnalini o'rtacha ball bo'yicha saralang va eng yaxshi 3 o'quvchini shartli formatlash bilan ajrating.</p></li>
+  <li class="lvl-qiyin"><p><strong>Do'kon hisoboti</strong></p><p>Haftalik savdo jadvali (kun, mahsulot, soni, narxi). Har kun jami, eng ko'p sotilgan mahsulot va chiziqli diagramma.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Nazorat savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">Saralash va filtr farqi nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Saralash tartibni o'zgartiradi, filtr esa faqat kerakli qatorlarni ko'rsatadi.</p></details></li><li><p class="q">Filtr qayerdan yoqiladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Ma'lumotlar → Filtr.</p></details></li><li><p class="q">IF funksiyasi nima qiladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Shartni tekshiradi va rost/yolg'on holatlar uchun turli natija qaytaradi.</p></details></li><li><p class="q">Shartli formatlash nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Katak qiymatiga qarab uning rangini avtomatik o'zgartirish.</p></details></li><li><p class="q">Diagramma qanday yaratiladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Ma'lumotlarni tanlab, Qo'shish → Diagramma.</p></details></li><li><p class="q">Summa ustuni uchun formula qanday yoziladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Masalan =B2*C2 va pastga avtoto'ldiriladi.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

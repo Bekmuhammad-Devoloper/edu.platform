@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Video fon -->
+  <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"
+    id="bg-video">
+    <source src="./video/everest.mp4" type="video/mp4">
+  </video>
+
+  <div class="main-content" id="mainContent">
+    <h1 id="mainTitle">JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>Event and Event Listener</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              Event nima?<br><br>
+
+              Event (hodisa) — bu foydalanuvchi yoki brauzerda sodir bo‘ladigan voqea.
+              <br>Masalan: <br>
+
+              <br>click – foydalanuvchi tugmani bosdi
+
+              <br>input – foydalanuvchi inputga ma’lumot kiritdi
+
+              <br>submit – forma yuborildi
+
+              <br>keydown – klaviaturada tugma bosildi
+
+              <br>load – sahifa to‘liq yuklandi
+
+              <br>Oddiy qilib aytganda: event bu trigger (signal).
+            </li>
+            <li>
+              Event Listener nima?<br><br>
+
+              Event listener (hodisaga quloq soluvchi) — bu event sodir bo‘lganda nima qilish kerakligini aytadigan kod.
+
+              <br>⚡ Format: <br><br>
+
+              <pre>element.addEventListener("eventNomi", function)</pre>
+
+
+              <br>element → qaysi elementda hodisa kuzatiladi
+
+              <br> "eventNomi" → qaysi eventga quloq solamiz (click, input, submit, …)
+
+              <br>function → hodisa sodir bo‘lganda bajariladigan funksiya
+            </li>
+            <li>
+              Oddiy misol <br>
+              <pre><code>
+                &lt;button id="myBtn"&gt;Meni bos!&lt;/button&gt;
+                
+                &lt;script&gt;
+                  const btn = document.getElementById("myBtn");
+                
+                  // Event Listener qo‘shish
+                  btn.addEventListener("click", () =&gt; {
+                    alert("Siz tugmani bosdingiz!");
+                  });
+                &lt;/script&gt;
+                  </code></pre>
+
+
+              Bu yerda: <br>
+
+              Hodisa (event) → click <br>
+
+              Tinglovchi (event listener) → addEventListener
+
+              <br>Amal → alert chiqishi
+            </li>
+            <li>Xulosa
+              <ol>
+                <li>Event → hodisa (click, input, submit, …)</li>
+                <li>Event Listener → hodisani tinglab, bajariladigan amalni belgilaydi</li>
+                <li>event object (e) → hodisa haqida ma’lumot beradi</li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"> <span>Amaliyot</span> </h2>
+        <div class="panel">
+          <ul>
+            <li>
+              📌 Masala: <br>
+
+              Sahifada boshida hech narsa bo‘lmasin.
+
+              <br>DOM orqali div.card, tugmalar va matnni yaratamiz.
+
+              <br>Tugmalar bosilganda:
+
+              <br>1-tugma matnni o‘zgartiradi.
+
+              <br>2-tugma rangini o‘zgartiradi.
+
+              <br>3-tugma reset qiladi.
+              <pre><code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="uz"&gt;
+                &lt;head&gt;
+                  &lt;meta charset="UTF-8"&gt;
+                  &lt;title&gt;DOM Event Amaliyot&lt;/title&gt;
+                  &lt;style&gt;
+                    body { font-family: Arial, sans-serif; padding: 20px; background:#f4f4f4; }
+                    .card { background: #fff; padding: 20px; border-radius: 10px; width: 300px; margin: auto; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+                    button { padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+                    .blue { color: blue; }
+                    .red { color: red; }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                &lt;div class="card"&gt;
+    &lt;h2&gt;DOM Event Amaliyot&lt;/h2&gt;
+
+    &lt;button id="changeText"&gt;Matnni o‘zgartir&lt;/button&gt;
+    &lt;button id="changeColor"&gt;Rangni o‘zgartir&lt;/button&gt;
+    &lt;button id="reset"&gt;Reset&lt;/button&gt;
+
+    &lt;p id="output"&gt;Salom, DOM!&lt;/p&gt;
+&lt;/div&gt;
+                &lt;script&gt;
+              
+                &lt;/script&gt;
+                
+                &lt;/body&gt;
+                &lt;/html&gt;
+                  </code></pre>
+            </li>
+            <li>
+              📌 Masala: <br>
+              DOM orqali input va button yaratamiz.
+              <br>Foydalanuvchi inputga ism kiritadi va tugmani bosganda ism ro‘yxatga qo‘shiladi.
+              <br>Har bir ism yonida ❌ tugma bo‘ladi → uni bosganda ism ro‘yxatdan o‘chadi.
+              <pre><code>
+              &lt;!DOCTYPE html&gt;
+              &lt;html lang="uz"&gt;
+              &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;title&gt;DOM Event Masalasi 2&lt;/title&gt;
+                &lt;style&gt;
+                  body { font-family: Arial, sans-serif; background:#f4f4f4; padding: 20px; }
+                  .card { background:#fff; padding:20px; border-radius:10px; width:320px; margin:auto; box-shadow:0 2px 5px rgba(0,0,0,0.2); }
+                  input { width: 70%; padding:8px; border:1px solid #ccc; border-radius:5px; }
+                  button { padding:8px 12px; border:none; border-radius:5px; cursor:pointer; margin-left:5px; }
+                  #addBtn { background:#3498db; color:white; }
+                  .user { display:flex; justify-content:space-between; align-items:center; background:#eee; padding:8px; border-radius:5px; margin:5px 0; }
+                  .deleteBtn { background:#e74c3c; color:white; }
+                &lt;/style&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+              
+                &lt;div class="card"&gt;
+                  &lt;h2&gt;Ismlar Ro‘yxati&lt;/h2&gt;
+              
+                  &lt;input placeholder="Ism kiriting..."&gt;
+                  &lt;button id="addBtn"&gt;Qo‘shish&lt;/button&gt;
+              
+                  &lt;div&gt;
+                    &lt;!-- Bu yerga JS orqali ismlar qo‘shiladi --&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              
+              &lt;/body&gt;
+              &lt;/html&gt;
+              </code></pre>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              📌 <b>Masala:</b> <br>
+              DOM orqali <code>input</code> va <code>button</code> yaratamiz. <br>
+              Foydalanuvchi inputga matn yozadi va tugmani bosganda u pastda <b>kommentlar ro‘yxatiga qo‘shiladi</b>.
+              <br>
+              Har bir komment yonida 👍 tugma bo‘ladi → uni bosganda komment ostida <i>"Like: 1, 2, 3..."</i> tarzida
+              sanaladi. <br>
+              ❌ tugma bosilganda esa komment o‘chadi.
+
+              <pre><code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="uz"&gt;
+            &lt;head&gt;
+              &lt;meta charset="UTF-8"&gt;
+              &lt;title&gt;DOM Event Masalasi 5&lt;/title&gt;
+              &lt;style&gt;
+                body {
+                  font-family: Arial, sans-serif;
+                  background:#f4f4f4;
+                  padding: 20px;
+                }
+                .card {
+                  background:#fff;
+                  padding:20px;
+                  border-radius:10px;
+                  width:400px;
+                  margin:auto;
+                  box-shadow:0 2px 5px rgba(0,0,0,0.2);
+                }
+                input {
+                  width: 70%;
+                  padding:8px;
+                  border:1px solid #ccc;
+                  border-radius:5px;
+                }
+                button {
+                  padding:8px 12px;
+                  border:none;
+                  border-radius:5px;
+                  cursor:pointer;
+                  margin-left:5px;
+                }
+                #addBtn {
+                  background:#27ae60;
+                  color:white;
+                }
+                .comment {
+                  background:#f9f9f9;
+                  padding:10px;
+                  border-radius:5px;
+                  margin:8px 0;
+                }
+                .actions {
+                  margin-top:5px;
+                  display:flex;
+                  gap:8px;
+                }
+                .likeBtn {
+                  background:#3498db;
+                  color:white;
+                }
+                .deleteBtn {
+                  background:#e74c3c;
+                  color:white;
+                }
+                .likes {
+                  font-size: 12px;
+                  color:#555;
+                  margin-top:3px;
+                }
+              &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            
+              &lt;div class="card"&gt;
+                &lt;h4&gt;Kommentlar&lt;/h4&gt;
+                
+                &lt;input placeholder="Komment yozing..."&gt;
+                &lt;button id="addBtn"&gt;Qo‘shish&lt;/button&gt;
+                
+                &lt;div&gt;
+                  &lt;!-- JS orqali kommentlar shu yerga qo‘shiladi --&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            
+            &lt;/body&gt;
+            &lt;/html&gt;
+              </code></pre>
+            </li>
+
+
+
+          </ol>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+      target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div class="fullscreen-overlay" id="fullscreenOverlay">
+    <video autoplay muted loop playsinline disablepictureinpicture
+      controlslist="nodownload nofullscreen noremoteplayback" id="fullscreen-video" class="fullscreen-video"
+      style="display: none;">
+      <source id="fullscreen-video-source" src="" type="video/mp4">
+    </video>
+    <div class="fullscreen-header">
+      <h1 id="closeTitle">JavaScript</h1>
+    </div>
+    <div class="fullscreen-content" id="fullscreenContent">
+      <!-- Content will be injected here -->
+    </div>
+    <div class="fullscreen-footer">
+      <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+          <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+          <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+          target="_blank">
+          <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+          <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+          <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+          <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+          <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+          <span class="social-text">You Tube</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

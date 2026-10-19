@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">JavaScript, Variables and console.log()</h2>
+                <div class="panel">
+                    <button class="btn masalaBtn">Masala</button>
+                    <button class="btn interviewBtn">Interwiev</button>
+                    <div class="sub-panel masalaContent" style="display: none; margin-top:10px;">
+                        <p>✅ Masala 1: Foydalanuvchi haqida ma’lumot chiqarish <br>
+                            <br> Sharti: <br><br>
+                            Foydalanuvchining ismi, yoshi va yashash shahrini o‘zgaruvchilarda saqlang. console.log()
+                            <br> bilan quyidagi formatda chiqarilsin:
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> Ism: Bekmuhammad
+                            <br> Yosh: 18
+                            <br>Shahar: Andijon
+                            <br> <br>
+                        </p>
+
+                        <p>✅ Masala 2: Mahsulot narxini hisoblash <br>
+                            <br> Sharti: <br><br>
+                            Mahsulot narxi 25000 so‘m, miqdori 3 dona. Jami narxni hisoblang va chiqarilsin.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> Jami narx: 75000 so'm
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 3: Oddiy kalkulyator <br>
+                            <br> Sharti: <br><br>
+                            Ikkita son (a = 10, b = 5) berilgan. Ularning yig‘indisi, ayirmasi, ko‘paytmasi va
+                            bo‘linmasini chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> Yig'indi: 15
+                            <br> Ayirma: 5
+                            <br> Ko'paytma: 50
+                            <br> Bo'linma: 2
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 4: To‘liq ism chiqarish <br>
+                            <br> Sharti: <br><br>
+                            firstName = "Bekmuhammad", lastName = "Shokirjonov". To‘liq ismni chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> To‘liq ism: Bekmuhammad Shokirjonov
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 5: Tug‘ilgan yilni hisoblash <br>
+                            <br> Sharti: <br><br>
+                            Hozirgi yil 2025, foydalanuvchi yoshi 18. Tug‘ilgan yilini hisoblab chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> Tug‘ilgan yil: 2007
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 6: To‘rtburchak perimetri va yuzasi <br>
+                            <br> Sharti: <br><br>
+                            Uzunlik 10, eni 5. Perimetri va yuzasini hisoblab chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> Perimetri: 30
+                            <br> Yuzasi: 50
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 7: Valyuta konvertori <br>
+                            <br> Sharti: <br><br>
+                            Dollar miqdori 50, kurs 12500 so‘m. So‘mga aylantirib chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> 50 dollar = 625000 so‘m
+                            <br><br>
+                        </p>
+                        <p>✅ Masala 8: Do‘kon chegirmasini hisoblash <br>
+                            <br> Sharti: <br><br>
+                            Mahsulot narxi 120000 so‘m, chegirma 15%. Chegirmani hisoblab, oxirgi narxni chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> Chegirma summasi: 18000 so‘m
+                            <br> To‘lanadigan summa: 102000 so‘m
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 9: Talabaning o‘rtacha bahosini hisoblash <br>
+                            <br> Sharti: <br><br>
+                            Talabaning 5 fan bo‘yicha baholari: 4, 5, 3, 4, 5. O‘rtacha bahoni hisoblab chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> O‘rtacha baho: 4.2
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 10: Ish haqini soliqqa tortish <br>
+                            <br> Sharti: <br><br>
+                            Ish haqi 5 000 000 so‘m, soliq 12%. Toza ish haqini (soliqdan keyingi) hisoblab chiqarish.
+                            <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br>
+                            <br> Soliq summasi: 600000 so‘m
+                            <br> Toza ish haqi: 4400000 so‘m
+                            <br><br>
+                        </p>
+                    </div>
+                    <div class="sub-panel interviewContent" style="display: none; margin-top:10px;">
+                        <p>1.JavaScript’da o‘zgaruvchi (variable) nima? Qanday ishlatiladi?</p>
+                        <p>2. `var`, `let`, `const` farqi nimada?</p>
+
+                        <p>3. `console.log()` nima vazifani bajaradi?</p>
+
+                        <p>4. `console.log()` dan boshqa chiqish usullari?</p>
+
+                        <p>5. Template literal (`\`${}\``) va string concatenation (`+`) farqi?</p>
+
+                        <p>6. Primitive va reference tiplarga misol bering.</p>
+
+                        <p>7. Undefined va null farqi?</p>
+
+                        <p>8. Dynamic typing nima?</p>
+
+                        <p>9. O‘zgaruvchi nomlash qoidalari qanday?</p>
+
+                        <p>10. Hoisting nima?</p>
+
+                        <p>11. JavaScript qachon va kim tomonidan yaratildi?</p>
+
+                        <p>12. JavaScript dastlab qanday nomlangan?</p>
+
+                        <p>13. ECMAScript nima?</p>
+
+                        <p>14. JavaScript qaysi versiyadan rivojlandi?</p>
+
+                        <p>15. Java va JavaScript o‘rtasida qanday farq bor?</p>
+
+                        <p>16. Node.js nimaga imkon yaratdi?</p>
+
+                        <p>17. Event loop tushunchasini tushuntiring.</p>
+
+                        <p>18. Transpiler va polyfill nima?</p>
+
+                        <p>19. Strict mode (`"use strict"`) nima beradi?</p>
+
+                        <p>20. Nega JavaScript bugungi kunda eng ommabop tillardan biri?</p>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Conditionals(if else)</h2>
+                <div class="panel">
+                    <button class="btn masalaBtn">Masala</button>
+                    <button class="btn interviewBtn">Interwiev</button>
+                    <div class="sub-panel masalaContent" style="display: none; margin-top:10px;">
+                        <p>✅ Masala 1: Bank kartasidan pul yechish <br> <br> Sharti: <br><br> Kartada 150,000 so‘m bor.
+                            Agar yechmoqchi bo‘lgan pul balansdan oshsa — “Hisobda mablag‘ yetarli emas” chiqsin. Agar
+                            kam bo‘lsa — balansdan yechib, qolganini ko‘rsatsin. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br> <br> Hisobda mablag‘ yetarli emas <br><br> </p>
+
+                        <p>✅ Masala 2: Parol xavfsizligini tekshirish <br> <br> Sharti: <br><br> Parol uzunligi < 6 →
+                                “Juda qisqa” <br> 6–10 → “O‘rtacha” <br> >10 → “Yaxshi” <br><br> Chiqarish kerak bo‘lgan
+                                natija: <br> <br> O‘rtacha <br><br> </p>
+
+                        <p>✅ Masala 3: Avtomobil svetofor belgisi <br> <br> Sharti: <br><br> `switch` bilan: qizil →
+                            “To‘xtang” <br> sariq → “Tayyorlaning” <br> yashil → “Yuring” <br> boshqa → “Noto‘g‘ri
+                            signal” <br><br> Chiqarish kerak bo‘lgan natija: <br> <br> Tayyorlaning <br><br> </p>
+
+                        <p>✅ Masala 4: Restoranda buyurtma <br> <br> Sharti: <br><br> `switch`: pizza (50k), burger
+                            (30k), lavash (25k) <br> narx * soni → umumiy narx <br> Agar yo‘q ovqat → “Menuda yo‘q”
+                            <br><br> Chiqarish kerak bo‘lgan natija: <br> <br> Umumiy hisob: 60000 so‘m <br><br>
+                        </p>
+
+                        <p>✅ Masala 5: Havo haroratiga qarab kiyinish <br> <br> Sharti: <br><br>
+                            <0 → “Juda sovuq” <br> 0–10 → “Sovuq” <br> 11–20 → “Salqin” <br> 21–30 → “Iliq” <br> >30 →
+                                “Issiq” <br><br> Chiqarish kerak bo‘lgan natija: <br> <br> Salqin <br><br>
+                        </p>
+
+                        <p>✅ Masala 6: Talaba bahosini harfga o‘tkazish <br> <br> Sharti: <br><br> 90+ → A <br> 80+ → B
+                            <br> 70+ → C <br> 60+ → D <br>
+                            <60 → F <br><br> Chiqarish kerak bo‘lgan natija: <br> <br> B <br><br>
+                        </p>
+
+                        <p>✅ Masala 7: Chegirma hisoblash <br> <br> Sharti: <br><br> `switch`: standard → 5% <br>
+                            premium → 10% <br> vip → 20% <br> Agar narx >200k → chegirma, aks holda chegirmasiz narx.
+                            <br><br> Chiqarish kerak bo‘lgan natija: <br> <br> Chegirmadan so‘ng to‘lov: 240000 so‘m
+                            <br><br>
+                        </p>
+
+                        <p>✅ Masala 8: Raqam juft yoki toq
+                            <br> <br> Sharti:
+                            <br><br> Agar raqam 2 ga bo‘linib qolsa →
+                            “Juft”, aks holda → “Toq”
+                            <br><br> Chiqarish kerak bo‘lgan natija: <br> <br> Toq <br><br>
+                        </p>
+
+                        <p>✅ Masala 9: Ekran o‘lchamiga qarab dizayn rejimi <br> <br> Sharti: <br><br>
+                            <600px → “Mobil rejim” <br> 600–1024 → “Planshet rejim” <br> >1024 → “Kompyuter rejim”
+                                <br><br> Chiqarish kerak bo‘lgan natija: <br> <br> Planshet rejim <br><br>
+                        </p>
+
+                        <p>✅ Masala 10: Ish haqini soliqqa tortish <br> <br> Sharti: <br><br> Ish haqi 5 000 000 so‘m,
+                            soliq 12%. Toza ish haqini (soliqdan keyingi) hisoblab chiqarish. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br> <br> Soliq summasi: 600000 so‘m <br> Toza ish haqi: 4400000 so‘m
+                            <br><br>
+                        </p>
+
+                    </div>
+                    <div class="sub-panel interviewContent" style="display: none; margin-top:10px;">
+                        <p>1. JavaScript’da `if`, `else if`, `else` bloklari nima vazifa bajaradi? Qachon ishlatiladi?
+                        </p>
+                        <p>2. `switch` operatori nima? `if-else` o‘rniga qachon ishlatgan qulay?</p>
+                        <p>3. `if` shartida faqat `true` yoki `false` emas, boshqa qiymatlar ham ishlatilsa nima
+                            bo‘ladi? Misol keltiring.</p>
+                        <p>4. `switch` case ichida `break` yozilmasa nima sodir bo‘ladi?</p>
+                        <p>5. Shartlarda (`if`, `switch`) `===` (strict equality) bilan `==` (loose equality)
+                            o‘rtasidagi farq nima?</p>
+                        <p>6. Agar sizda 5–6 ta shart bo‘lsa, `if-else` yozasizmi yoki `switch`? Nima uchun?</p>
+                        <p>7. Shartlarda (`if`) “truthy” va “falsy” tushunchalari nimani anglatadi? Misol keltiring.</p>
+                        <p>8. `switch` case’da bir nechta qiymatlarni bitta blokda yozish mumkinmi? Qanday?</p>
+                        <p>9. JavaScript’da `ternary operator` nima? Qachon ishlatiladi?</p>
+                        <p>10. Quyidagi kod qanday natija qaytaradi va nima uchun? ```js let a = 0; if(a) {
+                            console.log('True'); } else { console.log('False'); } ``` </p>
+                        <p>11. Shartlarda `null` va `undefined` qanday tutadi? Misollar bilan tushuntiring.</p>
+                        <p>12. `if` shartida string (“”) yoki 0 ishlatilsa, ular qanday baholanadi?</p>
+                        <p>13. “Guard clauses” tushunchasini tushuntirib bering. Qanday qilib kodda shartlarni
+                            soddalashtirish mumkin?</p>
+                        <p>14. Quyidagi kodni tushuntiring: ```js let res = (score >= 60) ? 'Passed' : 'Failed'; ```
+                        </p>
+                        <p>15. `switch` dan foydalanishda `default` bloki qanday vazifa bajaradi?</p>
+                        <p>16. `if` ichida `return` ishlatilsa, kod oqimi qanday o‘zgaradi?</p>
+                        <p>17. Quyidagi kod qanday natija beradi? Nega? ```js switch(true) { case (age < 18):
+                                console.log('Child'); break; case (age>= 18 && age < 60): console.log('Adult'); break;
+                                    default: console.log('Senior'); } ``` </p>
+                                    <p>18. `nested if` degani nima? Qachon ularni ishlatish to‘g‘ri?</p>
+                                    <p>19. Shartlar ichida `&&` va `||` operatorlari qanday ishlaydi? Misollar
+                                        keltiring.</p>
+                                    <p>20. Kod optimizatsiyasi uchun `if-else` bloklarini qanday qisqartirish mumkin?
+                                    </p>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Loops, Function</h2>
+                <div class="panel">
+                    <button class="btn masalaBtn">Masala</button>
+                    <button class="btn interviewBtn">Interwiev</button>
+                    <div class="sub-panel masalaContent" style="display: none; margin-top:10px;">
+                        <p>✅ Masala 1: Raqamlar yig‘indisi <br><br>
+                            Sharti: <br><br>
+                            1 dan N gacha bo‘lgan barcha sonlar yig‘indisini hisoblang. N = 100. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Yig‘indi: 5050 <br><br>
+                        </p>
+
+                        <p>✅ Masala 2: Faqat juft sonlar yig‘indisi <br><br>
+                            Sharti: <br><br>
+                            1 dan N gacha bo‘lgan barcha juft sonlar yig‘indisini hisoblang. N = 50. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Juft sonlar yig‘indisi: 650 <br><br>
+                        </p>
+
+                        <p>✅ Masala 3: Faqat toq sonlar ko‘paytmasi <br><br>
+                            Sharti: <br><br>
+                            1 dan 9 gacha bo‘lgan barcha toq sonlar ko‘paytmasini hisoblang. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Toq sonlar ko‘paytmasi: 945 <br><br>
+                        </p>
+
+                        <p>✅ Masala 4: 2 ga ko‘paytirib chiqarish <br><br>
+                            Sharti: <br><br>
+                            Berilgan massiv: [1, 2, 3, 4, 5]. Har bir elementni 2 ga ko‘paytirib, konsolga chiqaring.
+                            <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            2, 4, 6, 8, 10 <br><br>
+                        </p>
+
+                        <p>✅ Masala 5: Stringni teskari chiqarish <br><br>
+                            Sharti: <br><br>
+                            "JavaScript" so‘zini teskari qilib chiqarish. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            tpircSavaJ <br><br>
+                        </p>
+
+                        <p>✅ Masala 6: FizzBuzz <br><br>
+                            Sharti: <br><br>
+                            1 dan 30 gacha bo‘lgan sonlar uchun: <br><br>
+                            - 3 ga karralilarga Fizz <br>
+                            - 5 ga karralilarga Buzz <br>
+                            - Ikkalasiga ham karralilarga FizzBuzz chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, ... <br><br>
+                        </p>
+
+                        <p>✅ Masala 7: Massiv ichidagi eng katta son <br><br>
+                            Sharti: <br><br>
+                            Massiv: [23, 45, 67, 12, 89, 34] <br><br>
+                            Eng katta sonni topib, chiqarish. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Eng katta son: 89 <br><br>
+                        </p>
+
+                        <p>✅ Masala 8: Nested loop – yulduzcha piramidasi <br><br>
+                            Sharti: <br><br>
+                            Quyidagi ko‘rinishda yulduzcha piramidasi chizing (5 qator): <br><br>
+                            * <br>
+                            ** <br>
+                            *** <br>
+                            **** <br>
+                            ***** <br><br>
+                        </p>
+
+                        <p>✅ Masala 9: Harflarni sanash <br><br>
+                            Sharti: <br><br>
+                            Berilgan string: "hello world" <br><br>
+                            Har bir harf necha marta takrorlanganini chiqarish. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            h:1 e:1 l:3 o:2 w:1 r:1 d:1 <br><br>
+                        </p>
+
+                        <p>✅ Masala 10: Ish haqini soliqqa tortish <br><br>
+                            Sharti: <br><br>
+                            Ish haqi 5 000 000 so‘m, soliq 12%. Toza ish haqini (soliqdan keyingi) hisoblab chiqarish.
+                            <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Soliq summasi: 600000 so‘m <br>
+                            Toza ish haqi: 4400000 so‘m <br><br>
+                        </p>
+
+                    </div>
+                    <div class="sub-panel interviewContent" style="display: none; margin-top:10px;">
+                        <p>1. JavaScript’da `for` loop va `while` loop ning farqlari nimalar?</p>
+
+                        <p>2. JavaScript’da `break` va `continue` operatorlari qanday ishlaydi?</p>
+
+                        <p>3. `forEach` va `map` metodlarining farqlari nimalar?</p>
+
+                        <p>4. `do-while` loopning ishlash prinsipini tushuntirib bering.</p>
+
+                        <p>5. JavaScript’da qanday qilib massivni teskari qilib chiqarish mumkin?</p>
+
+                        <p>6. `for...in` va `for...of` looplarining farqlarini tushuntirib bering.</p>
+
+                        <p>7. `map()` metodidan foydalanib massivni qanday o'zgartirish mumkin?</p>
+
+                        <p>8. JavaScript’da `setTimeout()` va `setInterval()` ning farqi qanday?</p>
+
+                        <p>9. JavaScript’da `filter()` metodini qanday ishlatish mumkin?</p>
+
+                        <p>10. JavaScript’da `switch` va `if-else` ni qachon ishlatgan ma’qul?</p>
+
+                        <p>11. `for` loopni `while` loop bilan almashtiring:
+                        <pre>
+                        for (let i = 0; i < 5; i++) {
+                            console.log(i);
+                        }
+                        </pre>
+                        </p>
+
+                        <p>12. JavaScript’da `reduce()` metodini qanday ishlatish mumkin?</p>
+
+                        <p>13. JavaScript’da loop orqali massivni qanday chiqarmoq mumkin?</p>
+
+                        <p>14. JavaScript’da `continue` operatorini qanday ishlatish mumkin?</p>
+
+                        <p>15. JavaScript’da `forEach` metodining qanday ishlashini tushuntirib bering.</p>
+
+                        <p>16. Nested loop nima va uni qanday ishlatish mumkin?</p>
+
+                        <p>17. JavaScript’da massivdagi eng katta sonni qanday topish mumkin?</p>
+
+                        <p>18. `break` operatori `switch` statementida qanday ishlaydi?</p>
+
+                        <p>19. JavaScript’da massivni `sort()` metodi yordamida qanday tartiblash mumkin?</p>
+
+                        <p>20. JavaScript’da bir necha tsiklni birlashtirish (nested loops) bo‘yicha masala bering va
+                            yechimini tushuntiring.</p>
+
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Array, Object</h2>
+                <div class="panel">
+                    <button class="btn masalaBtn">Masala</button>
+                    <button class="btn interviewBtn">Interwiev</button>
+                    <div class="sub-panel masalaContent" style="display: none; margin-top:10px;">
+                        <p>push()</p>
+                        <p>✅ Masala 1: Savatga mahsulot qo‘shish <br><br> Sharti: <br><br> Onlayn savat massiviga yangi
+                            mahsulot qo‘shing va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Telefon", "Klaviatura", "Noutbuk"] <br><br> </p>
+                        <p>✅ Masala 2: Ro‘yxatga ishtirokchi qo‘shish <br><br> Sharti: <br><br> Seminar ishtirokchilari
+                            ro‘yxatiga yangi ishtirokchi qo‘shing va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: ["Ali", "Vali", "Sardor"] <br><br> </p>
+                        <p>pop()</p>
+                        <p>✅ Masala 1: Savatdan mahsulot olib tashlash <br><br> Sharti: <br><br> Savatdan oxirgi
+                            mahsulotni olib tashlang va qolgan ro‘yxatni chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: ["Telefon", "Klaviatura"] <br><br> </p>
+                        <p>✅ Masala 2: Vazifani olib tashlash <br><br> Sharti: <br><br> To-do listdan oxirgi vazifani
+                            olib tashlang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Xat yozish", "Uchrashuv"] <br><br> </p>
+                        <p>shift()</p>
+                        <p>✅ Masala 1: Navbatdan mijoz olib tashlash <br><br> Sharti: <br><br> Bank navbatidagi birinchi
+                            mijozni olib tashlang va qolgan navbatni chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["Vali", "Sardor"] <br><br>
+                        </p>
+                        <p>✅ Masala 2: Birinchi vazifani olib tashlash <br><br> Sharti: <br><br> Kunlik vazifalar
+                            ro‘yxatidan birinchi vazifani olib tashlang va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: ["Ishga borish", "Sport"] <br><br> </p>
+                        <p>unshift()</p>
+                        <p>✅ Masala 1: Navbatga mijoz qo‘shish <br><br> Sharti: <br><br> Bank navbatining boshiga yangi
+                            mijoz qo‘shing va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Ali", "Vali", "Sardor"] <br><br> </p>
+                        <p>✅ Masala 2: Vazifaga muhim topshiriq qo‘shish <br><br> Sharti: <br><br> To-do listning
+                            boshiga muhim vazifa qo‘shing va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: ["Uchrashuv", "Xat yozish", "Kod yozish"] <br><br> </p>
+                        <p>concat()</p>
+                        <p>✅ Masala 1: Ikkita savatni birlashtirish <br><br> Sharti: <br><br> Ikki do‘kondagi savatlarni
+                            birlashtiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Telefon", "Klaviatura", "Noutbuk", "Sichqoncha"] <br><br> </p>
+                        <p>✅ Masala 2: Ikkita guruhni birlashtirish <br><br> Sharti: <br><br> Ikki guruh talabalarini
+                            bir ro‘yxatga birlashtiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["Ali", "Vali", "Sardor", "Nodir"] <br><br>
+                        </p>
+                        <p>slice()</p>
+                        <p>✅ Masala 1: Mahsulotlarning qismini olish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatidan
+                            2-3-elementlarni oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["Noutbuk", "Klaviatura"] <br><br>
+                        </p>
+                        <p>✅ Masala 2: Tadbirlarning haftalik qismini olish <br><br> Sharti: <br><br> Oylik tadbirlar
+                            ro‘yxatidan birinchi haftani oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: ["Seminar", "Uchrashuv"] <br><br> </p>
+                        <p>splice()</p>
+                        <p>✅ Masala 1: Mahsulotni almashtirish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatidan bir
+                            mahsulotni o‘chirib, uning o‘rniga boshqasini qo‘shing va natijani chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br> Natija: ["Telefon", "Monitor", "Klaviatura"]
+                            <br><br>
+                        </p>
+                        <p>✅ Masala 2: Dars jadvalini o‘zgartirish <br><br> Sharti: <br><br> Dars jadvalidagi bir darsni
+                            o‘chirib, yangisini qo‘shing va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["Matematika", "Kimyo", "Ingliz tili"] <br><br>
+                        </p>
+                        <p>forEach()</p>
+                        <p>✅ Masala 1: Mahsulot narxlarini chiqarish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatidagi
+                            narxlarni konsolga chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            Telefon: $200 <br> Natija: Noutbuk: $800 <br><br> </p>
+                        <p>✅ Masala 2: Talabalarga xabar yuborish <br><br> Sharti: <br><br> Talabalar ro‘yxatidagi har
+                            bir talabaga xabar chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            Salom, Ali! Darsga keling. <br> Natija: Salom, Vali! Darsga keling. <br><br> </p>
+                        <p>map()</p>
+                        <p>✅ Masala 1: Narxlarni oshirish <br><br> Sharti: <br><br> Mahsulotlar narxini 10% ga oshiring
+                            va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija: [{ name:
+                            "Telefon", price: 220 }, { name: "Noutbuk", price: 880 }] <br><br> </p>
+                        <p>✅ Masala 2: Ballarni harfga aylantirish <br><br> Sharti: <br><br> Talaba ballarini harfli
+                            bahoga aylantiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["B", "A", "C"] <br><br> </p>
+                        <p>filter()</p>
+                        <p>✅ Masala 1: Qimmat mahsulotlarni filtrlash <br><br> Sharti: <br><br> Narxi 50 dan yuqori
+                            mahsulotlarni filtrlang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: [{ name: "Telefon", price: 200 }] <br><br>
+                        </p>
+                        <p>✅ Masala 2: Faol foydalanuvchilarni filtrlash <br><br> Sharti: <br><br> Faqat faol
+                            foydalanuvchilarni filtrlang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: [{ name: "Ali", active: true }] <br><br>
+                        </p>
+                        <p>reduce()</p>
+                        <p>✅ Masala 1: Savat narxini hisoblash <br><br> Sharti: <br><br> Savatdagi mahsulotlarning
+                            umumiy narxini hisoblang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: 1000 <br><br>
+                        </p>
+                        <p>✅ Masala 2: Ballar o‘rtachasini hisoblash <br><br> Sharti: <br><br> Talaba ballarining
+                            o‘rtacha qiymatini hisoblang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: 84.33 <br><br>
+                        </p>
+                        <p>find()</p>
+                        <p>✅ Masala 1: Mahsulotni topish <br><br> Sharti: <br><br> ID si 2 bo‘lgan mahsulotni toping va
+                            natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija: { id: 2, name:
+                            "Noutbuk" } <br><br> </p>
+                        <p>✅ Masala 2: Foydalanuvchini topish <br><br> Sharti: <br><br> Ismi "Ali" bo‘lgan
+                            foydalanuvchini toping va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: { name: "Ali" } <br><br>
+                        </p>
+                        <p>findIndex()</p>
+                        <p>✅ Masala 1: Mahsulot indeksini topish <br><br> Sharti: <br><br> Narxi 800 bo‘lgan
+                            mahsulotning indeksini toping va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: 1 <br><br> </p>
+                        <p>✅ Masala 2: Talaba indeksini topish <br><br> Sharti: <br><br> Balli 90 bo‘lgan talabaning
+                            indeksini toping va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: 1 <br><br> </p>
+                        <p>includes()</p>
+                        <p>✅ Masala 1: Mahsulot mavjudligini tekshirish <br><br> Sharti: <br><br> Ro‘yxatda "Telefon"
+                            bor-yo‘qligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: true <br><br>
+                        </p>
+                        <p>✅ Masala 2: Tadbir mavjudligini tekshirish <br><br> Sharti: <br><br> Tadbirlar ro‘yxatida
+                            "Seminar" bor-yo‘qligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: true <br><br> </p>
+                        <p>indexOf()</p>
+                        <p>✅ Masala 1: Mahsulot indeksini topish <br><br> Sharti: <br><br> "Noutbuk" mahsulotining
+                            indeksini toping va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: 1 <br><br> </p>
+                        <p>✅ Masala 2: Talaba indeksini topish <br><br> Sharti: <br><br> "Vali" talabasining indeksini
+                            toping va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija: 1
+                            <br><br>
+                        </p>
+                        <p>lastIndexOf()</p>
+                        <p>✅ Masala 1: Takrorlangan mahsulot indeksini topish <br><br> Sharti: <br><br> "Telefon"
+                            mahsulotining oxirgi indeksini toping va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: 2 <br><br> </p>
+                        <p>✅ Masala 2: Takrorlangan tadbir indeksini topish <br><br> Sharti: <br><br> "Seminar"
+                            tadbirining oxirgi indeksini toping va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: 2 <br><br> </p>
+                        <p>sort()</p>
+                        <p>✅ Masala 1: Mahsulotlarni tartiblash <br><br> Sharti: <br><br> Mahsulotlarni narxi bo‘yicha
+                            o‘sish tartibida tartiblang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: [{ name: "Telefon", price: 200 }, { name: "Noutbuk", price: 800 }] <br><br>
+                        </p>
+                        <p>✅ Masala 2: Talabalarni tartiblash <br><br> Sharti: <br><br> Talabalarni alifbo tartibida
+                            tartiblang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            ["Ali", "Sardor", "Vali"] <br><br> </p>
+                        <p>reverse()</p>
+                        <p>✅ Masala 1: Mahsulotlarni teskari tartiblash <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatini
+                            teskari tartibda chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            ["Klaviatura", "Noutbuk", "Telefon"] <br><br> </p>
+                        <p>✅ Masala 2: Tadbirlar teskari tartibda <br><br> Sharti: <br><br> Tadbirlar ro‘yxatini teskari
+                            tartibda chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija: ["Konsert",
+                            "Uchrashuv", "Seminar"] <br><br> </p>
+                        <p>join()</p>
+                        <p>✅ Masala 1: Mahsulotlarni matn qilish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatini vergul
+                            bilan ajratilgan matn sifatida chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: Telefon, Noutbuk, Klaviatura <br><br> </p>
+                        <p>✅ Masala 2: Talabalarni matn qilish <br><br> Sharti: <br><br> Talabalar ro‘yxatini "va" bilan
+                            ajratilgan matn sifatida chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: Ali va Vali va Sardor <br><br> </p>
+                        <p>toString()</p>
+                        <p>✅ Masala 1: Mahsulotlarni matn qilish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatini oddiy
+                            matn sifatida chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            Telefon,Noutbuk <br><br> </p>
+                        <p>✅ Masala 2: Tadbirlar matni <br><br> Sharti: <br><br> Tadbirlar ro‘yxatini oddiy matn
+                            sifatida chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            Seminar,Uchrashuv <br><br> </p>
+                        <p>every()</p>
+                        <p>✅ Masala 1: Barcha mahsulotlar qimmatmi? <br><br> Sharti: <br><br> Barcha mahsulotlarning
+                            narxi 100 dan yuqoriligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: true <br><br> </p>
+                        <p>✅ Masala 2: Barcha talabalar o‘tdimi? <br><br> Sharti: <br><br> Barcha talabalar 60 dan
+                            yuqori ball olganmi, tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: true <br><br> </p>
+                        <p>some()</p>
+                        <p>✅ Masala 1: Qimmat mahsulot bormi? <br><br> Sharti: <br><br> Narxi 500 dan yuqori mahsulot
+                            borligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: true <br><br>
+                        </p>
+                        <p>✅ Masala 2: Yuqori ball bormi? <br><br> Sharti: <br><br> 90 dan yuqori ball olgan talaba
+                            borligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: true <br><br>
+                        </p>
+                        <p>flat()</p>
+                        <p>✅ Masala 1: Mahsulotlar ro‘yxatini birlashtirish <br><br> Sharti: <br><br> Turli
+                            bo‘limlardagi mahsulotlarni bitta ro‘yxatga tekislang va natijani chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br> Natija: ["Telefon", "Noutbuk", "Klaviatura",
+                            "Sichqoncha"] <br><br> </p>
+                        <p>✅ Masala 2: Guruhlarni birlashtirish <br><br> Sharti: <br><br> Turli guruhlardagi talabalarni
+                            bitta ro‘yxatga tekislang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["Ali", "Vali", "Sardor", "Nodir"] <br><br>
+                        </p>
+                        <p>flatMap()</p>
+                        <p>✅ Masala 1: Mahsulot variantlarini ro‘yxatlash <br><br> Sharti: <br><br> Mahsulotlarning rang
+                            variantlarini ro‘yxat sifatida chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Telefon (Qora)", "Telefon (Oq)", "Noutbuk (Kumush)"] <br><br> </p>
+                        <p>✅ Masala 2: Talaba fanlarini ro‘yxatlash <br><br> Sharti: <br><br> Talabalar va ularning
+                            fanlarini ro‘yxat sifatida chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Ali: Matematika", "Ali: Fizika", "Vali: Kimyo"] <br><br> </p>
+                        <p>at()</p>
+                        <p>✅ Masala 1: Indeksdagi mahsulotni olish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatidan
+                            2-indeksdagi mahsulotni oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: Klaviatura <br><br> </p>
+                        <p>✅ Masala 2: Oxirgi tadbirni olish <br><br> Sharti: <br><br> Tadbirlar ro‘yxatidan oxirgi
+                            tadbirni oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: Konsert <br><br> </p>
+                        <p>fill()</p>
+                        <p>✅ Masala 1: Ro‘yxatni to‘ldirish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatini "No
+                            product" bilan to‘ldiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["No product", "No product", "No product"] <br><br>
+                        </p>
+                        <p>✅ Masala 2: Jadvalni bo‘sh qilish <br><br> Sharti: <br><br> Haftalik jadvalni "Bo‘sh" bilan
+                            to‘ldiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            ["Bo‘sh", "Bo‘sh", "Bo‘sh"] <br><br> </p>
+                        <p>copyWithin()</p>
+                        <p>✅ Masala 1: Mahsulotlarni ko‘chirish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatining bir
+                            qismini boshqa joyga ko‘chiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: ["Klaviatura", "Sichqoncha", "Klaviatura", "Sichqoncha"] <br><br>
+                        </p>
+                        <p>✅ Masala 2: Darslarni ko‘chirish <br><br> Sharti: <br><br> Dars jadvalidagi darslarni boshqa
+                            joyga ko‘chiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Kimyo", "Ingliz tili", "Kimyo", "Ingliz tili"] <br><br> </p>
+                        <p>entries()</p>
+                        <p>✅ Masala 1: Mahsulotlarni indeks bilan chiqarish <br><br> Sharti: <br><br> Mahsulotlar
+                            ro‘yxatini indekslari bilan chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: 0: Telefon <br> Natija: 1: Noutbuk <br><br> </p>
+                        <p>✅ Masala 2: Talabalarni raqamlash <br><br> Sharti: <br><br> Talabalar ro‘yxatini indekslari
+                            bilan chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija: Talaba 1: Ali
+                            <br> Natija: Talaba 2: Vali <br><br>
+                        </p>
+                        <p>keys()</p>
+                        <p>✅ Masala 1: Mahsulot indekslarini olish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatining
+                            indekslarini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: [0, 1] <br><br> </p>
+                        <p>✅ Masala 2: Jadval kunlarining indekslari <br><br> Sharti: <br><br> Haftalik jadvalning
+                            kunlar indekslarini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: [0, 1, 2] <br><br>
+                        </p>
+                        <p>values()</p>
+                        <p>✅ Masala 1: Mahsulotlar qiymatlarini olish <br><br> Sharti: <br><br> Mahsulotlar ro‘yxatining
+                            faqat elementlarini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["Telefon", "Noutbuk"] <br><br>
+                        </p>
+                        <p>✅ Masala 2: Tadbir nomlarini olish <br><br> Sharti: <br><br> Tadbirlar ro‘yxatining faqat
+                            nomlarini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: ["Seminar", "Uchrashuv"] <br><br> </p>
+                        <p>from()</p>
+                        <p>✅ Masala 1: Matnni massivga aylantirish <br><br> Sharti: <br><br> Foydalanuvchi kiritgan
+                            matnni harflar massiviga aylantiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: ["S", "a", "l", "o", "m"] <br><br> </p>
+                        <p>✅ Masala 2: Raqamlarni massivga aylantirish <br><br> Sharti: <br><br> Set obyektdagi
+                            raqamlarni massivga aylantiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: [1, 2, 3] <br><br> </p>
+                        <p>of()</p>
+                        <p>✅ Masala 1: Yangi mahsulotlar ro‘yxati <br><br> Sharti: <br><br> Yangi mahsulotlar ro‘yxatini
+                            yarating va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            ["Telefon", "Noutbuk"] <br><br> </p>
+                        <p>✅ Masala 2: Yangi tadbirlar ro‘yxati <br><br> Sharti: <br><br> Yangi tadbirlar ro‘yxatini
+                            yarating va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            ["Seminar", "Uchrashuv"] <br><br> </p>
+                        Object metodlari uchun masalalar
+                        <p>Object.keys()</p>
+                        <p>✅ Masala 1: Foydalanuvchi kalitlarini olish <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi kalitlarni ro‘yxat sifatida oling va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: ["name", "age", "city"] <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot xususiyatlarini olish <br><br> Sharti: <br><br> Mahsulot obyektdagi
+                            xususiyat nomlarini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["name", "price", "brand"] <br><br>
+                        </p>
+                        <p>Object.values()</p>
+                        <p>✅ Masala 1: Foydalanuvchi qiymatlarini olish <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi qiymatlarni ro‘yxat sifatida oling va natijani chiqaring. <br><br> Chiqarish
+                            kerak bo‘lgan natija: <br><br> Natija: ["Ali", 25, "Toshkent"] <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot qiymatlarini olish <br><br> Sharti: <br><br> Mahsulot obyektdagi
+                            qiymatlarni ro‘yxat sifatida oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: ["Telefon", 200, "Samsung"] <br><br> </p>
+                        <p>Object.entries()</p>
+                        <p>✅ Masala 1: Foydalanuvchi juftliklarini olish <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi kalit-qiymat juftliklarini oling va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: [["name", "Ali"], ["age", 25]] <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot juftliklarini olish <br><br> Sharti: <br><br> Mahsulot obyektdagi
+                            kalit-qiymat juftliklarini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: [["name", "Telefon"], ["price", 200]] <br><br> </p>
+                        <p>Object.assign()</p>
+                        <p>✅ Masala 1: Foydalanuvchi ma’lumotlarini birlashtirish <br><br> Sharti: <br><br> Ikkita
+                            foydalanuvchi obyekti ma’lumotlarini birlashtiring va natijani chiqaring. <br><br> Chiqarish
+                            kerak bo‘lgan natija: <br><br> Natija: { name: "Ali", email: "ali@example.com" } <br><br>
+                        </p>
+                        <p>✅ Masala 2: Mahsulot ma’lumotlarini yangilash <br><br> Sharti: <br><br> Mahsulot obyekti
+                            ma’lumotlarini yangi xususiyatlar bilan birlashtiring va natijani chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br> Natija: { name: "Telefon", price: 200, brand:
+                            "Samsung" } <br><br> </p>
+                        <p>Object.create()</p>
+                        <p>✅ Masala 1: Foydalanuvchi prototipi <br><br> Sharti: <br><br> Foydalanuvchi uchun prototip
+                            yarating va salomlashish metodini chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: Salom, Ali! <br><br>
+                        </p>
+                        <p>✅ Masala 2: Mahsulot prototipi <br><br> Sharti: <br><br> Mahsulot uchun prototip yarating va
+                            narxni ko‘rsatish metodini chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: Narx: $200 <br><br> </p>
+                        <p>Object.defineProperty()</p>
+                        <p>✅ Masala 1: Foydalanuvchi ID sini himoyalash <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi ID xususiyatini o‘zgarmas qiling va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: 1 <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot narxini himoyalash <br><br> Sharti: <br><br> Mahsulot narxini faqat
+                            o‘qish uchun qiling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: 200 <br><br> </p>
+                        <p>Object.defineProperties()</p>
+                        <p>✅ Masala 1: Foydalanuvchi xususiyatlarini himoyalash <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi bir nechta xususiyatni himoyalang va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: { name: "Ali", age: 25 } <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot xususiyatlarini himoyalash <br><br> Sharti: <br><br> Mahsulot obyektdagi
+                            xususiyatlarni himoyalang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: { name: "Telefon", price: 200 } <br><br>
+                        </p>
+                        <p>Object.freeze()</p>
+                        <p>✅ Masala 1: Foydalanuvchi obyekti muzlatish <br><br> Sharti: <br><br> Foydalanuvchi obyekti
+                            o‘zgarmas qiling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { name: "Ali", age: 25 } <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot obyekti muzlatish <br><br> Sharti: <br><br> Mahsulot obyekti o‘zgarmas
+                            qiling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija: {
+                            name: "Telefon", price: 200 } <br><br> </p>
+                        <p>Object.seal()</p>
+                        <p>✅ Masala 1: Foydalanuvchi obyekti muhrlash <br><br> Sharti: <br><br> Foydalanuvchi obyekti
+                            faqat o‘zgartiriladigan qiling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: { name: "Ali", age: 30 } <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot obyekti muhrlash <br><br> Sharti: <br><br> Mahsulot obyekti faqat
+                            o‘zgartiriladigan qiling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: { name: "Telefon", price: 250 } <br><br>
+                        </p>
+                        <p>Object.is()</p>
+                        <p>✅ Masala 1: Qiymatlarni taqqoslash <br><br> Sharti: <br><br> Ikkita qiymat bir xil ekanligini
+                            tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            false <br><br> </p>
+                        <p>✅ Masala 2: NaN taqqoslash <br><br> Sharti: <br><br> Ikkita NaN qiymatni bir xil ekanligini
+                            tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija: <br><br> Natija:
+                            true <br><br> </p>
+                        <p>Object.hasOwnProperty()</p>
+                        <p>✅ Masala 1: Foydalanuvchi xususiyatini tekshirish <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektda "email" xususiyati borligini tekshiring va natijani chiqaring. <br><br> Chiqarish
+                            kerak bo‘lgan natija: <br><br> Natija: true <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot narxini tekshirish <br><br> Sharti: <br><br> Mahsulot obyektda "price"
+                            xususiyati borligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: true <br><br> </p>
+                        <p>Object.getOwnPropertyDescriptor()</p>
+                        <p>✅ Masala 1: Foydalanuvchi xususiyati tavsifi <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi "name" xususiyatining tavsifini oling va natijani chiqaring. <br><br> Chiqarish
+                            kerak bo‘lgan natija: <br><br> Natija: { value: "Ali", writable: true, enumerable: true,
+                            configurable: true } <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot xususiyati tavsifi <br><br> Sharti: <br><br> Mahsulot obyektdagi "price"
+                            xususiyatining tavsifini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: { value: 200, writable: true, enumerable: true, configurable: true
+                            } <br><br> </p>
+                        <p>Object.getOwnPropertyDescriptors()</p>
+                        <p>✅ Masala 1: Foydalanuvchi xususiyatlar tavsifi <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi barcha xususiyatlarning tavsifini oling va natijani chiqaring. <br><br> Chiqarish
+                            kerak bo‘lgan natija: <br><br> Natija: { name: { value: "Ali", ... }, age: { value: 25, ...
+                            } } <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot xususiyatlar tavsifi <br><br> Sharti: <br><br> Mahsulot obyektdagi
+                            barcha xususiyatlarning tavsifini oling va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: { name: { value: "Telefon", ... }, price: { value: 200, ...
+                            } } <br><br> </p>
+                        <p>Object.getOwnPropertyNames()</p>
+                        <p>✅ Masala 1: Foydalanuvchi xususiyat nomlari <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyektdagi barcha xususiyat nomlarini oling va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: ["name", "age"] <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot xususiyat nomlari <br><br> Sharti: <br><br> Mahsulot obyektdagi barcha
+                            xususiyat nomlarini oling va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: ["name", "price"] <br><br>
+                        </p>
+                        <p>Object.getPrototypeOf()</p>
+                        <p>✅ Masala 1: Foydalanuvchi prototipini tekshirish <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyekti prototipini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: true <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot prototipini tekshirish <br><br> Sharti: <br><br> Mahsulot obyekti
+                            prototipini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: true <br><br>
+                        </p>
+                        <p>Object.setPrototypeOf()</p>
+                        <p>✅ Masala 1: Foydalanuvchi prototipini o‘rnatish <br><br> Sharti: <br><br> Foydalanuvchi
+                            obyekti uchun maxsus prototip o‘rnating va metodni chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: Salom, Ali! <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot prototipini o‘rnatish <br><br> Sharti: <br><br> Mahsulot obyekti uchun
+                            maxsus prototip o‘rnating va metodni chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: Narx: $200 <br><br>
+                        </p>
+                        <p>Object.isExtensible()</p>
+                        <p>✅ Masala 1: Foydalanuvchi kengaytiriladimi? <br><br> Sharti: <br><br> Foydalanuvchi obyekti
+                            kengaytirilishi mumkinligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: true <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot kengaytiriladimi? <br><br> Sharti: <br><br> Mahsulot obyekti
+                            kengaytirilishi mumkinligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: true <br><br> </p>
+                        <p>Object.preventExtensions()</p>
+                        <p>✅ Masala 1: Foydalanuvchi kengaytirilmasin <br><br> Sharti: <br><br> Foydalanuvchi obyektda
+                            yangi xususiyat qo‘shilishini taqiqlang va natijani chiqaring. <br><br> Chiqarish kerak
+                            bo‘lgan natija: <br><br> Natija: { name: "Ali" } <br><br> </p>
+                        <p>✅ Masala 2: Mahsulot kengaytirilmasin <br><br> Sharti: <br><br> Mahsulot obyektda yangi
+                            xususiyat qo‘shilishini taqiqlang va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan
+                            natija: <br><br> Natija: { name: "Telefon" } <br><br> </p>
+                        <p>Object.isFrozen()</p>
+                        <p>✅ Masala 1: Foydalanuvchi muzlatilganmi? <br><br> Sharti: <br><br> Foydalanuvchi obyekti
+                            muzlatilganligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: false <br><br>
+                        </p>
+                        <p>✅ Masala 2: Mahsulot muzlatilganmi? <br><br> Sharti: <br><br> Mahsulot obyekti
+                            muzlatilganligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: false <br><br>
+                        </p>
+                        <p>Object.isSealed()</p>
+                        <p>✅ Masala 1: Foydalanuvchi muhrlanganmi? <br><br> Sharti: <br><br> Foydalanuvchi obyekti
+                            muhrlanganligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: false <br><br>
+                        </p>
+                        <p>✅ Masala 2: Mahsulot muhrlanganmi? <br><br> Sharti: <br><br> Mahsulot obyekti
+                            muhrlanganligini tekshiring va natijani chiqaring. <br><br> Chiqarish kerak bo‘lgan natija:
+                            <br><br> Natija: false <br><br>
+                        </p>
+                    </div>
+                    <div class="sub-panel interviewContent" style="display: none; margin-top:10px;">
+                        <p>❓ Savol: Bank navbatidagi birinchi mijozni olib tashlash uchun qaysi metod ishlatiladi?</p>
+                        <p>❓ Savol: Navbat boshiga yangi mijoz qo‘shish uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Ikki do‘kondagi savatlarni birlashtirish uchun qaysi metodni ishlatardiniz?</p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatidan faqat ma’lum qismini olish uchun qanday metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatidan bir elementni olib tashlab, o‘rniga boshqasini qo‘yish uchun
+                            qaysi metod ishlatiladi?</p>
+                        <p>❓ Savol: Har bir mahsulot narxini konsolga chiqarish uchun qaysi metodni ishlatardiniz?</p>
+                        <p>❓ Savol: Mahsulotlar narxini 10% ga oshirib, yangi ro‘yxat yaratish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Faqat narxi 50 dan yuqori mahsulotlarni ro‘yxatlash uchun qaysi metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Savatdagi mahsulotlarning umumiy narxini hisoblash uchun qanday metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Ro‘yxatda ID si 2 bo‘lgan mahsulotni topish uchun qaysi metod ishlatiladi?</p>
+                        <p>❓ Savol: Narxi 800 bo‘lgan mahsulotning indeksini topish uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Ro‘yxatda "Telefon" mahsuloti borligini tekshirish uchun qaysi metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: "Noutbuk" mahsulotining ro‘yxatdagi indeksini topish uchun qanday metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Takrorlangan "Telefon" mahsulotining oxirgi indeksini topish uchun qaysi metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlarni narxi bo‘yicha tartiblash uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatini teskari tartibda chiqarish uchun qaysi metod ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatini vergul bilan ajratilgan matn sifatida chiqarish uchun qanday
+                            metod ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatini oddiy matn sifatida chiqarish uchun qaysi metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Barcha mahsulotlarning narxi 100 dan yuqoriligini tekshirish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Narxi 500 dan yuqori mahsulot borligini tekshirish uchun qaysi metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Turli bo‘limlardagi mahsulotlarni bitta ro‘yxatga tekislash uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlarning rang variantlarini ro‘yxat sifatida chiqarish uchun qaysi metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatidan 2-indeksdagi elementni olish uchun qanday metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatini "No product" bilan to‘ldirish uchun qaysi metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatining bir qismini boshqa joyga ko‘chirish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlarni indekslari bilan chiqarish uchun qaysi metod ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatining indekslarini olish uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Mahsulotlar ro‘yxatining faqat elementlarini olish uchun qaysi metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Foydalanuvchi kiritgan matnni harflar massiviga aylantirish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Yangi mahsulotlar ro‘yxatini yaratish uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi xususiyat nomlarini ro‘yxat sifatida olish uchun qanday
+                            metod ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi xususiyat qiymatlarini olish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi kalit-qiymat juftliklarini olish uchun qaysi metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Ikkita foydalanuvchi obyekti ma’lumotlarini birlashtirish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi uchun maxsus prototip yaratish uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi ID xususiyatini o‘zgarmas qilish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi bir nechta xususiyatni himoyalash uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektini butunlay o‘zgarmas qilish uchun qanday metod ishlatiladi?
+                        </p>
+                        <p>❓ Savol: Foydalanuvchi obyektida yangi xususiyat qo‘shilishini taqiqlash uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Ikkita qiymatning bir xilligini aniq tekshirish uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektda "email" xususiyati borligini tekshirish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi xususiyatning tavsifini olish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi barcha xususiyatlarning tavsifini olish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektdagi barcha xususiyat nomlarini olish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektining prototipini tekshirish uchun qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyekti uchun maxsus prototip o‘rnatish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektiga yangi xususiyat qo‘shish mumkinligini tekshirish uchun
+                            qanday metod ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektida yangi xususiyat qo‘shilishini taqiqlash uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektining muzlatilganligini tekshirish uchun qanday metod
+                            ishlatiladi?</p>
+                        <p>❓ Savol: Foydalanuvchi obyektining muhrlanganligini tekshirish uchun qanday metod
+                            ishlatiladi?</p>
+
+                    </div>
+
+                </div>
+
+
+            </li>
+            <li>
+                <h2 class="accordion">Recursion function, Promise</h2>
+                <div class="panel">
+                    <button class="btn masalaBtn">Masala</button>
+                    <button class="btn interviewBtn">Interwiev</button>
+                    <div class="sub-panel masalaContent" style="display: none; margin-top:10px;">
+                        <p>✅ Masala 1: Function declaration <br><br>
+                            Sharti: <br><br>
+                            Ikki sonning eng kichigini topadigan funksiya yozing. Masalan: minNumber(5, 3) → 3 <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Eng kichik son: 3 <br><br>
+                        </p>
+
+                        <p>✅ Masala 2: Function expression <br><br>
+                            Sharti: <br><br>
+                            Berilgan matndagi harflarni teskari qilib chiqaradigan funksiya yozing. Masalan:
+                            reverseString('hello') → 'olleh' <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: olleh <br><br>
+                        </p>
+
+                        <p>✅ Masala 3: Arrow function <br><br>
+                            Sharti: <br><br>
+                            Massivdagi juft sonlarni filter qilib qaytaradigan funksiya yozing. Masalan: [1,2,3,4,5,6] →
+                            [2,4,6] <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Juft sonlar: [2,4,6] <br><br>
+                        </p>
+
+                        <p>✅ Masala 4: Constructor function <br><br>
+                            Sharti: <br><br>
+                            Person nomli constructor yozing. Ism va yoshni qabul qilsin. new Person('Ali',25)
+                            chaqirilganda object qaytarsin. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Ism: Ali <br>
+                            Yosh: 25 <br><br>
+                        </p>
+
+                        <p>✅ Masala 5: Method function <br><br>
+                            Sharti: <br><br>
+                            Car object yarating. Unda start(), stop() metodlari bo‘lsin va chaqirilganda console.log
+                            chiqarsin. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Car started <br>
+                            Car stopped <br><br>
+                        </p>
+
+                        <p>✅ Masala 6: Closure <br><br>
+                            Sharti: <br><br>
+                            Counter funksiyasi yozing. Har chaqirilganda ichki count qiymati oshib boradigan closure
+                            qiling. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            1 → 2 → 3 → ... <br><br>
+                        </p>
+
+                        <p>✅ Masala 7: Recursion function <br><br>
+                            Sharti: <br><br>
+                            1 dan n gacha bo‘lgan sonlar yig‘indisini hisoblaydigan rekursiv funksiya yozing. sum(5) →
+                            15 <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Yig‘indi: 15 <br><br>
+                        </p>
+
+                        <p>✅ Masala 8: Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u “Ish bajarildi” matnini qaytarib beradi. .then() orqali natijani olib
+                            chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: Ish bajarildi <br><br>
+                        </p>
+
+                    </div>
+                    <div class="sub-panel interviewContent" style="display: none; margin-top:10px;">
+                        <p>1. Declared function nima? Qanday e’lon qilinadi va qachon chaqirish mumkin?</p>
+                        <p>2. Declared function hoistingga qanday ta’sir qiladi?</p>
+                        <p>3. Declared function’ni function expression bilan solishtiring.</p>
+                        <p>4. Expression function nima? U qanday e’lon qilinadi?</p>
+                        <p>5. Expression function’ni e’lon qilishdan oldin chaqirish mumkinmi? Nega?</p>
+                        <p>6. Expression function’ni arrow function bilan solishtiring.</p>
+                        <p>7. Method function nima? Ob’ekt ichida method’ni qanday yaratamiz?</p>
+                        <p>8. Method function ichida this kalit so‘zi qanday ishlaydi?</p>
+                        <p>9. Method’ni oddiy function’dan qanday ajratib turamiz?</p>
+                        <p>10. Arrow function nima? Uning sintaksisi qanday?</p>
+                        <p>11. Arrow function ichida this qanday ishlaydi?</p>
+                        <p>12. Arrow function va oddiy function’ning asosiy farqlari nimada?</p>
+                        <p>13. Constructor function nima? Yangi obyekt yaratishda qanday ishlatiladi?</p>
+                        <p>14. Constructor function’ni chaqirganda new operatorining roli qanday?</p>
+                        <p>15. Constructor function bilan class’ni solishtiring.</p>
+                        <p>16. Closure nima? Qanday misol bilan tushuntira olasiz?</p>
+                        <p>17. Closure qanday qilib private ma’lumot yaratishga yordam beradi?</p>
+                        <p>18. Closure ishlatganda qanday xatoliklar sodir bo‘lishi mumkin?</p>
+                        <p>19. Recursion function nima? Qanday vazifalarni hal qilishda ishlatiladi?</p>
+                        <p>20. Recursion’ni loop (for/while) bilan solishtiring.</p>
+                        <p>21. Recursion yozganda stack overflow xatolardan qanday qochish kerak?</p>
+                        <p>22. Promise nima? Uning ishlash bosqichlari qanday (pending, fulfilled, rejected)?</p>
+                        <p>23. Promise’ni .then(), .catch(), va .finally() bilan qanday ishlatamiz?</p>
+                        <p>24. Promise chaining nima va qachon ishlatiladi?</p>
+                        <p>25. Promise.all(), Promise.race() haqida tushuntiring.</p>
+                        <p>26. Declared function va Expression function’ni birlashtirib ishlatish mumkinmi? Qanday
+                            holatlarda?</p>
+                        <p>27. Expression function ichida default parametrlar qanday belgilanadi?</p>
+                        <p>28. Method function ichida boshqa method’ni chaqirishda nimalarga e’tibor berish kerak?</p>
+                        <p>29. Arrow function va regular function ishlatilganda performance farqi bormi?</p>
+                        <p>30. Constructor function ichida private o‘zgaruvchilarni qanday yaratish mumkin?</p>
+                        <p>31. Closure yordamida counter funksiyasini yozib bering.</p>
+                        <p>32. Recursion function yordamida factorial hisoblashni tushuntirib bering.</p>
+                        <p>33. Recursion function va Memoization birgalikda qachon ishlatiladi?</p>
+                        <p>34. Promise’larni async/await bilan qanday birlashtirish mumkin?</p>
+                        <p>35. Promise’da xatolarni qanday tutib olish mumkin?</p>
+                        <p>36. Promise.allSettled() qanday ishlaydi va qachon ishlatish tavsiya etiladi?</p>
+                        <p>37. Arrow function this ni global kontekstdan olayotganida qanday muammo yuzaga keladi?</p>
+                        <p>38. Constructor function orqali massiv ichida obyektlar yaratish misolini yozib bering.</p>
+                        <p>39. Recursion bilan massivdagi eng katta qiymatni topadigan funksiya yozib tushuntiring.</p>
+                        <p>40. Promise da setTimeout() bilan kechikib natija qaytaradigan misol tushuntirib bering.</p>
+
+                    </div>
+
+                </div>
+
+
+            </li>
+
+            <li>
+                <h2 class="accordion">JS internals (Heap, Execution Context), array methods
+                </h2>
+                <div class="panel">
+                    <button class="btn masalaBtn">Masala</button>
+                    <button class="btn interviewBtn">Interwiev</button>
+                    <div class="sub-panel masalaContent" style="display: none; margin-top:10px;">
+                        <p>✅ Masala 1: Oddiy ob'ekt bilan shallow copy va Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u oddiy ob'ektga shallow copy qo'llab, nusxada faqat primtiv xususiyatni
+                            o'zgartiradi va natijani qaytaradi. .then() orqali asl va nusxa ob'ektlarni chiqaring.
+                            <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: { name: "Ali", age: 25 }, <br>
+                            copy: { name: "Vali", age: 25 } <br>
+                            } <br><br>
+                        </p>
+                        <p>✅ Masala 2: Oddiy ob'ekt bilan deep copy va Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u oddiy ob'ektga deep copy qo'llab, nusxada primtiv xususiyatni o'zgartiradi
+                            va natijani qaytaradi. .then() orqali asl va nusxa ob'ektlarni chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: { name: "Ali", age: 25 }, <br>
+                            copy: { name: "Vali", age: 30 } <br>
+                            } <br><br>
+                        </p>
+                        <p>✅ Masala 3: Ichki ob'ekt bilan shallow copy va Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u ichki ob'ektli ob'ektga shallow copy qo'llab, nusxada primtiv va ichki
+                            ob'ekt xususiyatlarini o'zgartiradi va natijani qaytaradi. .then() orqali asl va nusxa
+                            ob'ektlarni chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: { name: "Ali", details: { age: 30, city: "Tashkent" } }, <br>
+                            copy: { name: "Vali", details: { age: 30, city: "Tashkent" } } <br>
+                            } <br><br>
+                        </p>
+                        <p>✅ Masala 3: Ichki ob'ekt bilan shallow copy va Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u ichki ob'ektli ob'ektga shallow copy qo'llab, nusxada primtiv va ichki
+                            ob'ekt xususiyatlarini o'zgartiradi va natijani qaytaradi. .then() orqali asl va nusxa
+                            ob'ektlarni chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: { name: "Ali", details: { age: 30, city: "Tashkent" } }, <br>
+                            copy: { name: "Vali", details: { age: 30, city: "Tashkent" } } <br>
+                            } <br><br>
+                        </p>
+                        <p>✅ Masala 4: Ichki ob'ekt bilan deep copy va Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u ichki ob'ektli ob'ektga deep copy qo'llab, nusxada primtiv va ichki ob'ekt
+                            xususiyatlarini o'zgartiradi va natijani qaytaradi. .then() orqali asl va nusxa ob'ektlarni
+                            chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: { name: "Ali", details: { age: 25, city: "Tashkent" } }, <br>
+                            copy: { name: "Vali", details: { age: 30, city: "Samarkand" } } <br>
+                            } <br><br>
+                        </p>
+                        <p>✅ Masala 5: Massiv va ichki ob'ektlar bilan shallow copy va Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u ichki ob'ektli massivga shallow copy qo'llab, nusxada massiv elementining
+                            ichki ob'ekt xususiyatini o'zgartiradi va natijani qaytaradi. .then() orqali asl va nusxa
+                            massivlarni chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: [<br>
+                            { id: 1, info: { name: "Ali", role: "Developer" } },<br>
+                            { id: 2, info: { name: "Sardor", role: "Designer" } }<br>
+                            ],<br>
+                            copy: [<br>
+                            { id: 1, info: { name: "Ali", role: "Developer" } },<br>
+                            { id: 2, info: { name: "Sardor", role: "Designer" } }<br>
+                            ]<br>
+                            } <br><br>
+                        </p>
+                        <p>✅ Masala 6: Massiv va ichki ob'ektlar bilan deep copy va Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u ichki ob'ektli massivga deep copy qo'llab, nusxada massiv elementining
+                            ichki ob'ekt xususiyatini o'zgartiradi va natijani qaytaradi. .then() orqali asl va nusxa
+                            massivlarni chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: [<br>
+                            { id: 1, info: { name: "Nodira", role: "Developer" } },<br>
+                            { id: 2, info: { name: "Sardor", role: "Designer" } }<br>
+                            ],<br>
+                            copy: [<br>
+                            { id: 1, info: { name: "Vali", role: "Developer" } },<br>
+                            { id: 2, info: { name: "Sardor", role: "Designer" } }<br>
+                            ]<br>
+                            } <br><br>
+                        </p>
+                        <p>✅ Masala 7: Ichma-ich ob'ektlar va massivlar bilan shallow va deep copy solishtirish va
+                            Promise <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u ichma-ich ob'ektlar va massivlar bo'lgan tuzilishga shallow va deep copy
+                            qo'llab, har bir nusxada o'zgartirish kiritadi va natijani qaytaradi. .then() orqali asl,
+                            shallow va deep nusxalarni chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Natija: { <br>
+                            original: { <br>
+                            name: "Ali", <br>
+                            details: { <br>
+                            age: 30, <br>
+                            projects: [{ id: 1, title: "Web App" }, { id: 2, title: "Mobile App" }] <br>
+                            } <br>
+                            }, <br>
+                            shallow: { <br>
+                            name: "Vali", <br>
+                            details: { <br>
+                            age: 30, <br>
+                            projects: [{ id: 1, title: "Web App" }, { id: 2, title: "Mobile App" }] <br>
+                            } <br>
+                            }, <br>
+                            deep: { <br>
+                            name: "Sardor", <br>
+                            details: { <br>
+                            age: 35, <br>
+                            projects: [{ id: 1, title: "AI Project" }, { id: 2, title: "Mobile App" }] <br>
+                            } <br>
+                            } <br>
+                            } <br><br>
+                        </p>
+                    </div>
+                    <div class="sub-panel interviewContent" style="display: none; margin-top:10px;">
+                        <p>1. Heapda shallow copy qanday ishlaydi? <br><br>
+                            Quyidagi kodda shallow copy qo'llanilgan. Heapda obyektlar qanday saqlanadi va nima uchun
+                            asl ob'ekt o'zgaradi? Execution Context bu jarayonda qanday rol o'ynaydi? <br>
+                            <code>
+                              const obj = { name: "Ali", details: { age: 25 } };<br>
+                              const copy = { ...obj };<br>
+                              copy.details.age = 30;<br>
+                            </code>
+                            Kod misoli bilan tahlil qiling va deep copy bilan qanday tuzatish mumkinligini tushuntiring.
+                            <br><br>
+                        </p>
+                        <p>2. Array methods bilan shallow copy va Execution Context <br><br>
+                            `map` yoki `filter` yordamida massivdagi obyektlardan yangi massiv hosil qiling. Ushbu
+                            massivga shallow copy qo'llang va bir elementning ichki xususiyatini o'zgartiring. Execution
+                            Context va Call Stack bu jarayonda qanday ishlaydi? Nima uchun asl massiv o'zgaradi? Deep
+                            copy bilan qanday oldini olish mumkin? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>3. Constructor function bilan obyektlar va Heapda shallow/deep copy <br><br>
+                            Constructor function yordamida obyektlar massivi yarating. Ushbu massivga shallow va deep
+                            copy qo'llang. Heapda shallow va deep copy qilingan obyektlar qanday saqlanadi? Shallow copy
+                            tufayli asl massivning o'zgarishini va deep copy bilan mustaqillikni kod misoli bilan
+                            tushuntiring. <br><br>
+                        </p>
+                        <p>4. Recursion bilan array methods va deep copy integratsiyasi <br><br>
+                            Recursion yordamida massiv ichidagi obyektlarning ichki xususiyatlarini o'zgartiradigan
+                            funksiya yozing (masalan, `map` bilan har bir elementni transformatsiya qilish). Ushbu
+                            massivga deep copy qo'llang va Heapda qanday joy egallashini tahlil qiling. Execution
+                            Context va Call Stack recursion jarayonida qanday ishlaydi? Kod misoli bilan tushuntiring.
+                            <br><br>
+                        </p>
+                        <p>5. Promise va Event Loop bilan shallow copy va array methods <br><br>
+                            Promise ichida `setTimeout` va `forEach` yordamida massivdagi obyektlarga shallow copy
+                            qo'lladigan funksiya yozing. Event Loop va Execution Context bu jarayonda qanday ishlaydi?
+                            Shallow copy tufayli asl massivning o'zgarishini va deep copy bilan mustaqillikni .then()
+                            orqali chiqaring. Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>6. Real loyihada JS internals, array methods va shallow/deep copy <br><br>
+                            Siz real loyihada foydalanuvchi ma'lumotlarini (ichma-ich ob'ektlar va massivlar) tahrirlash
+                            uchun ko'chirib olishingiz kerak. Constructor function yordamida ma'lumotlarni yarating,
+                            `map` yoki `reduce` bilan tahrirlang va Promise ichida shallow va deep copy qo'llang. Heap
+                            va Execution Context qanday ishlaydi? Agar ma'lumotlar katta hajmda bo'lsa, deep copy
+                            samaradorligini qanday oshirish mumkin? Kod misoli va tahlil bilan tushuntiring. <br><br>
+                        </p>
+                        <p>7. Circular references bilan deep copy va JS internals <br><br>
+                            Ob'ektda circular references bo'lsa, deep copy qanday amalga oshiriladi? JSON.stringify
+                            usulining cheklovlarini tushuntiring. Recursion yordamida circular referencesni
+                            boshqaradigan deep copy funksiyasini yozing. Heapda bu jarayon qanday ishlaydi va Execution
+                            Context qanday ta'sir qiladi? Promise va .then() yordamida natijani chiqaring. Kod misoli
+                            bilan tushuntiring. <br><br>
+                        </p>
+                        <p>8. Heap va Stack nima va JavaScriptda qanday ishlaydi? <br><br>
+                            JavaScriptda Heap va Stack o'rtasidagi farqni tushuntiring. Primitiv va referens tiplari
+                            qayerda saqlanadi? Quyidagi kodda Heap va Stack qanday ishlaydi? <br>
+                            <code>
+                              let num = 10;<br>
+                              let obj = { name: "Ali" };<br>
+                              let copy = obj;<br>
+                            </code>
+                            Kod misoli bilan tahlil qiling. <br><br>
+                        </p>
+                        <p>9. Shallow copy va Heap/Stack tahlili <br><br>
+                            Quyidagi kodda shallow copy qo'llanilgan. Heapda obyektlar qanday saqlanadi va nima uchun
+                            asl ob'ekt o'zgaradi? Execution Context bu jarayonda qanday rol o'ynaydi? <br>
+                            <code>
+                              const obj = { name: "Ali", details: { age: 25 } };<br>
+                              const copy = { ...obj };<br>
+                              copy.details.age = 30;<br>
+                            </code>
+                            Kod misoli bilan tahlil qiling va deep copy bilan qanday tuzatish mumkinligini tushuntiring.
+                            <br><br>
+                        </p>
+                        <p>10. Array methods bilan shallow copy va Stack tahlili <br><br>
+                            `map` yoki `filter` yordamida massivdagi obyektlardan yangi massiv hosil qiling. Ushbu
+                            massivga shallow copy qo'llang va bir elementning ichki xususiyatini o'zgartiring. Stackda
+                            array metodlari qanday ishlaydi? Nima uchun asl massiv o'zgaradi? Deep copy bilan qanday
+                            oldini olish mumkin? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>11. Constructor function bilan obyektlar va Heap/Stack tahlili <br><br>
+                            Constructor function yordamida obyektlar massivi yarating. Ushbu massivga shallow va deep
+                            copy qo'llang. Heapda shallow va deep copy qilingan obyektlar qanday saqlanadi? Stackda
+                            constructor function chaqirilganda Execution Context qanday ishlaydi? Shallow copy tufayli
+                            asl massivning o'zgarishini kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>12. Recursion bilan array methods va Stack Overflow tahlili <br><br>
+                            Recursion yordamida massiv ichidagi obyektlarning ichki xususiyatlarini o'zgartiradigan
+                            funksiya yozing (masalan, `map` bilan har bir elementni transformatsiya qilish). Ushbu
+                            massivga deep copy qo'llang. Stackda recursion qanday ishlaydi va Stack Overflow xavfi
+                            qanday yuzaga keladi? Heapda deep copy qanday joy egallaydi? Kod misoli bilan tushuntiring.
+                            <br><br>
+                        </p>
+                        <p>13. Promise va Event Loop bilan shallow copy va Heap/Stack <br><br>
+                            Promise ichida `setTimeout` va `forEach` yordamida massivdagi obyektlarga shallow copy
+                            qo'lladigan funksiya yozing. Heap va Stackda ushbu jarayon qanday ishlaydi? Event Loop va
+                            Execution Context qanday ta'sir qiladi? Shallow copy tufayli asl massivning o'zgarishini va
+                            deep copy bilan mustaqillikni .then() orqali chiqaring. Kod misoli bilan tushuntiring.
+                            <br><br>
+                        </p>
+                        <p>14. Real loyihada Heap/Stack, array methods va shallow/deep copy <br><br>
+                            Siz real loyihada foydalanuvchi ma'lumotlarini (ichma-ich ob'ektlar va massivlar) tahrirlash
+                            uchun ko'chirib olishingiz kerak. Constructor function yordamida ma'lumotlarni yarating,
+                            `map` yoki `reduce` bilan tahrirlang va Promise ichida shallow va deep copy qo'llang. Heap
+                            va Stackda bu jarayon qanday ishlaydi? Agar ma'lumotlar katta hajmda bo'lsa, deep copy
+                            samaradorligini qanday oshirish mumkin? Kod misoli va tahlil bilan tushuntiring. <br><br>
+                        </p>
+                        <p>15. Circular references bilan deep copy va Heap/Stack tahlili <br><br>
+                            Ob'ektda circular references bo'lsa, deep copy qanday amalga oshiriladi? JSON.stringify
+                            usulining cheklovlarini tushuntiring. Recursion yordamida circular referencesni
+                            boshqaradigan deep copy funksiyasini yozing. Heap va Stackda bu jarayon qanday ishlaydi?
+                            Execution Context va Call Stack qanday ta'sir qiladi? Promise va .then() yordamida natijani
+                            chiqaring. Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Uyga Vazifa</h2>
+                <div class="panel">
+                    <button class="btn masalaBtn">Masala</button>
+                    <button class="btn interviewBtn">Interwiev</button>
+                    <div class="sub-panel masalaContent" style="display: none; margin-top:10px;">
+                        <p>✅ Masala 1: Savdo hisobi bilan variables va console.log <br><br>
+                            Sharti: <br><br>
+                            Online do'konda mahsulot narxi va chegirma foizini saqlash uchun o'zgaruvchilar yarating.
+                            Chegirmadan keyingi narxni hisoblab, console.log yordamida natijani chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Chegirmadan keyingi narx: 450 <br><br>
+                        </p>
+                        <p>✅ Masala 2: Foydalanuvchi holatini tekshirish bilan if else <br><br>
+                            Sharti: <br><br>
+                            Foydalanuvchi yoshi o'zgaruvchisini yarating. Agar yosh 18 dan katta bo'lsa, "Kirish ruxsat
+                            etilgan", aks holda "Kirish taqiqlangan" xabarini console.log orqali chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Kirish ruxsat etilgan <br><br>
+                        </p>
+                        <p>✅ Masala 3: Savatdagi mahsulotlar summasini hisoblash bilan loop <br><br>
+                            Sharti: <br><br>
+                            Savatdagi mahsulotlar narxlari massivini yarating. For loop yordamida umumiy summani
+                            hisoblang va console.log orqali chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Umumiy summa: 1500 <br><br>
+                        </p>
+                        <p>✅ Masala 4: Chegirma hisoblash funksiyasi <br><br>
+                            Sharti: <br><br>
+                            Mahsulot narxi va chegirma foizini qabul qiladigan funksiya yozing. Funksiya chegirmadan
+                            keyingi narxni qaytaradi va natija console.log orqali chiqariladi. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Chegirmadan keyingi narx: 720 <br><br>
+                        </p>
+                        <p>✅ Masala 5: Foydalanuvchi ma'lumotlarini boshqarish bilan array va object <br><br>
+                            Sharti: <br><br>
+                            Foydalanuvchilar ro'yxatini array ichida objectlar sifatida saqlang (ism, yosh). `forEach`
+                            yordamida har bir foydalanuvchi ma'lumotini console.log orqali chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Ism: Ali, Yosh: 25 <br>
+                            Ism: Vali, Yosh: 30 <br><br>
+                        </p>
+                        <p>✅ Masala 6: Recursion bilan savatdagi ichki mahsulotlar sonini hisoblash <br><br>
+                            Sharti: <br><br>
+                            Savat obyekti ichida ichma-ich mahsulotlar ro'yxati (array ichida array) mavjud. Recursion
+                            yordamida barcha mahsulotlar sonini hisoblaydigan funksiya yozing. Natijani console.log
+                            orqali chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Jami mahsulotlar soni: 8 <br><br>
+                        </p>
+                        <p>✅ Masala 7: Promise va setTimeout bilan mahsulot yetkazib berish <br><br>
+                            Sharti: <br><br>
+                            Promise yozing, u setTimeout yordamida 3 soniya kechikib mahsulot yetkazib berish holatini
+                            qaytaradi ("Yetkazib berildi" yoki "Yetkazib berilmadi"). Natijani .then() orqali
+                            console.log yordamida chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Yetkazib berildi <br><br>
+                        </p>
+                        <p>✅ Masala 8: Savat mahsulotlarini tahrirlash bilan array methods va shallow copy <br><br>
+                            Sharti: <br><br>
+                            Savatdagi mahsulotlar ro'yxati array ichida obyektlar sifatida saqlanadi (nomi, narxi).
+                            `map` yordamida shallow copy qo'llab, har bir mahsulot narxiga 10% qo'shing. Bir
+                            mahsulotning ichki xususiyatini o'zgartirganda asl massivga ta'sirini console.log orqali
+                            chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Asl savat: [{ name: "Telefon", price: 500 }, { name: "Noutbuk", price: 1000 }] <br>
+                            Tahrirlangan savat: [{ name: "Telefon", price: 550 }, { name: "Noutbuk", price: 1100 }]
+                            <br><br>
+                        </p>
+                        <p>✅ Masala 9: Constructor function va deep copy bilan savat boshqarish <br><br>
+                            Sharti: <br><br>
+                            Constructor function yordamida savat obyektlarini yarating (mahsulotlar ro'yxati, umumiy
+                            narx). Promise ichida savatga deep copy qo'llab, mahsulotlar narxini o'zgartiring. Heapda
+                            deep copy qanday saqlanadi va asl savat o'zgarmasligini console.log orqali chiqaring.
+                            <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Asl savat: { items: [{ name: "Telefon", price: 500 }], total: 500 } <br>
+                            Tahrirlangan savat: { items: [{ name: "Telefon", price: 600 }], total: 600 } <br><br>
+                        </p>
+                        <p>✅ Masala 10: Recursion va Promise bilan savdo tahlili va shallow/deep copy <br><br>
+                            Sharti: <br><br>
+                            Savdo platformasida mahsulotlar ro'yxati ichma-ich massivlarda saqlanadi. Recursion
+                            yordamida eng qimmat mahsulotni toping. Promise ichida shallow va deep copy qo'llab, nusxada
+                            narxni o'zgartiring. Heap va Execution Context qanday ishlaydi, shallow copy tufayli asl
+                            ma'lumotlar o'zgarishini console.log orqali chiqaring. <br><br>
+                            Chiqarish kerak bo‘lgan natija: <br><br>
+                            Eng qimmat mahsulot: { name: "Noutbuk", price: 1000 } <br>
+                            Asl ma'lumotlar: [{ name: "Telefon", price: 600 }, { name: "Noutbuk", price: 1100 }] <br>
+                            Deep copy natijasi: [{ name: "Telefon", price: 600 }, { name: "Noutbuk", price: 1200 }]
+                            <br><br>
+                        </p>
+                    </div>
+                    <div class="sub-panel interviewContent" style="display: none; margin-top:10px;">
+                        <p>1. Variables va console.log bilan savdo narxini hisoblash <br><br>
+                            Online do'konda mahsulot narxi va chegirma foizini o'zgaruvchilar sifatida saqlang.
+                            Chegirmadan keyingi narxni hisoblab, console.log orqali chiqaring. Agar chegirma noto'g'ri
+                            kiritilsa (masalan, manfiy yoki 100 dan katta), xato xabarini qanday chiqarasiz? Kod misoli
+                            bilan tushuntiring. <br><br>
+                        </p>
+                        <p>2. Conditionals bilan foydalanuvchi ruxsatini tekshirish <br><br>
+                            Foydalanuvchi yoshi va ro'yxatdan o'tganligini (boolean) o'zgaruvchilar sifatida saqlang.
+                            If-else yordamida, agar foydalanuvchi 18 dan katta va ro'yxatdan o'tgan bo'lsa, "Kirish
+                            ruxsat etilgan", aks holda sababni ko'rsatgan xabarni console.log orqali chiqaring. Kod
+                            misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>3. Loops va function bilan savat summasi <br><br>
+                            Savatdagi mahsulotlar narxlari massivini qabul qiladigan funksiya yozing. For loop yordamida
+                            umumiy summani hisoblang va natijani qaytaring. Agar massiv bo'sh bo'lsa, xato xabarini
+                            qanday qaytarasiz? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>4. Array va object bilan foydalanuvchi ma'lumotlarini tahlil qilish <br><br>
+                            Foydalanuvchilar ro'yxati array ichida obyektlar sifatida saqlanadi (ism, yosh, ro'yxatdan
+                            o'tgan). `forEach` yordamida faqat ro'yxatdan o'tgan foydalanuvchilarni chiqaring. Agar
+                            array bo'sh bo'lsa, nima qilasiz? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>5. Array methods bilan mahsulotlar filtrlanishi <br><br>
+                            Mahsulotlar ro'yxati array ichida obyektlar sifatida saqlanadi (nomi, narxi, kategoriyasi).
+                            `filter` va `map` yordamida ma'lum bir kategoriyadagi mahsulotlar ro'yxatini yarating va
+                            narxlarini oshiring. Agar filtr natijasida hech qanday mahsulot topilmasa, xato xabarini
+                            qanday chiqarasiz? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>6. Recursion bilan savatdagi mahsulotlar sonini hisoblash <br><br>
+                            Savat ichida ichma-ich mahsulotlar ro'yxati (array ichida array) mavjud. Recursion yordamida
+                            barcha mahsulotlar sonini hisoblaydigan funksiya yozing. Agar massiv juda katta bo'lsa,
+                            Stack Overflow xavfini qanday oldini olasiz? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>7. Promise bilan yetkazib berish holatini boshqarish <br><br>
+                            Promise yozing, u setTimeout yordamida 2 soniya kechikib mahsulot yetkazib berish holatini
+                            qaytaradi ("Yetkazib berildi" yoki "Yetkazib berilmadi"). Agar xato yuz bersa (masalan,
+                            noto'g'ri ma'lumot), .catch() orqali xato xabarini qanday chiqarasiz? Event Loop bu
+                            jarayonda qanday ishlaydi? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>8. Constructor function va shallow copy bilan savat boshqarish <br><br>
+                            Constructor function yordamida savat obyektlarini yarating (mahsulotlar ro'yxati, umumiy
+                            narx). Savatga shallow copy qo'llang va bir mahsulot narxini o'zgartiring. Heapda shallow
+                            copy qanday saqlanadi va nima uchun asl savat o'zgaradi? Deep copy bilan qanday tuzatish
+                            mumkin? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>9. Array methods va deep copy bilan mahsulot tahrirlash <br><br>
+                            Mahsulotlar ro'yxati array ichida obyektlar sifatida saqlanadi. `map` yordamida deep copy
+                            qo'llab, har bir mahsulot narxiga 10% qo'shing. Heapda deep copy qanday joy egallaydi?
+                            Execution Context va Call Stack `map` jarayonida qanday ishlaydi? Kod misoli bilan
+                            tushuntiring. <br><br>
+                        </p>
+                        <p>10. Recursion va Promise bilan eng qimmat mahsulotni topish <br><br>
+                            Mahsulotlar ro'yxati ichma-ich massivlarda saqlanadi. Recursion yordamida eng qimmat
+                            mahsulotni toping. Promise ichida shallow va deep copy qo'llab, nusxada narxni o'zgartiring.
+                            Heap va Stackda bu jarayon qanday ishlaydi? Shallow copy tufayli asl ma'lumotlar
+                            o'zgarishini qanday tahlil qilasiz? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>11. JS internals bilan savat optimallashtirish <br><br>
+                            Savatdagi mahsulotlar ro'yxati katta hajmda bo'lsa, `reduce` yordamida umumiy summani
+                            hisoblang. Heap va Stackda bu jarayon qanday ishlaydi? Agar ma'lumotlar ichida circular
+                            references bo'lsa, deep copy qanday amalga oshiriladi? Execution Context va Event Loop
+                            qanday ta'sir qiladi? Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>12. Real loyihada JS internals va shallow/deep copy <br><br>
+                            Siz real loyihada foydalanuvchi savatini (ichma-ich ob'ektlar va massivlar) tahrirlash uchun
+                            ko'chirib olishingiz kerak. Constructor function yordamida savatni yarating, `map` bilan
+                            tahrirlang va Promise ichida shallow va deep copy qo'llang. Heap va Execution Context qanday
+                            ishlaydi? Katta hajmdagi ma'lumotlar uchun deep copy samaradorligini qanday oshirish mumkin?
+                            Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                        <p>13. Circular references va deep copy bilan JS internals <br><br>
+                            Savat ob'ektida circular references bo'lsa, deep copy qanday amalga oshiriladi?
+                            JSON.stringify cheklovlarini tushuntiring. Recursion yordamida circular referencesni
+                            boshqaradigan deep copy funksiyasini yozing. Heap va Stackda bu jarayon qanday ishlaydi?
+                            Promise va .then() orqali natijani chiqaring. Kod misoli bilan tushuntiring. <br><br>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+        
+    </div>
+    </div>
+
+    <script src="./script3.js"></script>
+    <script src="./script4.js"></script>
+
+    <script src="./hover.js"></script>
+</body>
+
+</html>

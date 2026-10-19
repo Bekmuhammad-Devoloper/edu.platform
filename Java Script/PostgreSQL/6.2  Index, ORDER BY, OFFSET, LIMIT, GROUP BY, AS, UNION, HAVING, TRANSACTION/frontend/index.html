@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL Amaliy Masalalar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <style>
+        .task-card {
+            transition: all 0.3s ease;
+        }
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .difficulty-easy { border-left: 4px solid #22c55e; }
+        .difficulty-medium { border-left: 4px solid #f59e0b; }
+        .difficulty-hard { border-left: 4px solid #ef4444; }
+        
+        pre[class*="language-"] {
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .solution-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .solution-content.show {
+            max-height: 1000px;
+        }
+        
+        .copy-btn {
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background-color: #4f46e5;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-2">🐘 PostgreSQL Amaliy Masalalar</h1>
+            <p class="text-center text-indigo-100 text-lg">7 ta SQL masala - Boshlang'ichdan Murakkabgacha</p>
+            <div class="flex justify-center gap-6 mt-4">
+                <span class="flex items-center gap-2">
+                    <span class="w-3 h-3 bg-green-400 rounded-full"></span> Oson
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="w-3 h-3 bg-yellow-400 rounded-full"></span> O'rta
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="w-3 h-3 bg-red-400 rounded-full"></span> Qiyin
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Database Schema Info -->
+    <section class="container mx-auto px-4 py-6">
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">📊 Ma'lumotlar Bazasi Strukturasi</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-blue-800 mb-2">👤 main.users</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• id (SERIAL PRIMARY KEY)</li>
+                        <li>• full_name (VARCHAR)</li>
+                        <li>• email (VARCHAR UNIQUE)</li>
+                        <li>• role (VARCHAR)</li>
+                        <li>• balance (INT)</li>
+                        <li>• age (INT)</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-green-800 mb-2">🔔 main.notifications</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• id (SERIAL PRIMARY KEY)</li>
+                        <li>• title (VARCHAR)</li>
+                        <li>• message (VARCHAR)</li>
+                        <li>• is_global (BOOLEAN)</li>
+                        <li>• user_id (FK → users.id)</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-purple-800 mb-2">💬 main.messages</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• id (SERIAL PRIMARY KEY)</li>
+                        <li>• message (VARCHAR)</li>
+                        <li>• sender (FK → users.id)</li>
+                        <li>• receiver (FK → users.id)</li>
+                        <li>• is_read (BOOLEAN)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tasks Section -->
+    <main class="container mx-auto px-4 pb-12">
+        <div class="space-y-6" id="tasks-container">
+            
+            <!-- Task 1: LIMIT va OFFSET -->
+            <div class="task-card bg-white rounded-xl shadow-md p-6 difficulty-easy">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Oson</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">LIMIT & OFFSET</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-300">#1</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">📄 Pagination (Sahifalash) Tizimi</h3>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3"><strong>Masala sharti:</strong></p>
+                    <p class="text-gray-600">
+                        <code>main.users</code> jadvalidan foydalanuvchilarni sahifalab olish kerak. 
+                        Har bir sahifada <strong>3 ta</strong> foydalanuvchi ko'rsatiladi. 
+                        <strong>2-sahifadagi</strong> foydalanuvchilarni oling (ya'ni 4, 5, 6-foydalanuvchilar).
+                    </p>
+                    <div class="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            💡 <strong>Maslahat:</strong> offset = (page - 1) * count formulasidan foydalaning
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleSolution(1)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Yechimni ko'rish
+                </button>
+                <div id="solution-1" class="solution-content mt-4">
+                    <div class="relative">
+                        <button onclick="copyCode(1)" class="copy-btn absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded">
+                            Nusxalash
+                        </button>
+                        <pre><code class="language-sql" id="code-1">-- 2-sahifa, har sahifada 3 ta yozuv
+-- offset = (2 - 1) * 3 = 3
+
+SELECT * FROM main.users 
+LIMIT 3 
+OFFSET 3;</code></pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-50 rounded">
+                        <p class="text-sm text-green-800">
+                            ✅ <strong>Natija:</strong> 4, 5, 6-foydalanuvchilar qaytariladi (id bo'yicha)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 2: ORDER BY -->
+            <div class="task-card bg-white rounded-xl shadow-md p-6 difficulty-easy">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Oson</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">ORDER BY</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-300">#2</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">🔄 Saralash (Sorting)</h3>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3"><strong>Masala sharti:</strong></p>
+                    <p class="text-gray-600">
+                        <code>main.users</code> jadvalidan barcha foydalanuvchilarni oling. 
+                        Natijalarni avval <strong>balance bo'yicha kamayish</strong> tartibida, 
+                        keyin <strong>age bo'yicha o'sish</strong> tartibida saralashtiring.
+                    </p>
+                    <div class="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            💡 <strong>Maslahat:</strong> Bir nechta ustun bo'yicha saralashda vergul bilan ajrating
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleSolution(2)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Yechimni ko'rish
+                </button>
+                <div id="solution-2" class="solution-content mt-4">
+                    <div class="relative">
+                        <button onclick="copyCode(2)" class="copy-btn absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded">
+                            Nusxalash
+                        </button>
+                        <pre><code class="language-sql" id="code-2">-- Balance bo'yicha kamayish (DESC), Age bo'yicha o'sish (ASC)
+
+SELECT * FROM main.users 
+ORDER BY balance DESC, age ASC;</code></pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-50 rounded">
+                        <p class="text-sm text-green-800">
+                            ✅ <strong>Natija:</strong> Eng katta balansli foydalanuvchilar birinchi, 
+                            teng balansda yoshroqlari oldin
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 3: GROUP BY & HAVING -->
+            <div class="task-card bg-white rounded-xl shadow-md p-6 difficulty-medium">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">O'rta</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">GROUP BY & HAVING</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-300">#3</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">📊 Guruhlash va Filtrlash</h3>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3"><strong>Masala sharti:</strong></p>
+                    <p class="text-gray-600">
+                        <code>main.users</code> jadvalidan foydalanuvchilarni <strong>role</strong> bo'yicha guruhlang. 
+                        Har bir rolda nechta foydalanuvchi borligini hisoblang. 
+                        Faqat <strong>2 va undan ko'p</strong> foydalanuvchisi bor rollarni ko'rsating.
+                    </p>
+                    <div class="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            💡 <strong>Maslahat:</strong> HAVING - GROUP BY dan keyingi shartlar uchun ishlatiladi
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleSolution(3)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Yechimni ko'rish
+                </button>
+                <div id="solution-3" class="solution-content mt-4">
+                    <div class="relative">
+                        <button onclick="copyCode(3)" class="copy-btn absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded">
+                            Nusxalash
+                        </button>
+                        <pre><code class="language-sql" id="code-3">-- Role bo'yicha guruhlash, 2+ foydalanuvchili rollar
+
+SELECT 
+    role,
+    COUNT(*) AS user_count
+FROM main.users 
+GROUP BY role 
+HAVING COUNT(*) >= 2
+ORDER BY user_count DESC;</code></pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-50 rounded">
+                        <p class="text-sm text-green-800">
+                            ✅ <strong>Natija:</strong> 'client' - 3 ta, 'manager' - 2 ta kabi natijalar
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 4: ALTER TABLE -->
+            <div class="task-card bg-white rounded-xl shadow-md p-6 difficulty-medium">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">O'rta</span>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">ALTER TABLE</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-300">#4</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">🔧 Jadval Strukturasini O'zgartirish</h3>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3"><strong>Masala sharti:</strong></p>
+                    <p class="text-gray-600">
+                        <code>main.users</code> jadvaliga quyidagi o'zgartirishlarni kiriting:
+                    </p>
+                    <ol class="list-decimal list-inside text-gray-600 mt-2 space-y-1">
+                        <li><strong>phone</strong> ustunini qo'shing (VARCHAR(20), default NULL)</li>
+                        <li><strong>is_active</strong> ustunini qo'shing (BOOLEAN, default TRUE)</li>
+                        <li><strong>nickname</strong> ustunini o'chiring (agar mavjud bo'lsa)</li>
+                    </ol>
+                    <div class="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            💡 <strong>Maslahat:</strong> ADD COLUMN va DROP COLUMN buyruqlaridan foydalaning
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleSolution(4)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Yechimni ko'rish
+                </button>
+                <div id="solution-4" class="solution-content mt-4">
+                    <div class="relative">
+                        <button onclick="copyCode(4)" class="copy-btn absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded">
+                            Nusxalash
+                        </button>
+                        <pre><code class="language-sql" id="code-4">-- 1. Phone ustunini qo'shish
+ALTER TABLE main.users 
+ADD COLUMN phone VARCHAR(20) DEFAULT NULL;
+
+-- 2. is_active ustunini qo'shish
+ALTER TABLE main.users 
+ADD COLUMN is_active BOOLEAN DEFAULT TRUE;
+
+-- 3. nickname ustunini o'chirish
+ALTER TABLE main.users 
+DROP COLUMN IF EXISTS nickname;
+
+-- Natijani tekshirish
+SELECT * FROM main.users LIMIT 3;</code></pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-50 rounded">
+                        <p class="text-sm text-green-800">
+                            ✅ <strong>Natija:</strong> Jadvalda phone va is_active ustunlari paydo bo'ladi, 
+                            nickname o'chiriladi
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 5: INDEX -->
+            <div class="task-card bg-white rounded-xl shadow-md p-6 difficulty-medium">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">O'rta</span>
+                        <span class="bg-cyan-100 text-cyan-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">INDEX</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-300">#5</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">⚡ Indekslar bilan Optimizatsiya</h3>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3"><strong>Masala sharti:</strong></p>
+                    <p class="text-gray-600">
+                        <code>main.users</code> jadvalida qidiruv tezligini oshirish uchun indekslar yarating:
+                    </p>
+                    <ol class="list-decimal list-inside text-gray-600 mt-2 space-y-1">
+                        <li><strong>email</strong> ustuniga B-Tree indeks (tez-tez qidiriladi)</li>
+                        <li><strong>full_name</strong> ustuniga Hash indeks (aniq moslik qidiruvi uchun)</li>
+                        <li><strong>role</strong> va <strong>is_active</strong> ustunlariga kompozit indeks</li>
+                    </ol>
+                    <div class="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            💡 <strong>Maslahat:</strong> B-Tree - tartiblangan qidiruv, Hash - aniq moslik uchun
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleSolution(5)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Yechimni ko'rish
+                </button>
+                <div id="solution-5" class="solution-content mt-4">
+                    <div class="relative">
+                        <button onclick="copyCode(5)" class="copy-btn absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded">
+                            Nusxalash
+                        </button>
+                        <pre><code class="language-sql" id="code-5">-- 1. Email uchun B-Tree indeks (default)
+CREATE INDEX idx_users_email 
+ON main.users (email);
+
+-- 2. Full_name uchun Hash indeks
+CREATE INDEX idx_users_fullname 
+ON main.users USING hash (full_name);
+
+-- 3. Kompozit indeks (role + is_active)
+CREATE INDEX idx_users_role_active 
+ON main.users (role, is_active);
+
+-- Indekslarni ko'rish
+SELECT indexname, indexdef 
+FROM pg_indexes 
+WHERE tablename = 'users';</code></pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-50 rounded">
+                        <p class="text-sm text-green-800">
+                            ✅ <strong>Natija:</strong> So'rovlar tezligi sezilarli darajada oshadi, 
+                            ayniqsa katta ma'lumotlarda
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-card bg-white rounded-xl shadow-md p-6 difficulty-hard">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Qiyin</span>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">TRANSACTION</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-300">#6</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">🔒 Tranzaksiya - Pul O'tkazish</h3>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3"><strong>Masala sharti:</strong></p>
+                    <p class="text-gray-600">
+                        Foydalanuvchilar orasida <strong>xavfsiz pul o'tkazish</strong> amalga oshiring. 
+                        <strong>id=1</strong> foydalanuvchidan <strong>id=2</strong> foydalanuvchiga 
+                        <strong>200</strong> so'm o'tkazilsin. Agar biror xatolik bo'lsa, 
+                        barcha o'zgarishlar bekor qilinsin.
+                    </p>
+                    <div class="mt-3 p-3 bg-red-50 rounded border border-red-200">
+                        <p class="text-sm text-red-800">
+                            ⚠️ <strong>Muhim:</strong> Jo'natuvchida yetarli mablag' borligini tekshiring!
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleSolution(6)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Yechimni ko'rish
+                </button>
+                <div id="solution-6" class="solution-content mt-4">
+                    <div class="relative">
+                        <button onclick="copyCode(6)" class="copy-btn absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded">
+                            Nusxalash
+                        </button>
+                        <pre><code class="language-sql" id="code-6">-- Tranzaksiya bilan xavfsiz pul o'tkazish
+BEGIN;
+
+-- Jo'natuvchidan pul ayirish
+UPDATE main.users 
+SET balance = balance - 200 
+WHERE id = 1 AND balance >= 200;
+
+-- Qabul qiluvchiga pul qo'shish
+UPDATE main.users 
+SET balance = balance + 200 
+WHERE id = 2;
+
+-- Hammasi to'g'ri bo'lsa tasdiqlash
+COMMIT;
+
+-- Xatolik bo'lsa bekor qilish
+-- ROLLBACK;
+
+-- Natijani tekshirish
+SELECT id, full_name, balance 
+FROM main.users 
+WHERE id IN (1, 2);</code></pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-50 rounded">
+                        <p class="text-sm text-green-800">
+                            ✅ <strong>Natija:</strong> id=1 ning balansi 200 ga kamayadi, 
+                            id=2 ning balansi 200 ga oshadi yoki hech narsa o'zgarmaydi
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-card bg-white rounded-xl shadow-md p-6 difficulty-hard">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Qiyin</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">JOIN</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-300">#7</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">🔗 Jadvallarni Birlashtirish (JOIN)</h3>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3"><strong>Masala sharti:</strong></p>
+                    <p class="text-gray-600">
+                        <code>main.messages</code> jadvalidagi barcha xabarlarni oling. 
+                        Har bir xabar uchun <strong>jo'natuvchi</strong> va <strong>qabul qiluvchi</strong>ning 
+                        to'liq ismlarini ko'rsating. Faqat <strong>o'qilmagan</strong> (is_read = FALSE) 
+                        xabarlarni filtrlang.
+                    </p>
+                    <div class="mt-3 p-3 bg-yellow-50 rounded border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            💡 <strong>Maslahat:</strong> Bir jadvalga ikki marta JOIN qilish uchun alias ishlatiladi
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleSolution(7)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Yechimni ko'rish
+                </button>
+                <div id="solution-7" class="solution-content mt-4">
+                    <div class="relative">
+                        <button onclick="copyCode(7)" class="copy-btn absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded">
+                            Nusxalash
+                        </button>
+                        <pre><code class="language-sql" id="code-7">-- O'qilmagan xabarlar bilan jo'natuvchi va qabul qiluvchi ismlari
+
+SELECT 
+    m.id AS message_id,
+    m.message,
+    sender_user.full_name AS sender_name,
+    receiver_user.full_name AS receiver_name,
+    m.is_read
+FROM main.messages m
+INNER JOIN main.users sender_user 
+    ON m.sender = sender_user.id
+INNER JOIN main.users receiver_user 
+    ON m.receiver = receiver_user.id
+WHERE m.is_read = FALSE
+ORDER BY m.id;</code></pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-50 rounded">
+                        <p class="text-sm text-green-800">
+                            ✅ <strong>Natija:</strong> Har bir o'qilmagan xabar, jo'natuvchi va qabul qiluvchi 
+                            ismlari bilan ko'rsatiladi
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">PostgreSQL Amaliy Mashqlar | 2024</p>
+            <p class="text-sm text-gray-500 mt-2">Claude AI tomonidan yaratildi</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSolution(taskId) {
+            const solution = document.getElementById(`solution-${taskId}`);
+            solution.classList.toggle('show');
+            
+            Prism.highlightAll();
+        }
+
+        function copyCode(taskId) {
+            const code = document.getElementById(`code-${taskId}`).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Nusxalandi!';
+                btn.classList.add('bg-green-600');
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('bg-green-600');
+                }, 2000);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            Prism.highlightAll();
+        });
+    </script>
+</body>
+</html>

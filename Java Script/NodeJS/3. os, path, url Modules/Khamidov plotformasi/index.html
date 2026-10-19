@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy - JavaScript Kursi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./icons/webinar.gif" type="image/gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Background Selector -->
+    <div class="bg-selector">
+        <div class="bg-btn bg-code active" data-bg="code" title="Code Background"></div>
+        <div class="bg-btn bg-tech" data-bg="tech" title="Technology"></div>
+        <div class="bg-btn bg-matrix" data-bg="matrix" title="Matrix Style"></div>
+        <div class="bg-btn bg-circuit" data-bg="circuit" title="Circuit Board"></div>
+        <div class="bg-btn bg-myimage" data-bg="myimage" title="Mening Rasmim"></div>
+        <div class="bg-btn bg-gradient" data-bg="gradient" title="Gradient Only"></div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="main-title">JavaScript</h1>
+                <p class="subtitle">Mentor: Bekmuhammad Shokirjonov</p>
+            </div>
+        </section>
+
+        <!-- Course Content -->
+        <div class="course-wrapper">
+            <div class="lessons-container">
+
+                <!-- Lesson 1: JavaScript History -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">📚</span>
+                            Os (Operating System)
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <p class="content-text">
+                                os (Operating System) moduli Node.js'da operatsion tizim (OS) bilan ishlash uchun
+                                ishlatiladi. Bu modul, OS haqida ma'lumot olish, tizim resurslariga kirish va ba'zi
+                                operatsiyalarni bajarish imkonini beradi.
+                            </p>
+                            <h3>Koʻp ishlatiladigan metodlar </h3>
+                            <div class="var-item">
+                                <strong><code>os.homedir()</code></strong>:
+                                <br>
+                                Foydalanuvchining asosiy (home) katalogi yoʻlini qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const homeDir = os.homedir();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>/home/user</code> yoki <code>C:\Users\user</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.hostname()</code></strong>:
+                                <br>
+                                Kompyuterning tarmoq nomini (hostname) qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const hostname = os.hostname();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>My-PC</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.platform()</code></strong>:
+                                <br>
+                                Operatsion tizim turini qaytaradi (masalan, 'win32', 'linux', 'darwin').
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const platform = os.platform();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>linux</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.arch()</code></strong>:
+                                <br>
+                                Operatsion tizimning arxitekturasini (masalan, 'x64', 'arm') qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const arch = os.arch();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>x64</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.cpus()</code></strong>:
+                                <br>
+                                CPU yadrolari haqida maʼlumotni massiv shaklida qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const cpus = os.cpus();</code>
+                                <br>
+                                <strong>Natija (misol):</strong>
+                                <pre><code>[
+                                { model: 'Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz', speed: 1800, ... },
+                                { model: 'Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz', speed: 1800, ... }
+                                ]</code></pre>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.freemem()</code></strong>:
+                                <br>
+                                Tizimda mavjud boʻsh RAM miqdorini baytlarda qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const freeMem = os.freemem();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>8429383680</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.totalmem()</code></strong>:
+                                <br>
+                                Tizimdagi umumiy RAM miqdorini baytlarda qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const totalMem = os.totalmem();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>17179869184</code>
+                            </div>
+                            <h3>Kam ishlatiladigan metodlar </h3>
+                            <div class="var-item">
+                                <strong><code>os.endianness()</code></strong>:
+                                <br>
+                                CPU'ning bayt tartibini (endianness) qaytaradi ('BE' yoki 'LE').
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const endianness = os.endianness();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>LE</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.getPriority()</code> / <code>os.setPriority()</code></strong>:
+                                <br>
+                                Jarayonning ustuvorligini (priority) olish va oʻrnatish.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const priority = os.getPriority();</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>0</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>os.userInfo()</code></strong>:
+                                <br>
+                                Foydalanuvchi haqida maʼlumotlarni qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const userInfo = os.userInfo();</code>
+                                <br>
+                                <strong>Natija (misol):</strong>
+                                <pre><code>{
+                                uid: 1000,
+                                gid: 1000,
+                                username: 'testuser',
+                                homedir: '/home/testuser',
+                                shell: '/bin/bash'
+                                }</code></pre>
+                            </div>
+                            <div class="image-section">
+                                <!-- <div class="image-triggers">
+                                    <button class="image-btn" data-target="img1">📖 JavaScript tarixi</button>
+                                    <button class="image-btn" data-target="img2">🔄 Evolyutsiya jarayoni</button>
+                                </div>
+                                <div class="image-container" id="img1">
+                                    <img src="./images/1.jpg" alt="JavaScript Tarixi">
+                                </div>
+                                <div class="image-container" id="img2">
+                                    <img src="./images/1,1.jpg" alt="JavaScript Evolyutsiyasi">
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 2: Variables -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">🔧</span>
+                            fs (File System)
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <p>fs (File System) moduli Node.js'da fayllar va kataloglar bilan ishlash uchun asosiy modul
+                                hisoblanadi. Unda asosan ikkita metodlar toifasi mavjud: asinxron (async) va sinxron
+                                (sync) metodlar. Asinxron metodlar ko'proq ishlatiladi, chunki ular dasturning asosiy
+                                ish zanjirini (main thread) bloklamaydi.</p>
+                            <a href="https://pub-7be1d45c4a744f86846c80e90df909eb.r2.dev/files/25d4d285-4cc5-46a5-9c18-772206dbea5a.pdf"
+                                target="_blank"
+                                style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-align: center; text-decoration: none; border-radius: 5px; margin-top: 15px;">fs
+                                (File Systems)</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">💾</span>
+                            path Moduli
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <p>path moduli fayl tizimi yo'llari bilan ishlash uchun mo'ljallangan. Uning yordamida har
+                                xil operatsion tizimlar uchun to'g'ri yo'l yaratish mumkin. Bu veb-server va boshqa
+                                loyihalarni turli OS'larda ishlashini ta'minlash uchun juda muhim.</p>
+                            <h4>Eng Ko'p Foydalaniladigan Metodlar: </h4>
+                            <div class="var-item">
+                                <strong><code>path.join([...paths])</code></strong>:
+                                <br>
+                                Berilgan yoʻl qismlarini birlashtirib, operatsion tizimga mos yoʻl yaratadi. Bu fayl
+                                yoʻllari bilan ishlashda eng muhim va universal usullardan biridir.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const filePath = path.join('/users', 'john', 'docs', 'report.txt');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>/users/john/docs/report.txt</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>path.resolve([...paths])</code></strong>:
+                                <br>
+                                Berilgan yoʻl qismlarini absolyut (mutlaq) yoʻlga aylantiradi. Agar yoʻl oldidan ildiz
+                                (root) katalog belgisi boʻlmasa, joriy ish katalogi (current working directory) asos
+                                qilib olinadi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const absolutePath = path.resolve('users', 'john', 'docs');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>/home/project/users/john/docs</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>path.extname(path)</code></strong>:
+                                <br>
+                                Berilgan yoʻldagi fayl nomining kengaytmasini (extension) qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong> <code>const ext = path.extname('document.pdf');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>.pdf</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>path.basename(path, [ext])</code></strong>:
+                                <br>
+                                Yoʻlning oxirgi qismini (fayl yoki katalog nomini) qaytaradi. Ikkinchi parametr sifatida
+                                kengaytmani berib, uni natijadan chiqarib tashlash mumkin.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const baseName = path.basename('/users/john/photos/image.jpg');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>image.jpg</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>path.dirname(path)</code></strong>:
+                                <br>
+                                Berilgan yoʻlning katalog qismini (fayl joylashgan papka yoʻlini) qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const dirName = path.dirname('/users/john/photos/image.jpg');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>/users/john/photos</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>path.parse(path)</code></strong>:
+                                <br>
+                                Berilgan yoʻlni tarkibiy qismlarga (root, dir, base, ext, name) ajratib, ob'ekt
+                                koʻrinishida qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const parsedPath = path.parse('/home/user/data/file.txt');</code>
+                                <br>
+                                <strong>Natija (misol):</strong>
+                                <pre><code>{
+                                root: '/',
+                                dir: '/home/user/data',
+                                base: 'file.txt',
+                                ext: '.txt',
+                                name: 'file'
+                                }</code></pre>
+                            </div>
+                            <h4>Kam ishlatiladigan metodlar </h4>
+                            <div class="var-item">
+                                <strong><code>path.posix</code></strong> va <strong><code>path.win32</code></strong>:
+                                <br>
+                                Bu ob'ektlar maxsus platformalar (POSIX - Linux/macOS, win32 - Windows) uchun yoʻl bilan
+                                ishlashga xos metodlarni oʻz ichiga oladi. Odatda, path moduli oʻzi avtomatik tarzda
+                                toʻgʻri platformani aniqlaganligi sababli kamdan-kam ishlatiladi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const winPath = path.win32.join('C:\', 'Users', 'John');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>C:\Users\John</code>
+                            </div>
+
+                            <div class="var-item">
+                                <strong><code>path.isAbsolute(path)</code></strong>:
+                                <br>
+                                Berilgan yoʻlning absolyut (mutlaq) yoʻl ekanligini tekshiradi va true yoki false qiymat
+                                qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const isAbs = path.isAbsolute('/home/user/file.txt');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>true</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 3: Data Types -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">🏷️</span>
+                            url Moduli
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <p class="content-text">url moduli veb-server dasturlashda URL manzillarini tahlil qilish,
+                                formatlash va birlashtirish uchun ishlatiladi. Bu modul URLni turli qismlarga bo'lish va
+                                ular bilan ishlashda katta yordam beradi.</p>
+
+                            <h4>Koʻp ishlatiladigan metodlar va sinf
+                            </h4>
+                            <div class="data-type">
+                                <strong><code>url.parse(url, [query_string])</code></strong>:
+                                <br>
+                                URLni tarkibiy qismlarga ajratib, ob'ekt ko'rinishida tahlil qiladi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const parsedUrl = url.parse('https://www.example.com/path?id=123');</code>
+                                <br>
+                                <strong>Natija (misol):</strong>
+                                <pre><code>{
+                                protocol: 'https:',
+                                hostname: 'www.example.com',
+                                pathname: '/path',
+                                query: 'id=123',
+                                ...
+                                }</code></pre>
+                            </div>
+
+                            <div class="data-type">
+                                <strong><code>url.format(urlObject)</code></strong>:
+                                <br>
+                                Ob'ekt ko'rinishidagi URL qismlarini birlashtirib, to'liq string formatidagi URLga
+                                qaytaradi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const formattedUrl = url.format({ protocol: 'https:', hostname: 'www.example.com' });</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>https://www.example.com/</code>
+                            </div>
+
+                            <div class="data-type">
+                                <strong><code>URL sinfi (constructor)</code></strong>:
+                                <br>
+                                Yangi URL ob'ektini yaratish va uning qismlariga osonroq, zamonaviy usulda kirish uchun
+                                ishlatiladi. url.parse() metodiga nisbatan tavsiya etiladi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const myUrl = new URL('https://www.example.com/path?id=123');</code>
+                                <br>
+                                <strong>Natija (misol):</strong>
+                                <pre><code>{
+                                href: 'https://www.example.com/path?id=123',
+                                protocol: 'https:',
+                                hostname: 'www.example.com',
+                                searchParams: URLSearchParams { 'id' => '123' },
+                                ...
+                                }</code></pre>
+                            </div>
+
+                            Kam ishlatiladigan metodlar
+                            <div class="data-type">
+                                <strong><code>url.resolve()</code></strong>:
+                                <br>
+                                Ikki URL qismini birlashtirib, yangi URL yaratadi. Ko'pincha URL sinfi va uning
+                                konstruktori bu vazifani samaraliroq bajaradi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <code>const resolvedUrl = url.resolve('http://example.com/a/', 'b');</code>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>http://example.com/a/b</code>
+                            </div>
+
+                            <div class="data-type">
+                                <strong><code>url.searchParams</code></strong>:
+                                <br>
+                                URL sinfining bir qismi bo'lib, so'rov satri (query string) bilan ishlashga
+                                mo'ljallangan. URLSearchParams interfeysi orqali kalit va qiymatlarni osonlik bilan
+                                boshqarish imkonini beradi.
+                                <br>
+                                <strong>Foydalanish:</strong>
+                                <pre><code>const myUrl = new URL('http://example.com/?name=john');
+                                myUrl.searchParams.get('name'); // 'john'</code></pre>
+                                <br>
+                                <strong>Natija (misol):</strong> <code>john</code>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 4: Practice -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">💻</span>
+                            Amaliyot
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <a href="https://pub-7be1d45c4a744f86846c80e90df909eb.r2.dev/files/961871f8-f925-44c4-941c-913f42e75681.pdf"
+                                target="_blank"
+                                style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-align: center; text-decoration: none; border-radius: 5px; margin-top: 15px;">
+                                Practice
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 5: Homework -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">📝</span>
+                            Uyga vazifa
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <div class="task-grid">
+                                <div class="task"><strong>1.</strong> Papkalar Yaratish Funksiyasi
+                                    (<code>createFolders()</code>)
+                                    <br><br>
+                                    <strong>Maqsad:</strong> Bu funksiyaning asosiy maqsadi — berilgan bir yoki bir
+                                    nechta nom boʻyicha yangi papkalarni yaratish.
+                                    <br>
+                                    <strong>Qoidalar:</strong> Funksiya kamida 1 ta, koʻpi bilan 100 ta parametr (papka
+                                    nomi) qabul qilishi kerak.
+                                    <br>
+                                    <strong>Yechimga yondashuv:</strong>
+                                    <br>
+                                    Funksiya yaratiladi va u <code>...folderNames</code> yordamida cheksiz miqdordagi
+                                    argumentlarni massivga yigʻib oladi.
+                                    Birinchi boʻlib, parametrlar soni (<code>folderNames.length</code>) 1 dan kam yoki
+                                    100 dan koʻp boʻlsa, xatolik haqida xabar beriladi.
+                                    Soʻngra, har bir papka nomi uchun <code>fs.mkdir()</code> yoki
+                                    <code>fs.mkdirSync()</code> funksiyasidan foydalanib papka yaratiladi. Har bir papka
+                                    yaratilganda yoki allaqachon mavjud boʻlganda konsolga tegishli xabar chiqariladi.
+                                </div>
+                                <div class="task"><strong>2.</strong> <code>cars.json</code> Faylini Yaratish
+                                    <br><br>
+                                    <strong>Maqsad:</strong> Maʼlumotlarni (mashinalar roʻyxatini) saqlash uchun alohida
+                                    JSON formatidagi fayl yaratish.
+                                    <br>
+                                    <strong>Yechimga yondashuv:</strong>
+                                    <br>
+                                    Dastlab, <code>fs.existsSync()</code> yordamida <code>cars.json</code> fayli mavjud
+                                    yoki yoʻqligi tekshiriladi.
+                                    Agar fayl mavjud boʻlmasa, <code>fs.writeFileSync()</code> funksiyasi yordamida
+                                    boʻsh massiv <code>[]</code> bilan yangi fayl yaratiladi. Bu keyinchalik maʼlumot
+                                    qoʻshishda xatoliklarning oldini oladi.
+                                </div>
+                                <div class="task"><strong>3.</strong> Faylga Maʼlumot Yozish Funksiyasi
+                                    <br><br>
+                                    <strong>Maqsad:</strong> Yangi avtomobil maʼlumotini (masalan,
+                                    <code>{id: 1, model: "audi", price: 1000}</code>) <code>cars.json</code> fayliga
+                                    qoʻshish.
+                                    <br>
+                                    <strong>Yechimga yondashuv:</strong>
+                                    <br>
+                                    Bu yerda eng muhim qadam — faylni oʻqimasdan turib toʻgʻridan-toʻgʻri yozmaslik. Aks
+                                    holda, oldingi maʼlumotlar oʻchib ketadi.
+                                    <code>fs.readFile()</code> yordamida fayldagi barcha maʼlumotlar oʻqib olinadi.
+                                    Olingan maʼlumotlar <code>JSON.parse()</code> bilan JavaScript obyekti yoki
+                                    massiviga aylantiriladi.
+                                    Yangi maʼlumot (obyekt) bu massivga <code>.push()</code> metodi bilan qoʻshiladi.
+                                    Oʻzgartirilgan massiv <code>JSON.stringify()</code> yordamida yana JSON formatiga
+                                    oʻtkaziladi va <code>fs.writeFile()</code> bilan faylga qayta yoziladi.
+                                </div>
+                                <div class="task"><strong>4.</strong> Barcha Maʼlumotni Olib Berish Funksiyasi
+                                    <br><br>
+                                    <strong>Maqsad:</strong> <code>cars.json</code> faylida saqlangan barcha
+                                    avtomobillar roʻyxatini olish.
+                                    <br>
+                                    <strong>Yechimga yondashuv:</strong>
+                                    <br>
+                                    Bu vazifa uchun <code>fs.readFile()</code> funksiyasidan foydalaniladi.
+                                    Fayldagi maʼlumotlar oʻqib olinadi.
+                                    Oʻqilgan maʼlumotlar matn koʻrinishida boʻlganligi uchun, ularni JavaScript obyekti
+                                    (massiv)ga aylantirish uchun <code>JSON.parse()</code> dan foydalaniladi.
+                                    Natija chaqiruvchi funksiyaga qaytariladi yoki bevosita konsolga chiqariladi.
+                                    Asinxron funksiya boʻlgani uchun <code>Promise</code> yoki <code>async/await</code>
+                                    ishlatish maqsadga muvofiq.
+                                </div>
+                                <div class="task"><strong>5.</strong> Maʼlumotni ID Orqali Oʻchirish Funksiyasi
+                                    <br><br>
+                                    <strong>Maqsad:</strong> Berilgan <code>id</code> ga ega boʻlgan avtomobil
+                                    maʼlumotini <code>cars.json</code> faylidan butunlay oʻchirib tashlash.
+                                    <br>
+                                    <strong>Yechimga yondashuv:</strong>
+                                    <br>
+                                    Avvalgi vazifadagi kabi, faylning barcha maʼlumotlari <code>fs.readFile()</code>
+                                    orqali oʻqib olinadi.
+                                    Olingan maʼlumot massivga aylantiriladi.
+                                    Massivdagi elementlarni filtratsiya qilish uchun <code>.filter()</code> metodi
+                                    ishlatiladi. Bu metod, berilgan <code>id</code> ga teng boʻlmagan barcha
+                                    elementlarni yangi massivga jamlaydi.
+                                    Yangilangan (keraksiz maʼlumot oʻchirilgan) massiv yana
+                                    <code>JSON.stringify()</code> bilan JSON formatiga oʻtkaziladi.
+                                    Oxirida <code>fs.writeFile()</code> yordamida yangi massiv faylga qayta yoziladi va
+                                    bu bilan keraksiz maʼlumot oʻchirilgan boʻladi.
+                                    Agar berilgan <code>id</code> topilmasa, bu haqida konsolga xabar chiqarish mumkin.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Social Section -->
+        <section class="social-section">
+            <h2 class="social-title">Biz bilan bog'laning</h2>
+            <div class="social-grid">
+                <a href="https://t.me/Kelajakka_Yuksalish" class="social-card" target="_blank">
+                    <img src="./icons/telegramm_logo.png" alt="Telegram">
+                    <span>Telegram</span>
+                </a>
+                <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                    class="social-card" target="_blank">
+                    <img src="./icons/instagramm_logo.png" alt="Instagram">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://github.com/Bekmuhammad-Devoloper" class="social-card" target="_blank">
+                    <img src="./icons/github-logo.png" alt="GitHub">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-card" target="_blank">
+                    <img src="./icons/youtube-logo.png" alt="YouTube">
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="scroll-top" id="scrollTop">↑</div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

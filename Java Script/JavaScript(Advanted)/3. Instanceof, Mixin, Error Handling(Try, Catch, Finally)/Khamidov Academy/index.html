@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div class="overlay">
+
+        <div>
+            <h1>JavaScript</h1>
+            <ul>
+
+                <li>
+                    <h2 class="accordion">Instanceof</h2>
+                    <div class="panel">
+                        <ol>
+                            <li>
+                                <p>Instanceof <br>
+                                    instanceof — bu JavaScript’da obyektning ma’lum bir klass (yoki konstruktor) asosida
+                                    <br>
+                                    yaratilganini tekshiruvchi operator hisoblanadi.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Code orali to'liq tushuncha.</p>
+                                <pre>
+        class Animal {}
+        class Dog extends Animal {}
+                                    
+        const dog = new Dog();
+                                    
+        console.log(dog instanceof Dog);    // true
+        console.log(dog instanceof Animal); // true (chunki Dog → Animal'dan meros olgan)</pre>
+                            </li>
+                            <li>
+                                <p>✅ Qachon ishlatiladi? <br>
+                                    Obyektni qaysi klassdan yaratilganini aniqlash uchun. <br>
+                                    Polimorfizm, xatoliklarni aniqlash yoki turga qarab harakat qilish kerak bo'lganda.
+                                </p>
+                            </li>
+                        </ol>
+
+                        <!-- <h2 class="image-toggle">1-rasm</h2>
+                    <div class="image-panel">
+                        <img src="2.jpg" alt=" Var const let " style="width:100%;">
+                    </div>
+                    <h2 class="image-toggle">2-rasm</h2>
+                    <div class="image-panel">
+                        <img src="2-2.jpg" alt="Var, Const, Let 2" style="width:100%;">
+                    </div> -->
+                    </div>
+                </li>
+                <li>
+                    <h2 class="accordion">Mixin</h2>
+                    <div class="panel">
+                        <ol>
+                            <li>🎯 Oddiy ta’rif: <br>
+                                Mixin — bu alohida klass bo‘lmagan, ammo boshqa klasslarga xususiyat (metod) qo‘shish
+                                <br>
+                                uchun ishlatiladigan obyekt yoki funksiya.
+                            </li>
+                            <li>
+                                <p>🧠 Nega kerak? <br>
+                                    JavaScript class A extends B tarzida faqat bitta klassdan meros ola oladi. Lekin
+                                    <br>
+                                    agar siz bir nechta klassning metodlarini olishni istasangiz — mixin ishlatiladi.
+                                    <br>
+                                </p>
+                            </li>
+                            <li>
+                                <p>🧪 Misol bilan tushuntirish: <br>
+                                    1️⃣ Ikkita alohida funksionallik:</p>
+                                <pre>
+        let canWalk = {
+        walk() {
+        console.log(${this.name} yurmoqda);
+                }
+            };
+        
+        let canEat = {
+            eat() {
+                console.log(${this.name} ovqat yemoqda);
+                    }
+            };</pre>
+                                <p>2️⃣ Klassga mixinlarni qo‘shamiz:</p>
+                                <pre>
+        class Person {
+            constructor(name) {
+            this.name = name;
+                }
+            }
+         // mixinlarni Person prototipiga qo‘shamiz
+        Object.assign(Person.prototype, canWalk, canEat);
+        
+        const user = new Person("Ali");
+        user.walk();  // Ali yurmoqda
+        user.eat();   // Ali ovqat yemoqda</pre>
+                            </li>
+                            <li>
+                                <p>🔄 Mixin funksiyalar shaklida ham bo'lishi mumkin:</p>
+                                <pre>
+        function sayHiMixin(Base) {
+        return class extends Base {
+        sayHi() {
+          console.log(Salom, men ${this.name});
+                }
+              };
+            }
+        
+        class Student {
+          constructor(name) {
+            this.name = name;
+              }
+        }
+        
+        class SmartStudent extends sayHiMixin(Student) {}
+        
+        const s = new SmartStudent("Bekzod");
+        s.sayHi(); // Salom, men Bekzod</pre>
+                            </li>
+                            <li>
+                                <p>✅ Foydali joylari: <br>
+                                    Katta loyihalarda kodni qayta ishlatish imkonini beradi. <br>
+                                    Bir nechta klassdan bir vaqtning o‘zida metodlar olish uchun ishlatiladi. <br>
+                                    DRY prinsipiga (Don't Repeat Yourself) amal qilishga yordam beradi.</p>
+                            </li>
+                        </ol>
+
+                        <!-- <h2 class="image-toggle">1-rasm</h2>
+                    <div class="image-panel">
+                        <img src="2.jpg" alt=" Var const let " style="width:100%;">
+                    </div>
+                    <h2 class="image-toggle">2-rasm</h2>
+                    <div class="image-panel">
+                        <img src="2-2.jpg" alt="Var, Const, Let 2" style="width:100%;">
+                    </div> -->
+                    </div>
+                </li>
+                <li>
+                    <h2 class="accordion">Error Handling(Try, Catch and Finally)</h2>
+                    <div class="panel">
+                        <ol>
+                            <li>
+                                <p>🧠 Nima uchun "xato"ni boshqarish kerak? <br>
+                                    Dastur ishlayotganda xatoliklar chiqishi mumkin (masalan: noto‘g‘ri bo‘linish, <br>
+                                    mavjud bo‘lmagan o‘zgaruvchiga murojaat qilish, serverdan javob kelmasligi va h.k.).
+                                    <br><br>
+
+                                    Agar bu xatolarni ushlab qolmasak, dastur to‘xtab qoladi yoki foydalanuvchi <br>
+                                    noto‘g‘ri natija ko‘radi.
+                                </p>
+
+                            </li>
+                            <li>
+                                <p>Misol bilan tushuntirish try catch finally</p>
+                                <pre>
+         try {
+         // xavfli kod
+      } catch (error) {
+         // xatoni ushlaydi
+       } finally {
+         // doim bajariladi (hatto xato bo‘lsa ham)
+       }</pre>
+                            </li>
+                            <li>
+                                <p>Masalada ishlatilishini korish.</p>
+                                <pre>
+         try {
+         let a = 10;
+        let b = a + 5;
+          console.log(b);
+        } catch (err) {
+          console.log("Xato:", err.message);
+        } finally {
+          console.log("Bu yer doim ishlaydi ✅");
+        }</pre>
+                            </li>
+                            <li>
+                                <p>💥 throw - o‘zing Error chiqar!
+                                    throw yordamida Error o‘zingiz qo‘lda chiqarishingiz mumkin.</p>
+                                <p>Masalan:</p>
+                                <pre>
+        let age = -5;
+
+            try {
+              if (age < 0) {
+                throw new Error("Yosh manfiy bo‘lishi mumkin emas!");
+              }
+              console.log("Yosh:", age);
+            } catch (err) {
+              console.log("❌ Xatolik:", err.message);
+            }</pre>
+                            </li>
+                        </ol>
+
+                        <!-- <p>Array Methodlarini takrorlash toldirish.</p>
+                        <h2 class="image-toggle">Array Methods</h2>
+                        <div class="image-panel">
+                            <img src="/img/photo_2024-12-24_18-36-22.jpg" alt=" true " style="width:100%;">
+                        </div> -->
+
+                    </div>
+                </li>
+                <li>
+                    <h2 class="accordion">Amaliyot (Instanceof and Mixin)</h2>
+                    <div class="panel">
+
+                        <div id="problem-container">
+                            <pre id="problem-statement">
+                </pre>
+                        </div>
+                        <div class="navigation">
+                            <button id="prev-btn" class="nav-btn" disabled>← Oldingi</button>
+                            <button id="next-btn" class="nav-btn">Keyingi →</button>
+                        </div>
+
+
+                </li>
+                <li>
+                    <h2 class="accordion">Amaliyot (Error Handling)</h2>
+                    <div class="panel">
+                        <div id="problem-container1">
+                            <pre id="problem-statement1"></pre>
+                        </div>
+                        <div class="navigation">
+                            <button id="prev-btn-array" class="nav-btn" disabled>← Oldingi</button>
+                            <button id="next-btn-array" class="nav-btn">Keyingi →</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="accordion">Uyga Vazifa</h2>
+                    <div class="panel">
+                        <div id="problem-container2">
+                            <pre id="problem-statement2"></pre>
+                        </div>
+                        <div class="navigation">
+                            <button id="prev-btn-homework" class="nav-btn" disabled>← Oldingi</button>
+                            <button id="next-btn-homework" class="nav-btn">Keyingi →</button>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+
+        <div class="social-links">
+            <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+                <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+                <span class="social-text">Telegramm</span>
+            </a>
+
+            <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link"
+                target="_blank">
+                <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+                <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+                <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">You Tube</span>
+            </a>
+        </div>
+    </div>
+    </div>
+
+    <script src="./script3.js"></script>
+    <script src="./Database/masala/masala.js"></script>
+
+    <script src="./hover.js"></script>
+
+</body>
+
+</html>

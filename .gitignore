@@ -1,0 +1,22 @@
+# Repo OCHIQ (public). Yechimlar, baza va maxfiy fayllar hech qachon tushmasligi kerak.
+# Shuning uchun hammasi yashirilgan; faqat platforma kodi ochiq.
+# Dars sahifalari (reja, darslar, rasm/video) alohida ro'yxat bo'yicha `git add -f` bilan qo'shiladi.
+/*
+!/.gitignore
+!/README.md
+!/lms/
+
+# platforma ichida ham — baza, yuklangan fayllar, zaxiralar, kutubxonalar
+/lms/node_modules/
+/lms/data/
+*.db
+*.db-*
+*.sqlite
+.env
+.env.*
+
+# yechimlar (har ehtimolga qarshi)
+**/node_modules/
+**/[Mm]asala/
+**/[Mm]isollar/
+**/*.sql

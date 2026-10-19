@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>Test 1</span> </h2>
+        <div class="panel">
+          <ol>
+
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Debug 1</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Kodda qanday xatolik bor?</p>
+              <p>To‘g‘ri yechimini yoz.</p>
+              <p>Bonus: Chegirma narx bilan umumiy to‘lovni qanday qilib hech qanday xatolarsiz qaytarsang bo‘ladi?</p>
+              <pre>function calculateTotal(order) {
+              let total = 0;
+              order.items.forEach(item => {
+                  total += item.price * item.count;
+              });
+          
+              if (order.discount) {
+                  total - order.discount; // BU YERDA NIMA MUAMMO?
+              }
+          
+              return total;
+          }
+          
+          const order = {
+              customer: "Javohir",
+              items: [
+                  { name: "Telefon", price: 2500000, count: 1 },
+                  { name: "Naushnik", price: 300000, count: 2 }
+              ],
+              discount: 500000
+          };
+          
+          console.log("Jami to'lov:", calculateTotal(order)); // To‘g‘ri chiqmayapti
+          </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Nega score = "85" bo‘lsa ham B emas, C chiqyapti?</p>
+              <p>Bu yerda if else qanday ishlayapti?</p>
+
+              <pre>let score = "85";
+
+              if (score > 90) {
+                  console.log("A");
+              } else if (score > 80) {
+                  console.log("B");
+              } else {
+                  console.log("C");
+              }
+              </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Hech narsa chiqmayapti. Nima sabab?</p>
+              <p>Qaysi nuqtada loop ishlamayapti?</p>
+              <pre>function printEvenNumbers(n) {
+                for (let i = 1; i <= n; i++); {
+                    if (i % 2 === 0) {
+                        console.log(i);
+                    }
+                }
+            }
+            
+            printEvenNumbers(10);
+            </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>adults bo‘sh chiqyapti. Nega filter() ishlamayapti?</p>
+              <p>Callback funksiyada nima yetishmayapti?</p>
+              <pre>const users = [
+                { name: "Ali", age: 20 },
+                { name: "Vali", age: 17 },
+                { name: "Hasan", age: 25 }
+            ];
+            
+            const adults = users.filter(user => {
+                user.age >= 18;
+            });
+            
+            console.log(adults);
+            </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Nega 5 4 3 2 1 har 1 soniyada emas, deyarli bir vaqtda chiqyapti?</p>
+              <p>Qanday qilib setTimeout ni har biriga alohida 1 soniya qilish mumkin?</p>
+              <pre>function countdown(n) {
+                if (n === 0) return;
+                setTimeout(() => {
+                    console.log(n);
+                    countdown(n - 1);
+                }, 1000);
+            }
+            
+            countdown(5);
+            </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Nega ReferenceError: Cannot access 'a' before initialization chiqyapti?</p>
+              <p>Bu Execution Context va Temporal Dead Zone bilan qanday bog‘liq?</p>
+              <pre>let a = 1;
+
+                function outer() {
+                    let a = 2;
+                
+                    function inner() {
+                        console.log(a);
+                        let a = 3;
+                    }
+                
+                    inner();
+                }
+                
+                outer();
+                </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Nega ReferenceError: Cannot access 'a' before initialization chiqyapti?</p>
+              <p>Bu Execution Context va Temporal Dead Zone bilan qanday bog‘liq?</p>
+              <pre>let a = 1;
+
+                function outer() {
+                    let a = 2;
+                
+                    function inner() {
+                        console.log(a);
+                        let a = 3;
+                    }
+                
+                    inner();
+                }
+                
+                outer();
+                </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Nega Hi, undefined chiqdi?</p>
+              <p>this qanday kontekstga tegishli bo‘ldi?</p>
+              <p>bind() orqali to‘g‘ri ishlashini ko‘rsat.</p>
+              <pre>const person = {
+                name: "Malika",
+                greet: function () {
+                    console.log("Hi, " + this.name);
+                }
+            };
+            
+            const greetCopy = person.greet;
+            greetCopy();
+            </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>Nima sababdan age noto‘g‘ri chiqyapti?</p>
+              <p>Date().getFullYear noto‘g‘ri chaqirilmoqda — nima yetishmayapti?</p>
+              <pre>const person = {
+                name: "Jasur",
+                birth: "2000-05-20"
+            };
+            
+            const { name, birth } = person;
+            
+            const age = new Date().getFullYear - new Date(birth).getFullYear;
+            console.log(`${name} is ${age} years old`);
+            </pre>
+            </li>
+            <li>
+              <p>❓ Savol:</p>
+              <p>WeakSet nimani saqlaydi?</p>
+              <p>Nega weakUsers.has(user) false beradi?</p>
+              <p>Qachon obyekt Garbage Collected bo‘ladi?</p>
+              <pre>let user = { name: "Aziza" };
+
+                const weakUsers = new WeakSet();
+                weakUsers.add(user);
+                
+                user = null;
+                
+                console.log(weakUsers.has(user)); // Nima chiqadi?
+                </pre>
+            </li>
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"><span>Problematic issue 1</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>Masala:</strong> Foydalanuvchining daromadiga qarab soliq miqdorini hisoblang.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>1000 dan kam bo‘lsa — 5%</li>
+                <li>1000–9999 — 10%</li>
+                <li>10000–49999 — 20%</li>
+                <li>50000 dan yuqori — 30%</li>
+                <li>Agar noto‘g‘ri qiymat (string, null, manfiy) kiritilsa, "Noto‘g‘ri qiymat" chiqarsin.</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>let/const</code>, <code>console.log()</code>,
+                <code>if/else if</code>, <code>typeof</code>
+              </p>
+            </li>
+            <li>
+              <p><strong>Masala:</strong> Berilgan massiv ichidan takrorlanmas ikki kishilik juftliklar ro‘yxatini
+                chiqaring.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>["Ali", "Vali", "Karim"] => "Ali - Vali", "Ali - Karim", "Vali - Karim"</li>
+                <li>"Vali - Ali" yoki "Karim - Ali" bo‘lmasligi kerak</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>for loop</code>, <code>function</code>,
+                <code>array indexing</code>, <code>console.log()</code>
+              </p>
+            </li>
+            <li>
+              <p><strong>Masala:</strong> Foydalanuvchilarning nomi va emailini tozalang, `username` maydonini qo‘shing.
+              </p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>Bo‘sh yoki <code>null</code> qiymatdagi foydalanuvchilarni olib tashlang.</li>
+                <li><code>name</code> — trim() va toUpperCase() bilan tozalanadi.</li>
+                <li><code>email</code> — trim() va toLowerCase() bilan tozalanadi.</li>
+                <li><code>username</code> — emaildan `@` oldidagi qism olinadi.</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>Array.filter()</code>, <code>Array.map()</code>,
+                <code>String.trim()</code>, <code>String.toLowerCase()</code>, <code>split()</code>, <code>object</code>
+              </p>
+            </li>
+            <li>
+              <p><strong>Masala:</strong> Fayllar ro‘yxatini ketma-ket, har birini 1 soniyadan keyin konsolga
+                chiqaradigan funksiya yozing.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>["file1.txt", "file2.txt"] ro‘yxati navbati bilan chiqsin</li>
+                <li>Har biri 1 soniyada chiqsin</li>
+                <li>Fayl mavjud bo‘lmasa, xatolik chiqarsin</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>Promise</code>, <code>async/await</code>,
+                <code>setTimeout()</code>, <code>recursion</code>, <code>console.log()</code>
+              </p>
+            </li>
+            <li>
+              <p><strong>Masala:</strong> `count` qiymatini faqat `increment`, `decrement`, `get` funksiyalari orqali
+                boshqariladigan qilish.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>Globaldan <code>count</code>'ga kira bo‘lmasin</li>
+                <li>Faqat metodlar orqali o‘zgartirish mumkin</li>
+                <li>Bu closure orqali amalga oshiriladi</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>function closure</code>, <code>return object</code>,
+                <code>let</code> (heapda saqlanadi), <code>console.log()</code>
+              </p>
+            </li>
+            <li>
+              <p><strong>Masala:</strong> Objektdagi `this` noto‘g‘ri ishlayotgan metodni `bind()` yordamida tuzating va
+                `setTimeout` bilan 2 soniyadan keyin ishga tushiring.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>Metod boshqa o‘zgaruvchiga berilganda `this` yo‘qolmasligi kerak</li>
+                <li>bind() yordamida to‘g‘ri kontekst biriktiring</li>
+                <li>setTimeout bilan 2 soniyadan keyin chaqiring</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>this</code>, <code>bind()</code>, <code>function</code>,
+                <code>setTimeout()</code>
+              </p>
+            </li>
+            <li>
+              <p><strong>Masala:</strong> Foydalanuvchining tug‘ilgan sanasidan yoshini hisoblang va hozirgi vaqtni har
+                10 soniyada ko‘rsating.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li><code>dob</code> dan yoshni aniqlang</li>
+                <li>Har 10 soniyada joriy vaqtni HH:MM:SS formatda ko‘rsating</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>new Date()</code>, <code>getFullYear()</code>,
+                <code>setInterval()</code>, <code>toLocaleTimeString()</code>, <code>destructuring</code>,
+                <code>console.log()</code>
+              </p>
+            </li>
+            <li>
+              <p><strong>Masala:</strong> `WeakSet` yordamida tizimdagi foydalanuvchilarni kuzating.</p>
+              <p><strong>Shart:</strong></p>
+              <ul>
+                <li>Ikki foydalanuvchini WeakSet ga qo‘shing</li>
+                <li>Bittasini <code>null</code> qiling</li>
+                <li>5 soniyadan keyin uni borligini tekshiring</li>
+                <li>Garbage Collector ularni avtomatik o‘chiradi</li>
+              </ul>
+              <p><strong>Foydalaniladi:</strong> <code>WeakSet</code>, <code>setTimeout()</code>, <code>null</code>,
+                <code>object</code>, <code>garbage collection</code></p>
+            </li>
+
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Interview 1</span></h2>
+        <div class="panel">
+          <ol>
+
+          </ol>
+        </div>
+      </li>
+
+
+
+    </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+</body>
+
+</html>

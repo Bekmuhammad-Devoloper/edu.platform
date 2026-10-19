@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel asoslari: ustun/qator, formulalar</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Kompyuter bilimlari</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Mavzu</h2>
+                    <div class="panel">
+<h3>Microsoft Excel nima?</h3>
+<p><strong>Excel</strong> — jadvallar va hisob-kitoblar dasturi. Fayl kengaytmasi — <code>.xlsx</code>.</p>
+<h3>Asosiy tushunchalar</h3>
+<ul>
+  <li><strong>Ustun</strong> — harflar bilan belgilanadi: A, B, C, ...</li>
+  <li><strong>Qator</strong> — raqamlar bilan: 1, 2, 3, ...</li>
+  <li><strong>Katak (yacheyka)</strong> — ustun va qator kesishmasi, manzili masalan <code>B3</code>.</li>
+  <li><strong>Varaq (list)</strong> — pastdagi tab'lar; bitta faylda bir nechta varaq bo'lishi mumkin.</li>
+</ul>
+<h3>Formulalar</h3>
+<p>Formula har doim <strong>=</strong> belgisi bilan boshlanadi.</p>
+<pre>=A1+B1        qo'shish
+=A1-B1        ayirish
+=A1*B1        ko'paytirish
+=A1/B1        bo'lish
+=SUM(A1:A10)      A1 dan A10 gacha yig'indi   (СУММ)
+=AVERAGE(A1:A10)  o'rtacha qiymat            (СРЗНАЧ)
+=MAX(A1:A10)      eng katta                  (МАКС)
+=MIN(A1:A10)      eng kichik                 (МИН)
+=COUNT(A1:A10)    sonlar soni                (СЧЁТ)</pre>
+<h3>Foydali usullar</h3>
+<ul>
+  <li><strong>Avtoto'ldirish</strong> — katak burchagidagi kichik kvadratni pastga tortish: formulalar va ketma-ketliklar (1, 2, 3 yoki Dushanba, Seshanba ...) avtomatik davom etadi.</li>
+  <li><strong>Ustun kengligi</strong> — ustun harflari orasidagi chiziqni ikki marta bosish.</li>
+  <li><strong>Raqam formati</strong> — pul, foiz, sana ko'rinishi.</li>
+</ul>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir topshiriqni kompyuterda bajaring. Natijani o'z papkangizda saqlang.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Kataklar</strong></p><p>A1 ga ismingizni, B1 ga yoshingizni, C1 ga shahringizni yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Manzil</strong></p><p>D5 katakka «Salom» yozing. Bu katak qaysi ustun va qatorda?</p></li>
+  <li class="lvl-oson"><p><strong>Qo'shish</strong></p><p>A1 ga 25, B1 ga 17 yozing. C1 ga ularning yig'indisini formula bilan chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>To'rt amal</strong></p><p>Ikki son uchun yig'indi, ayirma, ko'paytma va bo'linmani formulalar bilan hisoblang.</p></li>
+  <li class="lvl-orta"><p><strong>SUM</strong></p><p>A1:A10 ga 10 ta son yozing va SUM bilan yig'indisini toping.</p></li>
+  <li class="lvl-orta"><p><strong>Baholar</strong></p><p>5 ta fan va baholaringizni yozing. AVERAGE bilan o'rtacha bahoni toping.</p></li>
+  <li class="lvl-orta"><p><strong>MAX va MIN</strong></p><p>Haftalik havo harorati jadvalida eng issiq va eng sovuq kunni MAX va MIN bilan toping.</p></li>
+  <li class="lvl-orta"><p><strong>Avtoto'ldirish</strong></p><p>A ustunida 1 dan 20 gacha sonlarni, B ustunida hafta kunlarini avtoto'ldirish bilan yozing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Xarid hisobi</strong></p><p>Mahsulot, narx, miqdor ustunlari. D ustunida har birining summasi (narx × miqdor), oxirida umumiy summa.</p></li>
+  <li class="lvl-qiyin"><p><strong>Foiz</strong></p><p>Narxlar ro'yxatiga 10% chegirmali narx ustunini qo'shing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Ko'paytirish jadvali</strong></p><p>1 dan 10 gacha ko'paytirish jadvalini formulalar yordamida yarating.</p></li>
+  <li class="lvl-qiyin"><p><strong>Bir nechta varaq</strong></p><p>«Yanvar» va «Fevral» varaqlarida xarajatlar yozing, uchinchi varaqda ikkala oy yig'indisini hisoblang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha topshiriqlarni ketma-ket bajaring. Oxirgi topshiriqlar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Oila jadvali</strong></p><p>Oila a'zolari ismi va yoshi jadvalini tuzing.</p></li>
+  <li class="lvl-oson"><p><strong>Yig'indi</strong></p><p>5 ta sonning yig'indisini SUM bilan toping.</p></li>
+  <li class="lvl-oson"><p><strong>Formulalar</strong></p><p>+, −, *, / amallari uchun 4 ta formula yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Ustun kengligi</strong></p><p>Jadvaldagi barcha ustunlarni matnga moslab kengaytiring.</p></li>
+  <li class="lvl-orta"><p><strong>Cho'ntak puli</strong></p><p>Bir haftalik xarajatlaringiz jadvali va haftalik jami summani hisoblang.</p></li>
+  <li class="lvl-orta"><p><strong>O'rtacha</strong></p><p>Sinfdoshlaringizning 8 ta bahosidan o'rtachasini, eng yuqori va eng past bahoni toping.</p></li>
+  <li class="lvl-orta"><p><strong>Pul formati</strong></p><p>Narxlar ustunini «so'm» bilan ko'rsatiladigan formatga o'tkazing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Kommunal to'lovlar</strong></p><p>3 oylik gaz, svet va suv to'lovlari jadvali: har oy jami va 3 oy jami.</p></li>
+  <li class="lvl-qiyin"><p><strong>Jamg'arma rejasi</strong></p><p>Har oy 100 000 so'm yig'ilsa, 12 oy davomida jamg'arma qanday o'sishini formulalar bilan ko'rsating.</p></li>
+  <li class="lvl-qiyin"><p><strong>Narx o'zgarishi</strong></p><p>5 ta mahsulotning o'tgan oy va bu oy narxi. Farqi va o'zgarish foizini hisoblang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Nazorat savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">Excel nima uchun ishlatiladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Jadvallar va hisob-kitoblar uchun.</p></details></li><li><p class="q">Katak manzili nimadan iborat?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Ustun harfi va qator raqamidan, masalan B3.</p></details></li><li><p class="q">Formula qaysi belgi bilan boshlanadi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>= belgisi bilan.</p></details></li><li><p class="q">Yig'indini qaysi funksiya hisoblaydi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>SUM (СУММ).</p></details></li><li><p class="q">O'rtacha qiymat funksiyasi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>AVERAGE (СРЗНАЧ).</p></details></li><li><p class="q">Avtoto'ldirish nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Katak burchagini tortib, formula yoki ketma-ketlikni avtomatik davom ettirish.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

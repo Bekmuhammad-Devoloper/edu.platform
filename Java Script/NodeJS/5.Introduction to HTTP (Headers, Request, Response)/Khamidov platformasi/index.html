@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Video fon -->
+  <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"
+    id="bg-video">
+    <source src="./video/everest.mp4" type="video/mp4">
+  </video>
+
+  <div class="main-content" id="mainContent">
+    <h1 id="mainTitle">JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>HTTP (Hypertext Transfer Protocol)</span> </h2>
+        <div class="panel">
+          <ol>
+            <h3>HTTP (Hypertext Transfer Protocol) </h3>
+            <p>HTTP — bu veb-saytlar va ilovalar internetda qanday ishlashini belgilab beruvchi asosiy protokoldir. U
+              klient (masalan, sizning brauzeringiz) va server (veb-sayt joylashgan kompyuter) oʻrtasidagi aloqani
+              boshqaradi. Bu aloqa har doim <strong>ikki tomonlama</strong> boʻladi:</p>
+            <ul>
+              <li>Klient soʻrov yuboradi (Request).</li>
+              <li>Server javob qaytaradi (Response).</li>
+            </ul>
+            <h3>1. HTTP Request (Soʻrov) </h3>
+            <p>Bu, sizning brauzeringiz maʼlumot olish yoki maʼlumot yuborish uchun serverga yuboradigan xabardir. U 3
+              ta asosiy qismdan iborat:</p>
+
+            <h3>a) Soʻrov qatori (Request Line) </h3>
+            <p>Soʻrov qatori soʻrovning eng birinchi qismi boʻlib, u <strong>3 ta asosiy elementni</strong> oʻz ichiga
+              oladi:</p>
+            <ul>
+              <li><strong>Method (Metod):</strong> Serverdan nima qilishni soʻrayotganingizni belgilaydi. Eng koʻp
+                ishlatiladiganlari:
+                <ul>
+                  <li><strong>GET:</strong> Serverdan maʼlumot olish uchun (masalan, sahifani ochish).</li>
+                  <li><strong>POST:</strong> Serverga maʼlumot yuborish uchun (masalan, roʻyxatdan oʻtish yoki izoh
+                    qoldirish).</li>
+                  <li><strong>PUT:</strong> Serverdagi mavjud maʼlumotni yangilash uchun.</li>
+                  <li><strong>DELETE:</strong> Serverdagi maʼlumotni oʻchirish uchun.</li>
+                </ul>
+              </li>
+              <li><strong>Path (Yoʻnalish):</strong> Serverdagi qaysi resursga murojaat qilayotganingizni koʻrsatadi
+                (masalan, <code>/about.html</code> yoki <code>/products/123</code>).</li>
+              <li><strong>HTTP Version (HTTP versiyasi):</strong> Aloqa qaysi versiya boʻyicha olib borilishini
+                belgilaydi (odatda <code>HTTP/1.1</code> yoki <code>HTTP/2</code>).</li>
+            </ul>
+            <p><strong>Misol:</strong> Siz <code>google.com</code> saytiga kirmoqchi boʻlganingizda, brauzeringiz
+              quyidagicha soʻrov qatori yuboradi:</p>
+            <pre><code>GET / HTTP/1.1</code></pre>
+
+            <h3>b) Headers (Sarlavhalar)</h3>
+            <p>Bu soʻrov haqida qoʻshimcha maʼlumotlarni oʻz ichiga oladi va <strong>kalit-qiymat (key-value)</strong>
+              juftliklari koʻrinishida boʻladi:</p>
+            <ul>
+              <li><strong>Host:</strong> <code>www.google.com</code> — Soʻrov qaysi serverga yuborilayotganini
+                koʻrsatadi.</li>
+              <li><strong>User-Agent:</strong> <code>Mozilla/5.0 ...</code> — Soʻrov yuborayotgan brauzer yoki ilova
+                haqida maʼlumot beradi.</li>
+              <li><strong>Accept-Language:</strong> <code>uz-UZ</code> — Qaysi tilda javob qaytarilishini
+                xohlayotganingizni koʻrsatadi.</li>
+              <li><strong>Cookie:</strong> <code>sessionid=...</code> — Avvalgi seanslardan saqlangan cookie'larni
+                yuboradi.</li>
+            </ul>
+            <p><strong>Misol:</strong></p>
+            <pre><code>GET / HTTP/1.1
+            Host: www.google.com
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+            Accept-Language: uz-UZ,en-US;q=0.7,en;q=0.3</code></pre>
+
+            <h3>2. HTTP Response (Javob)</h3>
+            <p>Bu, server klientning soʻroviga javoban yuboradigan xabardir. U ham soʻrov kabi <strong>3 ta asosiy
+                qismdan</strong> iborat:</p>
+
+            <h3>a) Holat qatori (Status Line)</h3>
+            <p>Holat qatori javobning boshlanishi boʻlib, u <strong>3 ta elementni</strong> oʻz ichiga oladi:</p>
+            <ul>
+              <li><strong>HTTP Version (HTTP versiyasi):</strong> Server ishlatayotgan HTTP versiyasi.</li>
+              <li><strong>Status Code (Holat kodi):</strong> Soʻrov natijasi haqida maʼlumot beruvchi uch xonali raqam.
+                Eng koʻp ishlatiladiganlari:
+                <ul>
+                  <li><strong>200 OK:</strong> Soʻrov muvaffaqiyatli bajarildi.</li>
+                  <li><strong>404 Not Found:</strong> Soʻralgan resurs topilmadi.</li>
+                  <li><strong>500 Internal Server Error:</strong> Serverda kutilmagan xatolik yuz berdi.</li>
+                  <li><strong>301 Moved Permanently:</strong> Soʻralgan sahifa boshqa manzilga koʻchirilgan.</li>
+                </ul>
+              </li>
+              <li><strong>Status Message (Holat xabari):</strong> Holat kodi haqida qisqacha matnli tushuntirish.</li>
+            </ul>
+            <p><strong>Misol:</strong></p>
+            <pre><code>HTTP/1.1 200 OK</code></pre>
+
+            <h3>b) Headers (Sarlavhalar)</h3>
+            <p>Bular javob haqida qoʻshimcha maʼlumotlar boʻlib, <strong>kalit-qiymat (key-value)</strong> juftliklari
+              koʻrinishida boʻladi:</p>
+            <ul>
+              <li><strong>Content-Type:</strong> <code>text/html</code> — Javob tanasida qanday turdagi maʼlumot
+                borligini koʻrsatadi.</li>
+              <li><strong>Content-Length:</strong> <code>1234</code> — Javob tanasining hajmi.</li>
+              <li><strong>Server:</strong> <code>Apache</code> — Javob bergan server dasturi haqida maʼlumot.</li>
+              <li><strong>Set-Cookie:</strong> <code>sessionid=...</code> — Brauzerda saqlanishi kerak boʻlgan
+                cookie'larni yuboradi.</li>
+            </ul>
+            <p><strong>Misol:</strong></p>
+            <pre><code>HTTP/1.1 200 OK
+            Content-Type: text/html; charset=UTF-8
+            Content-Length: 1564
+            Date: Tue, 16 Sep 2025 07:00:00 GMT
+            Server: Apache</code></pre>
+
+            <h3>c) Body (Tana)</h3>
+            <p>Bu soʻrovga javob sifatida qaytariladigan asosiy maʼlumot. Agar soʻrov muvaffaqiyatli boʻlsa, bu yerda
+              soʻralgan <strong>HTML sahifasi, JSON maʼlumotlari, rasm</strong> yoki boshqa fayl boʻladi.</p>
+            <p><strong>Misol:</strong></p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+            &lt;title&gt;Google&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            &lt;h1&gt;Qidiruv sahifasi&lt;/h1&gt;
+            ...
+            &lt;/body&gt;
+            &lt;/html&gt;</code></pre>
+
+            <h3>Tushunish uchun sodda misol: Restoran misoli</h3>
+            <p>HTTPning ishlashini tushunish uchun oddiy bir misolni koʻrib chiqaylik. Tasavvur qiling, siz restoranda
+              ovqat zakaz qilmoqchisiz:</p>
+            <ul>
+              <li>Siz — <strong>Klient</strong>.</li>
+              <li>Ofitsiant — <strong>HTTP</strong>.</li>
+              <li>Oshxona — <strong>Server</strong>.</li>
+            </ul>
+
+            <h3>1. Sizning soʻrovingiz (Request)</h3>
+            <p>Siz (<strong>Klient</strong>) menyuni koʻrib, ofitsiantga zakaz berasiz (<strong>Request</strong>). Bu
+              soʻrov quyidagi qismlardan iborat boʻladi:</p>
+            <ul>
+              <li><strong>Soʻrov qatori:</strong> "Iltimos, lagʻmon olib keling." (metod: <strong>GET</strong>, resurs:
+                <code>lagʻmon</code>)
+              </li>
+              <li><strong>Sarlavhalar:</strong> "Men stolda 3-oʻrinda oʻtiribman." (oʻzingiz haqingizda qoʻshimcha
+                maʼlumot).</li>
+              <li><strong>Tana:</strong> Bu yerda hech narsa boʻlmaydi, chunki siz shunchaki maʼlumot soʻrayapsiz.</li>
+            </ul>
+
+            <h3>2. Serverning javobi (Response)</h3>
+            <p>Ofitsiant soʻrovni oshxonaga yetkazadi. Oshxona uni tayyorlaydi. Keyin ofitsiant sizga ovqatni olib
+              keladi (<strong>Response</strong>). Javob quyidagilarni oʻz ichiga oladi:</p>
+            <ul>
+              <li><strong>Holat qatori:</strong> "Zakazingiz tayyor!" (Holat kodi: <strong>200 OK</strong>).</li>
+              <li><strong>Sarlavhalar:</strong> "Ovqat issiq, ehtiyot boʻling." (javob haqida qoʻshimcha maʼlumot).</li>
+              <li><strong>Tana:</strong> Lagʻmonning oʻzi (soʻralgan asosiy maʼlumot).</li>
+            </ul>
+
+            <h3>3. Xatolik yuz bergan holat</h3>
+            <p>Agar siz biror ovqatni soʻrasangiz-u, u menyuda boʻlmasa, javob quyidagicha boʻlishi mumkin:</p>
+            <ul>
+              <li><strong>Holat qatori:</strong> "Afsus, bu ovqat menyuda yoʻq." (Holat kodi: <strong>404 Not
+                  Found</strong>).</li>
+              <li><strong>Tana:</strong> "Bugun faqat somsa bor edi." (qoʻshimcha maʼlumot).</li>
+            </ul>
+
+            <p>HTTP ham xuddi shunday ishlaydi, faqat odamlar oʻrniga <strong>kompyuterlar</strong> bir-biri bilan kod
+              va maʼlumotlar orqali "gaplashadi". Bu jarayon har bir veb-sayt sahifasini ochganingizda, har bir
+              maʼlumotni yuborganingizda millionlab marta sodir boʻladi.</p>
+          </ol>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"> <span>Amaliyot</span> </h2>
+        <div class="panel">
+          <ul>
+            <h3>Node.js yordamida REST API yaratish</h3>
+            <p>
+              Bu loyiha Node.js-ning o'rnatilgan <code>http</code> va <code>url</code> modullaridan foydalanib, to'liq
+              <strong>CRUD (Create, Read, Update, Delete)</strong> operatsiyalarini qo'llab-quvvatlaydigan REST API
+              serverini yaratishga qaratilgan. Server uchta alohida modulni (mevalar, mashinalar, foydalanuvchilar)
+              boshqaradi va ma'lumotlarni xotirada (array) saqlaydi.
+            </p>
+
+            <h3>Server Talablari</h3>
+            <ul>
+              <li><strong>Port:</strong> 7777</li>
+              <li><strong>Protokol:</strong> HTTP</li>
+              <li><strong>Ma'lumot formati:</strong> JSON</li>
+              <li><strong>Base URL:</strong> <code>http://localhost:7777</code></li>
+            </ul>
+
+            <h3>Modullar va Ularning Xususiyatlari</h3>
+            <ul>
+              <li>
+                <h4>Fruits Moduli (<code>/fruits</code>)</h4>
+                <p><strong>Model maydonlari:</strong></p>
+                <ul>
+                  <li><code>id</code>: Unik identifikator (avtomatik yaratiladi)</li>
+                  <li><code>name</code>: Meva nomi (satr, bo'sh bo'lmasligi kerak)</li>
+                  <li><code>price</code>: Narxi (musbat son)</li>
+                  <li><code>count</code>: Soni (musbat son)</li>
+                </ul>
+              </li>
+              <li>
+                <h4>Cars Moduli (<code>/cars</code>)</h4>
+                <p><strong>Model maydonlari:</strong></p>
+                <ul>
+                  <li><code>id</code>: Unik identifikator (avtomatik yaratiladi)</li>
+                  <li><code>model</code>: Mashina modeli (satr, bo'sh bo'lmasligi kerak)</li>
+                  <li><code>price</code>: Narxi (musbat son)</li>
+                </ul>
+              </li>
+              <li>
+                <h4>Users Moduli (<code>/users</code>)</h4>
+                <p><strong>Model maydonlari:</strong></p>
+                <ul>
+                  <li><code>id</code>: Unik identifikator (avtomatik yaratiladi)</li>
+                  <li><code>name</code>: Foydalanuvchi ismi (satr, bo'sh bo'lmasligi kerak)</li>
+                  <li><code>age</code>: Yoshi (musbat son)</li>
+                  <li><code>role</code>: Roli (faqat "user", "admin", "seller", "buyer" qiymatlaridan biri)</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>HTTP Metodlari va Endpointlar</h3>
+            <p><strong>GET Operatsiyalari</strong></p>
+            <ul>
+              <li><code>GET /{modul}</code>: Barcha elementlarni olish</li>
+              <li><code>GET /{modul}/{id}</code>: Ma'lum ID bo'yicha bitta elementni olish</li>
+            </ul>
+            <p><strong>POST Operatsiyalari</strong></p>
+            <ul>
+              <li><code>POST /{modul}</code>: Yangi element yaratish</li>
+            </ul>
+            <p><strong>PUT Operatsiyalari</strong></p>
+            <ul>
+              <li><code>PUT /{modul}/{id}</code>: Mavjud elementni yangilash</li>
+            </ul>
+            <p><strong>DELETE Operatsiyalari</strong></p>
+            <ul>
+              <li><code>DELETE /{modul}/{id}</code>: Elementni o'chirish</li>
+            </ul>
+
+            <h3>Javob formati va Validatsiya</h3>
+            <p><strong>Javob formati:</strong> Barcha javoblar quyidagi standart JSON formatida bo'lishi kerak:</p>
+            <pre><code>{
+      "statusCode": 200,
+      "message": "success",
+      "data": { ... }
+    }</code></pre>
+            <p><strong>Validatsiya talablari:</strong></p>
+            <ul>
+              <li><strong>Fruits uchun:</strong> <code>name</code> (satr, bo'sh bo'lmasligi kerak), <code>price</code>
+                (musbat son), <code>count</code> (musbat son)</li>
+              <li><strong>Cars uchun:</strong> <code>model</code> (satr, bo'sh bo'lmasligi kerak), <code>price</code>
+                (musbat son)</li>
+              <li><strong>Users uchun:</strong> <code>name</code> (satr, bo'sh bo'lmasligi kerak), <code>age</code>
+                (musbat son), <code>role</code> (belgilangan qiymatlardan biri)</li>
+            </ul>
+
+            <h3>Xatoliklarni Boshqarish (Error Handling)</h3>
+            <ul>
+              <li><strong>400:</strong> Noto'g'ri ma'lumot formati yoki validatsiya xatolari</li>
+              <li><strong>404:</strong> Element topilmadi</li>
+              <li><strong>201:</strong> Yangi element muvaffaqiyatli yaratildi</li>
+              <li><strong>200:</strong> Operatsiya muvaffaqiyatli bajarildi</li>
+            </ul>
+
+            <h3>Texnik Talablar</h3>
+            <ul>
+              <li>Node.js-ning o'rnatilgan <code>http</code> va <code>url</code> modullaridan foydalanish</li>
+              <li>Ma'lumotlarni xotirada (array) saqlash</li>
+              <li>JSON formatida so'rov va javob almashish</li>
+              <li>Har bir modul uchun alohida <code>class</code> yaratish</li>
+              <li><code>ResData</code> class yordamida javob formatini standartlashtirish</li>
+            </ul>
+
+            <h3>Fayl Tuzilishi</h3>
+            <pre><code>project/
+    ├── server.js (asosiy fayl)
+    ├── lib/
+    │   └── resData.js
+    ├── module/
+    │   ├── cars.module.js
+    │   ├── fruits.module.js
+    │   └── users.module.js
+    └── types/
+        └── role.user.types.js</code></pre>
+
+            <h3>Test Qilish</h3>
+            <p>
+              Server ishga tushirilgandan so'ng, Postman yoki boshqa API testing vositasi yordamida barcha endpointlarni
+              test qilish tavsiya etiladi.
+            </p>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span></h2>
+        <div class="panel">
+          <ol>
+            <h3 style="color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 5px;">Shifoxona Boshqaruv
+              Tizimi - Loyiha Talablari</h3>
+
+            <p>Bu hujjat Node.js yordamida yaratiladigan shifoxona boshqaruv tizimi uchun REST API loyihasining to'liq
+              shartlarini o'z ichiga oladi. Loyiha bitta <code>server.js</code> faylida amalga oshiriladi va ma'lumotlar
+              array ko'rinishida xotirada saqlanadi. Loyiha turli modullar, API endpointlar, validatsiya qoidalari va
+              fayl tuzilishini qamrab oladi.</p>
+
+            <br>
+
+            <h3>Server Talablari</h3>
+            <ul>
+              <li><strong>Port:</strong> 3000</li>
+              <li><strong>Ma'lumotlar:</strong> Xotirada array ko'rinishida saqlanadi.</li>
+              <li><strong>Format:</strong> JSON</li>
+            </ul>
+
+            <hr>
+
+            <h3>Modullar va Ma'lumotlar Modeli</h3>
+            <p>Quyidagi modullar va ularning maydonlari loyihada ishlatiladi:</p>
+            <ol>
+              <li>
+                <strong>Departments (Bo'limlar)</strong>
+                <ul>
+                  <li><code>id</code>, <code>name</code>, <code>description</code>, <code>head_doctor_id</code>,
+                    <code>phone</code>, <code>floor</code>, <code>created_at</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Doctors (Shifokorlar)</strong>
+                <ul>
+                  <li><code>id</code>, <code>first_name</code>, <code>last_name</code>, <code>specialization</code>,
+                    <code>phone</code>, <code>email</code>, <code>department_id</code>, <code>license_number</code>,
+                    <code>is_head</code>, <code>created_at</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Patients (Bemorlar)</strong>
+                <ul>
+                  <li><code>id</code>, <code>first_name</code>, <code>last_name</code>, <code>birth_date</code>,
+                    <code>gender</code>, <code>phone</code>, <code>address</code>, <code>blood_type</code>,
+                    <code>created_at</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Medical Records (Tibbiy Yozuvlar)</strong>
+                <ul>
+                  <li><code>id</code>, <code>patient_id</code>, <code>doctor_id</code>, <code>visit_date</code>,
+                    <code>diagnosis</code>, <code>treatment</code>, <code>status</code>, <code>created_at</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Medicines (Dori-darmonlar)</strong>
+                <ul>
+                  <li><code>id</code>, <code>name</code>, <code>manufacturer</code>, <code>price</code>,
+                    <code>stock_quantity</code>, <code>prescription_required</code>, <code>created_at</code>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Prescriptions (Retseptlar)</strong>
+                <ul>
+                  <li><code>id</code>, <code>medical_record_id</code>, <code>medicine_id</code>, <code>dosage</code>,
+                    <code>frequency</code>, <code>duration</code>, <code>created_at</code>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+
+            <hr>
+
+            <h3>API Endpointlari</h3>
+            <p>Har bir modul uchun asosiy CRUD va qo'shimcha API endpointlari:</p>
+            <ul>
+              <li>
+                <strong>Departments (<code>/departments</code>)</strong>
+                <ul>
+                  <li><code>GET /departments</code> - Barcha bo'limlar</li>
+                  <li><code>GET /departments/{id}</code> - Bitta bo'lim</li>
+                  <li><code>POST /departments</code> - Yangi bo'lim</li>
+                  <li><code>PUT /departments/{id}</code> - Bo'limni yangilash</li>
+                  <li><code>DELETE /departments/{id}</code> - Bo'limni o'chirish</li>
+                  <li><code>GET /departments/{id}/doctors</code> - Bo'lim shifokorlari</li>
+                  <li><code>GET /departments/{id}/head-doctor</code> - Bo'lim boshlig'i</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Doctors (<code>/doctors</code>)</strong>
+                <ul>
+                  <li><code>GET /doctors</code> - Barcha shifokorlar</li>
+                  <li><code>GET /doctors/{id}</code> - Bitta shifokor</li>
+                  <li><code>POST /doctors</code> - Yangi shifokor</li>
+                  <li><code>PUT /doctors/{id}</code> - Shifokorni yangilash</li>
+                  <li><code>DELETE /doctors/{id}</code> - Shifokorni o'chirish</li>
+                  <li><code>GET /doctors/{id}/patients</code> - Shifokor bemorlari</li>
+                  <li><code>GET /doctors/{id}/medical-records</code> - Shifokor tibbiy yozuvlari</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Patients (<code>/patients</code>)</strong>
+                <ul>
+                  <li><code>GET /patients</code> - Barcha bemorlar</li>
+                  <li><code>GET /patients/{id}</code> - Bitta bemor</li>
+                  <li><code>POST /patients</code> - Yangi bemor</li>
+                  <li><code>PUT /patients/{id}</code> - Bemorni yangilash</li>
+                  <li><code>DELETE /patients/{id}</code> - Bemorni o'chirish</li>
+                  <li><code>GET /patients/{id}/medical-records</code> - Bemor tibbiy yozuvlari</li>
+                  <li><code>GET /patients/{id}/prescriptions</code> - Bemor retseptlari</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Medical Records (<code>/medical-records</code>)</strong>
+                <ul>
+                  <li><code>GET /medical-records</code> - Barcha tibbiy yozuvlar</li>
+                  <li><code>GET /medical-records/{id}</code> - Bitta yozuv</li>
+                  <li><code>POST /medical-records</code> - Yangi yozuv</li>
+                  <li><code>PUT /medical-records/{id}</code> - Yozuvni yangilash</li>
+                  <li><code>DELETE /medical-records/{id}</code> - Yozuvni o'chirish</li>
+                  <li><code>GET /medical-records/{id}/prescriptions</code> - Yozuv retseptlari</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Medicines (<code>/medicines</code>)</strong>
+                <ul>
+                  <li><code>GET /medicines</code> - Barcha dori-darmonlar</li>
+                  <li><code>GET /medicines/{id}</code> - Bitta dori</li>
+                  <li><code>POST /medicines</code> - Yangi dori</li>
+                  <li><code>PUT /medicines/{id}</code> - Dorini yangilash</li>
+                  <li><code>DELETE /medicines/{id}</code> - Dorini o'chirish</li>
+                  <li><code>GET /medicines/low-stock</code> - Kam qolgan dorilar</li>
+                  <li><code>GET /medicines/expired</code> - Muddati o'tgan dorilar</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Prescriptions (<code>/prescriptions</code>)</strong>
+                <ul>
+                  <li><code>GET /prescriptions</code> - Barcha retseptlar</li>
+                  <li><code>GET /prescriptions/{id}</code> - Bitta retsept</li>
+                  <li><code>POST /prescriptions</code> - Yangi retsept</li>
+                  <li><code>PUT /prescriptions/{id}</code> - Retseptni yangilash</li>
+                  <li><code>DELETE /prescriptions/{id}</code> - Retseptni o'chirish</li>
+                </ul>
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Validatsiya Qoidalari</h3>
+            <p>Har bir maydon uchun maxsus validatsiya qoidalari qo'llaniladi:</p>
+            <ul>
+              <li>
+                <strong>Departments</strong>
+                <ul>
+                  <li><code>name</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>description</code>: String, ixtiyoriy</li>
+                  <li><code>head_doctor_id</code>: String, mavjud shifokor ID si bo'lishi shart</li>
+                  <li><code>phone</code>: String, telefon formatida bo'lishi shart</li>
+                  <li><code>floor</code>: Number, musbat son bo'lishi shart</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Doctors</strong>
+                <ul>
+                  <li><code>first_name</code>, <code>last_name</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>specialization</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>email</code>: String, email formatida bo'lishi shart</li>
+                  <li><code>phone</code>: String, telefon formatida bo'lishi shart</li>
+                  <li><code>department_id</code>: String, mavjud bo'lim ID si bo'lishi shart</li>
+                  <li><code>license_number</code>: String, noyob bo'lishi shart</li>
+                  <li><code>is_head</code>: Boolean, mantiqiy qiymat</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Patients</strong>
+                <ul>
+                  <li><code>first_name</code>, <code>last_name</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>birth_date</code>: String, sana formati (YYYY-MM-DD)</li>
+                  <li><code>gender</code>: String, faqat "male" yoki "female"</li>
+                  <li><code>phone</code>: String, telefon formatida bo'lishi shart</li>
+                  <li><code>blood_type</code>: String, qon guruhi formatida bo'lishi shart</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Medical Records</strong>
+                <ul>
+                  <li><code>patient_id</code>: String, mavjud bemor ID si bo'lishi shart</li>
+                  <li><code>doctor_id</code>: String, mavjud shifokor ID si bo'lishi shart</li>
+                  <li><code>visit_date</code>: String, sana formati (YYYY-MM-DD)</li>
+                  <li><code>diagnosis</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>treatment</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>status</code>: String, faqat "active" yoki "completed"</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Medicines</strong>
+                <ul>
+                  <li><code>name</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>manufacturer</code>: String, bo'sh bo'lmasligi kerak</li>
+                  <li><code>price</code>: Number, musbat son bo'lishi shart</li>
+                  <li><code>stock_quantity</code>: Number, 0 dan katta yoki teng bo'lishi shart</li>
+                  <li><code>prescription_required</code>: Boolean, mantiqiy qiymat</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Prescriptions</strong>
+                <ul>
+                  <li><code>medical_record_id</code>: String, mavjud tibbiy yozuv ID si bo'lishi shart</li>
+                  <li><code>medicine_id</code>: String, mavjud dori ID si bo'lishi shart</li>
+                  <li><code>dosage</code>, <code>frequency</code>, <code>duration</code>: String, bo'sh bo'lmasligi
+                    kerak</li>
+                </ul>
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Bog'liqliklar</h3>
+            <ul>
+              <li><strong>One-to-One:</strong> Department ↔ Head Doctor</li>
+              <li><strong>One-to-Many:</strong> Department → Doctors, Patient → Medical Records, Doctor → Medical
+                Records</li>
+              <li><strong>Many-to-Many:</strong> Medical Records ↔ Medicines (Prescriptions orqali)</li>
+            </ul>
+
+            <hr>
+
+            <h3>Ma'lumotlar Saqlash</h3>
+            <p>Ma'lumotlar global massivlarda saqlanadi:</p>
+            <pre><code>const departments = []
+const doctors = []
+const patients = []
+const medicalRecords = []
+const medicines = []
+const prescriptions = []</code></pre>
+
+            <hr>
+
+            <h3>Fayl Strukturasi</h3>
+            <pre><code>hospital-management/
+├── server.js (barcha logika)
+├── lib/
+│   └── resData.js
+├── module/
+│   ├── department.module.js
+│   ├── doctor.module.js
+│   ├── patient.module.js
+│   ├── medicalRecord.module.js
+│   ├── medicine.module.js
+│   └── prescription.module.js
+└── types/
+├── gender.types.js
+└── status.types.js</code></pre>
+
+            <hr>
+
+            <h3>Module Kodlari (Qisqartirilgan namunalar)</h3>
+            <p>Har bir modul uchun namuna klasslar:</p>
+            <ul>
+              <li>
+                <strong>Department Module</strong>
+                <pre><code>class Department {
+constructor(name, description, head_doctor_id, phone, floor) {
+    this.id = 'dept_' + Date.now()
+    // ... boshqa maydonlar
+}
+}</code></pre>
+              </li>
+              <li>
+                <strong>Doctor Module</strong>
+                <pre><code>class Doctor {
+constructor(first_name, last_name, specialization, phone, email, department_id, license_number, is_head) {
+this.id = 'doc_' + Date.now()
+// ... boshqa maydonlar
+}
+}</code></pre>
+              </li>
+              <li>
+                <strong>Patient Module</strong>
+                <pre><code>class Patient {
+constructor(first_name, last_name, birth_date, gender, phone, address, blood_type) {
+this.id = 'pat_' + Date.now()
+// ... boshqa maydonlar
+}
+}</code></pre>
+              </li>
+              <li>
+                <strong>Medical Record Module</strong>
+                <pre><code>class MedicalRecord {
+constructor(patient_id, doctor_id, visit_date, diagnosis, treatment, status) {
+this.id = 'rec_' + Date.now()
+// ... boshqa maydonlar
+}
+}</code></pre>
+              </li>
+              <li>
+                <strong>Medicine Module</strong>
+                <pre><code>class Medicine {
+constructor(name, manufacturer, price, stock_quantity, prescription_required) {
+this.id = 'med_' + Date.now()
+// ... boshqa maydonlar
+}
+}</code></pre>
+              </li>
+              <li>
+                <strong>Prescription Module</strong>
+                <pre><code>class Prescription {
+constructor(medical_record_id, medicine_id, dosage, frequency, duration) {
+this.id = 'pres_' + Date.now()
+// ... boshqa maydonlar
+}
+}</code></pre>
+              </li>
+            </ul>
+
+            <hr>
+
+            <h3>Yordamchi Klasslar</h3>
+            <ul>
+              <li>
+                <strong>ResData (<code>lib/resData.js</code>)</strong>
+                <pre><code>class ResData {
+constructor(statusCode, message, data = null) {
+    this.statusCode = statusCode
+    this.message = message
+    this.data = data
+}
+}</code></pre>
+              </li>
+              <li>
+                <strong>Gender Types (<code>types/gender.types.js</code>)</strong>
+                <pre><code>const genderTypes = ['male', 'female']</code></pre>
+              </li>
+              <li>
+                <strong>Status Types (<code>types/status.types.js</code>)</strong>
+                <pre><code>const statusTypes = ['active', 'completed']</code></pre>
+              </li>
+            </ul>
+          </ol>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+      target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div class="fullscreen-overlay" id="fullscreenOverlay">
+    <video autoplay muted loop playsinline disablepictureinpicture
+      controlslist="nodownload nofullscreen noremoteplayback" id="fullscreen-video" class="fullscreen-video"
+      style="display: none;">
+      <source id="fullscreen-video-source" src="" type="video/mp4">
+    </video>
+    <div class="fullscreen-header">
+      <h1 id="closeTitle">JavaScript</h1>
+    </div>
+    <div class="fullscreen-content" id="fullscreenContent">
+      <!-- Content will be injected here -->
+    </div>
+    <div class="fullscreen-footer">
+      <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+          <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+          <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+          target="_blank">
+          <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+          <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+          <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+          <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+          <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+          <span class="social-text">You Tube</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

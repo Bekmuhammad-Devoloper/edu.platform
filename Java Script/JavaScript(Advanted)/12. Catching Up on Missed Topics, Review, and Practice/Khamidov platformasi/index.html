@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+  <canvas id="rainCanvas"></canvas>
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>Introduction to OOP, Classes and OOP Principles</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>Kutubxona boshqaruvi tizimi
+              <p>
+                <strong>Tavsif:</strong> Kutubxonada kitoblar, kutubxonachilar va a'zolar mavjud. Har bir kitobning
+                nomi, muallifi, nashr yili va holati (mavjud/band qilingan) bor. A'zolarning ismi, familiyasi va a'zolik
+                raqami bo'ladi. Kutubxonachilar kitoblarni ro'yxatga olishi, kitoblarning holatini o'zgartirishi va
+                a'zolarga kitob berishi mumkin.
+              </p>
+              <p>
+                <strong>OOP tamoyillari:</strong>
+              <ul>
+                <li><b>Inkapsulyatsiya:</b> Kitobning holatini faqat maxsus metodlar orqali o'zgartirish.</li>
+                <li><b>Merosxo'rlik (Inheritance):</b> Kutubxonachi va a'zo uchun bir asosiy "Shaxs" (Person) sinfi
+                  yaratish.</li>
+                <li><b>Polimorfizm:</b> "Kitobni berish" (borrowBook) metodi turli xil holatlar uchun turli xil xabarlar
+                  chiqarishi.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Sinflar:</strong>
+              <ul>
+                <li><code>Kitob</code> (Book) sinfi: <code>nomi</code>, <code>muallifi</code>, <code>nashr_yili</code>,
+                  <code>holati</code> xususiyatlari va <code>holatni_o'zgartirish</code> metodi.
+                </li>
+                <li><code>A'zo</code> (Member) sinfi: <code>ismi</code>, <code>familiyasi</code>,
+                  <code>a'zolik_raqami</code> xususiyatlari.
+                </li>
+                <li><code>Kutubxonachi</code> (Librarian) sinfi: <code>ismi</code>, <code>familiyasi</code> va
+                  <code>kitob_qo'shish</code>, <code>kitob_berish</code> metodlari.
+                </li>
+              </ul>
+              </p>
+            </li>
+            <li>Online do'kon tizimi
+              <p>
+                <strong>Tavsif:</strong> Online do'konda mahsulotlar, xaridorlar va buyurtmalar mavjud. Har bir
+                mahsulotning nomi, narxi va qolgan soni bor. Xaridorlar savatga mahsulot qo'shishi va buyurtma berishi
+                mumkin. Buyurtma esa buyurtma raqami, xaridor ma'lumotlari, mahsulotlar ro'yxati va umumiy narxni o'z
+                ichiga oladi.
+              </p>
+              <p>
+                <strong>OOP tamoyillari:</strong>
+              <ul>
+                <li><b>Inkapsulyatsiya:</b> Mahsulotning qolgan sonini to'g'ridan-to'g'ri o'zgartirmasdan,
+                  <code>sotish</code> (sell) metodi orqali kamaytirish.
+                </li>
+                <li><b>Kompozitsiya (Composition):</b> "Buyurtma" sinfi "Mahsulot" sinfining ob'ektlaridan iborat
+                  bo'lishi.</li>
+                <li><b>Merosxo'rlik:</b> Turli xil mahsulot turlari (masalan, "Elektronika", "Kiyim") uchun asosiy
+                  "Mahsulot" sinfidan foydalanish.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Sinflar:</strong>
+              <ul>
+                <li><code>Mahsulot</code> (Product) sinfi: <code>nomi</code>, <code>narxi</code>,
+                  <code>qolgan_soni</code>.
+                </li>
+                <li><code>Xaridor</code> (Customer) sinfi: <code>ismi</code>, <code>familiyasi</code>,
+                  <code>savat</code> xususiyatlari va <code>savatga_qo'shish</code> metodi.
+                </li>
+                <li><code>Buyurtma</code> (Order) sinfi: <code>buyurtma_raqami</code>, <code>xaridor</code>,
+                  <code>mahsulotlar_ro'yxati</code>, <code>umumiy_narx</code>.
+                </li>
+              </ul>
+              </p>
+            </li>
+            <li>Bank tizimi
+              <p>
+                <strong>Tavsif:</strong> Bankda mijozlar va hisoblar mavjud. Har bir mijozning ismi va ID raqami bor.
+                Har bir hisobning hisob raqami, balans va unga tegishli mijoz bor. Hisobdan pul yechish, pul qo'yish va
+                hisoblar orasida pul o'tkazish mumkin. Pul yechishda balans yetarli ekanligini tekshirish kerak.
+              </p>
+              <p>
+                <strong>OOP tamoyillari:</strong>
+              <ul>
+                <li><b>Inkapsulyatsiya:</b> Balansni faqat <code>pul_qo'yish</code> (deposit) va
+                  <code>pul_yechish</code> (withdraw) metodlari orqali o'zgartirish.
+                </li>
+                <li><b>Merosxo'rlik:</b> "Hisob" sinfidan "Jamg'arma hisobi" (SavingsAccount) va "Kredit hisobi"
+                  (CreditAccount) sinflarini yaratish.</li>
+                <li><b>Polimorfizm:</b> "Pul o'tkazish" (transfer) metodi turli xil hisoblar uchun ishlatilishi.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Sinflar:</strong>
+              <ul>
+                <li><code>Mijoz</code> (Customer) sinfi: <code>ismi</code>, <code>id_raqami</code>.</li>
+                <li><code>Hisob</code> (Account) sinfi: <code>hisob_raqami</code>, <code>balans</code>,
+                  <code>mijoz</code> xususiyatlari va <code>pul_qo'yish</code>, <code>pul_yechish</code> metodlari.
+                </li>
+                <li><code>Jamg'armaHisobi</code> (SavingsAccount) va <code>KreditHisobi</code> (CreditAccount) sinflari.
+                </li>
+              </ul>
+              </p>
+            </li>
+            <li>Avtomobillar poygasi simulyatsiyasi
+              <p>
+                <strong>Tavsif:</strong> Turli xil avtomobillar poyga trassasida ishtirok etadi. Har bir avtomobilning
+                modeli, maksimal tezligi va hozirgi tezligi bor. Avtomobillar tezlikni oshirishi, kamaytirishi va
+                masofani bosib o'tishi mumkin. Trassada poyga start olishi va g'olibni aniqlashi kerak.
+              </p>
+              <p>
+                <strong>OOP tamoyillari:</strong>
+              <ul>
+                <li><b>Inkapsulyatsiya:</b> Avtomobilning tezligi faqat <code>tezlikni_oshirish</code> va
+                  <code>tezlikni_kamaytirish</code> metodlari orqali boshqarish.
+                </li>
+                <li><b>Merosxo'rlik:</b> "Avtomobil" sinfidan "Sport avtomobili" (SportCar) va "Yuk avtomobili" (Truck)
+                  sinflarini yaratish.</li>
+                <li><b>Polimorfizm:</b> Har xil avtomobil turlari uchun <code>tezlikni_oshirish</code> metodi ularning
+                  turiga qarab har xil ishlashi.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Sinflar:</strong>
+              <ul>
+                <li><code>Avtomobil</code> (Car) sinfi: <code>model</code>, <code>maksimal_tezlik</code>,
+                  <code>hozirgi_tezlik</code>, <code>bosib_o'tgan_masofa</code> va <code>tezlikni_oshirish</code>,
+                  <code>tezlikni_kamaytirish</code> metodlari.
+                </li>
+                <li><code>Poyga</code> (Race) sinfi: <code>avtomobillar_ro'yxati</code>, <code>trassa_uzunligi</code> va
+                  <code>start_berish</code>, <code>g'olibni_aniqlash</code> metodlari.
+                </li>
+              </ul>
+              </p>
+            </li>
+            <li>Hayvonlar dunyosi (zoopark)
+              <p>
+                <strong>Tavsif:</strong> Zooparkda turli xil hayvonlar yashaydi. Har bir hayvonning turi, yoshi va
+                quloqlari soni bor. Barcha hayvonlar ovqatlanishi va ovoz chiqarishi mumkin. Lekin har xil turdagi
+                hayvonlar har xil ovoz chiqaradi.
+              </p>
+              <p>
+                <strong>OOP tamoyillari:</strong>
+              <ul>
+                <li><b>Merosxo'rlik:</b> Asosiy "Hayvon" (Animal) sinfidan "Sut emizuvchi", "Qush", "Baliq" sinflarini
+                  yaratish.</li>
+                <li><b>Polimorfizm:</b> "Ovoz chiqarish" (makeSound) metodi har bir sinf uchun o'ziga xos ovoz
+                  chiqarishi.</li>
+                <li><b>Abstraksiya (Abstraction):</b> Barcha hayvonlar uchun umumiy bo'lgan <code>ovqatlanish()</code>
+                  metodi yaratish.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Sinflar:</strong>
+              <ul>
+                <li><code>Hayvon</code> (Animal) sinfi: <code>turi</code>, <code>yoshi</code>, <code>ovqatlanish</code>
+                  va <code>ovoz_chiqarish</code> abstrakt metodlari.</li>
+                <li><code>Mushuk</code> (Cat), <code>It</code> (Dog), <code>Qush</code> (Bird) sinflari
+                  <code>Hayvon</code> sinfidan meros olib, <code>ovoz_chiqarish</code> metodini o'zlariga mos tarzda
+                  yozishadi.
+                </li>
+                <li><code>Zoopark</code> (Zoo) sinfi: <code>hayvonlar_ro'yxati</code> va <code>hayvon_qo'shish</code>
+                  metodi.</li>
+              </ul>
+              </p>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Instanceof, Mixin, Error Handling (try, catch, finally, throw)</span></h2>
+        <div class="panel">
+          <ol>
+            <li>Kompaniya ierarxiyasi va tekshiruvi (instanceof)
+              <p>
+                <strong>Tavsif:</strong> Katta kompaniyada "Ishchi" (Employee), "Menejer" (Manager) va "Direktor"
+                (Director) sinflari bor. Har bir menejer o'ziga tegishli ishchilarga ega. Direktorlar esa menejerlar
+                guruhini boshqaradi. Sizdan kompaniya strukturasini modellashtirish va quyidagi vazifalarni bajarish
+                talab qilinadi:
+              </p>
+              <ol>
+                <li>Barcha ishchilar, menejerlar va direktorlarni o'z ichiga olgan umumiy massiv yarating.</li>
+                <li>Massivni aylanib chiqib, har bir shaxsning sinfini <strong><code>instanceof</code></strong>
+                  operatori yordamida aniqlang.</li>
+                <li>Agar shaxs "Direktor" bo'lsa, uning to'liq ismini, "Menejer" bo'lsa, uning ismi va boshqaruvidagi
+                  ishchilar sonini, "Ishchi" bo'lsa, faqat uning ismini konsolga chiqaring.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> O'rta.
+              </p>
+            </li>
+            <li>Turli xil logerlar (Mixin)
+              <p>
+                <strong>Tavsif:</strong> Dasturda turli xil komponentlar (masalan, "Foydalanuvchi" (User), "Mahsulot"
+                (Product), "Buyurtma" (Order)) mavjud. Siz ularning har biriga xabar yozish (logging) funksiyasini
+                qo'shishingiz kerak, lekin bu funksiyani har bir sinfda takrorlashdan qochish lozim.
+              </p>
+              <ol>
+                <li><code>Loggable</code> deb nomlangan <strong>Mixin</strong> yarating. Bu Mixin ichida
+                  <code>log(message)</code> metodi bo'lsin.
+                </li>
+                <li><code>User</code>, <code>Product</code>, <code>Order</code> sinflarini yarating.</li>
+                <li>Ushbu sinflarga <code>Loggable</code> Mixinini qo'shing.</li>
+                <li>Har bir sinf ob'ektini yaratib, ularning <code>log()</code> metodini chaqiring. Misol uchun:
+                  <code>user.log('Yangi foydalanuvchi yaratildi.')</code>.
+                </li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> O'rta.
+              </p>
+            </li>
+            <li>Murakkab konfiguratsiya tekshiruvi (Error Handling)
+              <p>
+                <strong>Tavsif:</strong> Dasturga kirishdan avval dastur konfiguratsiyasini tekshiradigan funksiya
+                yozing. Konfiguratsiya obyekti quyidagi xususiyatlarga ega bo'lishi kerak: <code>database_url</code>,
+                <code>api_key</code>, <code>port</code>.
+              </p>
+              <ol>
+                <li><code>validateConfig(config)</code> nomli funksiya yarating.</li>
+                <li>Agar konfiguratsiya ob'ektida yuqoridagi xususiyatlardan biri mavjud bo'lmasa,
+                  <strong><code>throw</code></strong> kalit so'zi bilan yangi <code>Error</code> ob'ektini tashlang.
+                  Xabar aniq bo'lsin: "Konfiguratsiya xatosi: 'api_key' mavjud emas."
+                </li>
+                <li>Funksiyani <strong><code>try...catch</code></strong> bloki ichida chaqiring.</li>
+                <li><code>catch</code> blokida xatolik xabarini konsolga chiqaring va dasturni to'xtatish haqida xabar
+                  bering.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Oson-O'rta.
+              </p>
+            </li>
+            <li>Avtorizatsiya tekshiruvi va xato turi (instanceof va Error Handling)
+              <p>
+                <strong>Tavsif:</strong> Veb-ilovada foydalanuvchi avtorizatsiyasini tekshiradigan funksiya yozing. Agar
+                foydalanuvchi o'z vakolatiga ega bo'lmasa, maxsus xato tashlansin.
+              </p>
+              <ol>
+                <li><code>AuthenticationError</code> va <code>AuthorizationError</code> nomli ikkita maxsus xato sinfini
+                  yarating, ular asosiy <code>Error</code> sinfidan meros olsin.</li>
+                <li><code>checkAccess(user, requiredRole)</code> nomli funksiya yarating.</li>
+                <li>Agar foydalanuvchi mavjud bo'lmasa, <code>AuthenticationError</code>ni tashlang.</li>
+                <li>Agar foydalanuvchining roli <code>requiredRole</code>ga mos kelmasa,
+                  <code>AuthorizationError</code>ni tashlang.
+                </li>
+                <li>Ushbu funksiyani <strong><code>try...catch</code></strong> bloki ichida chaqiring.
+                  <code>catch</code> blokida xato turini <strong><code>instanceof</code></strong> bilan tekshiring va
+                  har xil xato uchun har xil xabar chiqaring.
+                </li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Murakkab.
+              </p>
+            </li>
+            <li>Resursni boshqarish (try, catch, finally)
+              <p>
+                <strong>Tavsif:</strong> Fayl bilan ishlaydigan funksiya yozing. Fayl ochish, unga ma'lumot yozish va
+                yopish operatsiyalari bajariladi.
+              </p>
+              <ol>
+                <li><code>processFile(filename, data)</code> nomli funksiya yarating.</li>
+                <li>Bu funksiya ichida <code>try</code> blokida: faylni ochish, unga ma'lumot yozish va ehtimoliy
+                  xatolikni keltirib chiqarishni simulatsiya qiling.</li>
+                <li><code>catch</code> blokida xatolikni qayta ishlash, masalan, "Faylga yozishda xato yuz berdi"
+                  xabarini chiqarish.</li>
+                <li><strong><code>finally</code></strong> blokida esa har qanday holatda ham faylni yopishni
+                  (simulatsiya qiling) ta'minlang.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> O'rta.
+              </p>
+            </li>
+            <li>Zanjirband xatolar va ularni qayta tashlash (throw va catch)
+              <p>
+                <strong>Tavsif:</strong> Ma'lumotlarni bazadan o'qish va qayta ishlash jarayonini simulyatsiya qiling.
+                Jarayonda bir necha xato yuz berishi mumkin.
+              </p>
+              <ol>
+                <li><code>readDataFromDatabase(query)</code> nomli funksiya yarating. Bu funksiya ma'lumotlar bazasiga
+                  ulanishda yoki so'rov bajarishda xatolik yuz berganini simulatsiya qilsin.</li>
+                <li><code>processData(query)</code> nomli ikkinchi funksiya yarating.</li>
+                <li><code>processData</code> funksiyasi ichida <strong><code>try...catch</code></strong> bloki ichida
+                  <code>readDataFromDatabase</code> funksiyasini chaqiring.
+                </li>
+                <li><code>catch</code> blokida, agar xato yuz bersa, undan yangi, o'ziga xos xato yaratib, uni qayta
+                  <strong><code>throw</code></strong> qiling. Masalan:
+                  <code>throw new Error('Ma'lumotlarni qayta ishlash jarayonida xato: ' + error.message)</code>.
+                </li>
+                <li>Eng yuqori darajada, boshqa <strong><code>try...catch</code></strong> bloki ichida
+                  <code>processData</code> funksiyasini chaqiring va yakuniy xatolikni ushlab oling.
+                </li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Murakkab.
+              </p>
+            </li>
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"><span>Promises</span></h2>
+        <div class="panel">
+          <ol>
+            <li>Foydalanuvchi ma'lumotlari va uning savatidagi mahsulotlarni olish
+              <p>
+                <strong>Tavsif:</strong> Sizdan foydalanuvchining ID raqami bo'yicha ma'lumotlarini (ismi, manzili) va
+                uning savatida (cart) qaysi mahsulotlar borligini ko'rsatuvchi funksiya yaratish talab qilinadi.
+              </p>
+              <ol>
+                <li><code>fetchUserData(userId)</code> nomli funksiya yarating. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/users/{userId}"><code>https://fakestoreapi.com/users/{userId}</code></a></strong>
+                  URL manzilidan foydalanuvchi ma'lumotlarini oladi.</li>
+                <li><code>fetchUserCart(userId)</code> nomli ikkinchi funksiya yarating. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/carts/user/{userId}"><code>https://fakestoreapi.com/carts/user/{userId}</code></a></strong>
+                  URL manzilidan foydalanuvchining savat ma'lumotlarini oladi.</li>
+                <li>Asosiy funksiya ichida <strong>Promise zanjiridan</strong> (chaining) foydalaning. Avval
+                  <code>fetchUserData</code> chaqirilsin, so'ngra u bajarilganidan keyin olingan foydalanuvchi
+                  ma'lumotlari bilan birga <code>fetchUserCart</code> chaqirilsin.
+                </li>
+                <li>Har ikkala Promise muvaffaqiyatli bajarilsa, foydalanuvchining ismi, familiyasi va savatidagi
+                  mahsulotlar ro'yxatini konsolga chiqaring. Agar qaysidir bosqichda xato yuz bersa, xato xabarini
+                  ko'rsating.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> O'rta-Murakkab.
+              </p>
+            </li>
+            <li>Bir vaqtda bir nechta kategoriyadagi mahsulotlarni yuklash
+              <p>
+                <strong>Tavsif:</strong> Sizdan bir vaqtning o'zida bir nechta kategoriyadagi mahsulotlarni yuklab olish
+                va ularni birlashtirib, narx bo'yicha saralash talab qilinadi.
+              </p>
+              <ol>
+                <li><code>fetchCategory(categoryName)</code> nomli funksiya yarating. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/products/category/{categoryName}"><code>https://fakestoreapi.com/products/category/{categoryName}</code></a></strong>
+                  URL manzilidan mahsulotlarni oladi.</li>
+                <li>Quyidagi kategoriyalar uchun massiv yarating:
+                  <code>['electronics', 'jewelery', 'men's clothing', 'women's clothing']</code>.
+                </li>
+                <li>Massivni aylantirib, har bir kategoriya uchun <code>fetchCategory</code> funksiyasini chaqiring. Bu
+                  funksiyalar <code>Promise</code> ob'ektlarini qaytaradi.</li>
+                <li>Barcha Promise'larni <strong><code>Promise.all()</code></strong> metodi yordamida bir vaqtda
+                  bajaring.</li>
+                <li><code>Promise.all()</code> bajarilganidan so'ng, barcha kategoriya mahsulotlarini bitta massivga
+                  birlashtiring va ularni narxi bo'yicha o'sish tartibida saralang.</li>
+                <li>Natijada, barcha mahsulotlarning saralangan ro'yxatini konsolga chiqaring. Agar qaysidir kategoriya
+                  yuklanishida xato bo'lsa, xatolikni qayta ishlang va to'g'ri xabar bering.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Murakkab.
+              </p>
+            </li>
+            <li>Cheklangan vaqtda ma'lumotlarni yuklash va xatoliklarni boshqarish
+              <p>
+                <strong>Tavsif:</strong> Sizdan ma'lumotlarni yuklash uchun ma'lum bir vaqt chegarasi (timeout)
+                belgilash va bu muddatdan oshib ketsa, maxsus xato chiqarish talab qilinadi.
+              </p>
+              <ol>
+                <li><code>fetchWithTimeout(url, timeout)</code> nomli funksiya yarating. Bu funksiya ikkita
+                  <code>Promise</code> yaratadi: bittasi ma'lumotni yuklash uchun (<code>fetch</code>), ikkinchisi esa
+                  berilgan muddatdan so'ng xato chiqarish uchun (<code>setTimeout</code>).
+                </li>
+                <li>Ikkala <code>Promise</code>ni ham <strong><code>Promise.race()</code></strong> metodi yordamida
+                  bajaring. <code>Promise.race()</code> tezroq bajarilgan Promise'ning natijasini yoki xatosini
+                  qaytaradi.</li>
+                <li>Agar <code>fetch</code> Promise'i tezroq bajarilsa, u natijani qaytaradi. Agar
+                  <code>setTimeout</code> Promise'i tezroq bajarilsa, u "Request timed out" (So'rov vaqti tugadi)
+                  xabarini tashlaydi.
+                </li>
+                <li>Funksiyani turli holatlarda sinab ko'ring:
+                  <ul>
+                    <li><a
+                        href="https://fakestoreapi.com/products/1"><code>https://fakestoreapi.com/products/1</code></a>
+                      dan ma'lumot olish, 5000ms (5 soniya) muddat bilan. Bu muvaffaqiyatli bajarilishi kerak.</li>
+                    <li>Xuddi shu URL dan, lekin 1ms muddat bilan ma'lumot olish. Bu vaqt chegarasi tufayli xato
+                      chiqarishi kerak.</li>
+                  </ul>
+                </li>
+                <li>Natijalarni <strong><code>try...catch</code></strong> bloki ichida qayta ishlang va konsolga mos
+                  xabarni chiqaring.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Juda murakkab.
+              </p>
+            </li>
+          </ol>
+        </div>
+
+
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Async/Await</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>Foydalanuvchi va uning so'nggi postlarini yuklash
+              <p>
+                <strong>Tavsif:</strong> Sizdan berilgan foydalanuvchi IDsi bo'yicha uning ma'lumotlarini (ismi,
+                manzili) va u tomonidan yozilgan so'nggi 3 ta postni yuklab oladigan funksiya yaratish talab qilinadi.
+                Ma'lumotlar turli xil URL manzilida joylashgan.
+              </p>
+              <ol>
+                <li><strong><code>fetchUserData(userId)</code></strong> funksiyasini yozing. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/users/{userId}"><code>https://fakestoreapi.com/users/{userId}</code></a></strong>
+                  URL manzilidan foydalanuvchi ma'lumotlarini olsin.</li>
+                <li><strong><code>fetchUserPosts(userId)</code></strong> funksiyasini yozing. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/products/user/{userId}"><code>https://fakestoreapi.com/products/user/{userId}</code></a></strong>
+                  URL manzilidan foydalanuvchining mahsulotlarini olsin (API post o'rniga mahsulotlarni beradi, shuni
+                  post deb hisoblaymiz).</li>
+                <li>Asosiy <strong><code>getUserAndLatestPosts(userId)</code></strong> nomli
+                  <strong><code>async</code></strong> funksiyani yarating.
+                  <ul>
+                    <li>Bu funksiya ichida <strong><code>await</code></strong> yordamida avval
+                      <code>fetchUserData</code> funksiyasini chaqiring.
+                    </li>
+                    <li>Keyin, yana bir <strong><code>await</code></strong> yordamida <code>fetchUserPosts</code>
+                      funksiyasini chaqiring.</li>
+                    <li>Olingan postlar massividan faqat so'nggi 3 ta elementni tanlab oling.</li>
+                  </ul>
+                </li>
+                <li>Natijada, foydalanuvchi ma'lumotlari va uning so'nggi 3 ta postining nomlarini konsolga chiqaring.
+                </li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> O'rta-Murakkab.
+              </p>
+            </li>
+            <li>Bitta tranzaktsiya ichida bir nechta so'rovlarni bajarish
+              <p>
+                <strong>Tavsif:</strong> Sizdan bir nechta API so'rovlarini bir vaqtning o'zida amalga oshirish va
+                ularning barchasi muvaffaqiyatli yakunlangandan so'ng umumiy natijani qaytarish talab qilinadi. Bu xuddi
+                "atomar" operatsiya kabi, ya'ni hammasi bajarilsa natija olinadi, bittasi xato bo'lsa, hammasi bekor
+                qilinadi.
+              </p>
+              <ol>
+                <li><strong><code>fetchProduct(productId)</code></strong> funksiyasini yozing. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/products/{productId}"><code>https://fakestoreapi.com/products/{productId}</code></a></strong>
+                  URL manzilidan mahsulot ma'lumotlarini olsin.</li>
+                <li><strong><code>fetchUser(userId)</code></strong> funksiyasini yozing. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/users/{userId}"><code>https://fakestoreapi.com/users/{userId}</code></a></strong>
+                  URL manzilidan foydalanuvchi ma'lumotlarini olsin.</li>
+                <li>Asosiy <strong><code>async</code></strong> funksiya
+                  <strong><code>fetchTransactionData(productId, userId)</code></strong> yarating.
+                  <ul>
+                    <li>Bu funksiya ichida <code>await</code> va <code>Promise.all()</code> dan birgalikda foydalaning.
+                    </li>
+                    <li><code>Promise.all()</code> ichiga <code>fetchProduct(productId)</code> va
+                      <code>fetchUser(userId)</code> funksiyalarini joylashtiring.
+                    </li>
+                    <li>Agar ikkala so'rov ham muvaffaqiyatli bajarilsa, natijalarni massiv sifatida oling va konsolga
+                      mos xabar bilan chiqaring.</li>
+                    <li>Agar ulardan birortasi xato qilsa, <code>try...catch</code> bloki yordamida xatoni ushlang va
+                      "Tranzaktsiya bajarishda xato yuz berdi" kabi xabar bilan chiqarib yuboring.</li>
+                  </ul>
+                </li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Murakkab.
+              </p>
+            </li>
+            <li> API so'roviga xato qayta urinish mexanizmi
+              <p>
+                <strong>Tavsif:</strong> Sizdan shunday funksiya yaratish talab qilinadi-ki, u API so'rovini bajarishga
+                harakat qilsin va agar xato yuz bersa, belgilangan son marta (masalan, 3 marta) qayta urinib ko'rsin.
+                Qayta urinishlar orasida ma'lum vaqt kutish (delay) ham bo'lishi kerak.
+              </p>
+              <ol>
+                <li><strong><code>fetchProductWithRetry(productId, retries = 3)</code></strong> nomli
+                  <strong><code>async</code></strong> funksiya yarating. Bu funksiya <strong><a
+                      href="https://fakestoreapi.com/products/{productId}"><code>https://fakestoreapi.com/products/{productId}</code></a></strong>
+                  URL manziliga so'rov yuborsin.
+                </li>
+                <li>Funksiya ichida <strong><code>try...catch</code></strong> blokidan foydalaning.
+                  <ul>
+                    <li><strong><code>try</code></strong> blokida <code>fetch</code> so'rovini <code>await</code> bilan
+                      bajaring. Agar so'rov muvaffaqiyatli bo'lsa, natijani qaytaring.</li>
+                    <li><strong><code>catch</code></strong> blokida, agar so'rov xato bo'lsa:
+                      <ul>
+                        <li>retries qiymati 0 dan katta bo'lsa, xato xabarini konsolga chiqaring va
+                          <code>await new Promise(resolve => setTimeout(resolve, 1000))</code> kabi kod bilan bir necha
+                          soniya kuting.
+                        </li>
+                        <li>So'ngra, funksiyani o'zini o'zi chaqirib (rekursiya), <code>retries - 1</code> ni yangi
+                          qiymat sifatida bering.</li>
+                        <li>Agar retries 0 ga teng bo'lsa, yakuniy xato xabarini chiqarib, xatoni yana
+                          <code>throw</code> qiling.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>Ushbu funksiyani to'g'ri ID (masalan, 1) va noto'g'ri ID (masalan, 99999) uchun sinab ko'ring va
+                  natijalarni kuzating.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Juda murakkab.
+              </p>
+            </li>
+          </ol>
+
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Event Loop (Call Stack, Web APIs, Task Queue, Microtask Queue)</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>Tugma bosilishini boshqarish
+              <p>
+                <strong>Tavsif:</strong> Veb-sahifada bir nechta tugmalar bor. Ularning har birini bosganda turli xil
+                asinxron amallar bajariladi. Siz ularning bajarilish ketma-ketligini tahlil qilishingiz kerak.
+              </p>
+              <ol>
+                <li>Sahifaga uchta tugma qo'shing: "Tez", "Sekin" va "Keyinroq".</li>
+                <li>"Tez" tugmasiga bosilganda, setTimeout(callback, 0) funksiyasini chaqiring va darhol "Tez tugma
+                  bosildi" degan xabarni konsolga chiqaring.</li>
+                <li>"Sekin" tugmasiga bosilganda, setTimeout(callback, 2000) funksiyasini chaqiring va undan keyin
+                  "Sekin tugma bosildi" xabarini konsolga chiqaring.</li>
+                <li>"Keyinroq" tugmasiga bosilganda, Promise.resolve().then(callback) ni chaqiring va darhol "Keyinroq
+                  tugma bosildi" xabarini konsolga chiqaring.</li>
+                <li>Tugmalarni ketma-ket bosib, konsolga chiqqan xabarlarning tartibini va nega aynan shu tartibda
+                  chiqqanini tushuntiring. Bunda <strong>Call Stack, Web APIs, Task Queue</strong> va <strong>Microtask
+                    Queue</strong> qanday ishlashini izohlang.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> O'rta.
+              </p>
+            </li>
+            <li>Ma'lumotlarni yuklash va qayta ishlash
+              <p>
+                <strong>Tavsif:</strong> Sizdan serverdan ma'lumotlarni asinxron yuklash va ularni qayta ishlashni
+                simulyatsiya qilish talab etiladi. Bu jarayonda Microtask Queue ning muhim rolini ko'rsating.
+              </p>
+              <ol>
+                <li><strong><code>async</code></strong> funksiya <code>fetchDataAndProcess()</code> yarating.</li>
+                <li>Funksiya ichida <code>fetch('https://fakestoreapi.com/products/1')</code> API so'rovini
+                  <strong><code>await</code></strong> bilan bajaring.
+                </li>
+                <li>So'rovdan so'ng, darhol "Ma'lumotlar yuklanmoqda..." xabarini konsolga chiqaring.</li>
+                <li>Yuklangan ma'lumotlarni qayta ishlashni simulyatsiya qilish uchun Promise.resolve().then()
+                  zanjiridan foydalaning va uning ichida "Yuklangan ma'lumotlar qayta ishlandi" xabarini chiqaring.</li>
+                <li>fetch so'rovi oldidan va uning yakunida, shuningdek, Promise zanjirining oldidan va keyinidan
+                  "Jarayon boshlandi" va "Jarayon tugadi" kabi xabarlarni chiqaring.</li>
+                <li>Konsolga chiqqan xabarlar tartibini tahlil qiling. <strong>Call Stack, Web APIs</strong> va ayniqsa
+                  <strong>Microtask Queue</strong> ning qanday ishlashini, nima uchun Promise ning then bloki
+                  setTimeout(..., 0) dan oldin bajarilishini izohlang.
+                </li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Murakkab.
+              </p>
+            </li>
+            <li>Loop ichidagi asinxronlik
+              <p>
+                <strong>Tavsif:</strong> Sizdan sikl ichida asinxron funksiyalarni chaqirish va ularning bajarilish
+                tartibini aniqlash talab etiladi. Bu vazifa Event Loop ning asinxron funksiyalarni qanday boshqarishini
+                tushunishga yordam beradi.
+              </p>
+              <ol>
+                <li><code>for</code> siklini yaratib, uni 10 martta aylantiring.</li>
+                <li>Siklning har bir iteratsiyasida, birinchi navbatda, "Sikl iteratsiyasi #" kabi xabarni konsolga
+                  chiqaring.</li>
+                <li>Keyin, <code>setTimeout(() => console.log('setTimeout #'), 0)</code> ni chaqiring.</li>
+                <li>Shundan so'ng, Promise.resolve().then(() =&gt; console.log(&#39;Promise #&#39;)) ni chaqiring.</li>
+                <li>Sikl yakunida "Sikl tugadi" degan xabarni chiqaring.</li>
+                <li>Barcha xabarlar konsolga chiqadigan tartibini tahlil qiling. Nima uchun "Sikl iteratsiyasi" va "Sikl
+                  tugadi" xabarlari birinchi navbatda, "Promise" xabarlari keyin, va "setTimeout" xabarlari eng oxirida
+                  chiqqanini <strong>Event Loop</strong> mexanizmi bilan izohlang.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Juda murakkab.
+              </p>
+            </li>
+            <li>Navigatsiya va resurslarni yuklash
+              <p>
+                <strong>Tavsif:</strong> Veb-saytga foydalanuvchi kirganida bir qancha resurslar (rasmlar, skriptlar)
+                yuklanishi kerak. Bu jarayonda sahifa renderingi va asinxron so'rovlarning bir-biriga ta'sirini
+                tushunish lozim.
+              </p>
+              <ol>
+                <li>Sahifaning yuklanishi bilan, setTimeout(() =&gt; console.log(&#39;Sahifa renderingi
+                  yakunlandi&#39;), 50) ni chaqiring.</li>
+                <li>Shundan keyin, fetch(&#39;https://fakestoreapi.com/products&#39;) API so'rovini bajaring va uning
+                  then() blokida "Barcha mahsulotlar yuklandi" xabarini chiqaring.</li>
+                <li>Sahifaga oddiy HTML elementi (masalan, &lt;h1&gt;Bosh sahifa&lt;/h1&gt;) qo'shing.</li>
+                <li>Sizdan ushbu sahifa yuklanganda konsolga chiqadigan xabarlar tartibini tahlil qilish talab etiladi.
+                </li>
+                <li><strong>Event Loop, Call Stack</strong> va <strong>Web APIs</strong> ning sahifaning vizual qismini
+                  (rendering) yuklash va API so'rovini bajarish jarayonlari orasidagi o'zaro bog'liqligini tushuntiring.
+                  Nima uchun "Barcha mahsulotlar yuklandi" xabari "Sahifa renderingi yakunlandi" xabaridan oldin yoki
+                  keyin chiqishi mumkinligini aniq izohlang.</li>
+              </ol>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Murakkab.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Fetch and Axios + Practice</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>Mahsulotlarni Boshqarish Tizimi
+              <p>
+                <strong>Tavsif:</strong> Online doʻkon uchun mahsulotlarni boshqarish veb-sahifasini yaratishingiz
+                kerak. Sizning vazifangiz bu sahifada quyidagi <strong>CRUD</strong> operatsiyalarini amalga
+                oshirishdir. Ma'lumotlar uchun <a
+                  href="https://fakestoreapi.com/products"><strong>https://fakestoreapi.com/products</strong></a> API
+                manzilidan foydalaniladi.
+              </p>
+
+              <ol>
+                <li><strong>Ma'lumotlarni o'qish (Read):</strong> Sahifa yuklanganda barcha mahsulotlar ro'yxatini
+                  API'dan olib, ularni ekranda ko'rsatish. Har bir mahsulot uchun nomi, narxi va rasmi ko'rinishi kerak.
+                </li>
+                <li><strong>Yangi mahsulot yaratish (Create):</strong> Maxsus shakl (forma) orqali foydalanuvchidan
+                  yangi mahsulotning nomini, narxini, kategoriyasini va rasm URL'ini kiritishni so'rash. Shakl
+                  yuborilganda, <strong>POST</strong> so'rovi orqali yangi mahsulotni API'ga yuborish.</li>
+                <li><strong>Mahsulotni yangilash (Update):</strong> Har bir mahsulot yonida "Tahrirlash" tugmasi
+                  bo'lsin. Bu tugma bosilganda, o'sha mahsulot ma'lumotlari shaklga joylashtirilsin. Foydalanuvchi
+                  ma'lumotlarni o'zgartirib, "Saqlash" tugmasini bosganda, <strong>PUT</strong> yoki
+                  <strong>PATCH</strong> so'rovi orqali mahsulotni yangilash.
+                </li>
+                <li><strong>Mahsulotni o'chirish (Delete):</strong> Har bir mahsulot yonida "O'chirish" tugmasi bo'lsin.
+                  Bu tugma bosilganda, foydalanuvchidan tasdiqlash so'ralib, <strong>DELETE</strong> so'rovi orqali
+                  mahsulotni API'dan o'chirish.</li>
+              </ol>
+
+              Qo'shimcha Qiyinliklar va Tavsiyalar
+              <ul>
+                <li><strong>Asinxronlik:</strong> Barcha so'rovlar asinxron tarzda bajarilishi kerak.
+                  <strong><code>async/await</code></strong> dan foydalanish tavsiya etiladi.
+                </li>
+                <li><strong>Xatoliklarni boshqarish:</strong> API so'rovlari muvaffaqiyatsiz tugaganda
+                  (<code>404 Not Found</code>, <code>500 Internal Server Error</code>, va boshqalar), foydalanuvchiga
+                  qulay xato xabari ko'rsatilsin. <strong>Fetch</strong> va <strong>Axios</strong>'da xatoliklarni qayta
+                  ishlashning farqlariga e'tibor bering.</li>
+                <li><strong>Sahifa holati (State Management):</strong> Mahsulotlar ro'yxatini yangilash, xatolarni
+                  ko'rsatish va yuklanish holatini boshqarish uchun sahifaning holatini to'g'ri boshqarish kerak.</li>
+              </ul>
+
+              Fetch vs Axios
+              <p>Siz ushbu masalani ikki xil yondashuvda amalga oshirishingiz mumkin:</p>
+              <ul>
+                <li><strong>Fetch yordamida:</strong> Barcha HTTP so'rovlarini <strong><code>fetch()</code></strong>
+                  API'si bilan yozing. Siz <strong>GET</strong>, <strong>POST</strong>, <strong>PUT</strong>, va
+                  <strong>DELETE</strong> metodlarini qo'lda sozlab, ma'lumotlar turini (masalan, JSON) alohida
+                  belgilashingiz kerak bo'ladi.
+                </li>
+                <li><strong>Axios yordamida:</strong> Barcha HTTP so'rovlarini <strong><code>axios</code></strong>
+                  kutubxonasi yordamida yozing. <strong><code>axios.get()</code></strong>,
+                  <strong><code>axios.post()</code></strong>, <strong><code>axios.put()</code></strong>,
+                  <strong><code>axios.delete()</code></strong> kabi maxsus metodlar kodni ancha soddalashtiradi.
+                </li>
+              </ul>
+              <p>Bu masala sizga ikkala vositaning o'ziga xos xususiyatlari va afzalliklarini amalda sinab ko'rishga
+                imkon beradi.</p>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+
+      <li>
+        <h2 class="accordion"><span>Git & GITHUB</span></h2>
+        <div class="panel">
+          <ol>
+            <li>Massivdagi takrorlanuvchi elementlar va ularning sonini topish
+              <p>
+                <strong>Tavsif:</strong> Sizga bir massiv beriladi. Bu massiv ichida turli xil qiymatlar (stringlar,
+                raqamlar) takrorlanishi mumkin. Sizdan massivdagi har bir elementni necha marta takrorlanganini
+                hisoblab, bu ma'lumotlarni obyekt koʻrinishida qaytarish talab etiladi.
+              </p>
+              <p>
+                <strong>Masala:</strong>
+                <code>['apple', 'banana', 'apple', 'orange', 'banana', 'apple', 'grape']</code>
+                massivida har bir elementning necha marta takrorlanganini hisoblang va natijani quyidagicha obyekt
+                koʻrinishida qaytaring:
+                <code>{ apple: 3, banana: 2, orange: 1, grape: 1 }</code>
+              </p>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> O'rta.
+              </p>
+              <p>
+                <strong>Yechimga qarab harakatlanish uchun maslahatlar:</strong>
+              <ul>
+                <li>Siz bo'sh obyekt yaratishingiz va massivni aylanib chiqishingiz mumkin.</li>
+                <li>Har bir element uchun obyektda shu elementga mos keladigan kalit (key) bormi, yoʻqmi tekshiring.
+                </li>
+                <li>Agar kalit mavjud boʻlsa, uning qiymatini 1 ga oshiring.</li>
+                <li>Agar mavjud boʻlmasa, yangi kalit yaratib, uning qiymatini 1 ga tenglashtiring.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Git & GitHub bilan bogʻliqligi:</strong> Bu masalani yechish uchun yangi filial (branch)
+                yarating. Bu filialga <code>feature/count-duplicates</code> deb nom bering. Funksiyani yozib
+                tugatganingizdan soʻng, oʻzgarishlarni <strong><code>git add</code></strong> va
+                <strong><code>git commit</code></strong> buyruqlari bilan saqlang. Keyin, <code>git push</code> orqali
+                GitHub'ga yuklang va boshqa jamoa a'zolariga koʻrib chiqish uchun <code>pull request</code> yuboring.
+              </p>
+            </li>
+            <li>Berilgan matndagi soʻzlarning uzunligini hisoblab, obyekt koʻrinishida qaytarish
+              <p>
+                <strong>Tavsif:</strong> Sizga katta bir matn beriladi. Sizdan bu matndagi har bir soʻzning uzunligini
+                topib, shu soʻz va uning uzunligini kalit-qiymat juftligi sifatida obyektga joylash talab etiladi.
+                Barcha tinish belgilari (nuqta, vergul va hokazo) va boʻsh joylar hisobga olinmasligi kerak.
+              </p>
+              <p>
+                <strong>Masala:</strong>
+                <code>"Hello world, this is a JavaScript exercise."</code>
+                matnidagi har bir soʻzning uzunligini hisoblang va natijani quyidagicha obyekt koʻrinishida qaytaring:
+                <code>{ Hello: 5, world: 5, this: 4, is: 2, a: 1, JavaScript: 10, exercise: 8 }</code>
+              </p>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Murakkab.
+              </p>
+              <p>
+                <strong>Yechimga qarab harakatlanish uchun maslahatlar:</strong>
+              <ul>
+                <li>Matnni kichik harflarga oʻgiring.</li>
+                <li>Matndagi barcha tinish belgilarini olib tashlang.</li>
+                <li>Matnni soʻzlarga ajratish uchun <code>split(' ')</code> metodidan foydalaning.</li>
+                <li>Har bir soʻz uchun uning uzunligini hisoblab, yangi obyektga qoʻshib boring.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Git & GitHub bilan bogʻliqligi:</strong> Bu masalani yechishda siz bir nechta qadamda ishlaysiz.
+                Har bir muhim oʻzgarishdan soʻng, <code>git commit</code> yordamida oʻzgarishlarni saqlab boring.
+                Masalan, "Matndagi tinish belgilarini o'chirish" deb bir commit, keyin "So'zlarni hisoblaydigan
+                funksiyani qo'shish" deb boshqa bir commit yuboring. Bu jarayon <code>git log</code> yordamida loyiha
+                tarixini kuzatishga yordam beradi.
+              </p>
+
+            </li>
+            <li>Massiv ichidagi takrorlangan soʻzlarni topish va ularni oʻchirish
+              <p>
+                <strong>Tavsif:</strong> Sizga soʻzlardan iborat massiv beriladi. Sizdan massivni tahlil qilib, uning
+                ichida bir necha marta takrorlangan soʻzlarni topish va faqat bir martadan koʻproq takrorlangan
+                soʻzlarni massivdan butunlay olib tashlash talab etiladi.
+              </p>
+              <p>
+                <strong>Masala:</strong>
+                <code>['apple', 'banana', 'orange', 'apple', 'grape', 'banana', 'apple']</code>
+                massividan takrorlangan soʻzlarni (bu holda 'apple' va 'banana') topib, ularni butunlay oʻchiring.
+                Natijada massiv quyidagicha boʻlishi kerak:
+                <code>['orange', 'grape']</code>
+              </p>
+              <p>
+                <strong>Qiyinlik darajasi:</strong> Juda murakkab.
+              </p>
+              <p>
+                <strong>Yechimga qarab harakatlanish uchun maslahatlar:</strong>
+              <ul>
+                <li>Birinchi qadamda har bir elementning takrorlanish sonini hisoblab oling (1-masala kabi).</li>
+                <li>Ikkinchi qadamda, hisoblangan obyektni aylanib chiqib, qaysi soʻzlar bir martadan koʻproq
+                  takrorlanganini aniqlang.</li>
+                <li>Uchinchi qadamda, asl massivni aylanib, faqat bir marta takrorlangan soʻzlardan iborat yangi massiv
+                  yarating. Buni <code>filter()</code> yoki <code>reduce()</code> metodlari bilan amalga oshirish
+                  qulayroq.</li>
+              </ul>
+              </p>
+              <p>
+                <strong>Git & GitHub bilan bogʻliqligi:</strong> Bu masalani yechish jarayonida siz xato qilib
+                qoʻyishingiz mumkin. Bunday holda, <code>git reset</code> buyrugʻi yordamida xatoga yoʻl qoʻyilgan
+                <strong><code>commit</code></strong>ni bekor qilishingiz mumkin. Shuningdek, kodingizni GitHub'ga
+                yuklab, boshqa dasturchidan <code>git pull</code> yordamida o'z loyihasiga tortib olishni soʻrashingiz
+                mumkin.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="frontend.css" />
+
+    <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">JS Errors</h2>
+                <div class="panel">
+                    <ol>
+
+                        <li>
+                            <p>Syntax Eror <br>
+                                Qachon chiqadi: Kod yozilishida sintaksis (tuzilish) xato bo‘lsa. <br>
+                                Sababi: Noto‘g‘ri yozilgan kod (masalan, qavs yopilmagan, vergul noto‘g‘ri qo‘yilgan).
+                            </p>
+                        </li>
+                        <li>
+                            <p>Referens Eror <br>
+                                Qachon chiqadi: O‘zgaruvchi yoki funksiya ishlatilganda, u hali aniqlanmagan (ya’ni
+                                mavjud emas). <br>
+                                Sababi: E'lon qilinmagan nomni chaqirish.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Type Eror <br>
+                                Qachon chiqadi: Noto‘g‘ri turdagi qiymat bilan noto‘g‘ri amal bajarilsa. <br>
+                                Sababi: Masalan, null ustida metod chaqirish, raqam ustida toUpperCase() chaqirish. </p>
+                        </li>
+                        <li>
+                            <p>Range Eror <br>
+                                Qachon chiqadi: Stack hotira tolib qolsa.<br>
+                                Sababi: Qiymat ruxsat etilgan chegaradan chiqib ketsa.
+                        </li>
+                    </ol>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Set va Map</h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Foydalanuvchi matn kiritadi. Siz matndan faqat <code>takrorlanmagan so‘zlar</code>
+                                ro‘yxatini chiqarishingiz kerak.</p>
+                            <pre>
+  const text = "web development is fun and web development is creative";
+  
+ 
+  // Natija: ['web', 'development', 'is', 'fun', 'and', 'creative']
+    </pre>
+                            <p>Set bilan</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchilar ballarini <code>Map</code> orqali saqlang. So‘ng <strong>eng yuqori
+                                    ball</strong> olgan foydalanuvchini toping.</p>
+                            <pre>
+  const users = new Map();
+   // Natija: Vali eng yuqori ball to‘pladi: 95
+    </pre>
+                            <p>Map bilan</p>
+                        </li>
+                        <li>
+                            <p>Har login bo‘lganda foydalanuvchi ID <code>Set</code> ga qo‘shiladi. Agar ID avvaldan bor
+                                bo‘lsa, <strong>takroriy login</strong> xabari chiqsin.</p>
+                            <pre>
+  const loggedInUsers = new Set();
+  
+  function login(userId) {
+   
+  }
+  
+  login(101); // Login muvaffaqiyatli: 101
+  login(102); // Login muvaffaqiyatli: 102
+  login(101); // Bu foydalanuvchi allaqachon login bo‘lgan
+    </pre>
+                            <p>Set bilan</p>
+                        </li>
+                        <li>
+                            <p>Mahsulotlar <code>Map</code>da saqlanadi. Foydalanuvchi mahsulot nomini kiritsa, uning
+                                narxini qaytaring. Agar topilmasa, "topilmadi" deb chiqsin.</p>
+                            <pre>
+  const products = new Map([
+    ["non", 3000],
+    ["sut", 6000],
+    ["shakar", 8000]
+  ]);
+  
+  function getPrice(productName) {
+    
+  }
+  
+  getPrice("non");    // non narxi: 3000 so'm
+  getPrice("shakar"); // shakar narxi: 8000 so'm
+  getPrice("tuz");    // Mahsulot topilmadi
+    </pre>
+                            <p>Map bilan</p>
+                        </li>
+                        <li>
+                            <p>Berilgan raqamlar ro‘yxatidan takrorlanmagan raqamlarni <code>Set</code> yordamida
+                                ajrating.</p>
+                            <pre>
+  const numbers = [1, 2, 2, 3, 4, 4, 5];
+  
+  // Natija: [1, 2, 3, 4, 5]
+    </pre>
+                            <p>Set bilan</p>
+                        </li>
+
+                        <li>
+                            <p>Foydalanuvchi sozlamalari kalit-qiymat ko‘rinishida <code>Map</code>ga saqlanadi. "theme"
+                                sozlamasini o‘qing va konsolga chiqaring.</p>
+                            <pre>
+  const userSettings = new Map([
+    ["theme", "dark"],
+    ["fontSize", 16],
+    ["notifications", true]
+  ]);
+  
+  // Natija: dark
+    </pre>
+                            <p>Map bilan</p>
+                        </li>
+
+                        <li>
+                            <p>Ikki ro‘yxat berilgan. Ularning umumiy elementlarini toping.</p>
+                            <pre>
+  const listA = [1, 2, 3, 4];
+  const listB = [3, 4, 5, 6];
+  
+  // Natija: [3, 4]
+    </pre>
+                            <p>Set bilan</p>
+                        </li>
+
+                        <li>
+                            <p>Talabalar ismi va baholarini <code>Map</code>ga joylashtiring, keyin barcha baholar
+                                o‘rtachasini hisoblang.</p>
+                            <pre>
+  const students = new Map([
+    ["Ali", 85],
+    ["Vali", 90],
+    ["Sami", 78]
+  ]);
+  
+  
+  // Natija: Baholar o‘rtachasi: 84.33333333333333
+    </pre>
+                            <p>Map bilan</p>
+                        </li>
+
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot(WeekSet va WeekMap)</h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Serverda faqat <code>objekt</code> tipidagi foydalanuvchilarni kuzatib borish kerak.
+                                <strong>WeakSet</strong> bilan login bo‘lgan foydalanuvchilarni vaqtincha saqlang.
+                            </p>
+                            <pre>
+  const activeUsers = new WeakSet();
+  
+  let user1 = { name: "Ali" };
+  let user2 = { name: "Vali" };
+  
+  
+  // user1 sessiyasi tugadi
+  user1 = null; // endi WeakSet dan avtomatik o‘chadi (garbage collection)
+    </pre>
+                            <p>WeakSet bilan (faqat object tiplar bilan ishlaydi, avtomatik tozalanadi)</p>
+                        </li>
+
+                        <li>
+                            <p>Foydalanuvchi obyektlariga <strong>token</strong> biriktirib boriladi. Tokenlar faqat
+                                ichki tizim uchun kerak, shuning uchun <code>WeakMap</code> ishlatiladi. Bu ma’lumotlar
+                                foydalanuvchi yo‘q bo‘lsa avtomatik o‘chadi.</p>
+                            <pre>
+  const userTokens = new WeakMap();
+  
+  let user = { id: 1, name: "Bek" };
+  let token = "ab12cd34";
+  
+  // Foydalanuvchi tizimdan chiqdi:
+  user = null; // Token ham avtomatik WeakMap dan yo‘qoladi
+    </pre>
+                            <p>WeakMap bilan (maxfiy ma’lumotlarni object bilan bog‘lash uchun)</p>
+                        </li>
+                        <li>
+                            <p>Veb sahifadagi ba'zi <code>DOM elementlar</code>ni (masalan, ko‘rilganlar ro‘yxati)
+                                <strong>WeakSet</strong> yordamida kuzatamiz.
+                            </p>
+                            <pre>
+  const viewedElements = new WeakSet();
+  
+  function markAsViewed(element) {
+  }
+  
+  
+  
+  // DOMdan olib tashlansa, memorydan ham o'chiriladi (garbage collection)
+    </pre>
+                            <p>WeakSet bilan (DOM ob’ektlar uchun foydali)</p>
+                        </li>
+
+                        <li>
+                            <p>Har bir modul uchun maxfiy <code>config</code> obyektini <strong>WeakMap</strong>da
+                                saqlaymiz. Bu ma’lumotlar tashqariga chiqmaydi.</p>
+                            <pre>
+  const configMap = new WeakMap();
+  
+  function setup(module) {
+   
+  }
+  
+  let module1 = {};
+  
+  console.log(configMap.get(module1)); // { debug: true }
+  
+  module1 = null; // configMap dan ham avtomatik o‘chadi
+    </pre>
+                            <p>WeakMap bilan (configlar maxfiy saqlanadi)</p>
+                        </li>
+
+                        <li>
+                            <p>Spam yuborgan <strong>foydalanuvchi ob’ektlari</strong>ni <code>WeakSet</code>ga
+                                qo‘shamiz. Keyin har safar tekshiruv qilamiz.</p>
+                            <pre>
+  const blockedUsers = new WeakSet();
+  
+  let user = { name: "Spammer" };
+  blockedUsers.add(user);
+  
+  // Har gal xabar yuborishdan oldin tekshiramiz
+  function canSendMessage(u) {
+  }
+  
+    </pre>
+                            <p>WeakSet bilan (spamni bloklashda qulay)</p>
+                        </li>
+
+                        <li>
+                            <p>Foydalanuvchi login qilganda unga maxfiy <code>loginTime</code> saqlaymiz. Bu ma’lumot
+                                faqat ichki ishlov uchun kerak, <strong>WeakMap</strong> ishlatiladi.</p>
+                            <pre>
+  const loginTimes = new WeakMap();
+  
+  let user = { name: "Javohir" };
+  
+  console.log("Login vaqti:", loginTimes.get(user));
+  
+  user = null; // loginTime ham avtomatik tozalanadi
+    </pre>
+                            <p>WeakMap bilan (vaqtinchalik ma’lumotlar uchun ajoyib)</p>
+                        </li>
+
+
+                    </ol>
+
+                </div>
+
+
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot(Pure and Inpure function)</h2>
+                <div class="panel">
+                    <h3>Pure Function (Toza funksiya) <br>
+                        <p> Kiruvchi qiymatlarga (argumentlarga) bog‘liq bo‘ladi
+                            <br>Hech qanday tashqi holatga (global o‘zgaruvchi, I/O, DOM, Math.random, Date va h.k.)
+                            bog‘lanmaydi
+                            <br>Har doim bir xil kiruvchidan bir xil natija qaytaradi
+                        </p><br>
+                        Inpure Function (Iflos funksiya) <br>
+                        <p> Tashqi holatga bog‘liq bo‘ladi (masalan, global o‘zgaruvchi, I/O, DOM, random, vaqt)
+                            bog‘lanmaydi
+                            <br>Bir xil argument bersak ham, natijasi har xil bo‘lishi mumkin.
+                        </p>
+                    </h3>
+                    <ol>
+                        <h3>Amaliyot</h3>
+                        <li>
+                            <p>Foydalanuvchi mahsulot narxini kiritadi. QQS (15%) qo‘shiladi va umumiy narx qaytariladi.
+                                Bu hisoblash <strong>pure function</strong> orqali bajariladi.</p>
+                            <pre>
+                          function calculateTotal(price) {
+                           
+                          }
+                          
+                          console.log(calculateTotal(100)); // 115
+                            </pre>
+                            <p><strong>Pure function bilan</strong> (kiruvchilar asosida hisoblaydi, tashqi holatga
+                                bog‘liq emas)</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi buyurtma berganda unga buyurtma vaqti qaytariladi. Bu ma’lumot
+                                <strong>impure function</strong> orqali olinadi, chunki tashqi holatga (vaqtga) bog‘liq.
+                            </p>
+                            <pre>
+                          function getOrderTime() {
+                          }
+                          
+                          console.log(getOrderTime()); // Har safar har xil vaqt
+                            </pre>
+                            <p><strong>Impure function bilan</strong> (tashqi holat – system time ishlatiladi)</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi mahsulot narxi va chegirma foizini kiritadi. Biz unga chegirmali narxni
+                                qaytaramiz.
+                                Hisoblash <strong>pure function</strong> orqali amalga oshiriladi.</p>
+                            <pre>
+
+                            </pre>
+                            <p><strong>Pure function bilan</strong> (kiruvchilarga bog‘liq, tashqi ta’sir yo‘q)</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi ro‘yxatdan o‘tganda, uni tabriklovchi xabar <code>console.log()</code>
+                                bilan chiqariladi.
+                                Bu <strong>impure function</strong>, chunki tashqi ta’sir bor — konsolga yozuv
+                                chiqaradi.</p>
+                            <pre>
+
+                            </pre>
+                            <p><strong>Impure function bilan</strong> (tashqi ta’sir: konsolga yozuv chiqariladi)</p>
+                        </li>
+
+
+
+                    </ol>
+
+                </div>
+
+
+            </li>
+
+            <li>
+                <h2 class="accordion">Amaliyot(Hoisting)
+                </h2>
+                <div class="panel">
+                    <h3>Hoisting
+                        <br>
+                        <p>Hoisting — bu JavaScript'ning o‘ziga xos xatti-harakati bo‘lib, o‘zgaruvchilar (variables) va
+                            funksiyalar e'lonlari avtomatik ravishda faylning yoki blokning yuqorisiga “ko‘tarilishi”
+                            deganidir.
+                            <br> <br>Ammo faqat e'lon qismi yuqoriga ko‘tariladi, qiymat berilishi emas! <br>
+                            Hoisting faqat Var kalit sozi va Declaration function bilangina sodir boladi.
+                        </p>
+                    </h3>
+
+                    <ol>
+                        <h3>Amaliyot</h3>
+                        <li>
+                            <p>Admin panelda kiruvchilar soni <code>visitorCount</code> deb nomlangan o‘zgaruvchida
+                                saqlanadi.
+                                Dasturchi uni <code>console.log</code> bilan chiqarishga harakat qiladi, lekin kod
+                                to‘g‘ri ishlamaydi.
+                                Sababi: <strong>hoisting</strong></p>
+
+
+
+                            <p>
+                                <strong>Tushuntirish:</strong> JavaScript `var visitorCount` ni yuqoriga ko‘taradi,
+                                lekin qiymatini emas. <br>
+                                Shu sababli `undefined` chiqadi. Bu hoisting sababli yuzaga keladigan muammolardan
+                                biridir.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi nomini kiritishdan oldin uni konsolga chiqarishga harakat qilinmoqda.
+                                Ammo `let` bilan e’lon qilingan o‘zgaruvchi hali <strong>“Temporal Dead Zone”</strong>da
+                                bo‘lganligi sababli xatolik yuz beradi.</p>
+
+                            <p><strong>Tushuntirish:</strong> `let` hoist qilinadi, ammo foydalanishdan oldin qiymat
+                                belgilanmagani uchun xatolik yuz beradi.</p>
+                        </li>
+                        <li>
+                            <p>Hisoblash funksiyasi <code>calculateTotal</code> function expression ko‘rinishida
+                                yozilgan.
+                                Uni chaqirishga harakat qilingan, ammo xatolik yuz beradi — sababi: hoisting faqat
+                                o‘zgaruvchini ko‘taradi, qiymatini emas.</p>
+                            <pre>
+                          calculateTotal(3, 4); 
+                          
+                          var calculateTotal = function (a, b) {
+                            return a + b;
+                          };
+                            </pre>
+                            <p><strong>Tushuntirish:</strong> `var calculateTotal` hoist qilinadi, lekin qiymati
+                                (`function`) hali belgilanmagan. Shuning uchun xatolik yuz beradi.</p>
+                        </li>
+                        <li>
+                            <p>Kodda `printMessage` funksiyasi ham, `var` bilan nomi bir xil o‘zgaruvchi ham mavjud.
+                                Bu chalkashlikka sabab bo‘ladi — hoisting natijasida funksiya ustiga o‘zgaruvchi yozib
+                                ketadi.</p>
+
+                            <p><strong>Tushuntirish:</strong> Avval function hoist qilinadi, lekin keyin `var` qiymati
+                                uni ustiga yozib ketadi.</p>
+                        </li>
+
+
+                    </ol>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot(Clousure function)
+                </h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Foydalanuvchi sahifaga kirgan vaqti hisoblanadi. Har bir foydalanuvchining
+                                <strong>shaxsiy hisoblagichi</strong> bo‘lishi kerak.
+                                Boshqacha aytganda, har bir foydalanuvchi uchun alohida <code>visitCounter</code>
+                                ishlashi kerak. Buni <strong>closure</strong> bilan bajaramiz.
+                            </p>
+
+                            <pre>
+                          function createVisitCounter(userName) {
+                            
+                          }
+                          
+                          const javohirCounter = createVisitCounter("Javohir");
+                          const aliCounter = createVisitCounter("Ali");
+                          
+                          javohirCounter(); // Javohir sahifaga 1-marta kirdi
+                          javohirCounter(); // Javohir sahifaga 2-marta kirdi
+                          aliCounter();     // Ali sahifaga 1-marta kirdi
+                            </pre>
+
+                            <p><strong>Tushuntirish:</strong> Har bir foydalanuvchi uchun
+                                <code>createVisitCounter</code> funksiyasi o‘zining <code>count</code> qiymatini
+                                <strong>eslab qoladi</strong> — bu closure hisoblanadi.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Matndagi <strong>takrorlanmagan so‘zlar</strong> sonini qaytaruvchi funksiyani closure
+                                bilan yozing.
+                                Har safar chaqirilganda, o‘z ichki hisoblagichini yangilab boradi.</p>
+
+                            <pre>
+                          function createUniqueWordTracker() {
+                            const wordSet = new Set();
+                            
+                            
+                          }
+                          
+                          const trackWords = createUniqueWordTracker();
+                          
+                          trackWords("hello world");
+                          trackWords("world of coding"); 
+                          // Natija: Umumiy unikal so‘zlar soni: 5
+                            </pre>
+
+                            <p><strong>Izoh:</strong> <code>Set</code> orqali takroriy so‘zlar tushurib tashlanadi,
+                                closure esa <code>wordSet</code> ni eslab qoladi.</p>
+                        </li>
+                        <li>
+                            <p>Har bir foydalanuvchining tizimga kirgan vaqti <strong>WeakMap</strong> orqali saqlanadi.
+                                Bu vaqt <code>getLoginTime</code> closure funksiyasi orqali olinadi.</p>
+
+                            <pre>
+                          function createSessionTracker() {
+                            const sessions = new WeakMap();
+                          
+                          
+                          }
+                          
+                          const session = createSessionTracker();
+                          let user = { name: "Shoxrux" };
+                          
+                          session.login(user);
+                          console.log(session.getLoginTime(user)); // Masalan: 14:35:22
+                          
+                          user = null; // sessions ichidagi data avtomatik tozalanadi (WeakMap xususiyati)
+                            </pre>
+
+                            <p><strong>Izoh:</strong> Closure <code>sessions</code> ni yopib turadi,
+                                <code>WeakMap</code> esa avtomatik tozalashga imkon beradi.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Har bir foydalanuvchiga <strong>unique token</strong> biriktirishimiz kerak. Bunda
+                                <code>Map</code> orqali tokenlar saqlanadi, va closure orqali tokenlar eslab qoladi.
+                            </p>
+
+                            <pre>
+                          function createTokenManager() {
+                            const tokenMap = new Map();
+                            return function (user) {
+                              if (!tokenMap.has(user)) {
+                                const token = Math.random().toString(36).slice(2);
+                                tokenMap.set(user, token);
+                              }
+                              return tokenMap.get(user);
+                             };
+                          }
+                          const getToken = createTokenManager();
+                          const user1 = "Ali";
+                          const user2 = "Vali";
+                          console.log(getToken(user1)); // abc123
+                          console.log(getToken(user1)); // shu token qaytadi
+                          console.log(getToken(user2)); // boshqacha token
+                            </pre>
+
+                            <p><strong>Izoh:</strong> <code>Map</code> ichida foydalanuvchiga token biriktiriladi,
+                                closure esa <code>tokenMap</code>ni yopadi.</p>
+                        </li>
+
+
+                    </ol>
+
+
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Uyga Vazifa</h2>
+                <div class="panel">
+                    <ol>
+                        <h3>Set and Map</h3>
+                        <li>
+                            <p>Bir necha foydalanuvchilarning <code>telefon raqamlari</code> kiritiladi. Har bir
+                                foydalanuvchi faqat bir dona noyob raqamga ega bo‘lishi kerak.</p>
+                            <pre>
+                          const phoneNumbers = [
+                            "+998901234567",
+                            "+998901234567",
+                            "+998911112233",
+                            "+998933456789",
+                            "+998911112233"
+                          ];
+                          
+                          // ['+998901234567', '+998911112233', '+998933456789']
+                            </pre>
+                            <p><strong>Set bilan:</strong> Takrorlangan telefon raqamlar avtomatik chiqarib tashlanadi.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Har bir foydalanuvchining <code>so‘ngi online bo‘lgan vaqtini</code> saqlab borishimiz
+                                kerak. Bu uchun <strong>Map</strong> ishlatiladi.</p>
+                            <pre>
+                          const lastOnline = new Map();
+                         
+                          console.log(`Kamola oxirgi marta onlineda edi: ${lastOnline.get("Kamola")}`);
+                            </pre>
+                            <p><strong>Map bilan:</strong> Har bir foydalanuvchiga aniq vaqt bog‘lanadi va ularni o‘qish
+                                oson.</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi parol uchun matn kiritadi. Undan faqat <code>unikal harflar</code> olib,
+                                yangi parol yaratiladi.</p>
+                            <pre>
+                          function generateUniquePassword(input) {
+                           
+                          }
+                          
+                          console.log(generateUniquePassword("secure password")); // 'securpawd'
+                            </pre>
+                            <p><strong>Set bilan:</strong> Takror harflar avtomatik olib tashlanib, maxsus parol
+                                yaratiladi.</p>
+                        </li>
+                        <li>
+                            <p>Do‘kondagi har bir mahsulotning <code>nomi</code> va <code>narxini</code> saqlang. Keyin
+                                foydalanuvchi tanlagan mahsulot narxini chiqaring.</p>
+
+                            <p><strong>Map bilan:</strong> Mahsulot va narxni osongina bog‘lab olish mumkin.</p>
+                        </li>
+                        <li>
+                            <p>Saytga har xil foydalanuvchilar kiradi (user ID'lar orqali). Siz faqat
+                                <code>noyob foydalanuvchilar</code> sonini hisoblab bering.
+                            </p>
+
+                            <p><strong>Set bilan:</strong> Takrorlangan ID'lar avtomatik olib tashlanadi va faqat
+                                noyoblari qoladi.</p>
+                        </li>
+                        <li>
+                            <p>Har bir <code>kurs nomi</code> va unga yozilgan <code>talabalar soni</code> Map orqali
+                                saqlanadi. Kurs tanlanganida, o‘sha kursdagi talabalar sonini chiqaring.</p>
+                            <pre>
+                          const courses = new Map([
+                            ["JavaScript", 120],
+                            ["Python", 85],
+                            ["C++", 60]
+                          ]);
+                          
+                            </pre>
+                            <p><strong>Map bilan:</strong> Kurs nomi orqali bog‘langan qiymat (studentlar soni) tez
+                                topiladi.</p>
+                        </li>
+
+
+
+                    </ol>
+                    <ol>
+                        <h3>WeekSet and WeekMap</h3>
+                        <li>
+                            <p>Foydalanuvchilar ichidan ba'zilari <code>bloklangan</code>. Ular <strong>obyekt
+                                    ko‘rinishida</strong> bo‘lib, faqat vaqtincha saqlanadi. Brauzerga kerak bo‘lmay
+                                qolganda o‘zi tozalaydi.</p>
+                            <pre>
+                          const blockedUsers = new WeakSet();
+                          
+                          let user1 = { name: "Ali" };
+                          let user2 = { name: "Vali" };
+                          // Ali user endi mavjud emas, avtomatik tozalanadi
+                            </pre>
+                            <p><strong>WeakSet bilan:</strong> Ob'ektlar xotirada vaqtincha saqlanadi va kerak bo‘lmay
+                                qolganda avtomatik yo‘qoladi.</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi login qilganda, uning <code>token</code> ma’lumotini maxfiy saqlash kerak.
+                                Bu ma’lumot faqat ichki ishlov uchun kerak va foydalanuvchi obyekt bilan bog‘langan
+                                bo‘ladi. <strong>WeakMap</strong> ishlatiladi.</p>
+                            <pre>
+                          const sessionTokens = new WeakMap();
+                          
+                          let user = { name: "Dilshod" };
+                          sessionTokens.set(user, "asdhjKJH21312ad");
+                          
+                          // Tokenni olish:
+                          
+                          // Foydalanuvchi tizimdan chiqdi:
+                          // Token ham avtomatik o‘chadi
+                            </pre>
+                            <p><strong>WeakMap bilan:</strong> Maxfiy tokenlar foydalanuvchi obyekti bilan bog‘lanadi va
+                                foydalanuvchi yo‘q bo‘lsa, token ham o‘chadi.</p>
+                        </li>
+                        <li>
+                            <p>Chat tizimida foydalanuvchi biror xabar yozganmi yoki yo‘qmi — shu ma’lumot <strong>faqat
+                                    sessiya davomida</strong> eslab qolinsin. `WeakSet` yordamida yozganlar saqlanadi.
+                            </p>
+                            <pre>
+                          const hasWrittenMessage = new WeakSet();
+                          
+                          
+                          
+                          let user1 = { name: "Muhammad" };
+                          writeMessage(user1); // Muhammad birinchi marta yozmoqda.
+                          writeMessage(user1); // Muhammad avval ham yozgan.
+                          
+                          user1 = null; // endi u haqidagi info avtomatik yo‘qoladi
+                            </pre>
+                            <p><strong>WeakSet bilan:</strong> Har kim birinchi marta yozayotganini vaqtincha aniqlash
+                                mumkin.</p>
+                        </li>
+                        <li>
+                            <p>Frontendda har bir <code>komponent</code>ga bog‘langan maxfiy
+                                <strong>statistikalar</strong> bor. Ular komponent o‘chirilganda avtomatik yo‘qolishi
+                                kerak. `WeakMap` ishlatiladi.
+                            </p>
+                            <pre>
+                          const componentStats = new WeakMap();
+                          
+                          
+                          
+                          let header = createComponent("Header");
+                          header.render(); // Header render count: 1
+                          header.render(); // Header render count: 2
+                          
+                          header = null; // statistika ham xotiradan o‘chadi
+                            </pre>
+                            <p><strong>WeakMap bilan:</strong> Komponentga bog‘langan ma'lumotlar komponent o‘chsa
+                                avtomatik yo‘qoladi.</p>
+                        </li>
+
+                    </ol>
+                    <ol>
+                        <h3>Pure and Impure function</h3>
+                        <li>
+                            <p>Mahsulot narxini hisoblaydigan funksiya yozing. U hech qanday tashqi o‘zgaruvchiga
+                                bog‘liq emas va har doim bir xil kiruvchiga bir xil natija beradi — bu <strong>pure
+                                    function</strong>.</p>
+
+                            <p><strong>Pure Function bilan:</strong> Natija faqat argumentga bog‘liq, tashqi ta’sir
+                                yo‘q.</p>
+                        </li>
+                        <li>
+                            <p>Mahsulot narxini hisoblaydigan funksiya bor, lekin <strong>tashqi global
+                                    o‘zgaruvchiga</strong> bog‘liq. Bu uni <strong>impure function</strong> qiladi.</p>
+                            <pre>
+                          let taxRate = 0.1;
+                          
+                          function calculateTotal(price) {
+                          }
+                          
+                          console.log(calculateTotal(100)); // 110
+                          
+                          taxRate = 0.2;
+                          console.log(calculateTotal(100)); // 120
+                            </pre>
+                            <p><strong>Impure Function bilan:</strong> Bir xil argument berilsa ham, natija o‘zgaradi.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Ism va familiyani qabul qilib, to‘liq ism qaytaruvchi funksiya yozing. Bu <strong>pure
+                                    function</strong>.</p>
+
+                            <p><strong>Pure Function bilan:</strong> Har doim aynan bir xil natija.</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi ro‘yxatiga yangi ism qo‘shadi. Bu funksiya <strong>tashqi massivni
+                                    o‘zgartirgani</strong> sababli <strong>impure</strong> hisoblanadi.</p>
+
+                            <p><strong>Impure Function bilan:</strong> Tashqi holat o‘zgaradi (side effect).</p>
+                        </li>
+
+
+                    </ol>
+                    <ol>
+                        <h3>Clousure function</h3>
+                        <li>
+                            <p>Foydalanuvchi matn kiritadi. Siz <strong>closure</strong> yordamida har safar faqat
+                                <code>yangi so‘zlar</code>ni qabul qilasiz. <strong>Set</strong> orqali dublikat so‘zlar
+                                olinmaydi.
+                            </p>
+                            <pre>
+                          function createUniqueWordTracker() {
+                            const words = new Set();
+                          
+                            return function(word) {
+                            ...
+                            };
+                          }
+                          
+                          const trackWord = createUniqueWordTracker();
+                          
+                          trackWord("js");
+                          trackWord("map");
+                          trackWord("js"); // dublikat
+                            </pre>
+                            <p><strong>Set + Closure bilan:</strong> Dublikatlar avtomatik oldi olinadi.</p>
+                        </li>
+                        <li>
+                            <p>Har bir foydalanuvchi login qilganda, <strong>maxfiy login vaqtini</strong> saqlab
+                                qo‘ying. Bu ma’lumot <strong>closure</strong> orqali saqlanadi va
+                                <strong>WeakMap</strong> orqali avtomatik tozalanadi.
+                            </p>
+                            <pre>
+                          function createLoginManager() {
+                            const loginTimes = new WeakMap();
+                          
+                            return {
+                              login(user) {
+                                const time = new Date();
+                                },
+                              getLoginTime(user) {
+                              }
+                            };
+                          }
+                          
+                          const manager = createLoginManager();
+                          let user = { name: "Laylo" };
+                          
+                          manager.login(user);
+                          console.log(manager.getLoginTime(user));
+                          
+                          user = null; // login vaqti avtomatik yo‘qoladi
+                            </pre>
+                            <p><strong>WeakMap + Closure bilan:</strong> Maxfiy ma’lumotlar xavfsiz saqlanadi.</p>
+                        </li>
+                        <li>
+                            <p>Do‘konda mahsulotga <strong>chegirma</strong> beriladi. Har xil chegirma miqdori uchun
+                                <strong>closure</strong> yordamida yangi sof (pure) funksiya yaratiladi.
+                            </p>
+                            <pre>
+                          function createDiscount(discountRate) {
+                            return function(price) {
+                            };
+                          }
+                          
+                          console.log(studentDiscount(100)); // 80
+                          console.log(saleDiscount(100));    // 50
+                            </pre>
+                            <p><strong>Closure bilan:</strong> Chegirma miqdori ichki kontekstda saqlanadi.</p>
+                        </li>
+                        <li>
+                            <p>Foydalanuvchi parolini tekshiruvchi funksiya yozing. Har safar login qilganida
+                                <strong>impure function</strong> orqali tashqi logga yoziladi, lekin
+                                <strong>closure</strong> orqali to‘g‘ri parolni saqlaydi.
+                            </p>
+                            <pre>
+                          function createPasswordChecker(realPassword) {
+                            return function(input) {
+                              
+                            };
+                          }
+                          
+                          const checkPassword = createPasswordChecker("secret123");
+                          
+                          checkPassword("secret123"); // ✅
+                          checkPassword("wrongpass"); // ❌
+                            </pre>
+                            <p><strong>Closure bilan:</strong> Parol tashqaridan ko‘rinmaydi.<br><strong>Impure
+                                    bilan:</strong> Konsolga yozilgan log — tashqi effekt.</p>
+                        </li>
+
+                    </ol>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+
+    </div>
+    </div>
+    <canvas id="floatingWordsCanvas"></canvas>
+    <script src="frontend.js"></script>
+
+
+    <script src="./script3.js"></script>
+    <script src="./script4.js"></script>
+    <script src="./hover.js"></script>
+</body>
+
+</html>

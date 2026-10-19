@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Parametrli sikl (for)</h2>
+                    <div class="panel">
+<p><strong>for</strong> — takrorlanishlar soni oldindan ma'lum bo'lganda ishlatiladigan sikl. Boshlang'ich qiymat, shart va qadam bitta qatorda yoziladi.</p>
+<pre>Psevdokod:                         JavaScript (keyingi modulda):
+UCHUN i = 1 DAN 10 GACHA           for (let i = 1; i <= 10; i++) {
+   CHIQAR i                            console.log(i);
+TAMOM                              }</pre>
+<h4>Qanday ishlaydi</h4>
+<ol>
+  <li><code>i = 1</code> — bir marta, boshida.</li>
+  <li>Shart <code>i <= 10</code> tekshiriladi: rost → tana bajariladi; yolg'on → sikl tugaydi.</li>
+  <li>Tana bajarilgach, qadam: <code>i = i + 1</code>.</li>
+  <li>2-qadamga qaytiladi.</li>
+</ol>
+<h4>Qadam turlari</h4>
+<pre>UCHUN i = 0 DAN 20 GACHA QADAM 2     -> 0 2 4 ... 20   (juft sonlar)
+UCHUN i = 10 DAN 1 GACHA QADAM -1    -> 10 9 8 ... 1   (teskari)
+UCHUN i = 1 DAN n GACHA              -> n marta</pre>
+<h4>Tipik masalalar va "shablonlar"</h4>
+<pre>// 1) Yig'indi 1..n
+s = 0
+UCHUN i = 1 DAN n GACHA
+   s = s + i
+TAMOM
+
+// 2) Faktorial n!
+p = 1
+UCHUN i = 1 DAN n GACHA
+   p = p * i
+TAMOM
+
+// 3) Sanash (nechta juft son?)
+k = 0
+UCHUN i = 1 DAN n GACHA
+   AGAR i mod 2 == 0 BO'LSA k = k + 1
+TAMOM
+
+// 4) Eng katta (maksimum) — n ta son kiritiladi
+KIRIT x
+max = x
+UCHUN i = 2 DAN n GACHA
+   KIRIT x
+   AGAR x > max BO'LSA max = x
+TAMOM</pre>
+<h4>Ichma-ich (nested) sikl</h4>
+<pre>UCHUN i = 1 DAN 3 GACHA          natija:
+   UCHUN j = 1 DAN 3 GACHA       1 2 3
+      CHIQAR i * j               2 4 6
+   TAMOM                         3 6 9
+TAMOM
+Ichki sikl tashqi siklning har bir qadamida to'liq bajariladi: 3 * 3 = 9 marta.</pre>
+<h4>Kuzatuv jadvali (faktorial, n = 4)</h4>
+<pre>i | p
+--+----
+  | 1
+1 | 1
+2 | 2
+3 | 6
+4 | 24   -> CHIQAR 24</pre>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>1 dan 10 gacha</strong></p><p>1 dan 10 gacha sonlarni <code>for</code> (UCHUN) sikli bilan chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Juft sonlar</strong></p><p>1 dan 20 gacha juft sonlarni QADAM 2 bilan chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>5 marta</strong></p><p>«Salom, Dasturchi!» matnini 5 marta chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Teskari</strong></p><p>10 dan 1 gacha teskari tartibda chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Yig'indi</strong></p><p>1 dan N gacha sonlar yig'indisini toping. N kiritiladi.</p></li>
+  <li class="lvl-oson"><p><strong>Ko'paytirish jadvali</strong></p><p>Son kiritiladi. Uning 1 dan 10 gacha ko'paytirish jadvalini chiqaring.</p><pre>7 x 1 = 7
+7 x 2 = 14
+...</pre></li>
+  <li class="lvl-orta"><p><strong>Faktorial</strong></p><p>N kiritiladi. N! ni toping va kuzatuv jadvalini to'ldiring.</p></li>
+  <li class="lvl-orta"><p><strong>Toq sonlar ko'paytmasi</strong></p><p>1 dan 9 gacha toq sonlar ko'paytmasini toping.</p></li>
+  <li class="lvl-orta"><p><strong>Bo'luvchilar</strong></p><p>N kiritiladi. Uning barcha bo'luvchilarini chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Raqamlar yig'indisi</strong></p><p>Son kiritiladi. Raqamlari yig'indisini sikl bilan toping.</p></li>
+  <li class="lvl-orta"><p><strong>Fibonachchi</strong></p><p>Fibonachchi qatorining dastlabki 10 ta hadini chiqaring (har bir had oldingi ikkitasining yig'indisi).</p></li>
+  <li class="lvl-orta"><p><strong>Yulduzchalar</strong></p><p>5 qatorli uchburchak chiqaring (ichma-ich sikl).</p><pre>*
+**
+***
+****
+*****</pre></li>
+  <li class="lvl-qiyin"><p><strong>FizzBuzz</strong></p><p>1 dan 30 gacha: 3 ga karrali — Fizz, 5 ga karrali — Buzz, ikkalasiga — FizzBuzz, qolganlari — sonning o'zi.</p></li>
+  <li class="lvl-qiyin"><p><strong>Tub sonlar</strong></p><p>1 dan 50 gacha tub sonlarni chiqaring (ichma-ich sikl: har bir son uchun bo'luvchilarni tekshiring).</p></li>
+  <li class="lvl-qiyin"><p><strong>Piramida</strong></p><p>5 qatorli markazlashgan piramida chiqaring.</p><pre>    *
+   ***
+  *****
+ *******
+*********</pre></li>
+  <li class="lvl-qiyin"><p><strong>Ko'paytirish jadvali 9×9</strong></p><p>1 dan 9 gacha to'liq ko'paytirish jadvalini (9×9) chiqaring.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>1 dan 50 gacha</strong></p><p>1 dan 50 gacha sonlarni chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>5 ga karralilar</strong></p><p>5 dan 100 gacha 5 ga karrali sonlarni chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Kvadratlar yig'indisi</strong></p><p>1² + 2² + ... + 10² ni hisoblang.</p></li>
+  <li class="lvl-oson"><p><strong>Teskari juftlar</strong></p><p>20 dan 2 gacha juft sonlarni teskari tartibda chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Sanash</strong></p><p>1 dan 100 gacha nechta son 7 ga bo'linishini sanang.</p></li>
+  <li class="lvl-orta"><p><strong>Eng katta va eng kichik</strong></p><p>N ta son kiritiladi (N = 5). Eng kattasi va eng kichigini toping.</p></li>
+  <li class="lvl-orta"><p><strong>3 va 5</strong></p><p>1 dan 100 gacha ham 3 ga, ham 5 ga bo'linadigan sonlar soni va yig'indisini toping.</p></li>
+  <li class="lvl-orta"><p><strong>Raqamlar soni</strong></p><p>Son kiritiladi. Uning raqamlari sonini toping.</p></li>
+  <li class="lvl-orta"><p><strong>Kvadrat</strong></p><p>N kiritiladi. N×N o'lchamli yulduzchalar kvadratini chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Daraja jadvali</strong></p><p>2 ning 1 dan 10 gacha darajalarini chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Mukammal sonlar</strong></p><p>1 dan 1000 gacha mukammal sonlarni toping (bo'luvchilari yig'indisi o'ziga teng, sonning o'zi hisobga olinmaydi).</p></li>
+  <li class="lvl-qiyin"><p><strong>Palindrom sonlar</strong></p><p>10 dan 1000 gacha chapdan ham, o'ngdan ham bir xil o'qiladigan sonlarni chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Teskari uchburchak</strong></p><p>5 qatorli teskari uchburchak chiqaring.</p><pre>*****
+****
+***
+**
+*</pre></li>
+  <li class="lvl-qiyin"><p><strong>Armstrong sonlar</strong></p><p>100 dan 999 gacha raqamlari kublari yig'indisi o'ziga teng sonlarni toping.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. for sikli qachon ishlatiladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Takrorlanishlar soni oldindan ma'lum bo'lganda.</p></details></li><li><p class="q">2. for siklining bajarilish tartibi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Boshlang'ich qiymat (1 marta) → shart → tana → qadam → shart → ...</p></details></li><li><p class="q">3. UCHUN i = 1 DAN 10 GACHA tanasi necha marta bajariladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>10 marta.</p></details></li><li><p class="q">4. Ichma-ich siklda ichki tana necha marta bajariladi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Tashqi takrorlar soni × ichki takrorlar soni (3 × 3 = 9).</p></details></li><li><p class="q">5. Faktorial uchun yig'uvchi nimadan boshlanadi? Nega?</p><details class="answer"><summary>Javobni ko'rish</summary><p>1 dan — chunki 0 ga ko'paytirsak hamma narsa 0 bo'ladi.</p></details></li><li><p class="q">6. Sonning raqamlari yig'indisini qanday topamiz?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Sikl: s = s + n mod 10; n = n div 10; toki n > 0.</p></details></li><li><p class="q">7. Teskari sanash uchun nima o'zgaradi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Boshlang'ich qiymat katta, shart i >= 1, qadam -1.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

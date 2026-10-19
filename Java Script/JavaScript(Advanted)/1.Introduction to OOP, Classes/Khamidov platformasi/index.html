@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>OOP</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p>OOP- bu Object Oriented Programming sozlarini qisqartmasi. <br> Yani bu Obyektga Yonaltirilgan
+                Dasturlash degani.</p>
+            </li>
+            <li>
+              <p>OOP nima uchun kerak? <br> Oddiy dasturlashda kodlar bir joyda yigilib ketadi, tushunish qiyin boladi.
+                OOP esa kodlarni obyektlar va klasslar yordamida tartibli va tushunarli qiladi.</p>
+            </li>
+            <li>
+              <p>Bunga misol qilib avtomabil zavodini olsak boladi: <br>
+
+                Har bir avtomobil bir obyekt. <br>
+
+                Avtomobil zavodi — bu shablon (klass). <br>
+
+                Shu shablondan 1000 ta mashina yasash mumkin.</p>
+
+
+
+            </li>
+            <li>
+              <p>Obyekt (Object) nima? <br> Obyekt — bu ma’lumot (xususiyatlar) va harakatlar (metodlar) yig‘indisi.
+              </p>
+              <pre>
+                const car = {
+                brand: "BMW",
+                color: "qora",
+                drive: function() {
+                  console.log("BMW haydalmoqda...");
+                }
+              };
+              
+              car.drive(); 
+              
+              //consoleda
+              // BMW haydalmoqda...
+              </pre>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>OOP Principles</span></h2>
+        <div class="panel">
+          <ol>
+            <p>OOP 4 ta asosiy tamoyilga tayanadi:</p>
+            <li>Encapsulation (Yashirish) — kodni "ichkarida" boshqarish.</li>
+            <li>Abstraction (Abstraktsiya) — keraksiz detallarni yashirish, faqat keraklisini ko‘rsatish.</li>
+            <li>Inheritance (Meros olish) — bir klassdan boshqasini hosil qilish.</li>
+            <li>Polymorphism (Ko‘p shakllilik) — metodlar turli klasslarda har xil ishlashi.</li>
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"><span>Amaliyot(Object)</span></h2>
+        <div class="panel">
+          <ol>
+
+            <li>
+              <br>phone nomli obyekt yarating.
+              <br>brand, model, price xususiyatlari bo‘lsin.
+              <br>call() nomli metod bo‘lib, "Calling from [brand] [model]" degan xabar chiqarsin.
+            </li>
+
+            <li>
+              <br>student nomli obyekt yarating.
+              <br>name, age, grade xususiyatlari bo‘lsin.
+              <br>study() metodi bo‘lib, "[name] dars qilmoqda" degan xabar chiqarsin.
+            </li>
+
+            <li>
+              <br>book nomli obyekt yarating.
+              <br>title, author, pages xususiyatlari bo‘lsin.
+              <br>info() metodi bo‘lib, "[title], muallif: [author], [pages] bet" degan xabar chiqarsin.
+            </li>
+
+            <li>
+              <br>computer nomli obyekt yarating.
+              <br>brand, cpu, ram xususiyatlari bo‘lsin.
+              <br>run() metodi bo‘lib, "[brand] ishlamoqda" degan xabar chiqarsin.
+            </li>
+
+            <li>
+              <br>movie nomli obyekt yarating.
+              <br>name, year, genre xususiyatlari bo‘lsin.
+              <br>details() metodi bo‘lib, "[name] ([year]) - [genre]" degan xabar chiqarsin.
+            </li>
+
+            <li>
+              <br>animal nomli obyekt yarating.
+              <br>name, type, sound xususiyatlari bo‘lsin.
+              <br>makeSound() metodi bo‘lib, "[name] [sound] ovoz chiqardi" degan xabar chiqarsin.
+            </li>
+          </ol>
+        </div>
+
+
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Amaliyot(Settor and getter function)</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>1-masala: Book klassi <br>
+              Vazifa: <br>
+              Book nomli class yozing. U quyidagi propertylarga ega bo‘lsin: <br>
+              ● title <br>
+              ● author <br>
+              ● year <br>
+              Quyidagi metodlarni yozing: <br>
+              ● getSummary() – kitob haqida qisqacha ma’lumot qaytaradi: <br>
+              "BookName by AuthorName, published in Year" <br>
+              Bonus: <br>
+              ● age getter yarating – kitob nechanchi yil oldin chop etilganini qaytarsin. <br>
+            </li>
+            <li>
+              2-masala: Rectangle klassi <br>
+              Vazifa: <br>
+              Rectangle nomli class yozing. Quyidagilar bo‘lsin: <br>
+              ● width <br>
+              ● height <br>
+              Methodlar: <br>
+              ● getArea() – yuzani qaytaradi <br>
+              ● getPerimeter() – perimetrni qaytaradi <br>
+              Setter: <br>
+              ● setWidth() – eni o‘zgartiradi <br>
+              ● setHeight() – bo‘yini o‘zgartiradi <br>
+            </li>
+
+            <li>
+              3-masala: User klassi <br>
+              Vazifa: <br>
+              User nomli class yarating. Property: <br>
+              ● firstName <br>
+              ● lastName <br>
+              ● email <br>
+              Method: <br>
+              ● getFullName() – to‘liq ism qaytaradi <br>
+              Getter: <br>
+              ● emailDomain – email domenini qaytarsin (masalan, agar email = "test@gmail.com" bo‘lsa, gmail.com ni
+              qaytaradi) <br>
+            </li>
+
+            <li>
+              4-masala: Product klassi <br>
+              Vazifa: <br>
+              Product nomli class yozing. Property: <br>
+              ● name <br>
+              ● price <br>
+              ● discount <br>
+              Method: <br>
+              ● getPriceWithDiscount() – chegirmali narxni hisoblab qaytaradi <br>
+              Setter: <br>
+              ● setDiscount() – yangi chegirma qiymatini belgilaydi <br>
+            </li>
+
+            <li>
+              5-masala: Car klassi <br>
+              Vazifa: <br>
+              Car nomli class yozing. Property: <br>
+              ● brand <br>
+              ● model <br>
+              ● year <br>
+              Method: <br>
+              ● getCarInfo() – "Brand Model, Year" qaytaradi <br>
+              Bonus: <br>
+              ● age getter – mashina nechanchi yil oldin chiqarilganini qaytaradi. <br>
+            </li>
+
+          </ol>
+
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              1-masala: Circle klassi <br>
+              Vazifa: <br>
+              Circle nomli class yozing. Property: <br>
+              ● radius <br>
+              Methodlar: <br>
+              ● getArea() – yuzani qaytaradi (π * r²) <br>
+              ● getCircumference() – uzunlikni qaytaradi (2 * π * r) <br>
+              Setter: <br>
+              ● setRadius() – radiusni o‘zgartiradi <br>
+            </li>
+
+            <li>
+              2-masala: Student klassi <br>
+              Vazifa: <br>
+              Student nomli class yozing. Property: <br>
+              ● firstName <br>
+              ● lastName <br>
+              ● year (tug‘ilgan yil) <br>
+              Method: <br>
+              ● getFullName() – ism va familiyani qaytaradi <br>
+              Getter: <br>
+              ● age – yoshi (hozirgi yilga qarab) <br>
+            </li>
+
+            <li>
+              3-masala: Animal klassi <br>
+              Vazifa: <br>
+              Animal class yozing. Property: <br>
+              ● name <br>
+              ● type <br>
+              ● sound <br>
+              Method: <br>
+              ● makeSound() – "AnimalName says Sound" matnini qaytaradi <br>
+            </li>
+
+            <li>
+              4-masala: BankAccount klassi <br>
+              Vazifa: <br>
+              BankAccount nomli class yozing. Property: <br>
+              ● owner <br>
+              ● balance <br>
+              Methodlar: <br>
+              ● deposit(amount) – balansni oshiradi <br>
+              ● withdraw(amount) – balansni kamaytiradi <br>
+              ● getBalance() – joriy balansni qaytaradi <br>
+            </li>
+
+            <li>
+              5-masala: Movie klassi <br>
+              Vazifa: <br>
+              Movie class yozing. Property: <br>
+              ● title <br>
+              ● director <br>
+              ● year <br>
+              ● rating <br>
+              Method: <br>
+              ● getInfo() – "MovieTitle by Director (Year), rating: X" qaytaradi <br>
+              Bonus: <br>
+              ● isClassic getter – agar film 20 yildan oldin chiqqan bo‘lsa, true qaytaradi <br>
+            </li>
+
+            <li>
+              6-masala: Point klassi <br>
+              Vazifa: <br>
+              Point nomli class yozing. Property: <br>
+              ● x <br>
+              ● y <br>
+              Methodlar: <br>
+              ● distanceToOrigin() – (0,0) nuqtaga bo‘lgan masofani qaytaradi <br>
+              ● move(dx, dy) – koordinatalarni o‘zgartiradi <br>
+            </li>
+
+            <li>
+              7-masala: Person klassi <br>
+              Vazifa: <br>
+              Person class yozing. Property: <br>
+              ● firstName <br>
+              ● lastName <br>
+              ● birthYear <br>
+              Method: <br>
+              ● getFullName() – ism va familiya <br>
+              Getter: <br>
+              ● age – yoshi <br>
+            </li>
+
+            <li>
+              8-masala: Laptop klassi <br>
+              Vazifa: <br>
+              Laptop class yozing. Property: <br>
+              ● brand <br>
+              ● model <br>
+              ● price <br>
+              Method: <br>
+              ● getDetails() – "Brand Model - $Price" <br>
+              Setter: <br>
+              ● setPrice() – narxni o‘zgartiradi <br>
+            </li>
+
+            <li>
+              9-masala: ShopItem klassi <br>
+              Vazifa: <br>
+              ShopItem nomli class yozing. Property: <br>
+              ● name <br>
+              ● price <br>
+              ● quantity <br>
+              Method: <br>
+              ● getTotalPrice() – price * quantity ni qaytaradi <br>
+            </li>
+
+            <li>
+              10-masala: Temperature klassi <br>
+              Vazifa: <br>
+              Temperature nomli class yozing. Property: <br>
+              ● celsius <br>
+              Getterlar: <br>
+              ● fahrenheit – Celsius * 1.8 + 32 <br>
+              ● kelvin – Celsius + 273.15 <br>
+            </li>
+
+            <li>
+              11-masala: Address klassi <br>
+              Vazifa: <br>
+              Address nomli class yozing. Property: <br>
+              ● city <br>
+              ● street <br>
+              ● zipCode <br>
+              Method: <br>
+              ● getFullAddress() – "Street, City, ZipCode" qaytaradi <br>
+            </li>
+
+            <li>
+              12-masala: Phone klassi <br>
+              Vazifa: <br>
+              Phone class yozing. Property: <br>
+              ● brand <br>
+              ● model <br>
+              ● price <br>
+              Method: <br>
+              ● call() – "Calling from [brand] [model]" <br>
+            </li>
+
+            <li>
+              13-masala: Employee klassi <br>
+              Vazifa: <br>
+              Employee class yozing. Property: <br>
+              ● name <br>
+              ● position <br>
+              ● salary <br>
+              Method: <br>
+              ● getAnnualSalary() – yillik maosh (12*salary) <br>
+            </li>
+
+            <li>
+              14-masala: Shape klassi <br>
+              Vazifa: <br>
+              Shape class yozing. Property: <br>
+              ● color <br>
+              Method: <br>
+              ● getColor() – rangni qaytaradi <br>
+            </li>
+
+            <li>
+              15-masala: Calculator klassi <br>
+              Vazifa: <br>
+              Calculator class yozing. Methodlar: <br>
+              ● add(a, b) <br>
+              ● subtract(a, b) <br>
+              ● multiply(a, b) <br>
+              ● divide(a, b) <br>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+
+    </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">Function</h2>
+                <div class="panel">
+                    <h3>Function Declaration</h3>
+                    <p>Function Declaration yordamida bir xil kodni bir necha marta yozmaslik mumkin. Funksiya bir marta
+                        yozilib, kerakli joylarda chaqiriladi, shuning uchun kodning takrorlanishini oldini olishga
+                        yordam beradi.</p>
+                    <h3>Function Constructor</h3>
+                    <p>Function Constructor (yoki new Function() konstruktori) — bu JavaScriptda yangi funksiya yaratish
+                        usulidir. U parametr sifatida berilgan string qiymatlarni funksiya tanasi sifatida ishlatadi va
+                        shu orqali yangi funksiya yaratadi.</p>
+                    <h3>Function Arrow</h3>
+                    <p>JavaScriptda qisqaroq va aniqroq funktsiyalar yaratish uchun ishlatiladigan bir sintaksisdir. U
+                        funktsiyani aniqlashni yanada sodda va tezlashtiradi. => operatori yordamida ishlatiladi.</p>
+                    <h3>Function Expression</h3>
+                    <p>Function Expression bu funksiyani ozgaruvchiga saqlab olish va ishlatish imkonini beradi</p>
+                    <h3>Function Method</h3>
+                    <p>Function Method bu obyekt ichiga yozilgan Funksiyadir.</p>
+                    <h3>Function (Recursion)</h3>
+                    <p>Recursion (rekursiya) — bu funktsiyaning o'zini-o'zi chaqirishi jarayonidir. JavaScriptda
+                        rekursiv funktsiya — bu funktsiya, o'z ishini bajarishdan oldin o'zini yana chaqiradi. Rekursiya
+                        ko'pincha muammoni kichik qismlarga bo'lib, har bir qismini alohida hal qilishda ishlatiladi.
+                    </p>
+                    <h3>Function (Clousure)</h3>
+                    <p>Closure (yopilish) — bu JavaScriptda funktsiyaning o'zini yaratgan yoki chaqirgan vaqtida, tashqi
+                        (atrofdagi) o'zgaruvchilarga kirish imkoniyatiga ega bo'lishidir. Bu, ichki funktsiya tashqi
+                        funktsiyaning o'zgaruvchilarini eslab qoladi va ularga kirish imkoniyatini saqlaydi, hatto
+                        tashqi funktsiya chaqirilganda tugatilgan bo'lsa ham.</p>
+
+                </div>
+
+            </li>
+            <li>
+                <h2 class="accordion">Promise</h2>
+                <div class="panel">
+                    <h3 class="A">Promise</h3>
+                    <p>Promise — bu JavaScriptda asinxron kodni boshqarish uchun ishlatiladigan obyekt. Promise
+                        yordamida biz asinxron operatsiyalarning natijalarini boshqarish, xatolarni ushlash va
+                        kelajakdagi natijani kutish imkoniyatiga egamiz. Promise, ma'lum bir vaqt o'tgach bajarilishi
+                        yoki xato yuzaga kelishi mumkin bo'lgan operatsiyalarni ifodalaydi.</p>
+                    <p>Promise 3ta qiymat qabul qiladi</p>
+                    <h3 class="A">Padding</h3>
+                    <p>Pending (kutish holati) — bu Promise hali bajarilmagan, ya'ni asinxron operatsiya hali
+                        yakunlanmagan.</p>
+                    <h3 class="A">Resolve</h3>
+                    <p>Resolve (to'liq bajarilgan) — bu Promise muvaffaqiyatli bajarildi va natija qaytarildi.</p>
+                    <h3 class="A">Reject</h3>
+                    <p>Rejected (rad etilgan) — bu Promise bajarilmagan va xatolik yuz berdi.</p>
+
+
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Amaliyot (Function)</h2>
+                <div class="panel">
+
+
+                    <h3 class="A">Declaration Function</h3>
+                    <ol>
+                        <li>
+                            <p>Funktsiyani yaratib, ikkita sonni qo'shish:
+
+                                Masala: sum(a, b) nomli funktsiyani yozing, bu funktsiya ikkita sonni qo'shish va
+                                natijani qaytarish kerak.
+                                Misol: sum(3, 4) — natija 7 bo'lishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Matnni katta harf bilan chiqarish:
+
+                                Masala: toUpperCase(str) nomli funktsiyani yozing, bu funktsiya berilgan matnni katta
+                                harflarga o'zgartirishi kerak.
+                                Misol: toUpperCase("hello") — natija "HELLO" bo'lishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Fibonacci qatorini hisoblash (rekursiv usulda):
+
+                                Masala: Fibonacci qatorini hisoblaydigan rekursiv funksiya yozing. Fibonacci qatori shu
+                                tarzda boshlanadi: 0, 1, 1, 2, 3, 5, 8, 13, ...
+                                Misol: fibonacci(6) — natija 8 bo'lishi kerak (6-chi element).</p>
+                        </li>
+                        <li>
+                            <p>Sonni kvadratiga oshirish:
+
+                                Masala: square(num) nomli funktsiyani yozing, bu funktsiya berilgan sonning kvadratini
+                                qaytarishi kerak.
+                                Misol: square(4) — natija 16 bo'lishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Ikki sonning o'rtacha qiymatini hisoblash:
+
+                                Masala: average(a, b) nomli funktsiyani yozing, bu funktsiya ikki sonning o'rtacha
+                                qiymatini hisoblashi kerak.
+                                Misol: average(3, 7) — natija 5 bo'lishi kerak.</p>
+                        </li>
+
+                    </ol>
+                    <h3 class="A">Constructor Function</h3>
+                    <ol>
+                        <li>
+                            <p>Person obyektini yaratish:
+
+                                Masala: Person nomli constructor function yozing, bu constructor name va age
+                                xususiyatlari bilan yangi person obyektini yaratishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Student obyektini yaratish:
+
+                                Masala: Student nomli constructor function yozing, bu constructor name, age, va major
+                                xususiyatlariga ega bo'lgan student obyektini yaratishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Kitob obyektini yaratish:
+
+                                Masala: Book nomli constructor function yozing, bu constructor title, author, va year
+                                xususiyatlari bilan kitob obyektini yaratishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>masala: Employee nomli constructor function yozing, bu constructor name, position, va
+                                salary xususiyatlari bilan yangi employee obyektini yaratishi kerak. Shuningdek,
+                                increaseSalary(percentage) nomli metodni qo'shing, bu metod xodimning maoshini berilgan
+                                foizga oshirishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Circle obyektini yaratish va uning metodini qo'shish:
+
+                                Masala: Circle nomli constructor function yozing, bu constructor radius xususiyatiga ega
+                                bo'lgan doira obyektini yaratishi kerak. Shuningdek, getArea() nomli metodni qo'shing,
+                                bu metod doiraning maydonini hisoblab qaytarishi kerak (maydon = π * radius²).</p>
+                        </li>
+
+                    </ol>
+                    <h3 class="A">Arrow Function</h3>
+                    <ol>
+                        <li>
+                            <p>Sonni ikki barobariga oshirish:
+
+                                Masala: double(num) nomli arrow function yozing, bu funksiyaga berilgan sonni ikki
+                                barobariga oshirishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Ikki sonni qo'shish:
+
+                                Masala: add(a, b) nomli arrow function yozing, bu funksiyaga berilgan ikki sonni
+                                qo'shishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Matnni kichik harflarda qaytarish:
+
+                                Masala: toLowerCase(str) nomli arrow function yozing, bu funksiyaga berilgan matnni
+                                kichik harflarda qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p>Fibonacci qatorining n-chi elementini hisoblash (recursive):
+
+                                Masala: fibonacci(n) nomli arrow function yozing, bu funksiyaga berilgan n-chi Fibonacci
+                                sonini hisoblasin.</p>
+                        </li>
+                        <li>
+                            <p>Objectdan qiymatlarni olish va ularga mos amal bajarish:
+
+                                Masala: processObject(obj) nomli arrow function yozing, bu funksiyaga berilgan obyektni
+                                tekshirib, har bir qiymatni kvadratga oshirsin.</p>
+                        </li>
+
+                    </ol>
+                    <h3 class="A">Expression Function</h3>
+                    <ol>
+                        <li>
+                            <p>Sonni kubi oshirish:
+
+                                Masala: kub nomli expression function yozing, bu funksiyaga berilgan sonni kubiga
+                                oshirsin.</p>
+                        </li>
+                        <li>
+                            <p>Array elementlarining yig'indisini hisoblash:
+
+                                Masala: sumArray nomli expression function yozing, bu funksiyaga berilgan arrayning
+                                barcha elementlarini qo'shishi kerak.</p>
+                        </li>
+                        <li>
+                            <p>Sonni uch martasiga oshirish:
+
+                                Masala: triple nomli expression function yozing, bu funksiyaga berilgan sonni uch
+                                martasiga oshirsin.Sonni uch martasiga oshirish:
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>Matnning uzunligini qaytarish:
+
+                                Masala: stringLength nomli expression function yozing, bu funksiyaga berilgan matnning
+                                uzunligini qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p>Matndagi bosh harfni katta qilish:
+
+                                Masala: capitalizeFirstLetter nomli expression function yozing, bu funksiyaga berilgan
+                                matnning birinchi harfini katta qilib qaytarsin.</p>
+                        </li>
+
+                    </ol>
+                    <h3 class="A">Method Function</h3>
+                    <ol>
+                        <li>
+                            <p>Arraydan elementni olib tashlash:
+
+                                Masala: removeElement metodini yozing, bu metod berilgan arraydan ma'lum bir elementni
+                                olib tashlasin.</p>
+                        </li>
+                        <li>
+                            <p>Array elementlarini katta harflarga aylantirish:
+
+                                Masala: toUpperCaseArray metodini yozing, bu metod berilgan arraydagi barcha matn
+                                elementlarini katta harflarga aylantirsin.</p>
+                        </li>
+                        <li>
+                            <p>Arrayni teskari tartibda chiqarish:
+
+                                Masala: reverseArray metodini yozing, bu metod berilgan arrayni teskari tartibda
+                                qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p>Matnni orqa tomondan tekshirish:
+
+                                Masala: isPalindrome metodini yozing, bu metod berilgan matnning teskari shakli bilan
+                                tengligini tekshirsin (palindrommi yoki yo‘q).</p>
+                        </li>
+                        <li>
+                            <p>Arrayni objectga aylantirish (key = element, value = uzunlik):
+
+                                Masala: arrayToObject metodini yozing, bu metod berilgan arrayni ob'ektga aylantirsin,
+                                bunda array elementlari obyektning kalitlari, ularning uzunligi esa qiymat bo'lsin.</p>
+                        </li>
+
+                    </ol>
+                    <h3 class="A">Recursion Function</h3>
+                    <ol>
+                        <li>
+                            <p>Faktorialni hisoblash:
+
+                                Masala: factorial nomli rekursiv funksiya yozing, bu funksiyaga berilgan sonning
+                                faktorialini hisoblasin.</p>
+                        </li>
+                        <li>
+                            <p>Sonni teskari yozish:
+
+                                Masala: reverseNumber nomli rekursiv funksiya yozing, bu funksiyaga berilgan sonni
+                                teskari tartibda qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p>Array elementlarining yig'indisini hisoblash:
+
+                                Masala: sumArray nomli rekursiv funksiya yozing, bu funksiyaga berilgan arraydagi barcha
+                                elementlarni qo'shsin.</p>
+                        </li>
+                        <li>
+                            <p>Sonning darajasini hisoblash:
+
+                                Masala: power nomli rekursiv funksiya yozing, bu funksiya berilgan sonni berilgan
+                                darajaga ko'tarsin.</p>
+                        </li>
+                        <li>
+                            <p>Arraydagi eng kichik juft sonni topish:
+
+                                Masala: findSmallestEven nomli rekursiv funksiya yozing, bu funksiya berilgan arraydagi
+                                eng kichik juft sonni qaytarsin. Agar juft sonlar yo'q bo'lsa, null qaytarsin.</p>
+                        </li>
+
+                    </ol>
+                    <h3 class="A">Clousure Function</h3>
+                    <ol>
+                        <li>
+                            <p>Oddiy hisoblagich:
+
+                                Masala: counter nomli closure yozing, u har safar chaqirilganda 1 ga oshib boradigan
+                                hisoblagichni qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p>Ko'paytiruvchi funktsiya:
+
+                                Masala: multiply nomli closure yozing, u berilgan sonni har safar ko'paytirib qaytarsin.
+                            </p>
+                        </li>
+                        <li>
+                            <p>ashirin qiymatni olish:
+
+                                Masala: secret nomli closure yozing, unda yashirin qiymat mavjud va uni faqat funksiya
+                                yordamida olish mumkin.</p>
+                        </li>
+                        <li>
+                            <p>So'nggi natijani saqlash:
+
+                                Masala: lastResult nomli closure yozing, u har safar chaqirilganda oxirgi hisoblangan
+                                natijani qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p>ddiy xabar yuborish tizimi:
+
+                                Masala: sendMessage nomli closure yozing, u birinchi marta chaqirilganda xabarni
+                                saqlaydi va keyingi marta chaqirilganda shu xabarni qaytaradi.</p>
+                        </li>
+
+                    </ol>
+
+
+
+
+
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot (Promise)</h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Oddiy "resolve" va "then" misoli <br>
+                                <br> Masala: <br><br>
+
+                                Promise yaratib, uni muvaffaqiyatli yakunlash va then metodidan foydalanib, "Salom
+                                dunyo!" degan xabarni konsolga chiqaring.
+                                <br> <br>
+                                Talablar:
+                                <br>
+                                <br> Promise ob'ekti yaratilsin.
+                                <br> Promise muvaffaqiyatli yakunlansin (resolve).
+                                <br>then metodi yordamida xabar konsolga chiqarilsin.
+                                <br> <br> Kutilgan natija:
+                                <br>
+                                Konsolda: Salom dunyo!
+                            </p>
+                        </li>
+                        <li>
+                            <p>Oddiy "reject" va "catch" misoli <br>
+                                <br> Masala: <br><br>
+                                Promise yaratib, uni xatolik bilan yakunlash va catch metodidan foydalanib, "Xatolik yuz
+                                berdi!" degan xatolik xabarini konsolga chiqaring.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Promise xatolik bilan yakunlansin (reject). <br>
+                                catch metodi yordamida xatolik xabari konsolga chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Konsolda: Xatolik yuz berdi!
+                            </p>
+                        </li>
+                        <li>
+                            <p>Sodda hisoblash va then/catch <br>
+                                <br> Masala: <br><br>
+                                Berilgan sonni hisoblash (masalan, 10 ni 2 ga ko‘paytirish) va then yordamida natijani
+                                konsolga chiqarish. Agar hisoblashda xatolik yuz bersa (masalan, son musbat bo‘lmasa),
+                                catch yordamida xatolik xabarini konsolga chiqarish.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Son musbat bo‘lsa, uni 2 ga ko‘paytirib, natija resolve qilinsin. <br>
+                                Son musbat bo‘lmasa, xatolik reject qilinsin. <br>
+                                then bilan natija, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Agar son = 10 bo‘lsa: Natija: 20 <br>
+                                Agar son musbat bo‘lmasa: Xato: Son musbat bo‘lishi kerak!
+                            </p>
+                        </li>
+                        <li>
+                            <p>Kecha va bugun <br>
+                                <br> Masala: <br><br>
+                                Bugungi sana bilan kechagi kunni hisoblab, then yordamida natijani konsolga chiqarish.
+                                Agar sana hisoblashda xatolik yuz bersa, catch yordamida xatolik xabarini konsolga
+                                chiqarish.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Bugungi va kechagi sana Date ob'ekti yordamida hisoblansin. <br>
+                                Natija ob'ekt sifatida resolve qilinsin. <br>
+                                Xatolik yuz bersa, reject ishlatilsin. <br>
+                                then bilan natija, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Bugun: Tue Apr 22 2025 <br>
+                                Kecha: Mon Apr 21 2025 <br>
+                                (Xatolik bo‘lsa: Xato: Sana hisoblashda xatolik!)
+                            </p>
+                        </li>
+                        <li>
+                            <p>Faylni yuklash (Simulyatsiya) <br>
+                                <br> Masala: <br><br>
+                                Faylni yuklab olish jarayonini simulyatsiya qiluvchi(funskiya) yozing. Yuklash
+                                muvaffaqiyatli bo‘lsa, "Fayl muvaffaqiyatli yuklandi" degan xabarni konsolga chiqaring.
+                                Aks holda, "Xatolik yuz berdi" degan xatolik xabarini chiqaring.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Yuklash jarayoni simulyatsiya qilinsin (masalan, true/false bilan). <br>
+                                Muvaffaqiyatli bo‘lsa resolve, xatolik bo‘lsa reject ishlatilsin. <br>
+                                then bilan muvaffaqiyat xabari, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Muvaffaqiyatli bo‘lsa: Fayl muvaffaqiyatli yuklandi <br>
+                                Xatolik bo‘lsa: Xatolik yuz berdi
+                            </p>
+                        </li>
+                        <li>
+                            <p>Mijozni aniqlash (Simulyatsiya) <br>
+                                <br> Masala: <br><br>
+                                Mijozni aniqlash jarayonini simulyatsiya qiluvchi funksiya yozing. Agar mijoz topilsa,
+                                "Mijoz topildi" degan xabarni konsolga chiqaring. Agar mijoz mavjud bo‘lmasa, "Mijoz
+                                topilmadi" degan xatolik xabarini chiqaring.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Mijoz aniqlash simulyatsiya qilinsin (masalan, true/false bilan). <br>
+                                Mijoz topilsa resolve, topilmasa reject ishlatilsin. <br>
+                                then bilan muvaffaqiyat xabari, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Mijoz topilsa: Mijoz topildi <br>
+                                Mijoz topilmasa: Mijoz topilmadi
+                            </p>
+                        </li>
+                        <li>
+                            <p>Tug'ilgan kunni tekshirish <br>
+                                <br> Masala: <br><br>
+                                Tug'ilgan kunni tekshirish uchun funksiya yozing. Agar tug'ilgan kun bugun bo‘lsa,
+                                "Tug'ilgan kuningiz muborak!" degan xabarni konsolga chiqaring. Aks holda, "Bugun
+                                sizning tug'ilgan kuningiz emas" degan xabar chiqaring.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Tug'ilgan kun bugungi sana bilan solishtirilsin. <br>
+                                Tug'ilgan kun bugun bo‘lsa resolve, aks holda reject ishlatilsin. <br>
+                                then bilan muvaffaqiyat xabari, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Tug'ilgan kun bugun bo‘lsa: Tug'ilgan kuningiz muborak! <br>
+                                Aks holda: Bugun sizning tug'ilgan kuningiz emas
+                            </p>
+                        </li>
+                        <li>
+                            <p>Internetni tekshirish <br>
+                                <br> Masala: <br><br>
+                                Internetga ulanishni tekshirish jarayonini simulyatsiya qiling. Agar ulanish
+                                muvaffaqiyatli bo‘lsa, "Internetga ulangan" degan xabarni konsolga chiqaring. Aks holda,
+                                "Internetga ulanishda xatolik" degan xatolik xabarini chiqaring.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Ulanish simulyatsiya qilinsin (masalan, true/false bilan). <br>
+                                Ulanish muvaffaqiyatli bo‘lsa resolve, aks holda reject ishlatilsin. <br>
+                                then bilan muvaffaqiyat xabari, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Ulanish muvaffaqiyatli bo‘lsa: Internetga ulangan <br>
+                                Xatolik bo‘lsa: Internetga ulanishda xatolik
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>Ma'lumotni saqlash <br>
+                                <br> Masala: <br><br>
+                                Ma'lumotni saqlash jarayonini simulyatsiya qiling. Agar ma'lumot muvaffaqiyatli saqlansa, "Ma'lumot saqlandi" degan xabarni konsolga chiqaring. Aks holda, "Ma'lumotni saqlashda xatolik" degan xatolik xabarini chiqaring.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Saqlash jarayoni simulyatsiya qilinsin (masalan, true/false bilan). <br>
+                                Saqlash muvaffaqiyatli bo‘lsa resolve, aks holda reject ishlatilsin. <br>
+                                then bilan muvaffaqiyat xabari, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Saqlash muvaffaqiyatli bo‘lsa: Ma'lumot saqlandi <br>
+                                Xatolik bo‘lsa: Ma'lumotni saqlashda xatolik</p>
+                        </li>
+                        <li>
+                            <p>Sensorni tekshirish <br>
+                                <br> Masala: <br><br>
+                                Sensorni tekshirish jarayonini simulyatsiya qiling. Agar sensor ishlayotgan bo‘lsa, "Sensor ishlayapti" degan xabarni konsolga chiqaring. Aks holda, "Sensor ishlamayapti" degan xatolik xabarini chiqaring.
+                                <br> <br>
+                                Talablar: <br>
+                                <br> Promise ob'ekti yaratilsin. <br>
+                                Sensor holati simulyatsiya qilinsin (masalan, true/false bilan). <br>
+                                Sensor ishlayotgan bo‘lsa resolve, aks holda reject ishlatilsin. <br>
+                                then bilan muvaffaqiyat xabari, catch bilan xatolik chiqarilsin. <br>
+                                <br> Kutilgan natija: <br>
+                                Sensor ishlayotgan bo‘lsa: Sensor ishlayapti <br>
+                                Xatolik bo‘lsa: Sensor ishlamayapti</p>
+                        </li>
+                    </ol>
+                    <!-- <img src="4.jpg" alt="Amaliyot" style="width:100%;"> -->
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Uyga Vazifa</h2>
+                <div class="panel">
+                    <h3>Function</h3>
+                    <ol>
+                        <li>
+                            <p>Sonni tekshirish (musbat yoki manfiy):
+
+                                Masala: checkSign(num) nomli funktsiyani yozing, bu funktsiya berilgan sonning musbat
+                                yoki manfiyligini aniqlashi kerak.
+                                Misol: checkSign(3) — natija "Musbat", checkSign(-5) — natija "Manfiy".
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <p>Array elementlarining yig'indisini hisoblash:
+
+                                Masala: sumArray(arr) nomli funktsiyani yozing, bu funktsiya berilgan arrayning barcha
+                                elementlarini qo'shishi kerak.
+                                Misol: sumArray([1, 2, 3, 4]) — natija 10 bo'lishi kerak.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Matnning uzunligini hisoblash:
+
+                                Masala: getLength(str) nomli funktsiyani yozing, bu funktsiya berilgan matnning
+                                uzunligini qaytarishi kerak.
+                                Misol: getLength("Salom") — natija 5 bo'lishi kerak.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Array elementlarining maksimal va minimal qiymatlarini topish:
+
+                                Masala: findMaxMin(arr) nomli funktsiyani yozing, bu funktsiya arraydagi maksimal va
+                                minimal sonlarni qaytarishi kerak.
+                                Misol: findMaxMin([3, 7, 2, 8]) — natija {max: 8, min: 2} bo'lishi kerak.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <p>Rectangle obyektini yaratish:
+
+                                Masala: Rectangle nomli constructor function yozing, bu constructor length va width
+                                xususiyatlariga ega bo'lgan to'rtburchak obyektini yaratishi kerak.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Avtomobil obyektini yaratish:
+
+                                Masala: Car nomli constructor function yozing, bu constructor make, model, va year
+                                xususiyatlariga ega avtomobil obyektini yaratishi kerak.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Bank hisob raqamini yaratish:
+
+                                Masala: BankAccount nomli constructor function yozing, bu constructor accountNumber,
+                                balance, va ownerName xususiyatlari bilan yangi hisob raqamini yaratishi kerak.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Movie obyektini yaratish va metod qo'shish:
+
+                                Masala: Movie nomli constructor function yozing, bu constructor title, director, va
+                                releaseYear xususiyatlari bilan film obyektini yaratishi kerak. Shuningdek,
+                                getMovieInfo() metodini qo'shing, bu metod film haqidagi ma'lumotlarni chiqarishi kerak.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <p>Library obyektini yaratish va metod qo'shish:
+
+                                Masala: Library nomli constructor function yozing, bu constructor books (array)
+                                xususiyatiga ega bo'lgan kutubxona obyektini yaratishi kerak. Shuningdek, addBook(book)
+                                va getBooks() metodlarini qo'shish kerak: addBook(book) metodida yangi kitobni
+                                kutubxonaga qo'shish, getBooks() metodida esa kutubxonadagi barcha kitoblarni qaytarish.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <p>Array elementlarining yig'indisini hisoblash:
+
+                                Masala: sumArray(arr) nomli arrow function yozing, bu funksiyaga berilgan arrayning
+                                barcha elementlarini qo'shishi kerak.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Sonni kvadratga oshirish:
+
+                                Masala: square(num) nomli arrow function yozing, bu funksiyaga berilgan sonni kvadratiga
+                                oshirsin.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Array elementlarini tekshirish:
+
+                                Masala: isEven(num) nomli arrow function yozing, bu funksiyaga berilgan sonning juft
+                                yoki toqligini aniqlasin.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Arrayni ob'ektlarga aylantirish:
+
+                                Masala: arrayToObject(arr) nomli arrow function yozing, bu funksiyaga berilgan arrayni
+                                ob'ektga aylantirsin, bunda array elementlari obyektning kalitlari, ularning indeksi esa
+                                qiymat bo'lsin.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Arraydagi har bir sonni kvadratga oshirish:
+
+                                Masala: squareArray nomli expression function yozing, bu funksiyaga berilgan arraydagi
+                                har bir sonni kvadratiga oshirsin.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Arraydagi elementlar sonini hisoblash:
+
+                                Masala: countElements nomli rekursiv funksiya yozing, bu funksiya berilgan arraydagi
+                                elementlar sonini qaytarsin.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Stringni teskari qaytarish:
+
+                                Masala: reverseString nomli rekursiv funksiya yozing, bu funksiya berilgan stringni
+                                teskari tartibda qaytarsin.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Arraydagi maksimal qiymatni va uning indeksini topish:
+
+                                Masala: findMaxValueAndIndex nomli rekursiv funksiya yozing, bu funksiya berilgan
+                                arraydagi maksimal qiymatni va uning indeksini qaytarsin.</p>
+                        </li>
+
+
+                        <li>
+                            <p>Yangi qiymatni qo'shish:
+
+                                Masala: addValue nomli closure yozing, u har safar qo'shilgan yangi qiymatni saqlasin.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Salomlashuvchi funktsiya:
+
+                                Masala: greet nomli closure yozing, u ismni qabul qilib, salomlashish matnini qaytarsin.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Funktsiya bilan hisoblash:
+
+                                Masala: operation nomli closure yozing, u ikki sonni qabul qilib, har safar qo'shish,
+                                ayirish, ko'paytirish yoki bo'lish amallarini bajaradigan funksiyalarni qaytarsin.</p>
+                        </li>
+                        <li>
+                            <p> 0 dan 100 oralig'idigi juft sonlarni consolega chiqazish, recursion functionda</p>
+                        </li>
+                        <li>
+                            <p> 3 ta parameter qabul qiladigon function yozish shu sonlarni o'rta arifmetigini toppish
+                            </p>
+                        </li>
+                        <li>
+                            <p>const cars = ["tiko", "tahoe", "jentra"]; ---> "tiko - tahoe - jentra" shu formatga
+                                keltirish</p>
+                        </li>
+
+
+                        <li>
+                            <p> 4 ta array qabul qiladigon function yozish va hammasini qo'shib 1 ta array qaytarsin</p>
+                        </li>
+
+
+                        <li>
+                            <p>3 ta parameter qabul qiladigon arrow function yozish, 1-parametr array, 2-parametr start
+                                index, 3-parametr end index shu indexlar orasidigi elementlar arrayini qaytarsin</p>
+                        </li>
+                    </ol>
+                    <h3>Promise</h3>
+                    <ol>
+                        <li>
+                            <p>Masala: Promise yaratib, uni muvaffaqiyatli yakunlash va then yordamida "Hamma narsa
+                                yaxshi!" deb qaytarish.</p>
+                        </li>
+                        <li>
+                            <p>Oddiy xatolik bilan Promise:
+                                Masala: Promise yaratib, uni xatolik bilan yakunlash va catch yordamida "Xatolik yuz
+                                berdi!" degan xabarni chiqarish.</p>
+                        </li>
+                        <li>
+                            <p>Sodda hisoblash va xatolikni tekshirish:
+                                Masala: Oddiy hisoblashni amalga oshiring. Agar natija musbat bo'lsa, then yordamida
+                                natijani chiqarish, aks holda catchda "Xatolik!" deb chiqarish.</p>
+                        </li>
+                        <li>
+                            <p>Mijozni autentifikatsiya qilish:
+                                Masala: Mijozni autentifikatsiya qilish jarayonini simulyatsiya qiling. Agar
+                                foydalanuvchi to'g'ri ma'lumotni kiritsa, "Autentifikatsiya muvaffaqiyatli" deb
+                                qaytaring, aks holda "Foydalanuvchi nomi yoki parol noto'g'ri" deb qaytaring.</p>
+                        </li>
+                        <li>
+                            <p>Taxminan hisoblash:
+                                Masala: Math.random() yordamida tasodifiy sonlar yaratish va uni tekshirish. Agar son
+                                0.5 dan katta bo'lsa, "Son katta" deb qaytaring, aks holda "Son kichik" deb qaytaring.
+                            </p>
+                        </li>
+                    </ol>
+                    <!-- <img src="5.jpg" alt="Uyga Vazifa" style="width:100%;"> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="social-links">
+        <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+    </div>
+    </div>
+
+    <script src="./script.js"></script>
+
+    <script src="./hover.js"></script>
+</body>
+
+</html>

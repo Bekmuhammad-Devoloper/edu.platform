@@ -1,0 +1,107 @@
+body {
+    background: url("./icon/background.jpg") no-repeat center center/100% 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  h1, h2, a {
+    color: #fff;
+    transition: color 0.3s;
+  }
+  
+  h1 {
+    font-size: 30px;
+  }
+  
+  h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  
+  h2:hover, h2.active {
+    color: #14c7d7;
+  }
+  
+  .accordion {
+    font-size: 23px;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .accordion:hover, .accordion.active {
+    color: #14c7d7;
+  }
+  
+  .panel, .image-panel {
+    display: none;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .image-toggle {
+    text-decoration: underline;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  div {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  
+
+  .social-logo {
+    width: 40px;
+    height: 30px;
+    object-fit: contain;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+  }
+  
+  @media (max-width: 600px) {
+    .social-links {
+      gap: 10px;
+      padding: 5px 0;
+    }
+  
+    .social-text {
+      font-size: 40px;
+      margin-left: 30px;
+      color: #00c925;
+    }
+    
+  }
+  
+  .panel{
+    background-color: rgba(138, 123, 123, 0.5);;
+  }
+  p{
+    color: #ffffff;
+  }
+  .image-toggle{
+    font-size: 15px;
+  }

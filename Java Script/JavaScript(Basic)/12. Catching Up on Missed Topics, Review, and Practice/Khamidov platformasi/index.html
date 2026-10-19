@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+  <canvas id="rainCanvas"></canvas>
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>Variables and conlose.log() and Conditionals(if else)</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🎓 Masala 1: Talabaga stipendiya ajratish</strong></p>
+              <p>Talabaning bahosiga qarab unga stipendiya ajratilsin:</p>
+              <ul>
+                <li><code>90+</code> → 1 000 000 so‘m</li>
+                <li><code>80–89</code> → 750 000 so‘m</li>
+                <li><code>70–79</code> → 500 000 so‘m</li>
+                <li><code>60–69</code> → 250 000 so‘m</li>
+                <li><code>60 dan past</code> → "Stipendiya yo‘q"</li>
+              </ul>
+              <pre> const student = {name:"Shoxrux";  grade:88; stipendiya: 0;}
+                            
+                            
+                            </pre>
+
+              <p>If else va switch case bilan ishlansin.</p>
+
+            </li>
+
+            <li>
+              <p><strong>🌡️ Masala 2: Haroratga qarab kiyinish bo‘yicha maslahat</strong></p>
+              <p>Foydalanuvchining bergan haroratiga qarab maslahat chiqaring:</p>
+              <ul>
+                <li><code>35+</code> → "Issiq, engil kiyim kiying!"</li>
+                <li><code>20–34</code> → "Ob-havo yaxshi, oddiy kiyim yetarli."</li>
+                <li><code>10–19</code> → "Salqin, kurtka olib chiqing."</li>
+                <li><code>0–9</code> → "Sovuq, qalin kiyim kiying."</li>
+                <li><code>0 dan past</code> → "Juda sovuq! Qo‘lqop va shapka shart!"</li>
+              </ul>
+              <pre> const temperature = -2; let message = "";
+            
+                            
+console.log(🌡️ Harorat: ${temperature}°C -> ${message});
+                            </pre>
+              <p>If else va switch case bilan ishlansin.</p>
+
+            </li>
+            <li>
+              <p><strong>🧍 Masala 3: Yoshingizga qarab huquqingiz</strong></p>
+              <p>Foydalanuvchining yoshi asosida nima qilish huquqi borligini aniqlang:</p>
+              <ul>
+                <li><code>&lt; 18</code> → "Hali voyaga yetmagan"</li>
+                <li><code>18–21</code> → "Saylovda ovoz bera oladi"</li>
+                <li><code>22–59</code> → "Ishlash va ovoz berish huquqiga ega"</li>
+                <li><code>60+</code> → "Nafaqaga chiqqan bo'lishi mumkin"</li>
+              </ul>
+              <pre> const age = 65; let result = "";
+                           
+                            
+console.log(🧍 Yoshingiz: ${age} -> ${result});
+                            </pre>
+              <p>If else va switch case bilan ishlansin.</p>
+
+            </li>
+            <li>
+              <p><strong>🚗 Masala 4: Tezlikni nazorat qilish va jarima hisoblash</strong></p>
+              <p>Avtomobilning tezligiga qarab jarima belgilang:</p>
+              <ul>
+                <li><code>0–60</code> → "Jarima yo‘q"</li>
+                <li><code>61–80</code> → 50 000 so‘m</li>
+                <li><code>81–100</code> → 100 000 so‘m</li>
+                <li><code>101+</code> → 200 000 so‘m + guvohnoma olib qo‘yiladi</li>
+              </ul>
+              <pre> const speed = 105; let penalty = 0; let extra = "";
+                        
+                            
+console.log(🚗 Tezlik: ${speed} km/h -> Jarima: ${penalty} so'm${extra});
+                            </pre>
+              <p>If else ishlansin.</p>
+
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Loops, Function</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🧮 Masala 1: 1 dan N gacha bo‘lgan sonlar yig‘indisi</strong></p>
+              <p>Foydalanuvchi son kiritadi. Siz `function` ichida <code>1 dan N gacha</code> sonlarni
+                qo‘shib, umumiy
+                yig‘indini qaytaring.</p>
+              <p>functionga orab for orqali ishlansin.</p>
+
+            </li>
+            <li>
+              <p><strong>🛒 Masala 2: Mahsulotlar narxini umumiy hisoblash</strong></p>
+              <p>Massiv ichida mahsulotlar bor. Har birida <code>nomi</code> va <code>narxi</code> mavjud.
+                Siz umumiy
+                narxni topadigan funksiya yozing.</p>
+              <pre>
+                const cart = [
+                { name: "Olma", price: 5000 },
+                { name: "Non", price: 3000 },
+                { name: "Sut", price: 7000 }
+                ];
+                
+                console.log(hisoblaTotalPrice(cart));//hisoblaTotalPrice function nomi
+                </pre>
+              <p>functionga orab for orqali ishlansin.</p>
+
+            </li>
+            <li>
+              <p><strong>🔁 Masala 3: Foydalanuvchidan 5 ta ism olish va ro‘yxatga saqlash</strong></p>
+              <p>
+                <code>prompt()</code o‘rniga tayyor qiymatlarni `array` sifatida bersak, funksiya har bir ismdan salomlashish yozuvini chiqarsin.</p> 
+                    <pre>
+                const names = ["Ali", "Malika", "Zafar", "Sardor", "Rayhon"];
+                salomlaBarcha(names);//salomlaBarcha function nomi
+                </pre>
+                <p>functionga orab while orqali ishlansin.</p>
+
+            </li>
+            <li>
+                <p><strong>🔢 Masala 4: Faqat juft sonlarni chiqarish</strong></p> <p>1 dan N gacha bo‘lgan sonlar orasidan faqat <code>juft</code>
+                sonlarni konsolga chiqaring.
+              </p>
+              <pre>
+                </pre>
+              <p>functionga orab while orqali ishlansin.</p>
+
+            </li>
+            <li>
+              <p><strong>🔐 Masala 5: Parol kiritish — foydalanuvchi to‘g‘ri parolni topmaguncha</strong>
+              </p>
+              <p>Foydalanuvchi parol kiritadi. To‘g‘ri parol kiritilmaguncha tizim
+                <code>"Qayta urinib ko‘ring"</code>
+                deb so‘raydi. To‘g‘ri parol kiritilsa, <code>"Xush kelibsiz!"</code> chiqadi.
+              </p>
+              <p>👉 Parol: <code>"bek123"</code></p>
+              ⚠️ prompt() browserda ishlaydi. Quyidagi kodni browser (yoki repl.it, jsfiddle.net)da sinab
+              ko‘ring.
+
+              <pre> // Eslatma: prompt() browserda ishlaydi 
+                    let correctPassword = "bek123"; 
+                    let input; 
+                    </pre>
+              <p>functionga orab do while orqali ishlansin.</p>
+
+            </li>
+          </ol>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"><span>Array, Object (Array Methods, Object Methods, String Methods)</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🧾 Masala: Onlayn do‘kondagi foydalanuvchilar va buyurtmalarni tahlil
+                  qilish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Faqat <code>@gmail.com</code> emaili bor foydalanuvchilarni ajrating</li>
+                <li>Har bir foydalanuvchining umumiy xarajatini hisoblang</li>
+                <li>Foydalanuvchi ismini katta harflar bilan chiqaring</li>
+                <li>Yangi array shaklida natijani qaytaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.filter()</code> – kerakli foydalanuvchilarni ajratish uchun</li>
+                <li><code>.map()</code> – har bir foydalanuvchidan yangi obyekt hosil qilish uchun</li>
+                <li><code>.reduce()</code> – buyurtmalar umumiy summasini topish uchun</li>
+                <li><code>.includes()</code> – emailda "@gmail.com" borligini aniqlash uchun</li>
+                <li><code>.toUpperCase()</code> – ismni katta harfga o‘tkazish uchun</li>
+              </ul>
+
+              <pre>
+                          const users = [
+                            {
+                              name: "Ali",
+                              email: "ali@gmail.com",
+                              orders: [
+                                { product: "Olma", price: 5000 },
+                                { product: "Non", price: 3000 }
+                              ]
+                            },
+                            {
+                              name: "Malika",
+                              email: "malika@yahoo.com",
+                              orders: [
+                                { product: "Sut", price: 7000 }
+                              ]
+                            },
+                            {
+                              name: "Sardor",
+                              email: "sardor@gmail.com",
+                              orders: [
+                                { product: "Yog'", price: 15000 },
+                                { product: "Tuxum", price: 8000 }
+                              ]
+                            }
+                          ];
+                          
+                          // Faqat gmail.com foydalanuvchilari
+                          
+                          // Natijaviy ro'yxat
+                          
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Kurs tinglovchilarining statistikasi</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchilardan faqat <code>faol</code> bo'lganlarini ajrating</li>
+                <li>Ismlarini <code>trim()</code> bilan tozalab, katta harfga aylantiring</li>
+                <li>Har birining <code>kurslar soni</code>ni hisoblang</li>
+                <li>Foydalanuvchi nomi va umumiy kurslar soni ko‘rinishida yangi ro‘yxat qaytaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.filter()</code> – faqat faol foydalanuvchilarni ajratish uchun</li>
+                <li><code>.map()</code> – foydalanuvchilar ustida transformatsiya qilish uchun</li>
+                <li><code>.reduce()</code> – kurslar sonini hisoblash uchun</li>
+                <li><code>.trim()</code> – ortiqcha bo‘sh joylarni olib tashlash uchun</li>
+                <li><code>.toUpperCase()</code> – ismlarni katta harfga o‘tkazish uchun</li>
+              </ul>
+
+              <pre>
+                          const students = [
+                            {
+                              name: "  ali ",
+                              active: true,
+                              courses: ["JS", "React", "Node"]
+                            },
+                            {
+                              name: "Malika",
+                              active: false,
+                              courses: ["HTML", "CSS"]
+                            },
+                            {
+                              name: "  sardor",
+                              active: true,
+                              courses: ["Python", "Django", "SQL", "Git"]
+                            }
+                          ];
+                          
+                          // 1. Faqat faol foydalanuvchilar
+                          
+                          // 2. Yangi formatga o‘tkazamiz
+                         
+                         
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Mahsulotlarni izlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi biror <code>so'z</code> kiritadi (masalan, "olma")</li>
+                <li>Mahsulot nomlaridan aynan shu so‘zni ichida saqlaganini <code>.find()</code> orqali
+                  toping</li>
+                <li>Qidiruv <code>case-insensitive</code> bo‘lishi kerak (ya’ni katta-kichik harf
+                  farqsiz)</li>
+                <li>Agar topilsa, mahsulot haqida info qaytarilsin</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.find()</code> – birinchi mos keluvchini topish uchun</li>
+                <li><code>.includes()</code> – qidiruv so‘zi mavjudligini tekshirish uchun</li>
+                <li><code>.toLowerCase()</code> – katta-kichik farqni yo‘qotish uchun</li>
+                <li><code>.substring()</code> – nomni qisqartirish uchun (vizual)</li>
+              </ul>
+
+              <pre>
+                          const products = [
+                            { name: "Qizil Olma", price: 5000 },
+                            { name: "Yashil uzum", price: 8000 },
+                            { name: "Banan", price: 7000 }
+                          ];
+                          
+                          const search = "OLMA"; 
+                          
+                         
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Parollarni tekshirish tizimi</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchilarning parollari berilgan</li>
+                <li>Tekshirish kerak: kamida bitta parol <code>"!"</code> bilan tugaydimi?</li>
+                <li>Hamma parollar <code>"user"</code> bilan boshlanadimi?</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.some()</code> – hech bo‘lmaganda biri shartga to‘g‘ri keladimi</li>
+                <li><code>.every()</code> – hammasi shartga to‘g‘rimi</li>
+                <li><code>.startsWith()</code> – string ma’lum ibora bilan boshlanadimi</li>
+                <li><code>.endsWith()</code> – string ma’lum ibora bilan tugaydimi</li>
+              </ul>
+
+              <pre>
+                          const passwords = ["user123!", "user456!", "userTest!"];
+                          
+                          console.log("Kamida bitta '!' bilan tugaydimi? ", endsWithExcl);
+                          console.log("Hamma 'user' bilan boshlanadimi? ", allStartUser);
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Oxirgi topshiriqlarni tahlil qilish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>So‘nggi 3 ta topshiriqni ajrating (slice bilan)</li>
+                <li>Ularni teskari tartibda chiqaring</li>
+                <li>Asl ro‘yxatga o‘zgartirish kiritish uchun splice ishlating</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.slice()</code> – nusxa olish uchun</li>
+                <li><code>.splice()</code> – real ro‘yxatni o‘zgartirish uchun</li>
+                <li><code>.reverse()</code> – teskari qilish uchun</li>
+              </ul>
+
+              <pre>
+                          let tasks = ["Login", "Register", "Dashboard", "Settings", "Logout"];
+                          
+                          // So'nggi 3 ta topshiriqni olib, teskari qilamiz
+                          
+                          
+                          // Asl massivdan ham ularni olib tashlaymiz
+                          console.log("Yangi task ro‘yxati:", tasks);
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Iborani so‘zlarga ajratish va saralash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi ibora kiritadi</li>
+                <li>Iborani so‘zlarga ajrating</li>
+                <li>Alfavit tartibida saralang</li>
+                <li>Yana bir string holatiga aylantirib chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.split()</code> – so‘zlarga ajratish uchun</li>
+                <li><code>.sort()</code> – alfavit bo‘yicha saralash uchun</li>
+                <li><code>.join()</code> – qayta stringga aylantirish uchun</li>
+              </ul>
+
+              <pre>
+                          const sentence = "JavaScriptni o‘rganish juda qiziqarli";
+                         
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Kursga yozilgan talabalarni ajratish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Fakultetlar bo‘yicha talabalar 2-qavatli massivda saqlangan</li>
+                <li>Barcha talabalarni bitta ro‘yxatga o‘tkazing</li>
+                <li>"Ali" degan ismli talaba borligini tekshiring</li>
+                <li>Ismida `a` harfi bor barcha talabalarni ajrating</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.flat()</code> – ko‘p qavatli massivni tekislash uchun</li>
+                <li><code>.includes()</code> – belgilangan ism borligini aniqlash uchun</li>
+                <li><code>.filter()</code> – `a` harfi borlarni ajratish uchun</li>
+              </ul>
+
+              <pre>
+                          const groups = [
+                            ["Ali", "Sardor", "Malika"],
+                            ["Lola", "Javlon", "Anvar"]
+                          ];
+                          
+                         
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Kurslar bo‘yicha umumiy o‘quvchilar soni</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Har bir o‘qituvchining kurslari va o‘quvchilari bor</li>
+                <li>Har bir kursdan o‘quvchilar sonini oling</li>
+                <li>Umumiy o‘quvchilar sonini hisoblang</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.flatMap()</code> – nested arraydagi elementlarni tekislab olish uchun</li>
+                <li><code>.map()</code> – sonlarni ajratish uchun</li>
+                <li><code>.reduce()</code> – umumiy yig‘indini topish uchun</li>
+              </ul>
+
+              <pre>
+                          const teachers = [
+                            {
+                              name: "Anvar",
+                              courses: [
+                                { title: "JS", students: 20 },
+                                { title: "React", students: 15 }
+                              ]
+                            },
+                            {
+                              name: "Malika",
+                              courses: [
+                                { title: "Python", students: 25 }
+                              ]
+                            }
+                          ];
+                          
+                          
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Onlayn do‘kon savatlarini tahlil qilish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchilarning savatlaridagi mahsulotlarni tahlil qiling</li>
+                <li>Savatda kamida 2 ta mahsulot bo‘lgan foydalanuvchilarni ajrating</li>
+                <li>Har bir foydalanuvchining savatidagi eng qimmat mahsulotni toping</li>
+                <li>Natijada foydalanuvchi ismi va eng qimmat mahsulot narxini yangi ro‘yxat sifatida
+                  qaytaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.forEach()</code> – har bir foydalanuvchi savati bo‘yicha iteratsiya qilish
+                  uchun</li>
+                <li><code>.findIndex()</code> – savatda 2 yoki undan ko‘p mahsulot borligini tekshirish
+                  uchun</li>
+                <li><code>.reduce()</code> – eng qimmat mahsulotni topish uchun</li>
+                <li><code>.map()</code> – yangi ro‘yxat hosil qilish uchun</li>
+              </ul>
+
+              <pre>
+            const carts = [
+              {
+                user: "Ali",
+                items: [
+                  { product: "Telefon", price: 500000 },
+                  { product: "Naushnik", price: 100000 }
+                ]
+              },
+              {
+                user: "Malika",
+                items: [
+                  { product: "Noutbuk", price: 2000000 }
+                ]
+              },
+              {
+                user: "Sardor",
+                items: [
+                  { product: "Televizor", price: 3000000 },
+                  { product: "Klaviatura", price: 50000 },
+                  { product: "Sichqoncha", price: 30000 }
+                ]
+              }
+            ];
+            
+            // Kamida 2 ta mahsulot bor savatlarni ajratamiz
+            const validCarts = [];
+            carts.forEach(cart => {
+              if (cart.items.findIndex((_, index) => index >= 1) !== -1) {
+                validCarts.push(cart);
+              }
+            });
+            
+            // Eng qimmat mahsulotni topib, yangi ro‘yxat hosil qilamiz
+            const result = validCarts.map(cart => ({
+              user: cart.user,
+              maxPrice: cart.items.reduce((max, item) => Math.max(max, item.price), 0)
+            }));
+            
+            console.log("Natija:", result);
+              </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Talabalar reytingini tahlil qilish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Talabalar ro‘yxatidan faqat balli 80 dan yuqori bo‘lganlarini ajrating</li>
+                <li>Har bir talabaning ismini teskari tartibda yozing (masalan, "Ali" → "ilA")</li>
+                <li>Ro‘yxatni ball bo‘yicha kamayish tartibida saralang</li>
+                <li>Birinchi 2 ta talabani oling va yangi ro‘yxat sifatida qaytaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.at()</code> – ro‘yxatdan ma’lum indeksdagi elementni olish uchun</li>
+                <li><code>.sort()</code> – ball bo‘yicha saralash uchun</li>
+                <li><code>.map()</code> – ismlarni teskari qilish uchun</li>
+                <li><code>.slice()</code> – faqat birinchi 2 ta elementni olish uchun</li>
+              </ul>
+
+              <pre>
+                          const students = [
+                            { name: "Ali", score: 85 },
+                            { name: "Sardor", score: 90 },
+                            { name: "Malika", score: 75 },
+                            { name: "Lola", score: 95 }
+                          ];
+                          
+                          // 80 dan yuqori ball olganlarni ajratamiz
+                          
+                          // Ismlarni teskari qilib, ball bo‘yicha saralaymiz
+                          
+                          // Birinchi talabani at() bilan tekshirish
+                         
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Buyurtma statusini tekshirish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Buyurtmalar ro‘yxatida faqat "pending" statusidagi buyurtmalarni ajrating</li>
+                <li>Har bir buyurtma ID’sini 1000 bilan qo‘shing</li>
+                <li>Ro‘yxatni alifbo tartibida saralang (mahsulot nomi bo‘yicha)</li>
+                <li>Agar ro‘yxatda hech bo‘lmaganda bitta buyurtma bo‘lsa, natijani qaytaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.every()</code> – barcha buyurtmalar pending ekanligini tekshirish uchun</li>
+                <li><code>.map()</code> – ID’ni o‘zgartirish uchun</li>
+                <li><code>.sort()</code> – mahsulot nomi bo‘yicha saralash uchun</li>
+                <li><code>.length</code> – ro‘yxat bo‘sh emasligini tekshirish uchun</li>
+              </ul>
+
+              <pre>
+                          const orders = [
+                            { id: 1, product: "Laptop", status: "delivered" },
+                            { id: 2, product: "Phone", status: "pending" },
+                            { id: 3, product: "Tablet", status: "pending" },
+                            { id: 4, product: "Headphones", status: "delivered" }
+                          ];
+                          
+                          // Pending buyurtmalarni ajratamiz
+                          
+                          // ID’ni 1000 ga oshiramiz va saralaymiz
+                          
+                          // Ro‘yxat bo‘sh emasligini tekshirish
+                         
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Onlayn kutubxona kitoblarini tahlil qilish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Kitoblar ro‘yxatidan faqat muallifi "John" bo‘lgan kitoblarni ajrating</li>
+                <li>Kitob nomlarini uzunligi bo‘yicha saralang (eng qisqadan eng uzunga)</li>
+                <li>Har bir kitobning narxini 10% ga oshiring</li>
+                <li>Yangi ro‘yxat qaytaring, unda faqat kitob nomi va yangi narxi bo‘lsin</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan metodlar:</strong></p>
+              <ul>
+                <li><code>.findIndex()</code> – muallifi "John" bo‘lgan birinchi kitob indeksini topish
+                  uchun</li>
+                <li><code>.sort()</code> – kitob nomlari uzunligi bo‘yicha saralash uchun</li>
+                <li><code>.map()</code> – yangi narx va nomlarni o‘zgartirish uchun</li>
+                <li><code>.concat()</code> – ro‘yxatni boshqa ro‘yxat bilan birlashtirish uchun</li>
+              </ul>
+
+              <pre>
+                          const books = [
+                            { title: "JavaScript Guide", author: "John Doe", price: 20000 },
+                            { title: "Python Basics", author: "Jane Smith", price: 15000 },
+                            { title: "React Pro", author: "John Wick", price: 30000 },
+                            { title: "Node.js", author: "Alice Brown", price: 25000 }
+                          ];
+                          
+                          // Muallifi John bo‘lgan kitoblarni ajratamiz
+                          
+                          // Kitob nomlari uzunligi bo‘yicha saralaymiz va narxni 10% oshiramiz
+                          
+                          
+                          // Agar boshqa kitoblar qo‘shilsa, concat bilan birlashtirish mumkin
+                         
+                            </pre>
+            </li>
+
+
+
+          </ol>
+        </div>
+
+
+      </li>
+
+      <li>
+        <h2 class="accordion"><span>Recursion function, Promise</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🧾 Masala: Onlayn do‘kon katalogidagi mahsulotlarni rekursiv tarzda
+                  qidirish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Onlayn do‘konning mahsulotlar katalogi ierarxik tuzilishga ega (kategoriyalar ichida
+                  subkategoriyalar bor)</li>
+                <li>Berilgan mahsulot nomini rekursiv tarzda qidirib, uning ma’lumotlarini toping</li>
+                <li>Agar mahsulot topilmasa, Promise orqali xato xabarini qaytaring</li>
+                <li>Topilgan mahsulot ma’lumotlarini (nom, narx, kategoriya) yangi ro‘yxat sifatida
+                  qaytaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Rekursiya</code> – ierarxik katalog bo‘yicha mahsulotni qidirish uchun</li>
+                <li><code>Promise</code> – topilgan yoki topilmagan natijani asinxron tarzda qaytarish
+                  uchun</li>
+                <li><code>.find()</code> – birinchi mos keluvchi elementni topish uchun</li>
+                <li><code>.forEach()</code> – har bir kategoriya bo‘yicha iteratsiya qilish uchun</li>
+              </ul>
+
+              <pre>
+                          const catalog = [
+                            {
+                              category: "Elektronika",
+                              items: [
+                                { name: "Telefon", price: 500000 },
+                                { name: "Noutbuk", price: 2000000 }
+                              ],
+                              subcategories: [
+                                {
+                                  category: "Aksessuarlar",
+                                  items: [{ name: "Naushnik", price: 100000 }]
+                                }
+                              ]
+                            },
+                            {
+                              category: "Kiyim",
+                              items: [
+                                { name: "Ko‘ylak", price: 150000 }
+                              ],
+                              subcategories: []
+                            }
+                          ];
+                          
+                          // Rekursiv qidiruv funksiyasi
+                        
+                                // Mahsulotni joriy kategoriya ichidagi items dan qidirish
+                               
+                                
+                               
+                          
+                                // Subkategoriyalarda qidirish
+                                
+                          
+                                // Hech narsa topilmasa
+                               
+                          // Test
+                         
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Fayllarni rekursiv tarzda yuklash va tartib bilan ko‘rsatish</strong>
+              </p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi fayllarni serverdan yuklash uchun so‘rov yuboradi</li>
+                <li>Har bir faylni yuklash Promise orqali amalga oshiriladi va ketma-ketlikda bajariladi
+                </li>
+                <li>Agar fayl topilmasa, xato xabarini qaytaring</li>
+                <li>Barcha fayllar yuklangandan so‘ng, ularni nomlari bo‘yicha alifbo tartibida
+                  qaytaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Rekursiya</code> – fayllarni ketma-ket yuklash uchun</li>
+                <li><code>Promise</code> – fayl yuklashni asinxron tarzda boshqarish uchun</li>
+                <li><code>.sort()</code> – fayl nomlarini alifbo tartibida saralash uchun</li>
+                <li><code>.map()</code> – natijalarni formatlash uchun</li>
+              </ul>
+
+              <pre>
+                          const files = [
+                            { name: "doc1.pdf", available: true },
+                            { name: "image.jpg", available: false },
+                            { name: "script.js", available: true }
+                          ];
+                          
+                          // Faylni yuklashni simulyatsiya qiluvchi Promise
+                     
+                          
+                          // Test
+                           </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Raqamlar yig‘indisini rekursiv hisoblash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Berilgan raqamlar ro‘yxatidagi barcha raqamlarni rekursiv tarzda yig‘ing</li>
+                <li>Agar ro‘yxat bo‘sh bo‘lsa, 0 qaytaring</li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Rekursiya</code> – ro‘yxatdagi raqamlarni birma-bir qo‘shish uchun</li>
+                <li><code>.slice()</code> – ro‘yxatning qolgan qismini olish uchun</li>
+                <li><code>.length</code> – ro‘yxat bo‘sh yoki yo‘qligini tekshirish uchun</li>
+              </ul>
+
+              <pre>
+                             </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Fayl tuzilmasidagi jildlarni rekursiv sanash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Fayl tuzilmasi ierarxik tarzda berilgan (jildlar ichida boshqa jildlar)</li>
+                <li>Barcha jildlar sonini rekursiv tarzda hisoblang</li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Rekursiya</code> – jildlar va ularning ichki jildlarini sanash uchun</li>
+                <li><code>.forEach()</code> – har bir jild bo‘yicha iteratsiya qilish uchun</li>
+                <li><code>.length</code> – jildlar sonini tekshirish uchun</li>
+              </ul>
+
+              <pre>
+
+
+                          const folderStructure = [
+                            { name: "Documents", subfolders: [{ name: "Work", subfolders: [] }] },
+                            { name: "Photos", subfolders: [{ name: "2025", subfolders: [{ name: "Vacation", subfolders: [] }] }] },
+                            { name: "Music", subfolders: [] }
+                          ];
+                          
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Foydalanuvchi ma’lumotlarini Promise bilan yuklash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi ID’si bo‘yicha ma’lumotlarni serverdan yuklashni simulyatsiya qiling
+                </li>
+                <li>Agar foydalanuvchi topilsa, uning ismi va emailini qaytaring</li>
+                <li>Agar topilmasa, Promise orqali xato xabarini qaytaring</li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Promise</code> – foydalanuvchi ma’lumotlarini asinxron yuklash uchun</li>
+                <li><code>.find()</code> – foydalanuvchini ID bo‘yicha topish uchun</li>
+                <li><code>.map()</code> – natijani formatlash uchun</li>
+              </ul>
+
+              <pre>
+                          const users = [
+                            { id: 1, name: "Ali", email: "ali@gmail.com" },
+                            { id: 2, name: "Malika", email: "malika@gmail.com" },
+                            { id: 3, name: "Sardor", email: "sardor@gmail.com" }
+                          ];
+                          
+                          
+                          
+                          // Test
+                          </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Ketma-ket so‘rovlarni Promise bilan boshqarish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Bir nechta mahsulot ID’lari bo‘yicha ma’lumotlarni serverdan ketma-ket yuklang</li>
+                <li>Har bir so‘rov Promise orqali amalga oshiriladi</li>
+                <li>Agar mahsulot topilmasa, xato xabarini saqlang va davom eting</li>
+                <li>Yakuniy natijada topilgan mahsulotlarni narxi bo‘yicha saralang</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Promise</code> – mahsulotlarni ketma-ket yuklash uchun</li>
+                <li><code>.sort()</code> – narx bo‘yicha saralash uchun</li>
+                <li><code>.filter()</code> – faqat muvaffaqiyatli yuklangan mahsulotlarni olish uchun
+                </li>
+              </ul>
+
+              <pre>
+                          const products = [
+                            { id: 1, name: "Telefon", price: 500000 },
+                            { id: 2, name: "Noutbuk", price: 2000000 },
+                            { id: 3, name: "Naushnik", price: 100000 }
+                          ];
+                          
+                             </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Oddiy funksiya yordamida savat narxini hisoblash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi savatidagi mahsulotlarning umumiy narxini hisoblang</li>
+                <li>Har bir mahsulotning narxini yig‘ing va natijani qaytaring</li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Oddiy funksiya</code> – mahsulotlar narxini hisoblash uchun</li>
+                <li><code>.reduce()</code> – narxlarni yig‘ish uchun</li>
+                <li><code>.length</code> – savat bo‘shligini tekshirish uchun</li>
+              </ul>
+
+              <pre>
+
+                          const cart = [
+                            { name: "Telefon", price: 500000 },
+                            { name: "Naushnik", price: 100000 }
+                          ];
+                          
+                          console.log("Umumiy narx:", calculateCartTotal(cart));
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Arrow funksiya yordamida ismlarni filtrlab saralash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchilar ro‘yxatidan ismi 4 harfdan uzun bo‘lganlarni ajrating</li>
+                <li>Ismlarni alifbo tartibida saralang</li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Arrow funksiya</code> – filtr va saralash uchun qisqa sintaksis sifatida</li>
+                <li><code>.filter()</code> – ismi uzunligi 4 dan katta bo‘lganlarni ajratish uchun</li>
+                <li><code>.sort()</code> – alifbo tartibida saralash uchun</li>
+              </ul>
+
+              <pre>
+                          const filterLongNames = names => names
+                            .filter(name => name.length > 4)
+                            .sort((a, b) => a.localeCompare(b));
+                          
+                          const users = ["Ali", "Malika", "Sardor", "Bob"];
+                          console.log("Filtrlangan ismlar:", filterLongNames(users));
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Anonim funksiya yordamida mahsulotlarni chegirma bilan
+                  hisoblash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Mahsulotlar ro‘yxatidagi har bir mahsulot narxiga 10% chegirma qo‘llang</li>
+                <li>Anonim funksiyadan foydalanib, yangi narxlarni hisoblang</li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Anonim funksiya</code> – chegirma hisoblash uchun array metodida ishlatiladi
+                </li>
+                <li><code>.map()</code> – har bir mahsulot narxini o‘zgartirish uchun</li>
+                <li><code>.forEach()</code> – natijalarni konsolga chiqarish uchun</li>
+              </ul>
+
+              <pre>
+                          const products = [
+                            { name: "Telefon", price: 500000 },
+                            { name: "Naushnik", price: 100000 }
+                          ];
+                          
+                          
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: IIFE yordamida talabalar ro‘yxatini filtrlab chiqarish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Talabalar ro‘yxatidan faqat balli 80 dan yuqori bo‘lganlarni ajrating</li>
+                <li>IIFE (Immediately Invoked Function Expression) yordamida natijani darhol chiqaring
+                </li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>IIFE</code> – funksiyani darhol ishga tushirish uchun</li>
+                <li><code>.filter()</code> – balli 80 dan yuqori talabalarni ajratish uchun</li>
+                <li><code>.forEach()</code> – natijalarni konsolga chiqarish uchun</li>
+              </ul>
+
+              <pre>
+                          const students = [
+                            { name: "Ali", score: 85 },
+                            { name: "Malika", score: 75 },
+                            { name: "Sardor", score: 90 }
+                          ];
+                          
+                          
+                            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Generator funksiya yordamida buyurtma raqamlarini yaratish</strong>
+              </p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Buyurtma raqamlarini avtomatik tarzda generatsiya qiling (masalan, "ORD-001",
+                  "ORD-002")</li>
+                <li>Generator funksiyadan foydalanib, har bir chaqiruvda yangi raqam qaytaring</li>
+                <li>Bir nechta buyurtma raqamini konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Generator funksiya</code> – ketma-ket buyurtma raqamlarini yaratish uchun</li>
+                <li><code>.next()</code> – generatorning keyingi qiymatini olish uchun</li>
+              </ul>
+
+              <pre>
+                           </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Promise yordamida mahsulot ma’lumotlarini yuklash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Mahsulot ID’si bo‘yicha ma’lumotlarni serverdan yuklashni simulyatsiya qiling</li>
+                <li>Agar mahsulot topilsa, uning nomini va narxini qaytaring</li>
+                <li>Agar topilmasa, xato xabarini qaytaring</li>
+                <li>Natijani konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Promise</code> – mahsulot ma’lumotlarini asinxron yuklash uchun</li>
+                <li><code>.find()</code> – mahsulotni ID bo‘yicha topish uchun</li>
+                <li><code>.map()</code> – natijani formatlash uchun</li>
+              </ul>
+
+              <pre>
+                          const products = [
+                            { id: 1, name: "Telefon", price: 500000 },
+                            { id: 2, name: "Naushnik", price: 100000 }
+                          ];
+                          
+                        </pre>
+            </li>
+          </ol>
+
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>JS internals (Heap, Execution Context)</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🧾 Masala: Ro‘yxatdagi mahsulotlar nusxasini o‘zgartirish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Asl mahsulot ro‘yxatini yarating</li>
+                <li>Shallow copy orqali yangi ro‘yxat yarating va bir mahsulotni o‘zgartiring</li>
+                <li>Deep copy orqali boshqa ro‘yxat yarating va taqqoslang</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>[...array]</code> – deep copy uchun (primitive qiymatlar)</li>
+                <li><code>=</code> – shallow copy (havola orqali)</li>
+              </ul>
+
+              <pre>
+          const originalList = ["non", "sut", "tuxum"];
+          </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: O‘quvchilar ro‘yxatini chuqur va yuza nusxalash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>O‘quvchilar ro‘yxatini yaratish (obyektlar bilan)</li>
+                <li>Shallow copy orqali nusxa olish va bir o‘quvchi yoshini o‘zgartirish</li>
+                <li>Deep copy orqali mustaqil nusxa yaratish</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>=</code> – shallow copy</li>
+                <li><code>structuredClone()</code> – deep copy (modern usul)</li>
+              </ul>
+
+              <pre>
+          const classA = [
+            { name: "Ali", age: 15 },
+            { name: "Vali", age: 14 }
+          ];
+          
+              </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Kompaniya ishchilarini nusxalash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Kompaniya obyektini yaratish (ichida employees massivi bo‘lsin)</li>
+                <li><code>Object.assign()</code> yordamida shallow copy qilish</li>
+                <li>Deep copy uchun <code>JSON.parse(JSON.stringify(...))</code> usulidan foydalanish</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Object.assign()</code> – shallow copy</li>
+                <li><code>JSON.stringify/parse</code> – deep copy (cheklovlar bilan)</li>
+              </ul>
+
+              <pre>
+          const company = {
+            name: "TechSoft",
+            employees: [{ name: "Aziz" }]
+          };
+          
+                </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: O‘yinchi statistikasi obyektini nusxalash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>O‘yinchi obyektini yaratish (ichki obyekt bilan)</li>
+                <li>Spread orqali shallow copy qilish</li>
+                <li>structuredClone yordamida deep copy qilish</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>{...obj}</code> – shallow copy</li>
+                <li><code>structuredClone()</code> – deep copy</li>
+              </ul>
+
+              <pre>
+          const player = {
+            name: "Gamer",
+            stats: { level: 10, health: 100 }
+          };
+          
+             </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Uy rejalari obyektini nusxalash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Uy obyektini yarating (ichida nested obyekt bo‘lsin)</li>
+                <li><code>Object.assign</code> bilan shallow copy qilish</li>
+                <li><code>structuredClone</code> bilan deep copy qilish</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Object.assign()</code> – shallow copy</li>
+                <li><code>structuredClone()</code> – deep copy</li>
+              </ul>
+
+              <pre>
+          const house = {
+            rooms: {
+              bedroom: { color: "white" },
+              kitchen: { color: "yellow" }
+            }
+          };
+          
+          </pre>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>This, Object Methods, call, bind, apply</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🧾 Masala: Foydalanuvchi haqida ma’lumot chiqarish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi obyektini yaratish</li>
+                <li>Ichida `sayHello` metodi bo‘lsin</li>
+                <li>Metod ichida `this.name` dan foydalanib konsolga salom yozuvi chiqarilsin</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>this</code> – obyekt kontekstini ishlatish</li>
+                <li><code>object method</code> – metod orqali ishlash</li>
+              </ul>
+
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Tugma bosilganda foydalanuvchi ismini chiqarish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi obyektini yarating</li>
+                <li>Metodda `this.name` dan foydalaning</li>
+                <li>Tashqarida `setTimeout` bilan metodni chaqiring</li>
+                <li>`bind` yordamida `this` doirasini saqlang</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>this</code> – kontekst</li>
+                <li><code>bind()</code> – doirani ushlab turish</li>
+                <li><code>setTimeout</code> – kechiktirib bajarish</li>
+              </ul>
+
+              <pre>
+          const user = {
+            name: "Ziyodulloh",
+            showName() {
+              console.log("Mening ismim: " + this.name);
+            }
+          };
+          
+          setTimeout(user.showName.bind(user), 1000); 
+              </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Salomlashish funksiyasini turli foydalanuvchilarga qo‘llash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Bitta umumiy `greet` funksiyasini yarating</li>
+                <li>Uni `.call()` yordamida boshqa obyektlarga qo‘llang</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>call()</code> – boshqa obyektga metodni qo‘llash</li>
+              </ul>
+
+              <pre>
+        function greet() {
+          console.log("Assalomu alaykum, men " + this.name);
+        }
+        
+        const user1 = { name: "Muhammad" };
+        const user2 = { name: "Ali" };
+        
+        
+            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Talabaning to‘plagan ballari</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Talaba obyektini yarating</li>
+                <li>`showScore` funksiyasini tuzing va 3 ta fan bo‘yicha ball qabul qilsin</li>
+                <li>`.apply()` yordamida ballarni massiv sifatida uzating</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>apply()</code> – argumentlar massiv ko‘rinishida uzatiladi</li>
+              </ul>
+
+              <pre>
+          function showScore(math, physics, english) {
+            const sum = math + physics + english;
+            console.log(this.name + " umumiy ball: " + sum);
+          }
+          
+          const student = { name: "Diyor" };
+          const scores = [85, 90, 80];
+          
+              </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Tugma bosilganda foydalanuvchini aniqlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi obyektini yarating</li>
+                <li>Uni `showUser` funksiyasiga `bind` qiling</li>
+                <li>Event sifatida funksiyani chaqiring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>bind()</code> – doirani saqlash</li>
+                <li><code>this</code> – foydalanuvchiga bog‘lash</li>
+              </ul>
+
+              <pre>
+          const user = {
+            name: "Laylo",
+            show() {
+              console.log("Foydalanuvchi: " + this.name);
+            }
+          };
+          
+          const buttonHandler = user.show.bind(user);
+              </pre>
+            </li>
+
+
+          </ol>
+        </div>
+      </li>
+      <li>
+        <h2 class="accordion"><span>Date, JSON, setTimeout, setInterval, Destructuring</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🧾 Masala: Tug‘ilgan kunni aniqlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchining tug‘ilgan sanasini yarating</li>
+                <li>Bugungi sana bilan taqqoslab, tug‘ilgan kunmi yoki yo‘qmi, aniqlang</li>
+                <li>Konsolga natijani chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Date</code> – sanani olish va taqqoslash</li>
+                <li><code>getDate()</code>, <code>getMonth()</code> – sanadan komponentlarni ajratib olish</li>
+              </ul>
+
+
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Foydalanuvchi ma’lumotlarini JSON formatida saqlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi obyektini yarating</li>
+                <li>Uni `JSON.stringify` bilan saqlang (masalan, LocalStorage uchun)</li>
+                <li>Keyin uni yana `JSON.parse` bilan obyektga aylantiring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>JSON.stringify()</code> – obyektni matnga aylantirish</li>
+                <li><code>JSON.parse()</code> – matndan obyektga aylantirish</li>
+              </ul>
+
+              <pre>
+          const user = {
+            name: "Dilshod",
+            age: 20,
+            email: "dilshod@gmail.com"
+          };
+          
+            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Saytga kirgan foydalanuvchiga 3 soniyadan so‘ng xabar chiqaring</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Saytga kirilganda “Xush kelibsiz!” xabarini chiqarish</li>
+                <li>Ammo xabar 3 soniya kechikib chiqishi kerak</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>setTimeout()</code> – belgilangan vaqtdan so‘ng funksiyani bajarish</li>
+              </ul>
+
+
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Har 1 soniyada hozirgi vaqtni konsolga chiqarish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>1 soniyada bir marta hozirgi vaqtni ko‘rsating</li>
+                <li>Format: `soat:daqiqa:sekund`</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>setInterval()</code> – takroriy bajarish</li>
+                <li><code>Date()</code> – hozirgi vaqtni olish</li>
+              </ul>
+
+
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Mahsulotdan nomi va narxini ajratib olish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Mahsulot obyektini yarating</li>
+                <li>Destructuring orqali `name` va `price` ni ajrating</li>
+                <li>Konsolga chiqarib natijani tekshiring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>object destructuring</code> – obyektning kerakli qismini ajratib olish</li>
+              </ul>
+
+              <pre>
+          const product = {
+            name: "Smartfon",
+            price: 2500000,
+            brand: "Samsung"
+          };
+          
+             </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Ishga kech qolgansizmi yoki yo‘q?</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Ish boshlanish vaqti: 09:00</li>
+                <li>Foydalanuvchining kirgan vaqtini <code>Date</code> bilan aniqlang</li>
+                <li>Agar kech qolgan bo‘lsa, konsolga xabar chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Date</code> – joriy vaqtni olish</li>
+                <li><code>getHours()</code>, <code>getMinutes()</code></li>
+              </ul>
+
+              <pre>
+          const now = new Date();
+          const hour = now.getHours();
+          const minute = now.getMinutes();
+          
+    
+              </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Mahsulotlar ro‘yxatini JSON formatda saqlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>3 ta mahsulotdan iborat massiv yarating</li>
+                <li>Uni `JSON.stringify` bilan stringga aylantiring</li>
+                <li>Saqlangan ma’lumotni yana obyektga aylantiring va konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>JSON.stringify()</code></li>
+                <li><code>JSON.parse()</code></li>
+              </ul>
+
+              <pre>
+          const products = [
+            { name: "Noutbuk", price: 5000000 },
+            { name: "Printer", price: 1500000 },
+            { name: "Kamera", price: 3000000 }
+          ];
+          
+             </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: 5 soniyada javob bermasangiz, xabar chiqadi</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchidan savolga javob kutiladi</li>
+                <li>5 soniyadan so‘ng avtomatik “Vaqt tugadi!” degan xabar chiqadi</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>setTimeout()</code></li>
+              </ul>
+
+
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Har 2 soniyada tasodifiy raqam chiqarish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Har 2 soniyada 1 dan 100 gacha bo‘lgan random raqam chiqarilsin</li>
+                <li>5 ta raqam chiqarilgandan keyin to‘xtasin</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>setInterval()</code></li>
+                <li><code>clearInterval()</code></li>
+                <li><code>Math.random()</code></li>
+              </ul>
+
+
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Kurslar ro‘yxatidan faqat dasturlash va dizayn ajratilsin</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Massivdan dastlabki ikkita kursni ajratib oling</li>
+                <li>Qolganlarini alohida `rest` sifatida saqlang</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>array destructuring</code></li>
+                <li><code>rest operator (...) </code></li>
+              </ul>
+
+              <pre>
+          const courses = ["Dasturlash", "Dizayn", "Marketing", "SMM"];
+          
+             </pre>
+            </li>
+
+
+          </ol>
+        </div>
+      </li>
+
+
+      <li>
+        <h2 class="accordion"><span>Set, WeakSet, Map, WeakMap, Garbage Collection</span></h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <p><strong>🧾 Masala: Foydalanuvchi ismlarini takrorlanmas holda saqlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Ismlar massivini yarating (ba'zilari takrorlangan bo‘lsin)</li>
+                <li><code>Set</code> yordamida takroriy ismlarni olib tashlang</li>
+                <li>Yangi ismlar ro‘yxatini konsolga chiqaring</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Set</code> – unikal qiymatlarni saqlash</li>
+                <li><code>[...set]</code> – massivga aylantirish</li>
+              </ul>
+
+              <pre>
+          const names = ["Ali", "Vali", "Ali", "Gulbahor", "Vali"];
+              </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Foydalanuvchilarning sessiyasini WeakSet bilan saqlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi obyektlarini yarating</li>
+                <li>Ularni `WeakSet` ichida saqlang</li>
+                <li>Session tugasa, obyektni null ga o‘rnating</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>WeakSet</code> – faqat obyektlar va garbage-collectable</li>
+              </ul>
+
+              <pre>
+          let user1 = { name: "Sardor" };
+          let user2 = { name: "Kamola" };
+          
+          const sessions = new WeakSet();
+            </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Foydalanuvchilarni ID bo‘yicha boshqarish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Har bir foydalanuvchining ID’si va unga tegishli obyektini saqlang</li>
+                <li>Keyinchalik ID orqali ma’lumotga murojaat qiling</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Map</code> – kalit-qiymat juftliklari bilan ishlash</li>
+              </ul>
+
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Har bir foydalanuvchiga maxfiy token biriktirish</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi obyektiga token biriktiring</li>
+                <li>Foydalanuvchi tizimdan chiqqanda token o‘chib ketsin</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>WeakMap</code> – kalit sifatida obyekt va garbage-collectable</li>
+              </ul>
+
+              <pre>
+          let user = { name: "Bekzod" };
+          
+          
+              </pre>
+            </li>
+            <li>
+              <p><strong>🧾 Masala: Foydalanuvchi sessiyasi tugaganda xotiradan olib tashlash</strong></p>
+
+              <p><u>Vazifa:</u></p>
+              <ul>
+                <li>Foydalanuvchi obyektini yarating</li>
+                <li>Unga ma’lumot biriktiring (masalan, sozlamalar)</li>
+                <li>So‘ng foydalanuvchini `null` qiling</li>
+                <li>Garbage Collector orqali u avtomatik tozalanadi</li>
+              </ul>
+
+              <p><strong>📌 Ishlatilgan texnikalar:</strong></p>
+              <ul>
+                <li><code>Garbage Collection</code> – foydalanilmayotgan obyektlar avtomatik o‘chadi</li>
+              </ul>
+
+              <pre>
+          let user = {
+            name: "Aziza",
+            settings: {
+              theme: "dark"
+            }
+          };
+          
+          console.log(user.name); 
+            </pre>
+            </li>
+
+
+          </ol>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+</body>
+
+</html>

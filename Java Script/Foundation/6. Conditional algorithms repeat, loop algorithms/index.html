@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Shartli algoritmlarni mustahkamlash</h2>
+                    <div class="panel">
+<h4>Murakkab shartlar</h4>
+<p>Bir nechta shartni VA / YOKI / EMAS bilan birlashtiramiz. Qavslar tartibni belgilaydi:</p>
+<pre>(yosh >= 18 VA pasport_bor) YOKI (yosh >= 16 VA ota_ona_ruxsati)</pre>
+<h4>Rostlik jadvali</h4>
+<pre> A     | B     | A VA B | A YOKI B | EMAS A
+-------+-------+--------+----------+-------
+ rost  | rost  |  rost  |   rost   | yolg'on
+ rost  | yolg'on| yolg'on|   rost   | yolg'on
+ yolg'on| rost |  yolg'on|   rost   | rost
+ yolg'on| yolg'on| yolg'on| yolg'on | rost</pre>
+<h4>Tez-tez uchraydigan xatolar</h4>
+<ul>
+  <li><code>=</code> (o'zlashtirish) bilan <code>==</code> (taqqoslash)ni aralashtirish.</li>
+  <li>Oraliqni noto'g'ri yozish: "10 &lt; x &lt; 20" emas, balki <code>(x > 10) VA (x < 20)</code>.</li>
+  <li>Chegaraviy qiymatlarni tekshirmaslik: ball = 90 bo'lganda "A" chiqadimi? (<code>>=</code> yoki <code>></code>).</li>
+  <li>Tarmoqlar tartibi: avval eng katta chegarani tekshiring (90+, keyin 80+, ...).</li>
+</ul>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Takrorlanuvchi algoritmlarga kirish</h2>
+                    <div class="panel">
+<p><strong>Takrorlanuvchi (siklik) algoritm</strong> — bir xil qadamlar guruhi bir necha marta takrorlanadigan algoritm. Takrorlanadigan qism — <strong>sikl tanasi</strong>.</p>
+<h4>Nima uchun sikl kerak?</h4>
+<p>1 dan 1000 gacha sonlarni chiqarish uchun 1000 ta CHIQAR yozmaymiz — bitta CHIQAR ni 1000 marta takrorlaymiz.</p>
+<h4>Sikl elementlari</h4>
+<ol>
+  <li><strong>Boshlang'ich qiymat</strong> — hisoblagich nimadan boshlanadi (i = 1).</li>
+  <li><strong>Shart</strong> — qachongacha davom etadi (i &lt;= 10).</li>
+  <li><strong>Qadam</strong> — har takrorda hisoblagich qanday o'zgaradi (i = i + 1).</li>
+  <li><strong>Tana</strong> — takrorlanadigan amallar.</li>
+</ol>
+<h4>Blok-sxema (oldindan shartli sikl)</h4>
+<pre>        [ i = 1 ]
+            |
+     +----->|
+     |  < i <= 10 ? >--- yo'q ---> (davom)
+     |      | ha
+     |  / CHIQAR i /
+     |      |
+     |  [ i = i + 1 ]
+     +------+</pre>
+<h4>Psevdokod</h4>
+<pre>i = 1
+TOKI i <= 10 BO'LSA
+   CHIQAR i
+   i = i + 1
+TAMOM</pre>
+<h4>Hisoblagich va yig'uvchi</h4>
+<pre>s = 0                 // yig'uvchi (akkumulyator) — boshida 0
+i = 1
+TOKI i <= 5 BO'LSA
+   s = s + i          // 1, 3, 6, 10, 15
+   i = i + 1
+TAMOM
+CHIQAR s              // 15</pre>
+<h4>Cheksiz sikl xavfi</h4>
+<p>Agar hisoblagich o'zgarmasa yoki shart hech qachon yolg'on bo'lmasa — sikl hech qachon tugamaydi. Dastur "osilib qoladi". Har doim tekshiring: <em>shart qachon yolg'on bo'ladi?</em></p>
+<h4>Kuzatuv jadvali</h4>
+<pre>takror | i | s   | shart i<=5
+-------+---+-----+-----------
+ boshi | 1 | 0   |
+   1   | 2 | 1   | rost
+   2   | 3 | 3   | rost
+   3   | 4 | 6   | rost
+   4   | 5 | 10  | rost
+   5   | 6 | 15  | rost
+ chiq  | 6 | 15  | yolg'on -> CHIQAR 15</pre>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Ifoda qiymati</strong></p><p>x = 7 bo'lsa quyidagi ifodalar rostmi yoki yolg'onmi?</p><pre>(x &gt; 5) VA (x &lt; 10)
+(x mod 2 == 0) YOKI (x &gt; 6)
+EMAS (x == 7)</pre></li>
+  <li class="lvl-oson"><p><strong>Oraliq</strong></p><p>Son kiritiladi. U 10 va 20 oralig'idami (chegaralar bilan)? «10 &lt; x &lt; 20» emas, to'g'ri yozuvdan foydalaning.</p></li>
+  <li class="lvl-oson"><p><strong>1 dan 10 gacha</strong></p><p>1 dan 10 gacha sonlarni chiqaruvchi siklni psevdokod va blok-sxemada yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Salom 5 marta</strong></p><p>«Salom!» so'zini 5 marta chiqaruvchi sikl yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Teskari sanash</strong></p><p>10 dan 1 gacha teskari sanovchi sikl yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Siklning qismlari</strong></p><p>Quyidagi siklda boshlang'ich qiymat, shart, qadam va tanani belgilang.</p><pre>i = 1
+TOKI i &lt;= 5 BO'LSA
+   CHIQAR i
+   i = i + 1
+TAMOM</pre></li>
+  <li class="lvl-orta"><p><strong>Tartibdagi xato</strong></p><p>ball = 85 bo'lsa nima chiqadi? Tartibni tuzating.</p><pre>AGAR ball &gt; 60 BO'LSA baho = "D"
+AKS HOLDA AGAR ball &gt; 70 BO'LSA baho = "C"
+AKS HOLDA AGAR ball &gt; 80 BO'LSA baho = "B"</pre></li>
+  <li class="lvl-orta"><p><strong>Chipta narxi</strong></p><p>Yosh va hafta kuni kiritiladi. Asosiy narx 40000. 7 yoshdan kichik — bepul, 7–17 — 50%, dam olish kunlarida kattalar uchun +20%. To'lovni chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Yig'indi</strong></p><p>1 dan N gacha sonlar yig'indisini sikl bilan toping. N kiritiladi.</p></li>
+  <li class="lvl-orta"><p><strong>Kuzatuv jadvali</strong></p><p>Quyidagi algoritm uchun kuzatuv jadvalini to'ldiring.</p><pre>p = 1
+i = 1
+TOKI i &lt;= 4 BO'LSA
+   p = p * 2
+   i = i + 1
+TAMOM
+CHIQAR p</pre></li>
+  <li class="lvl-orta"><p><strong>Juft sonlar</strong></p><p>1 dan 20 gacha juft sonlarni ikki usulda chiqaring: qadam 2 bilan va <code>mod</code> sharti bilan.</p></li>
+  <li class="lvl-orta"><p><strong>Cheksiz sikl</strong></p><p>Quyidagi sikl nega tugamaydi? Tuzating.</p><pre>i = 1
+TOKI i &lt;= 10 BO'LSA
+   CHIQAR i
+TAMOM</pre></li>
+  <li class="lvl-qiyin"><p><strong>Murakkab shart</strong></p><p>Kirish ruxsati: (yosh 18 dan katta VA pasporti bor) YOKI (yosh 16 dan katta VA ota-ona ruxsati bor). Yosh va ikki belgi kiritiladi. Natijani chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Faktorial</strong></p><p>N kiritiladi. N! (1 × 2 × ... × N) ni sikl bilan toping. Kuzatuv jadvalini N = 5 uchun tuzing.</p></li>
+  <li class="lvl-qiyin"><p><strong>Ballar o'rtachasi</strong></p><p>5 ta ball ketma-ket kiritiladi. Sikl yordamida o'rtachasini va 60 dan past ballar sonini chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Yaxshi parol</strong></p><p>Parol haqida uchta ma'lumot kiritiladi: uzunligi, raqam bormi (ha/yo'q), katta harf bormi (ha/yo'q). Uzunligi 8+ VA raqam bor VA katta harf bor bo'lsa «Kuchli», bittasi yetishmasa «O'rtacha», aks holda «Kuchsiz».</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>5 dan 15 gacha</strong></p><p>5 dan 15 gacha sonlarni chiqaruvchi sikl yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Toq sonlar</strong></p><p>1 dan 19 gacha toq sonlarni chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Ism 3 marta</strong></p><p>Ismingizni 3 marta chiqaruvchi sikl yozing.</p></li>
+  <li class="lvl-oson"><p><strong>Rostlik jadvali</strong></p><p>A VA B, A YOKI B, EMAS A uchun rostlik jadvalini to'ldiring.</p></li>
+  <li class="lvl-oson"><p><strong>Oraliqda emasmi?</strong></p><p>Son kiritiladi. U 1–100 oralig'idan tashqarida ekanini tekshiruvchi shart yozing.</p></li>
+  <li class="lvl-orta"><p><strong>Ko'paytma</strong></p><p>1 dan 6 gacha sonlar ko'paytmasini sikl bilan toping, kuzatuv jadvali bilan.</p></li>
+  <li class="lvl-orta"><p><strong>3 ga karralilar</strong></p><p>1 dan 30 gacha 3 ga karrali sonlarni chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Kvadratlar</strong></p><p>1 dan 10 gacha sonlarning kvadratlarini chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Yig'indi va o'rtacha</strong></p><p>N ta son ketma-ket kiritiladi (N avval kiritiladi). Yig'indisi va o'rtachasini toping.</p></li>
+  <li class="lvl-orta"><p><strong>Chegaralar</strong></p><p>Ball kiritiladi va baho chiqariladi (A–F). 90, 80, 70, 60 chegaralarida algoritm to'g'ri ishlashini kuzatuv bilan tekshiring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Musbat va manfiy</strong></p><p>10 ta son ketma-ket kiritiladi. Musbatlar soni, manfiylar soni va nollar sonini chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Eng kattasi sikl bilan</strong></p><p>N ta son ketma-ket kiritiladi. Eng kattasini sikl yordamida toping.</p></li>
+  <li class="lvl-qiyin"><p><strong>Daraja</strong></p><p>a va n kiritiladi. aⁿ ni ko'paytirish amali va sikl yordamida toping.</p></li>
+  <li class="lvl-qiyin"><p><strong>Raqamlar soni</strong></p><p>Son kiritiladi. 10 ga bo'lib borish orqali uning necha xonali ekanini sikl bilan toping.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. Takrorlanuvchi algoritm nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Qadamlar guruhi (sikl tanasi) bir necha marta takrorlanadigan algoritm.</p></details></li><li><p class="q">2. Siklning 4 elementi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Boshlang'ich qiymat, shart, qadam, tana.</p></details></li><li><p class="q">3. Cheksiz sikl nima va qanday oldini olamiz?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Sharti hech qachon yolg'on bo'lmaydigan sikl. Hisoblagich har takrorda o'zgarishi va shart tugashi kafolatlanishi kerak.</p></details></li><li><p class="q">4. Yig'uvchi (akkumulyator) nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Sikl ichida natijani to'plab boruvchi o'zgaruvchi; yig'indi uchun 0 dan, ko'paytma uchun 1 dan boshlanadi.</p></details></li><li><p class="q">5. "10 < x < 20" ni qanday to'g'ri yozamiz?</p><details class="answer"><summary>Javobni ko'rish</summary><p>(x > 10) VA (x < 20).</p></details></li><li><p class="q">6. Ko'p tarmoqli shartda tartib nega muhim?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Birinchi rost shart bajariladi; chegaralar noto'g'ri tartibda bo'lsa, noto'g'ri tarmoq ishlaydi.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

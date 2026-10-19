@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimodal prompting (matn + rasm + ovoz)</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="stylesheet" href="../_assets/ai.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Kelajak va loyihalar</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Mavzu</h2>
+                    <div class="panel">
+<div class="dars-info">
+<p><strong>Dars maqsadi:</strong> Matn, rasm va ovozni birgalikda ishlatish.</p>
+<p><strong>Asosiy faoliyat:</strong> Rasm yuklab tavsif va tahlil so'rash mashqi.</p>
+<p><strong>Davomiyligi:</strong> 45 daqiqa · Chorshanba</p>
+</div>
+<h3>Multimodal AI</h3>
+<p>Zamonaviy AI <strong>matn, rasm, ovoz, video va hujjatlarni</strong> tushunadi va yarata oladi.</p>
+<ul>
+  <li><strong>Rasm → matn</strong>: rasmdagi narsalarni tavsiflash, jadval yoki qo'lyozmani o'qish, diagrammani tushuntirish.</li>
+  <li><strong>Matn → rasm</strong>: tasviriy prompt bo'yicha rasm yaratish.</li>
+  <li><strong>Ovoz</strong>: ovozli suhbat, talaffuz mashqi, audio-sharhlar (NotebookLM).</li>
+  <li><strong>Kamera</strong>: real vaqtda atrofdagi narsani ko'rsatib savol berish (ba'zi ilovalarda).</li>
+</ul>
+<h3>Rasm bilan yaxshi prompt</h3>
+<pre>[rasm yuklangan]
+Bu mening geografiya xaritam rasmi. Unda qaysi davlatlar ko'rsatilgan?
+Har biri uchun poytaxtini jadvalda yoz. Agar biror joyni aniq ko'ra
+olmasang, "aniq emas" deb yoz.</pre>
+<p class="hint">Rasmda shaxsiy ma'lumot (hujjat, manzil, boshqalarning yuzi) bo'lmasin.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir topshiriqni AI vositasi bilan bajaring va natijani AI jurnaliga yozing. Shaxsiy ma'lumot kiritmang.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Rasm tavsifi</strong></p><p>Sinfdagi biror narsaning rasmini yuklab, AIdan tavsif so'rang.</p></li>
+  <li class="lvl-oson"><p><strong>Qo'lyozma</strong></p><p>Daftaringizdagi bir qator qo'lyozmani rasmga olib, matnga aylantiring.</p></li>
+  <li class="lvl-oson"><p><strong>Ovozli savol</strong></p><p>Ovozli rejimda bitta fan savolini bering.</p></li>
+  <li class="lvl-orta"><p><strong>Diagramma</strong></p><p>Darslikdagi diagramma rasmini yuklab, tushuntirish va 3 ta savol so'rang.</p></li>
+  <li class="lvl-orta"><p><strong>Rasm + vazifa</strong></p><p>Rasm bilan birga aniq vazifa bering (jadval qilib, «aniq emas» qoidasi bilan).</p></li>
+  <li class="lvl-orta"><p><strong>Audio-sharh</strong></p><p>NotebookLM'da konspektdan audio-sharh yaratib tinglang (mavjud bo'lsa).</p></li>
+  <li class="lvl-qiyin"><p><strong>Zanjir</strong></p><p>Rasm → tavsif → shu tavsif asosida yangi rasm yaratish. Natijalarni solishtiring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Aniqlik sinovi</strong></p><p>Sifati past rasmni yuklab, AI qanchalik aniq ko'rishini tekshiring va xatolarini yozing.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha topshiriqlarni ketma-ket bajaring. Oxirgi topshiriqlar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Uydagi narsalar</strong></p><p>Uydagi 3 ta narsaning rasmini (shaxsiy ma'lumotsiz) AIga tavsiflating.</p></li>
+  <li class="lvl-oson"><p><strong>AI jurnali</strong></p><p>Multimodal mashqlardagi eng foydali natijani yozing.</p></li>
+  <li class="lvl-orta"><p><strong>O'simlik yoki hayvon</strong></p><p>Bitta o'simlik rasmini yuklab, turini aniqlating va boshqa manbada tekshiring.</p></li>
+  <li class="lvl-orta"><p><strong>Talaffuz</strong></p><p>Ovozli rejimda 10 ta qiyin inglizcha so'zni talaffuz qilib, maslahat oling.</p></li>
+  <li class="lvl-qiyin"><p><strong>Multimodal loyiha</strong></p><p>Rasm, matn va ovozdan foydalanib, bitta mavzu bo'yicha kichik o'quv materiali tayyorlang.</p></li>
+  <li class="lvl-qiyin"><p><strong>Cheklovlar</strong></p><p>Multimodal AI xato qilgan 2 ta holatni yozing va sababini taxmin qiling.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Nazorat savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">Multimodal AI nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Matn, rasm, ovoz, video va hujjatlar bilan ishlay oladigan AI.</p></details></li><li><p class="q">Rasm bilan ishlashda foydali qoida?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Aniq vazifa berish va «aniq ko'rmasang, ayt» deb yozish.</p></details></li><li><p class="q">Rasmga nima tushmasligi kerak?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Shaxsiy ma'lumot: hujjatlar, manzil, boshqalarning yuzi.</p></details></li><li><p class="q">Ovozli rejim nima uchun foydali?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Gapirish va talaffuz mashqi, tez savol-javob.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

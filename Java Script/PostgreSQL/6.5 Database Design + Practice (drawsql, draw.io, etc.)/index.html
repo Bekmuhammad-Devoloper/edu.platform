@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Design va SQL Triggers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .tab-active {
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .tab-inactive {
+            color: #4b5563;
+        }
+        .tab-inactive:hover {
+            background-color: #f3f4f6;
+        }
+        .hidden {
+            display: none;
+        }
+        .display-none {
+            display: none;
+        }
+        .display-block {
+            display: block;
+        }
+        .display-grid {
+            display: grid;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-6">
+            <h1 class="text-4xl font-bold text-gray-800 mb-3 flex items-center gap-3">
+                <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                </svg>
+                Database Design va SQL Triggers
+            </h1>
+            <p class="text-gray-600 text-lg">
+                Ma'lumotlar bazasi dizayni va triggerlarni o'rganish platformasi
+            </p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-xl shadow-md mb-6 p-2 flex gap-2">
+            <button onclick="switchTab('theory')" id="theoryTab" class="flex-1 py-3 px-4 rounded-lg font-medium transition-all tab-active">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                Nazariya
+            </button>
+            <button onclick="switchTab('practice')" id="practiceTab" class="flex-1 py-3 px-4 rounded-lg font-medium transition-all tab-inactive">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+                Amaliyot
+            </button>
+        </div>
+
+        <!-- Theory Content -->
+        <div id="theoryContent" class="space-y-6">
+            <!-- Database Design -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-gray-800">Database Design nima?</h2>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Ta'rif</h3>
+                    <p class="text-gray-600 mb-3 leading-relaxed">Database Design - bu ma'lumotlar bazasining tuzilmasini, jadvallarini, ularning o'rtasidagi bog'lanishlarni va cheklovlarini loyihalashtirish jarayoni.</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Nega kerak?</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700 pl-4">📊 Ma'lumotlarni tartibli saqlash</li>
+                        <li class="text-gray-700 pl-4">🚀 Tezkor qidiruv va ishlash</li>
+                        <li class="text-gray-700 pl-4">🔒 Ma'lumotlar xavfsizligi</li>
+                        <li class="text-gray-700 pl-4">♻️ Takrorlanishlarni kamaytirish (Normalizatsiya)</li>
+                        <li class="text-gray-700 pl-4">🔗 Jadvallar o'rtasida mantiqiy bog'lanishlar</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Asosiy Qoidalar</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700 pl-4">Primary Key - har bir jadvalda bo'lishi shart</li>
+                        <li class="text-gray-700 pl-4">Foreign Key - jadvallarni bog'laydi</li>
+                        <li class="text-gray-700 pl-4">Normalizatsiya - ma'lumotlarni to'g'ri taqsimlash</li>
+                        <li class="text-gray-700 pl-4">Index - qidiruv tezligini oshiradi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SQL Triggers -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-gray-800">SQL Triggers nima?</h2>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Ta'rif</h3>
+                    <p class="text-gray-600 mb-3 leading-relaxed">Trigger - bu jadvalda ma'lum bir hodisa (INSERT, UPDATE, DELETE, TRUNCATE) sodir bo'lganda avtomatik ishga tushadigan maxsus funksiya.</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Trigger turlari</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700 pl-4">🔵 INSERT Trigger - yangi qator qo'shilganda</li>
+                        <li class="text-gray-700 pl-4">🟢 UPDATE Trigger - qator o'zgartirilganda</li>
+                        <li class="text-gray-700 pl-4">🔴 DELETE Trigger - qator o'chirilganda</li>
+                        <li class="text-gray-700 pl-4">🟣 TRUNCATE Trigger - jadval tozalanganda</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Qachon ishlatiladi?</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700 pl-4">📝 Tarix (history) saqlash uchun</li>
+                        <li class="text-gray-700 pl-4">✅ Ma'lumotlarni tekshirish uchun</li>
+                        <li class="text-gray-700 pl-4">🔔 Avtomatik xabarnomalar yuborish</li>
+                        <li class="text-gray-700 pl-4">🔄 Boshqa jadvallarni yangilash</li>
+                        <li class="text-gray-700 pl-4">📊 Statistika yig'ish</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">BEFORE vs AFTER</h3>
+                    <p class="text-gray-600 mb-3 leading-relaxed">BEFORE - hodisa sodir bo'lishidan oldin ishlaydi (ma'lumotni o'zgartirish mumkin). AFTER - hodisa sodir bo'lgandan keyin ishlaydi.</p>
+                </div>
+            </div>
+
+            <!-- Design Tools -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-gray-800">Design Tools (DrawSQL, Draw.io)</h2>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">DrawSQL</h3>
+                    <p class="text-gray-600 mb-3 leading-relaxed">Database diagrammalarini yaratish uchun maxsus vosita. Vizual ravishda jadvallar va ularning bog'lanishlarini ko'rsatadi.</p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700 pl-4">🎨 Drag & Drop interfeysi</li>
+                        <li class="text-gray-700 pl-4">🔗 Avtomatik bog'lanishlar</li>
+                        <li class="text-gray-700 pl-4">📤 SQL kod eksport qilish</li>
+                        <li class="text-gray-700 pl-4">👥 Jamoa bilan ishlash</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Draw.io (diagrams.net)</h3>
+                    <p class="text-gray-600 mb-3 leading-relaxed">Umumiy maqsadli diagramma yaratish vositasi. Database sxemalarini ham chizish mumkin.</p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700 pl-4">🆓 Bepul va ochiq manba</li>
+                        <li class="text-gray-700 pl-4">💾 Turli formatlarda saqlash</li>
+                        <li class="text-gray-700 pl-4">🔌 Google Drive integratsiyasi</li>
+                        <li class="text-gray-700 pl-4">📱 Online va offline ishlash</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Qanday ishlatiladi?</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700 pl-4">1️⃣ Jadvallarni yarating</li>
+                        <li class="text-gray-700 pl-4">2️⃣ Ustunlarni qo'shing (nom, tip, cheklovlar)</li>
+                        <li class="text-gray-700 pl-4">3️⃣ Primary Key belgilang</li>
+                        <li class="text-gray-700 pl-4">4️⃣ Foreign Key orqali bog'lang</li>
+                        <li class="text-gray-700 pl-4">5️⃣ Diagrammani eksport qiling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Content -->
+        <div id="practiceContent" class="display-none">
+            <!-- Problem List -->
+            <div id="problemList" class="grid md:grid-cols-3 gap-6">
+                <!-- Problem 1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow cursor-pointer" onclick="selectProblem(1)">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-gray-800">Masala #1</h3>
+                        <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-700">Oson</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-700 mb-2">Kitoblar do'koni uchun Trigger</h4>
+                    <p class="text-gray-600 text-sm mb-4">Sizda 'books' jadvali bor. Har safar kitob sotilganda (count kamaytirilganda), 'sales_history' jadvaliga yozuv qo'shish kerak.</p>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Boshlash
+                    </button>
+                </div>
+
+                <!-- Problem 2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow cursor-pointer" onclick="selectProblem(2)">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-gray-800">Masala #2</h3>
+                        <span class="px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-700">O'rta</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-700 mb-2">Xodimlar ma'oshi kontroli</h4>
+                    <p class="text-gray-600 text-sm mb-4">Xodimlar jadvaliga yangi xodim qo'shilayotganda, agar uning maoshi 0 yoki manfiy bo'lsa, xatolik berish kerak va qo'shilishiga yo'l qo'ymaslik kerak.</p>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Boshlash
+                    </button>
+                </div>
+
+                <!-- Problem 3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow cursor-pointer" onclick="selectProblem(3)">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-gray-800">Masala #3</h3>
+                        <span class="px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-700">Qiyin</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-700 mb-2">Mahsulotlar arxivi</h4>
+                    <p class="text-gray-600 text-sm mb-4">Mahsulot o'chirilganda, uning barcha ma'lumotlari 'products_archive' jadvaliga ko'chirilishi va o'chirilgan sana ham yozilishi kerak.</p>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Boshlash
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Problem Details -->
+            <div id="problemDetails" class="display-none bg-white rounded-xl shadow-md p-6"></div>
+        </div>
+    </div>
+
+    <script>
+        const problems = {
+            1: {
+                title: "Kitoblar do'koni uchun Trigger",
+                difficulty: "Oson",
+                difficultyClass: "bg-green-100 text-green-700",
+                description: "Sizda 'books' jadvali bor. Har safar kitob sotilganda (count kamaytirilganda), 'sales_history' jadvaliga yozuv qo'shish kerak.",
+                hint: "UPDATE trigger ishlatish kerak. OLD.count va NEW.count qiymatlarini solishtiring.",
+                tables: `books jadvali:
+- id (PRIMARY KEY)
+- title (VARCHAR)
+- price (INT)
+- count (INT)
+
+sales_history jadvali:
+- book_id (INT)
+- sold_count (INT)
+- sale_date (TIMESTAMP)`,
+                answer: `CREATE OR REPLACE FUNCTION books_sale_trigger()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.count < OLD.count THEN
+        INSERT INTO sales_history(book_id, sold_count, sale_date)
+        VALUES (NEW.id, OLD.count - NEW.count, NOW());
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER track_book_sales
+AFTER UPDATE ON books
+FOR EACH ROW
+EXECUTE FUNCTION books_sale_trigger();`
+            },
+            2: {
+                title: "Xodimlar ma'oshi kontroli",
+                difficulty: "O'rta",
+                difficultyClass: "bg-yellow-100 text-yellow-700",
+                description: "Xodimlar jadvaliga yangi xodim qo'shilayotganda, agar uning maoshi 0 yoki manfiy bo'lsa, xatolik berish kerak va qo'shilishiga yo'l qo'ymaslik kerak.",
+                hint: "BEFORE INSERT trigger kerak. RAISE EXCEPTION ishlatish mumkin.",
+                tables: `employees jadvali:
+- id (SERIAL PRIMARY KEY)
+- name (VARCHAR)
+- position (VARCHAR)
+- salary (INT)`,
+                answer: `CREATE OR REPLACE FUNCTION check_salary_trigger()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.salary <= 0 THEN
+        RAISE EXCEPTION 'Maosh 0 dan katta bo''lishi kerak!';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER validate_salary
+BEFORE INSERT ON employees
+FOR EACH ROW
+EXECUTE FUNCTION check_salary_trigger();`
+            },
+            3: {
+                title: "Mahsulotlar arxivi",
+                difficulty: "Qiyin",
+                difficultyClass: "bg-red-100 text-red-700",
+                description: "Mahsulot o'chirilganda, uning barcha ma'lumotlari 'products_archive' jadvaliga ko'chirilishi va o'chirilgan sana ham yozilishi kerak. Agar mahsulot soni 0 dan katta bo'lsa, o'chirishga ruxsat bermaslik kerak.",
+                hint: "BEFORE DELETE trigger kerak. Shartli tekshirish va RAISE EXCEPTION.",
+                tables: `products jadvali:
+- id (SERIAL PRIMARY KEY)
+- name (VARCHAR)
+- price (INT)
+- count (INT)
+
+products_archive jadvali:
+- id (INT)
+- name (VARCHAR)
+- price (INT)
+- count (INT)
+- deleted_at (TIMESTAMP)`,
+                answer: `CREATE OR REPLACE FUNCTION archive_product_trigger()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF OLD.count > 0 THEN
+        RAISE EXCEPTION 'Omborda mavjud mahsulotni o''chirib bo''lmaydi!';
+    END IF;
+    
+    INSERT INTO products_archive(id, name, price, count, deleted_at)
+    VALUES (OLD.id, OLD.name, OLD.price, OLD.count, NOW());
+    
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER before_product_delete
+BEFORE DELETE ON products
+FOR EACH ROW
+EXECUTE FUNCTION archive_product_trigger();`
+            }
+        };
+
+        let currentProblem = null;
+
+        function switchTab(tab) {
+            const theoryTab = document.getElementById('theoryTab');
+            const practiceTab = document.getElementById('practiceTab');
+            const theoryContent = document.getElementById('theoryContent');
+            const practiceContent = document.getElementById('practiceContent');
+
+            if (tab === 'theory') {
+                theoryTab.className = 'flex-1 py-3 px-4 rounded-lg font-medium transition-all tab-active';
+                practiceTab.className = 'flex-1 py-3 px-4 rounded-lg font-medium transition-all tab-inactive';
+                theoryContent.className = 'space-y-6 display-block';
+                practiceContent.className = 'display-none';
+            } else {
+                theoryTab.className = 'flex-1 py-3 px-4 rounded-lg font-medium transition-all tab-inactive';
+                practiceTab.className = 'flex-1 py-3 px-4 rounded-lg font-medium transition-all tab-active';
+                theoryContent.className = 'space-y-6 display-none';
+                practiceContent.className = 'display-block';
+                document.getElementById('problemList').className = 'grid md:grid-cols-3 gap-6 display-grid';
+                document.getElementById('problemDetails').className = 'bg-white rounded-xl shadow-md p-6 display-none';
+            }
+        }
+
+        function selectProblem(id) {
+            currentProblem = id;
+            const problem = problems[id];
+            const detailsDiv = document.getElementById('problemDetails');
+            
+            detailsDiv.innerHTML = `
+                <button onclick="goBack()" class="text-blue-500 hover:text-blue-700 mb-4">← Orqaga</button>
+                
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">${problem.title}</h2>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium ${problem.difficultyClass}">
+                        ${problem.difficulty}
+                    </span>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-semibold text-gray-700 mb-2">Vazifa:</h3>
+                    <p class="text-gray-600 mb-4">${problem.description}</p>
+                    
+                    <h3 class="font-semibold text-gray-700 mb-2">Jadvallar tuzilmasi:</h3>
+                    <pre class="bg-gray-50 p-4 rounded-lg text-sm text-gray-700 mb-4 whitespace-pre-line">${problem.tables}</pre>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                        <p class="text-sm text-blue-800">
+                            💡 <strong>Maslahat:</strong> ${problem.hint}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-semibold text-gray-700 mb-2">
+                        Sizning yechimingiz:
+                    </label>
+                    <textarea id="userAnswer" placeholder="SQL trigger kodini yozing..." class="w-full h-64 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                </div>
+
+                <button onclick="checkAnswer()" class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors font-semibold">
+                    Tekshirish
+                </button>
+                
+                <div id="resultDiv"></div>
+            `;
+
+            document.getElementById('problemList').className = 'grid md:grid-cols-3 gap-6 display-none';
+            detailsDiv.className = 'bg-white rounded-xl shadow-md p-6 display-block';
+        }
+
+        function goBack() {
+            document.getElementById('problemList').className = 'grid md:grid-cols-3 gap-6 display-grid';
+            document.getElementById('problemDetails').className = 'bg-white rounded-xl shadow-md p-6 display-none';
+            currentProblem = null;
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('userAnswer').value.trim().toLowerCase().replace(/\s+/g, ' ');
+            const problem = problems[currentProblem];
+            
+            const isCorrect = userAnswer.includes('create trigger') && 
+                             userAnswer.includes('returns trigger') &&
+                             userAnswer.includes('execute function');
+
+            const resultDiv = document.getElementById('resultDiv');
+            const svgIcon = isCorrect ? 
+                '<svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' :
+                '<svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+            
+            resultDiv.innerHTML = `
+                <div class="mt-6 p-6 rounded-lg ${isCorrect ? 'bg-green-50 border-2 border-green-500' : 'bg-yellow-50 border-2 border-yellow-500'}">
+                    <div class="flex items-center gap-3 mb-4">
+                        ${svgIcon}
+                        <h3 class="text-xl font-bold">
+                            ${isCorrect ? 'Ajoyib! To\'g\'ri yechim!' : 'Yaqin, lekin to\'liq emas'}
+                        </h3>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-4">
+                        ${isCorrect 
+                            ? 'Siz trigger yaratishni to\'g\'ri bajardingiz!' 
+                            : 'To\'g\'ri yechimni ko\'rib chiqing va qayta urinib ko\'ring.'}
+                    </p>
+
+                    <details class="mt-4">
+                        <summary class="cursor-pointer font-semibold text-gray-700 hover:text-gray-900">
+                            To'g'ri yechimni ko'rish
+                        </summary>
+                        <pre class="mt-4 bg-white p-4 rounded-lg text-sm overflow-x-auto border border-gray-200">${problem.answer}</pre>
+                    </details>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

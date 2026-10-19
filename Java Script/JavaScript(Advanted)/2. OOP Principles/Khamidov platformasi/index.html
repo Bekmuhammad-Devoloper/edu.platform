@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="frontend.css" />
+
+    <link rel="icon" href="/icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">Inheritance (meros olish)</h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>🔰 Ta’rif: <br>
+                                Inheritance (meros olish) — bu bir klass (child/avlod) boshqa klassdan (parent/ota-ona)
+                                xususiyat va metodlarni olishidir.</p>
+                            <br>
+
+                        </li>
+                        <li>
+                            <p>✅ extends — texnik vosita
+                                JavaScript’da extends — bu child klassni parent klassdan meros qilish uchun ishlatiladi.
+                            </p>
+                            <br>
+                            <p>Namuna: </p>
+                            <pre>
+                            class Animal {
+                            eat() {
+                                console.log("Hayvon ovqatlanmoqda");
+                            }
+                            }
+                            
+                            class Dog extends Animal {
+                                bark() {
+                                console.log("Vov-vov");
+                                }
+                            }
+                            
+                            const dog = new Dog();
+                            dog.eat();  
+                            dog.bark(); 
+                            </pre>
+                        </li>
+                        <li>
+                            <p>✅ super — ota-ona klassga murojaat <br>
+                                <br> 📌 Nima qiladi?
+                                <br> super() bu — ota klassning constructor'ini chaqiradi
+
+                                <br>Farzand klassda constructor yozilgan bo‘lsa, super() chaqirilishi majburiy
+                            </p>
+                            <p>Namuna: </p>
+                            <pre>
+                                class Animal {
+                                    constructor(name) {
+                                        this.name = name;
+                                    }
+                                }
+                                
+                                class Dog extends Animal {
+                                    constructor(name, breed) {
+                                     super(name); // super orqali Animal constructori chaqirilyapti
+                                        this.breed = breed;
+                                    }
+                                
+                                    info() {
+                                    console.log(`${this.name} - bu ${this.breed} zotidagi it.`);
+                                    }
+                                }
+                                
+                                const myDog = new Dog("Sharik", "Ovcharka");
+                                 myDog.info(); // Sharik - bu Ovcharka zotidagi it.
+                                </pre>
+                        </li>
+                        <li>
+                            <h3>Amaliyot(Inheritance)</h3>
+                            <ol>
+                                <li>
+                                    <p>Transport vositalari</p>
+                                    <p>Masala sharti: <br><br>
+
+                                        Bizda Transport degan umumiy tushuncha bor. Mashina, Velosiped, Mototsikl —
+                                        barchasi Transport turiga kiradi.
+                                        Har bir transportda: <br><br>
+                                        🎯 harakatlanish (move) funksiyasi bor, <br>
+
+                                        🎯 lekin ularning harakatlanishi har xil.</p>
+                                    <p>🎯 Maqsad: <br>
+                                        Transport degan ota klass bo‘lsin. Car, Bicycle, Motorcycle degan bolalar <br>
+                                        klasslari undan meros olsin va o‘zlariga xos harakatini yozsin.</p>
+                                </li>
+                                <li>
+                                    <p>Hayvonlar</p>
+                                    <p>Masala sharti: <br><br>
+                                        Bizda Hayvon (Animal) degan umumiy tushuncha bor. It, Mushuk va Quyon —
+                                        barchasi Hayvon turiga kiradi.
+                                        Har bir hayvonda: <br><br>
+
+                                        🎯 ovoz chiqarish (makeSound) funksiyasi bor, <br>
+
+                                        🎯 lekin ularning ovoz chiqarishi turlicha.</p>
+
+                                    <p>🎯 Maqsad: <br> Animal degan ota klass bo‘lsin. Dog, Cat, Rabbit degan bolalar
+                                        <br> klasslari undan meros olsin va o‘zlariga xos ovozini chiqarsin.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>🏠 Uy-joy tizimi</p>
+                                    <p><strong>Masala sharti:</strong> <br><br> Bizda <code>House</code> degan umumiy
+                                        tushuncha bor. <code>Apartment</code>, <code>Villa</code>, <code>Hostel</code> —
+                                        barchasi House turiga kiradi.<br> Har bir uyda: <br><br> 🎯
+                                        <code>describe()</code> funksiyasi bor, <br> 🎯 lekin ularning tavsifi har xil.
+                                    </p>
+                                    <p><strong>🎯 Maqsad:</strong><br> <code>House</code> degan ota klass bo‘lsin.
+                                        <code>Apartment</code>, <code>Villa</code>, <code>Hostel</code> klasslari undan
+                                        meros olsin va har biri o‘ziga xos <code>describe()</code> metodini yozsin.
+                                    </p>
+                                    <p>constructor <br>
+                                        House => adress <br>
+                                        Apaertment => address,floor("Main St", 5) <br>
+                                        Villa => address,hasGarden("Sunshine Ave", true) <br>
+                                        hostel => address,capacity("University Rd", 100)</p>
+                                </li>
+                                <li>
+                                    <p><strong>To‘lov tizimi</strong></p>
+                                    <p><strong>Masala sharti:</strong> <br><br>
+                                        Bugungi kunda turli xil to‘lov usullari mavjud: Naqd pul, Plastik karta, Onlayn
+                                        to‘lov.<br><br>
+
+                                        Har bir to‘lov turi uchun: <br><br>
+                                        🎯 to‘lash (pay) funksiyasi bo‘lishi kerak, <br>
+                                        🎯 lekin to‘lash usuli har xil.
+
+                                    </p>
+                                    <p><strong>🎯 Maqsad:</strong><br> `Payment` degan ota klass bo‘lsin. `Cash`,
+                                        `Card`, `OnlinePayment` klasslari undan meros olsin va o‘ziga xos `pay()`
+                                        metodini yozsin.</p>
+                                </li>
+                                <li>
+                                    <p><strong>O‘quv tizimi</strong></p>
+                                    <p><strong>Masala sharti:</strong> <br><br>
+                                        O‘qituvchilar, Talabalar va Ma’murlar o‘quv tizimidagi asosiy rollardir. Ular
+                                        barcha "Shaxs" degan umumiy tushunchaga kiradi.<br><br>
+
+                                        Har bir shaxsda: <br><br>
+                                        🎯 tanishtirish (introduce) funksiyasi bo‘lishi kerak, <br>
+                                        🎯 lekin har biri o‘zini boshqacha tanishtiradi.
+
+                                    </p>
+                                    <p><strong>🎯 Maqsad:</strong><br> `Person` degan ota klass bo‘lsin. `Teacher`,
+                                        `Student`, `Admin` klasslari undan meros olsin va o‘zlariga xos `introduce()`
+                                        metodini yozsin.</p>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Polymorphism (polimorfizm)</h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Polymorphism - (Poly kop, Morph shakl,qiyofa) Yani, "Bir narsa bir nechta shaklga ega"
+                                degan manoni beradi.</p>
+
+                        </li>
+                        <li>
+                            <p>Method Overriding — Polymorphism'ning yuragi</p>
+                            <p>🎯 Ta’rif:
+                                Farzand klass, ota klassdagi metodni o‘zicha qayta yozsa, bu method overriding bo‘ladi.
+                            </p>
+                            <p>Namuna: </p>
+                            <pre>
+                                class Animal {
+                                    speak() {
+                                    console.log("Hayvon tovush chiqaryapti");
+                                    }
+                                }
+                                
+                                class Dog extends Animal {
+                                    speak() {
+                                    console.log("It: vov-vov");
+                                    }
+                                }
+                                
+                                class Cat extends Animal {
+                                    speak() {
+                                    console.log("Mushuk: miyov-miyov");
+                                    }
+                                }
+                                
+                                let animals = [new Dog(), new Cat()];
+                                animals.forEach(a => a.speak());
+                                </pre>
+                        </li>
+                        <li>
+                            <p>Super bilan ota klass metodini saqlab qolish</p>
+                            <p>Agar siz ota klass metodini ham bajarib, ustiga qo‘shmoqchi bo‘lsangiz:</p>
+                            <p>Namuna: </p>
+                            <pre>
+                                class Animal {
+                                    speak() {
+                                    console.log("Hayvon tovush chiqaryapti");
+                                    }
+                                }
+                                
+                                class Parrot extends Animal {
+                                    speak() {
+                                    super.speak(); // ota klassdagi metodni ham chaqiradi
+                                    console.log("Tutu: qiq-qiq!");
+                                    }
+                                }
+                                
+                                const bird = new Parrot();
+                                bird.speak();
+                                </pre>
+                        </li>
+                        <li>
+                            <p>Abstraksiya + Polymorphism kuchli juftlik</p>
+                            <p>Namuna: </p>
+                            <pre>
+                                class Employee {
+                                    work() {
+                                    console.log("Ishlayapman...");
+                                        }
+                            }
+                                
+                                class Developer extends Employee {
+                                    work() {
+                                    console.log("Men dastur yozayapman");
+                                    }
+                                }
+                                
+                                class Designer extends Employee {
+                                    work() {
+                                    console.log("Men dizayn chizayapman");
+                                    }
+                                }
+                                
+                                function doWork(employee) {
+                                    employee.work();
+                                }
+                                
+                                doWork(new Developer()); 
+                                doWork(new Designer()); 
+                                </pre>
+                        </li>
+                        <h3>Amaliyot(Polymorphism)</h3>
+                        <ol>
+                            <li>
+                                <p>Hayvonlar ovozi</p>
+                                <p>Masala sharti: <br><br>
+                                    Bizda hayvonlar degan umumiy tushuncha bor. Har bir hayvon o‘ziga xos ovoz
+                                    chiqaradi.<br><br>
+                                    Hayvon (Animal) — ota klass bo‘lib, unda "sound()" degan umumiy metod bo‘ladi.<br>
+                                    Lekin bu metodni har bir hayvon o‘zicha ishlatadi:
+                                    <br><br>
+                                    🐶 It — “Vov-vov” deydi <br>
+                                    🐱 Mushuk — “Miyov” deydi <br>
+                                    🐮 Sigir — “Mo‘” deydi
+                                </p>
+                                <p>🎯 Maqsad: <br>
+                                    Polymorphism orqali Animal klassidan meros olgan Dog, Cat, Cow klasslarida "sound()"
+                                    funksiyasini o‘ziga xos tarzda qayta yozing (override qiling).
+                                </p>
+                            </li>
+                            <li>
+                                <p>Matematika amallari</p>
+                                <p>Masala sharti: <br><br>
+                                    Bizda matematik operatsiyalar mavjud: qo‘shish, ayirish, ko‘paytirish,
+                                    bo‘lish.<br><br>
+                                    Har bir amal bir xil metod nomini ishlatadi, lekin natijasi har xil bo‘ladi.
+                                </p>
+                                <p>🎯 Maqsad: <br>
+                                    Calculation (Hisob) degan ota klass yarating. Undan Add, Subtract, Multiply, Divide
+                                    klasslari meros olsin.<br>
+                                    Har birida "calculate(a, b)" metodini qayta yozing va o‘ziga mos amalni bajaring.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Shakllarning yuzasini hisoblash</p>
+                                <p>Masala sharti: <br><br> Shape (Shakl) degan umumiy tushuncha bor. Har bir shakl:
+                                    To‘g‘ri to‘rtburchak (Rectangle), Aylana (Circle), Uchburchak (Triangle) — bu shakl
+                                    turlari. Har bir shakl: <br><br> 🎯 `getArea()` metodiga ega bo‘lishi kerak. <br> 🎯
+                                    Lekin bu metod har bir shaklda har xil ishlaydi. </p>
+                                <p>🎯 Maqsad: <br> Shape degan ota klass yarating. Rectangle, Circle, Triangle undan
+                                    meros olib, `getArea()` metodini o‘ziga mos qilib qayta yozsin. </p>
+                            </li>
+                        </ol>
+                    </ol>
+
+                </div>
+
+
+            </li>
+
+            <li>
+                <h2 class="accordion">Encapsulation (inkapsulyatsiya)
+                </h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>🧠 Ta’rif (oddiy tilda):<br>
+                                Encapsulation — bu obyektning ichki ma'lumotlarini yashirish va ularni faqat maxsus<br>
+                                metodlar orqali boshqarish.</p>
+                        </li>
+                        <li>
+                            <p>🧃 Tasavvur qiling: sharbatsiz plastik butilka bor:<br>
+                                Ichida sharbat (ma’lumot) bor.<br>
+                                Siz uni qopqog‘ini ochmasdan to‘g‘ridan-to‘g‘ri sharbatni icha olmaysiz.<br>
+                                Siz faqat qopqog‘i orqali ichishingiz mumkin.</p>
+                        </li>
+                        <li>
+                            <p>🔐 Maxfiy (private) property:<br>
+                                JavaScript ES2022 dan boshlab # orqali private property yaratish imkonini beradi.</p>
+                            <p>Namuna: </p>
+                            <pre>
+                                    class BankAccount {
+                                        #balance = 0; 
+                                
+                                        deposit(amount) {
+                                        if (amount > 0) {
+                                        this.#balance += amount;
+                                        }
+                                    }
+                                
+                                    getBalance() {
+                                        return this.#balance;
+                                        }
+                                }
+                                
+                                const acc = new BankAccount();
+                                acc.deposit(100);
+                                console.log(acc.getBalance()); // ✅ 100
+                                console.log(acc.#balance);     // ❌ Xatolik: private o‘zgaruvchi
+                                </pre>
+                        </li>
+                        <li>
+                            <p>Getter va Setter metodlari <br>
+                                Agar siz private property yaratgan bo‘lsangiz, unga faqat getter/setter metodlar orqali
+                                <br>
+                                murojaat qilasiz.
+                            </p>
+                            <p>Namuna: </p>
+                            <pre>
+                                    class User {
+                                        #password;
+                                        
+                                        constructor(username, password) {
+                                        this.username = username;
+                                        this.#password = password;
+                                        }
+                                        
+                                        getPassword() {
+                                            return '******';
+                                            }
+                                    
+                                        setPassword(newPass) {
+                                            if (newPass.length >= 6) {
+                                            this.#password = newPass;
+                                            } else {
+                                            console.log("Parol juda qisqa!");
+                                                }
+                                            }
+                                        }
+                                        
+                                        const user = new User("bekmuhammad", "123456");
+                                        console.log(user.getPassword()); 
+                                    
+                                        user.setPassword("123");   
+                                        user.setPassword("abcdef"); 
+                                    </pre>
+                        </li>
+                        <h3>Amaliyot(Encapsulation)</h3>
+                        <ol>
+                            <li>
+                                <p>Bank Hisob Raqami</p>
+                                <p>Masala sharti: <br><br> Bank tizimida foydalanuvchining hisob raqami va balansiga
+                                    doir ma’lumotlar mavjud. <br> Foydalanuvchi balansni to‘g‘ridan-to‘g‘ri o‘zgartira
+                                    olmaydi. Buning uchun maxsus metodlar orqali pul qo‘shiladi yoki yechiladi. </p>
+                                <p>🎯 Maqsad: <br> Account degan klass yarating. Unda quyidagi metodlar bo‘lsin:
+                                <ul>
+                                    <li>balance property — private bo‘lsin</li>
+                                    <li>getBalance() — balansni olish</li>
+                                    <li>deposit(amount) — balansga pul qo‘shish</li>
+                                    <li>withdraw(amount) — balansdan pul yechish, lekin balans yetmasa xatolik qaytarsin
+                                    </li>
+                                </ul> Maqsad — Encapsulation yordamida ma’lumotlarni himoyalash va nazoratli kirishni
+                                ta’minlash. </p>
+                            </li>
+                            <li>
+                                <p>🎓 Talaba Reytingi</p>
+                                <p>Masala sharti: <br><br> Universitet tizimida talabalar baholari asosida reyting
+                                    hisoblanadi. <br> Talaba baholarini tashqi manbadan to‘g‘ridan-to‘g‘ri o‘zgartirib
+                                    bo‘lmaydi. Ularni faqat metod orqali qo‘shish va o‘rtacha bahoni olish mumkin.</p>
+                                <p>🎯 Maqsad: <br> Student degan klass yarating. Unda quyidagi metodlar bo‘lsin:
+                                <ul>
+                                    <li>grades property — private bo‘lsin (array shaklida)</li>
+                                    <li>addGrade(grade) — baho qo‘shish</li>
+                                    <li>getAverageGrade() — o‘rtacha bahoni hisoblash</li>
+                                    <li>getGrades() — barcha baholar ro‘yxatini olish</li>
+                                </ul> Maqsad — Encapsulation yordamida baholarni tashqi manipulyatsiyalardan himoyalash
+                                va ularni faqat nazoratli metodlar orqali boshqarish. </p>
+                            </li>
+                            <li>
+                                <p>📦 Ombor Tizimi</p>
+                                <p>Masala sharti: <br><br> Omborxona tizimida mahsulot zaxiralari yuritiladi. <br> Har
+                                    bir mahsulot sonini to‘g‘ridan-to‘g‘ri o‘zgartirish mumkin emas, faqat belgilangan
+                                    metodlar orqali ko‘paytirish yoki kamaytirish mumkin.</p>
+                                <p>🎯 Maqsad: <br> Warehouse degan klass yarating. Unda quyidagi metodlar bo‘lsin:
+                                <ul>
+                                    <li>stock property — private bo‘lsin</li>
+                                    <li>getStock() — mavjud zaxirani olish</li>
+                                    <li>addStock(amount) — mahsulot qo‘shish</li>
+                                    <li>removeStock(amount) — mahsulot kamaytirish, agar zaxira yetmasa xatolik
+                                        qaytarsin</li>
+                                </ul> Maqsad — Encapsulation orqali ombor zaxirasini xavfsiz boshqarish va noto‘g‘ri
+                                o‘zgarishlardan saqlash. </p>
+                            </li>
+                        </ol>
+                    </ol>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Abstraction (abstraksiya)
+                </h2>
+                <div class="panel">
+                    <ol>
+                        <li>
+                            <p>Abstraction — bu murakkab tizimdagi faqat muhim tafsilotlarni ko‘rsatish va keraksiz
+                                detallarni yashirishdir.</p>
+                            <p>Hayotiy misol</p>
+                            <p>Siz televizor pultidagi power tugmasini bosasiz — ichida nima bo‘layotgani sizga
+                                ahamiyatli emas. Faqat “TV yoqildi” desangiz bo‘ldi.</p>
+                            <pre>
+                                        class TV {
+                                            #isPowered = false; 
+                                    
+                                        turnOn() {
+                                            this.#connectToPower();
+                                            this.#loadSystem();
+                                            this.#showDisplay();
+                                            console.log("TV yoqildi ✅");
+                                            }
+                                    
+                                         // Quyidagilar abstraction qilingan (yashirilgan):
+                                            #connectToPower() {
+                                            console.log("Quvvat ulanmoqda...");
+                                            }
+                                    
+                                            #loadSystem() {
+                                            console.log("Sistema yuklanmoqda...");
+                                            }
+                                    
+                                            #showDisplay() {
+                                            console.log("Ekran yondi...");
+                                            }
+                                        }
+                                    
+                                            const tv = new TV();
+                                            tv.turnOn(); // Faqat turnOn orqali TV yoqiladi
+                                    </pre>
+                        </li>
+                        <h3>Amaliyot(Abstraction)</h3>
+                        <ol>
+                            <li>
+                                <p><strong>Hujjatlarni saqlash tizimi</strong></p>
+                                <p> 📄 Masala sharti: Fayllarni saqlashda turli formatlar bo‘lishi mumkin: Word (.docx),
+                                    PDF, Excel. Har biri faylni saqlashni boshqacha amalga oshiradi. <br><br> 🎯 Maqsad:
+                                    <br> `Document` degan abstract klass yarating, unda `save()` abstract metod bo‘lsin.
+                                    <br> `WordDocument`, `PDFDocument`, `ExcelDocument` sinflari `Document`dan meros
+                                    olib, `save()` metodini o‘zlariga mos yozib chiqsin.
+                                </p>
+                            </li>
+                            <li>
+                                <p><strong>Hayvonlar dunyosi</strong></p>
+                                <p><strong>Masala sharti:</strong><br><br> Har bir hayvon harakatlanadi, lekin
+                                    harakatlanish usuli farq qiladi: qushlar ucha oladi, baliqlar suzadi, toshbaqalar
+                                    esa yuradi.<br><br> 🎯 Har bir hayvon `move()` metodiga ega, lekin uni har biri
+                                    o‘zicha bajaradi. </p>
+                                <p><strong>🎯 Maqsad:</strong><br> `Animal` nomli ota klass yarating. `Bird`, `Fish`,
+                                    `Turtle` klasslari undan meros olib, o‘zlariga xos `move()` metodini amalga
+                                    oshirsin.</p>
+                            </li>
+                            <li>
+                                <p><strong>Chizmalar (Shapes)</strong></p>
+                                <p><strong>Masala sharti:</strong><br><br> To‘g‘ri to‘rtburchak, aylana va uchburchak
+                                    shakllari mavjud.<br><br> 🎯 Har biri `calculateArea()` (yuzani hisoblash) metodiga
+                                    ega. </p>
+                                <p><strong>🎯 Maqsad:</strong><br> `Shape` nomli ota klassdan `Rectangle`, `Circle`,
+                                    `Triangle` klasslari meros olib, `calculateArea()` metodini o‘zlariga moslab
+                                    yozishsin.</p>
+                            </li>
+                            <li>
+                                <p><strong>Foydalanuvchi rollari</strong></p>
+                                <p><strong>Masala sharti:</strong><br><br> Saytda 3 turdagi foydalanuvchilar bor: Admin,
+                                    O‘qituvchi va O‘quvchi.<br><br> 🎯 Har biri `getPermissions()` metodiga ega, lekin
+                                    ruxsatlari har xil. </p>
+                                <p><strong>🎯 Maqsad:</strong><br> `User` nomli abstrakt klass yarating. `Admin`,
+                                    `Teacher`, `Student` undan meros olib, `getPermissions()` ni o‘zlaricha yozishsin.
+                                </p>
+                            </li>
+                        </ol>
+                    </ol>
+
+
+                </div>
+            </li>
+
+            <li>
+                <h2 class="accordion">Uyga Vazifa</h2>
+                <div class="panel">
+                    <ol>
+                        <h3>Inheritance</h3>
+                        <li>
+                            <p><strong>Mehmonxona xonasi</strong></p>
+                            <p><strong>Masala sharti:</strong> <br><br>
+                                Mehmonxona xonalari turlicha bo‘lishi mumkin: Oddiy xona, Lyuks xona, Prezident
+                                lyuksi.<br><br>
+
+                                Har bir xona: <br><br>
+                                🎯 narx hisoblash (calculatePrice) funksiyasiga ega, <br>
+                                🎯 lekin har birining hisoblash usuli farq qiladi.
+
+                            </p>
+                            <p><strong>🎯 Maqsad:</strong><br> `Room` degan ota klass bo‘lsin. `StandardRoom`,
+                                `LuxuryRoom`, `PresidentialSuite` klasslari undan meros olsin va o‘zlariga xos
+                                `calculatePrice()` metodini yozsin.</p>
+                        </li>
+                        <li>
+                            <p>📦 <b>Elektron qurilmalar</b></p>
+                            <p>Masala sharti: <br><br>
+                                Bizda elektron qurilmalar degan umumiy tushuncha bor. Telefon, Noutbuk, Planshet —
+                                barchasi <br>
+                                qurilma hisoblanadi. Har bir qurilma: <br><br>
+
+                                🎯 yoqiladi (turnOn),<br>
+                                🎯 lekin har birining yoqilishi boshqacha xabar chiqaradi.
+                            </p>
+                            <p>🎯 Maqsad: <br> Device degan ota klass bo‘lsin. Phone, Laptop, Tablet degan bolalar <br>
+                                klasslari undan meros olsin va o‘zlariga xos yoqilish funksiyasini yozsin.</p>
+                        </li>
+                        <li>
+                            <p>🏫 <b>Ta’lim muassasalari</b></p>
+                            <p>Masala sharti: <br><br>
+                                Bizda Ta’lim muassasasi degan tushuncha bor. Maktab, Universitet, O‘quv markazi —
+                                barchasi <br>
+                                o‘quv muassasasi hisoblanadi. Har birining: <br><br>
+
+                                🎯 o‘qitish uslubi (teach) mavjud, <br>
+                                🎯 lekin o‘qitish uslublari har xil.
+                            </p>
+                            <p>🎯 Maqsad: <br> Education degan ota klass bo‘lsin. School, University, Academy degan
+                                bolalar <br> klasslari undan meros olsin va o‘zlariga xos o‘qitish funksiyasini yozsin.
+                            </p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>Polymorphism</h3>
+                        <li>
+                            <p>Musical Instruments (Musiqa asboblari)</p>
+                            <p>Masala sharti: <br><br> Tasavvur qilaylik, bizda Musiqa asboblari degan umumiy tushuncha
+                                mavjud. <br> Gitara, Pianino, Baraban — barchasi musiqa asboblariga kiradi. <br><br> 🎯
+                                Har bir musiqa asbobi “play()” funksiyasiga ega, lekin har biri o‘ziga xos ohangda
+                                chalaydi. </p>
+                            <p>🎯 Maqsad: <br> Instrument degan ota klass bo‘lsin. Guitar, Piano, Drum klasslari undan
+                                meros olsin <br> va o‘zlariga xos “play()” metodini yozsin. </p>
+                        </li>
+                        <li>
+                            <p>To‘lov tizimi</p>
+                            <p>Masala sharti: <br><br> Onlayn xarid qilishda turli xil to‘lov usullari mavjud. Karta,
+                                Payme, Click — bularning barchasi "To‘lov" tizimiga kiradi. Har bir usulda to‘lov qilish
+                                usuli mavjud. <br><br> 🎯 Har bir to‘lov usulida `pay()` funksiyasi bo‘ladi, <br> 🎯
+                                lekin har birida u boshqacha ishlaydi. </p>
+                            <p>🎯 Maqsad: <br> Payment degan ota klass bo‘lsin. Card, Click, Payme degan bolalar
+                                sinflari undan meros olib, o‘zlariga xos `pay()` metodini yozishsin.</p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>Encapsulation</h3>
+                        <li>
+                            <p><strong>Transport vositalari</strong></p>
+                            <p> Masala sharti: <br><br> Avtobus, mashina va mototsikl harakatlanadi, lekin har birining
+                                harakatlanish usuli boshqacha: biri sekin yuradi, biri tez, biri esa shovqin bilan. Har
+                                biri `move()` funksiyasini ishlatadi. <br><br> 🎯 Ularning barchasi `Vehicle` nomli ota
+                                klassdan meros oladi, <br> 🎯 Har bir transport `move()` metodini o‘ziga xos tarzda
+                                amalga oshiradi. </p>
+                            <p> 🎯 Maqsad: <br> Transportlar uchun umumiy `Vehicle` klassini yozing va undan `Car`,
+                                `Bus`, `Motorcycle` klasslari meros olib, `move()` metodini farqli tarzda bajarishsin.
+                            </p>
+                        </li>
+                        <li>
+                            <p>📚 <strong>Darsliklar tizimi</strong></p>
+                            <p> 📌 Masala sharti: <br>
+                                Book degan umumiy klass bo‘ladi.<br>
+                                
+                                Undan MathBook, PhysicsBook, HistoryBook klasslari meros oladi.<br>
+                                
+                                Har bir subclass getContent() funksiyasini o‘ziga xos qiladi.<br>
+                                
+                                Encapsulation uchun #title va #author kabi xususiy (private) propertylar ishlatiladi.<br>
+                            </p>
+                            <p> 🎯 Maqsad: <br> `Book` degan ota klass yarating. `MathBook`, `PhysicsBook`,
+                                `HistoryBook` degan klasslar undan meros olib, o‘zlarining `getContent()` metodlarini
+                                yozishsin. </p>
+                        </li>
+                    </ol>
+                    <ol>
+                        <h3>Abstraction</h3>
+                        <li>
+                            <p><strong>Elektron qurilmalar</strong></p>
+                            <p><strong>Masala sharti:</strong><br><br> Qurilmalarning har biri o‘z usulida yoqiladi:
+                                Kompyuter, Telefon, Televizor.<br><br> 🎯 Har biri `powerOn()` metodiga ega. </p>
+                            <p><strong>🎯 Maqsad:</strong><br> `Device` nomli abstrakt klassdan `Computer`, `Phone`,
+                                `TV` klasslari meros olib, `powerOn()` metodini o‘zlariga mos yozishsin.</p>
+                        </li>
+                        <li>
+                            <p><strong>Online darslar</strong></p>
+                            <p><strong>Masala sharti:</strong><br><br> Darslar turi: Video dars, Matnli dars, Interaktiv
+                                dars.<br><br> 🎯 Har biri `startLesson()` metodiga ega. </p>
+                            <p><strong>🎯 Maqsad:</strong><br> `Lesson` nomli ota klass yarating. `VideoLesson`,
+                                `TextLesson`, `InteractiveLesson` undan meros olib, `startLesson()` metodini yozishsin.
+                            </p>
+                        </li>
+                        <li>
+                            <p><strong>Bank hisob raqamlari</strong></p>
+                            <p><strong>Masala sharti:</strong><br><br> Bankda turli hisoblar mavjud: Oddiy hisob,
+                                Depozit, Kredit hisobi.<br><br> 🎯 Har biri `calculateInterest()` metodiga ega, lekin
+                                foiz hisoblash tartibi farq qiladi. </p>
+                            <p><strong>🎯 Maqsad:</strong><br> `BankAccount` nomli ota klassdan `SavingsAccount`,
+                                `DepositAccount`, `CreditAccount` meros olib, `calculateInterest()` metodini o‘zlaricha
+                                yozishsin.</p>
+                        </li>
+                    </ol>
+                  
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="social-links">
+        <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+
+    </div>
+    </div>
+    <canvas id="floatingWordsCanvas"></canvas>
+    <script src="frontend.js"></script>
+
+
+    <script src="./script3.js"></script>
+    <script src="./script4.js"></script>
+    <script src="./hover.js"></script>
+</body>
+
+</html>

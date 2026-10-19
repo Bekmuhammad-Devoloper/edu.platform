@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL - Vizual Qo'llanma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <div class="logo">
+                <span class="logo-icon">🐘</span>
+                PostgreSQL Vizual
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('home')">Bosh sahifa</button>
+                <button class="nav-tab" onclick="showSection('function')">Function</button>
+                <button class="nav-tab" onclick="showSection('procedure')">Procedure</button>
+                <button class="nav-tab" onclick="showSection('trigger')">Trigger</button>
+                <button class="nav-tab" onclick="showSection('compare')">Taqqoslash</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- HOME SECTION -->
+            <section id="home" class="section active">
+                <div class="hero">
+                    <h1>PostgreSQL <span>Advanced</span><br>Konseptlarni O'rganing</h1>
+                    <p>Function, Procedure va Trigger nima ekanligini vizual tarzda tushuning</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="concept-card function" onclick="showSection('function')">
+                        <div class="card-icon">ƒ</div>
+                        <h3 class="card-title">Function</h3>
+                        <p class="card-desc">Kirish oladi, hisoblaydi va natija qaytaradi. Matematikadagi funksiya kabi.</p>
+                        <span class="card-tag">📤 Qiymat qaytaradi</span>
+                    </div>
+
+                    <div class="concept-card procedure" onclick="showSection('procedure')">
+                        <div class="card-icon">⚙️</div>
+                        <h3 class="card-title">Procedure</h3>
+                        <p class="card-desc">Vazifalarni bajaradi, ma'lumotlarni o'zgartiradi. Oshpaz kabi.</p>
+                        <span class="card-tag">🔧 Amal bajaradi</span>
+                    </div>
+
+                    <div class="concept-card trigger" onclick="showSection('trigger')">
+                        <div class="card-icon">⚡</div>
+                        <h3 class="card-title">Trigger</h3>
+                <div class="visual-box mt-3">
+                <div class="visual-box visual-box-margin-top">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🎯</span>
+                        Qisqacha farq
+                    </h3>
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🎯</span>
+                        Qisqacha farq
+                    </h3>
+                    
+                    <div class="flow-diagram">
+                        <div class="flow-step input">
+                            <div class="flow-step-icon">📥</div>
+                            <div class="flow-step-label">Function</div>
+                            <div class="flow-step-value">"Hisoblaydi"</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step process">
+                            <div class="flow-step-icon">⚙️</div>
+                            <div class="flow-step-label">Procedure</div>
+                            <div class="flow-step-value">"Bajaradi"</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step event">
+                            <div class="flow-step-icon">⚡</div>
+                            <div class="flow-step-label">Trigger</div>
+                            <div class="flow-step-value">"Kuzatadi"</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FUNCTION SECTION -->
+            <section id="function" class="section">
+                <button class="back-btn" onclick="showSection('home')">← Ortga</button>
+                
+                <div class="section-hero">
+                    <div class="section-icon blue">ƒ</div>
+                    <h1 class="section-title">Function nima?</h1>
+                    <p class="section-subtitle">Function - bu kirish ma'lumotini olib, uni qayta ishlab, natija qaytaruvchi kod bloki</p>
+                </div>
+
+                <div class="visual-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🔄</span>
+                        Function qanday ishlaydi?
+                    </h3>
+                    
+                    <div class="flow-diagram">
+                        <div class="flow-step input">
+                            <div class="flow-step-icon">📥</div>
+                            <div class="flow-step-label">KIRISH</div>
+                            <div class="flow-step-value">Parametrlar</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step process">
+                            <div class="flow-step-icon">⚙️</div>
+                            <div class="flow-step-label">HISOBLASH</div>
+                            <div class="flow-step-value">Mantiq</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step output">
+                            <div class="flow-step-icon">📤</div>
+                            <div class="flow-step-label">CHIQISH</div>
+                            <div class="flow-step-value">Natija</div>
+                        </div>
+                    </div>
+
+                    <div class="analogy-box">
+                        <div class="analogy-title">💡 Hayotiy misol</div>
+                        <p class="analogy-text">
+                            Function - bu <strong>kalkulyator</strong> kabi. Siz raqamlarni kiritasiz (2 + 2), 
+                            u hisoblaydi va natija qaytaradi (4). Kalkulyator hech narsani o'zgartirmaydi, 
+                            faqat javob beradi.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visual-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">❓</span>
+                        Function nimaga kerak?
+                    </h3>
+                    
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <span class="use-case-icon">🔢</span>
+                            <div class="use-case-content">
+                                <h4>Hisoblash</h4>
+                                <p>Narxni, foizni, statistikani hisoblash</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">🔍</span>
+                            <div class="use-case-content">
+                                <h4>Ma'lumot olish</h4>
+                                <p>ID bo'yicha ma'lumot topish va qaytarish</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">✏️</span>
+                            <div class="use-case-content">
+                                <h4>Formatlash</h4>
+                                <div class="demo-code">
+                                    SELECT get_car_price(<span class="code-blue">1</span>);
+                                    <br><br>
+                                    <span class="code-dim">-- car_id = 1 (BMW)</span>
+                                </div>
+                            <div class="use-case-content">
+                                <h4>Tekshirish</h4>
+                                <p>Ma'lumot to'g'riligini tekshirish</p>
+                                <div class="demo-result">
+                                    <strong>10000</strong>
+                                    <br>
+                                    <span class="code-dim text-small">BMW ning narxi qaytdi</span>
+                                    SELECT get_car_price(<span class="code-blue">1</span>);
+                                    <br><br>
+                                    <span class="code-dim">-- car_id = 1 (BMW)</span>
+                                <div class="demo-code">
+                                    SELECT get_car_price(<span class="code-blue">1</span>);
+                                    <br><br>
+                                    <span class="code-dim">-- car_id = 1 (BMW)</span>
+                                </div>
+                                    <strong>10000</strong>
+                                    <br>
+                                    <span class="code-dim text-small">BMW ning narxi qaytdi</span>
+                                </div>
+                                <div class="demo-code">
+                                    SELECT get_car_price(<span class="code-blue">1</span>);
+                                    <br><br>
+                                    <span class="code-dim">-- car_id = 1 (BMW)</span>
+                                </div>
+                            </div>
+                            <div class="demo-output">
+                                <div class="demo-label">📤 NATIJA</div>
+                                <div class="demo-result">
+                                    <strong>10000</strong>
+                                    <br>
+                                    <span class="result-span">BMW ning narxi qaytdi</span>
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                            <div class="use-case-content">
+                                <h4>Qiymat qaytaradi</h4>
+                                <p>Har doim RETURN qilishi kerak</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                            <div class="use-case-content">
+                                <h4>TABLE qaytarishi mumkin</h4>
+                                <p>Bir nechta qator qaytaradi</p>
+                            </div>
+                        </div>
+                                <h4>Transaction boshqara olmaydi</h4>
+                                <p>COMMIT/ROLLBACK ishlatib bo'lmaydi</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                            <div class="use-case-content">
+                                <h4>TABLE qaytarishi mumkin</h4>
+                                <p>Bir nechta qator qaytaradi</p>
+                            </div>
+                        </div>
+                    </div>
+                            <div class="use-case-content">
+                                <h4>Transaction boshqara olmaydi</h4>
+                                <p>COMMIT/ROLLBACK ishlatib bo'lmaydi</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green-check">✓</span>
+                            <div class="use-case-content">
+                                <h4>TABLE qaytarishi mumkin</h4>
+                                <p>Bir nechta qator qaytaradi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FUNCTION PRACTICE -->
+                <div class="visual-box practice-box-function">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🎯</span>
+                        Amaliy mashqlar - FUNCTION
+                    </h3>
+                    
+                    <div class="practice-list">
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num">1</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Umumiy qiymatni hisoblash</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>get_total_value</strong> nomli function yozing.</p>
+                                    <ul>
+                                        <li>Kirish: <code>car_id INT</code> - mashina ID si</li>
+                                        <li>Chiqish: <code>INT</code> - shu mashina uchun umumiy qiymat</li>
+                                        <li>Hisoblash: <code>price * count</code></li>
+                                        <li>Agar mashina topilmasa, 0 qaytsin</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>SELECT get_total_value(1);</code> → <code>500000</code> (BMW: 10000 × 50)
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE FUNCTION get_total_value(p_car_id INT)
+   RETURNS INT
+   LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   total INT;
+BEGIN
+   SELECT price * count INTO total
+   FROM hw4.cars
+   WHERE id = p_car_id;
+   
+   IF total IS NULL THEN
+      RETURN 0;
+   END IF;
+   
+   RETURN total;
+END;
+$$;
+
+-- Ishlatish:
+SELECT get_total_value(1);  -- BMW: 10000 * 50 = 500000
+SELECT get_total_value(3);  -- TOYOTA: 8000 * 1000 = 8000000
+SELECT get_total_value(999); -- 0 (mavjud emas)</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num">2</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Eng qimmat mashina</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>get_most_expensive_car</strong> nomli function yozing.</p>
+                                    <ul>
+                                        <li>Kirish: parametr yo'q</li>
+                                        <li>Chiqish: <code>VARCHAR(255)</code> - eng qimmat mashina nomi</li>
+                                        <li>Eng yuqori <code>price</code> ga ega mashinani toping</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>SELECT get_most_expensive_car();</code> → <code>'ROLLS ROYCE'</code> (narxi 20000)
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE FUNCTION get_most_expensive_car()
+   RETURNS VARCHAR(255)
+   LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   car_name VARCHAR(255);
+BEGIN
+   SELECT model INTO car_name
+   FROM hw4.cars
+   ORDER BY price DESC
+   LIMIT 1;
+   
+   RETURN car_name;
+END;
+$$;
+
+-- Ishlatish:
+SELECT get_most_expensive_car();  -- 'ROLLS ROYCE'</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num">3</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Sotib olish imkoniyati</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>can_buy_count</strong> nomli function yozing.</p>
+                                    <ul>
+                                        <li>Kirish: <code>user_id INT</code>, <code>car_id INT</code></li>
+                                        <li>Chiqish: <code>INT</code> - user nechta mashina sotib olishi mumkin</li>
+                                        <li>User balansi va mashina narxiga qarang</li>
+                                        <li>Zaxiradagi sondan ko'p bo'lmasin</li>
+                                        <li>User yoki mashina topilmasa, 0 qaytsin</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>SELECT can_buy_count(1, 1);</code> → <code>10</code><br>
+                                        <small>user1 balansi: 100000, BMW narxi: 10000, zaxira: 50</small><br>
+                                        <small>100000 ÷ 10000 = 10 ta (zaxirada 50 ta bor, 10 qaytadi)</small>
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE FUNCTION can_buy_count(p_user_id INT, p_car_id INT)
+   RETURNS INT
+   LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   user_bal INT;
+   car_price INT;
+   car_available INT;
+   can_afford INT;
+BEGIN
+   -- User balansini olish
+   SELECT balance INTO user_bal FROM hw4.users WHERE id = p_user_id;
+   
+   -- Mashina ma'lumotlarini olish
+   SELECT price, count INTO car_price, car_available 
+   FROM hw4.cars WHERE id = p_car_id;
+   
+   -- Tekshiruvlar
+   IF user_bal IS NULL OR car_price IS NULL THEN
+      RETURN 0;
+   END IF;
+   
+   -- Qanchaga puli yetadi
+   can_afford := user_bal / car_price;
+   
+   -- Minimal qiymatni qaytarish (pul yoki zaxira)
+   IF can_afford < car_available THEN
+      RETURN can_afford;
+   ELSE
+      RETURN car_available;
+   END IF;
+END;
+$$;
+
+-- Ishlatish:
+SELECT can_buy_count(1, 1);  -- 10
+SELECT can_buy_count(4, 1);  -- 1 (user4 balansi: 10000)</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num">4</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Boylar ro'yxati (TABLE)</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>get_rich_users</strong> nomli function yozing.</p>
+                                    <ul>
+                                        <li>Kirish: <code>min_balance INT</code> - minimal balans</li>
+                                        <li>Chiqish: <code>TABLE(user_id, user_name, user_balance)</code></li>
+                                        <li>Berilgan summadan <strong>ko'p</strong> balansga ega userlarni qaytaring</li>
+                                        <li>Balans bo'yicha kamayish tartibida saralang</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>SELECT * FROM get_rich_users(100000);</code><br>
+                                        <small>Natija: user2 (200000), user5 (120000)</small>
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE FUNCTION get_rich_users(min_balance INT)
+   RETURNS TABLE(
+      user_id INT,
+      user_name VARCHAR(255),
+      user_balance INT
+   )
+   LANGUAGE plpgsql
+AS
+$$
+BEGIN
+   RETURN QUERY
+   SELECT id, fullname, balance
+   FROM hw4.users
+   WHERE balance > min_balance
+   ORDER BY balance DESC;
+END;
+$$;
+
+-- Ishlatish:
+SELECT * FROM get_rich_users(100000);
+-- | user_id | user_name | user_balance |
+-- |---------|-----------|--------------|
+-- | 2       | user2     | 200000       |
+-- | 5       | user5     | 120000       |</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROCEDURE SECTION -->
+            <section id="procedure" class="section">
+                <button class="back-btn" onclick="showSection('home')">← Ortga</button>
+                
+                <div class="section-hero">
+                    <div class="section-icon green">⚙️</div>
+                    <h1 class="section-title">Procedure nima?</h1>
+                    <p class="section-subtitle">Procedure - bu vazifalarni bajaruvchi, ma'lumotlarni o'zgartiruvchi kod bloki</p>
+                </div>
+
+                <div class="visual-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🔄</span>
+                        Procedure qanday ishlaydi?
+                    </h3>
+                    
+                    <div class="flow-diagram">
+                        <div class="flow-step input">
+                            <div class="flow-step-icon">📥</div>
+                            <div class="flow-step-label">BUYRUQ</div>
+                            <div class="flow-step-value">CALL</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step process">
+                            <div class="flow-step-icon">🔧</div>
+                            <div class="flow-step-label">TEKSHIRISH</div>
+                            <div class="flow-step-value">Validatsiya</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step action">
+                            <div class="flow-step-icon">💾</div>
+                            <div class="flow-step-label">BAJARISH</div>
+                            <div class="flow-step-value">UPDATE/INSERT</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step output">
+                            <div class="flow-step-icon">✅</div>
+                            <div class="flow-step-label">NATIJA</div>
+                            <div class="flow-step-value">COMMIT</div>
+                        </div>
+                    </div>
+
+                    <div class="analogy-box">
+                        <div class="analogy-title">💡 Hayotiy misol</div>
+                        <p class="analogy-text">
+                            Procedure - bu <strong>oshpaz</strong> kabi. Siz buyurtma berasiz (pitsani tayyorla), 
+                            u ingredientlarni tekshiradi, tayyorlaydi va sizga pitsa beradi. Oshpaz faqat 
+                            hisoblash emas, <strong>amaliy ish bajaradi</strong> - mahsulotlarni ishlatadi, 
+                            taom tayyorlaydi.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visual-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">❓</span>
+                        Procedure nimaga kerak?
+                    </h3>
+                    
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <span class="use-case-icon">🛒</span>
+                            <div class="use-case-content">
+                                <h4>Sotib olish</h4>
+                                <p>Balansni kamaytirish, tovarni ayirish</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">💸</span>
+                            <div class="use-case-content">
+                                <h4>Pul o'tkazish</h4>
+                                <p>Bir hisobdan boshqasiga transfer</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">👤</span>
+                            <div class="use-case-content">
+                                <h4>Ro'yxatdan o'tish</h4>
+                                <p>User yaratish, tekshirish, saqlash</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">📦</span>
+                            <div class="use-case-content">
+                                <h4>Buyurtma</h4>
+                                <p>Buyurtma yaratish, zaxirani kamaytirish</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-box">
+                    <div class="demo-header">
+                        <div class="demo-dot red"></div>
+                        <div class="demo-dot yellow"></div>
+                        <div class="demo-dot green"></div>
+                        <span class="demo-title">Mashina sotib olish protsessi</span>
+                    </div>
+                    <div class="demo-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">1. Mashina tekshiriladi</div>
+                                    <div class="timeline-desc">car_id = 1 mavjudmi? Narxi qancha?</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">2. Foydalanuvchi tekshiriladi</div>
+                                    <div class="timeline-desc">user_id = 1 mavjudmi? Balansi qancha?</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">3. Yetarlilik tekshiriladi</div>
+                                    <div class="timeline-desc">Pul yetadimi? Zaxirada bormi?</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                            <div class="timeline-item">
+                                <div class="timeline-dot success"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">5. COMMIT yoki ROLLBACK</div>
+                                    <div class="timeline-desc">Hammasi to'g'ri bo'lsa saqlanadi, aks holda bekor</div>
+                                <div class="timeline-dot timeline-dot-success"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">5. COMMIT yoki ROLLBACK</div>
+                                    <div class="timeline-desc">Hammasi to'g'ri bo'lsa saqlanadi, aks holda bekor</div>
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                            <div class="use-case-content">
+                                <h4>COMMIT/ROLLBACK</h4>
+                                <p>Transaction boshqarishi mumkin</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                            <div class="use-case-content">
+                                <h4>Xatoliklarni boshqaradi</h4>
+                                <p>RAISE EXCEPTION, NOTICE</p>
+                            </div>
+                        </div>
+                                <h4>SELECT ichida ishlamaydi</h4>
+                                <p>Faqat CALL orqali</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green">✓</span>
+                            <div class="use-case-content">
+                                <h4>Xatoliklarni boshqaradi</h4>
+                                <p>RAISE EXCEPTION, NOTICE</p>
+                            </div>
+                        </div>
+                    </div>
+                            <div class="practice-header">
+                                <span class="practice-num bg-green">1</span>
+                                <div class="practice-info">
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green-check">✓</span>
+                            <div class="use-case-content">
+                                <h4>Xatoliklarni boshqaradi</h4>
+                                <p>RAISE EXCEPTION, NOTICE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROCEDURE PRACTICE -->
+                <div class="visual-box practice-box-procedure">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🎯</span>
+                        Amaliy mashqlar - PROCEDURE
+                    </h3>
+                    
+                    <div class="practice-list">
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-green">1</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Balans to'ldirish</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>add_balance</strong> nomli procedure yozing.</p>
+                                    <ul>
+                                        <li>Kirish: <code>user_id INT</code>, <code>amount INT</code></li>
+                                        <li>Vazifa: Foydalanuvchi balansiga pul qo'shish</li>
+                                        <li>Tekshiruvlar:
+                                            <ul>
+                                                <li>User mavjudligini tekshiring</li>
+                                                <li>Summa musbat bo'lishi kerak (> 0)</li>
+                                            </ul>
+                                        </li>
+                                        <li>Xatolik bo'lsa RAISE NOTICE va ROLLBACK</li>
+                                        <li>Muvaffaqiyatli bo'lsa COMMIT</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>CALL add_balance(1, 50000);</code> → user1 balansiga 50000 qo'shiladi<br>
+                                        <code>CALL add_balance(1, -100);</code> → Xato: manfiy summa<br>
+                                        <code>CALL add_balance(999, 1000);</code> → Xato: user topilmadi
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE PROCEDURE add_balance(p_user_id INT, p_amount INT)
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   user_exists BOOLEAN;
+BEGIN
+   -- User mavjudligini tekshirish
+   SELECT EXISTS(SELECT 1 FROM hw4.users WHERE id = p_user_id)
+   INTO user_exists;
+   
+   IF NOT user_exists THEN
+      RAISE NOTICE '❌ User topilmadi: %', p_user_id;
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Summani tekshirish
+                            <div class="practice-header">
+                                <span class="practice-num bg-green">2</span>
+                                <div class="practice-info">
+      RETURN;
+   END IF;
+   
+   -- Balansni yangilash
+   UPDATE hw4.users
+   SET balance = balance + p_amount
+   WHERE id = p_user_id;
+   
+   COMMIT;
+   RAISE NOTICE '✅ % so''m qo''shildi. User ID: %', p_amount, p_user_id;
+END;
+$$;
+
+-- Ishlatish:
+CALL add_balance(1, 50000);  -- OK
+CALL add_balance(1, -100);   -- Xato
+CALL add_balance(999, 1000); -- Xato</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-green">2</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Pul o'tkazish (Transfer)</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>transfer_money</strong> nomli procedure yozing.</p>
+                                    <ul>
+                                        <li>Kirish: <code>from_user INT</code>, <code>to_user INT</code>, <code>amount INT</code></li>
+                                        <li>Vazifa: Bir userdan boshqasiga pul o'tkazish</li>
+                                        <li>Tekshiruvlar:
+                                            <ul>
+                                                <li>Summa musbat bo'lsin</li>
+                                                <li>O'ziga o'tkazish mumkin emas</li>
+                                                <li>Ikkala user ham mavjud bo'lsin</li>
+                                                <li>Jo'natuvchida yetarli pul bo'lsin</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>CALL transfer_money(2, 1, 50000);</code><br>
+                                        <small>user2 dan user1 ga 50000 o'tkaziladi</small><br>
+                                        <small>user2: 200000 → 150000</small><br>
+                                        <small>user1: 100000 → 150000</small>
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE PROCEDURE transfer_money(
+   p_from_user INT,
+   p_to_user INT,
+   p_amount INT
+)
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   from_balance INT;
+   to_exists BOOLEAN;
+BEGIN
+   -- Summa tekshiruvi
+   IF p_amount <= 0 THEN
+      RAISE NOTICE '❌ Summa musbat bo''lishi kerak';
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- O'ziga o'tkazish
+   IF p_from_user = p_to_user THEN
+      RAISE NOTICE '❌ O''zingizga pul o''tkaza olmaysiz';
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Jo'natuvchi balansini olish
+   SELECT balance INTO from_balance
+   FROM hw4.users WHERE id = p_from_user;
+   
+   IF from_balance IS NULL THEN
+      RAISE NOTICE '❌ Jo''natuvchi topilmadi: %', p_from_user;
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Qabul qiluvchi mavjudmi
+   SELECT EXISTS(SELECT 1 FROM hw4.users WHERE id = p_to_user)
+   INTO to_exists;
+   
+   IF NOT to_exists THEN
+      RAISE NOTICE '❌ Qabul qiluvchi topilmadi: %', p_to_user;
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Balans yetarliligini tekshirish
+   IF from_balance < p_amount THEN
+      RAISE NOTICE '❌ Mablag'' yetarli emas. Mavjud: %, Kerak: %', 
+                            <div class="practice-header">
+                                <span class="practice-num bg-green">3</span>
+                                <div class="practice-info">
+   END IF;
+   
+   -- Transfer
+   UPDATE hw4.users SET balance = balance - p_amount
+   WHERE id = p_from_user;
+   
+   UPDATE hw4.users SET balance = balance + p_amount
+   WHERE id = p_to_user;
+   
+   COMMIT;
+   RAISE NOTICE '✅ Transfer muvaffaqiyatli: % so''m', p_amount;
+END;
+$$;
+
+-- Ishlatish:
+CALL transfer_money(2, 1, 50000); -- OK
+CALL transfer_money(1, 1, 1000);  -- Xato: o'ziga</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-green">3</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Narxni foizga o'zgartirish</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>change_price</strong> nomli procedure yozing.</p>
+                                    <ul>
+                                        <li>Kirish: <code>car_id INT</code>, <code>percent INT</code></li>
+                                        <li>Vazifa: Mashina narxini foizga oshirish yoki kamaytirish</li>
+                                        <li>percent musbat = oshirish, manfiy = kamaytirish</li>
+                                        <li>Tekshiruvlar:
+                                            <ul>
+                                                <li>Mashina mavjud bo'lsin</li>
+                                                <li>Yangi narx 0 dan kam bo'lmasin</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>CALL change_price(1, 10);</code> → BMW: 10000 → 11000 (+10%)<br>
+                                        <code>CALL change_price(2, -5);</code> → ROLLS ROYCE: 20000 → 19000 (-5%)
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE PROCEDURE change_price(
+   p_car_id INT,
+   p_percent INT  -- musbat = oshirish, manfiy = kamaytirish
+)
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   current_price INT;
+   new_price INT;
+BEGIN
+   -- Joriy narxni olish
+   SELECT price INTO current_price
+   FROM hw4.cars WHERE id = p_car_id;
+   
+   IF current_price IS NULL THEN
+      RAISE NOTICE '❌ Mashina topilmadi: %', p_car_id;
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Yangi narxni hisoblash
+   new_price := current_price + (current_price * p_percent / 100);
+   
+   -- Narx 0 dan kam bo'lmasin
+                            <div class="practice-header">
+                                <span class="practice-num bg-green">4</span>
+                                <div class="practice-info">
+      RETURN;
+   END IF;
+   
+   -- Yangilash
+   UPDATE hw4.cars SET price = new_price
+   WHERE id = p_car_id;
+   
+   COMMIT;
+   RAISE NOTICE '✅ Narx o''zgartirildi: % → % (%% %%)', 
+      current_price, new_price, p_percent;
+END;
+$$;
+
+-- Ishlatish:
+CALL change_price(1, 10);   -- +10%
+CALL change_price(2, -5);   -- -5%
+CALL change_price(4, -200); -- Xato: narx manfiy bo'ladi</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-green">4</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Yangi mashina qo'shish</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p><strong>add_car</strong> nomli procedure yozing.</p>
+                                    <ul>
+                                        <li>Kirish: <code>model VARCHAR</code>, <code>price INT</code>, <code>count INT</code></li>
+                                        <li>Vazifa: Yangi mashina qo'shish</li>
+                                        <li>Tekshiruvlar:
+                                            <ul>
+                                                <li>Model nomi bo'sh bo'lmasin</li>
+                                                <li>Model nomi takrorlanmasin (UNIQUE)</li>
+                                                <li>Narx musbat bo'lsin (> 0)</li>
+                                                <li>Count manfiy bo'lmasin (>= 0)</li>
+                                            </ul>
+                                        </li>
+                                        <li>Model nomini avtomatik KATTA HARFga o'zgartiring</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>CALL add_car('Lexus', 25000, 30);</code> → LEXUS qo'shildi<br>
+                                        <code>CALL add_car('BMW', 15000, 10);</code> → Xato: allaqachon mavjud
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE PROCEDURE add_car(
+   p_model VARCHAR(255),
+   p_price INT,
+   p_count INT
+)
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   model_exists BOOLEAN;
+BEGIN
+   -- Model nomini katta harfga
+   p_model := UPPER(TRIM(p_model));
+   
+   -- Bo'sh nom tekshiruvi
+   IF p_model = '' OR p_model IS NULL THEN
+      RAISE NOTICE '❌ Model nomi bo''sh bo''lishi mumkin emas';
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Takrorlanish tekshiruvi
+   SELECT EXISTS(SELECT 1 FROM hw4.cars WHERE model = p_model)
+   INTO model_exists;
+   
+   IF model_exists THEN
+      RAISE NOTICE '❌ Bu model allaqachon mavjud: %', p_model;
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Narx va count tekshiruvi
+   IF p_price <= 0 THEN
+      RAISE NOTICE '❌ Narx musbat bo''lishi kerak';
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   IF p_count < 0 THEN
+      RAISE NOTICE '❌ Soni manfiy bo''lishi mumkin emas';
+      ROLLBACK;
+      RETURN;
+   END IF;
+   
+   -- Qo'shish
+   INSERT INTO hw4.cars(model, price, count)
+   VALUES(p_model, p_price, p_count);
+   
+   COMMIT;
+   RAISE NOTICE '✅ Yangi mashina qo''shildi: % (narx: %, soni: %)', 
+      p_model, p_price, p_count;
+END;
+$$;
+
+-- Ishlatish:
+CALL add_car('Lexus', 25000, 30);   -- OK
+CALL add_car('bmw', 15000, 10);     -- Xato
+CALL add_car('', 10000, 5);         -- Xato</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRIGGER SECTION -->
+            <section id="trigger" class="section">
+                <button class="back-btn" onclick="showSection('home')">← Ortga</button>
+                
+                <div class="section-hero">
+                    <div class="section-icon orange">⚡</div>
+                    <h1 class="section-title">Trigger nima?</h1>
+                    <p class="section-subtitle">Trigger - jadvalda o'zgarish bo'lganda avtomatik ishga tushadigan kod</p>
+                </div>
+
+                <div class="visual-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🔄</span>
+                        Trigger qanday ishlaydi?
+                    </h3>
+                    
+                    <div class="trigger-visual">
+                        <div class="trigger-entity">
+                            <div class="trigger-icon table">🗃️</div>
+                            <div class="trigger-label">Jadvalda o'zgarish</div>
+                        </div>
+                        <div class="trigger-arrow">⚡→</div>
+                        <div class="trigger-entity">
+                            <div class="trigger-icon lightning">👀</div>
+                            <div class="trigger-label">Trigger kuzatadi</div>
+                        </div>
+                        <div class="trigger-arrow">⚡→</div>
+                        <div class="trigger-entity">
+                            <div class="trigger-icon action">🤖</div>
+                            <div class="trigger-label">Avtomatik amal</div>
+                        </div>
+                    </div>
+
+                    <div class="analogy-box">
+                        <div class="analogy-title">💡 Hayotiy misol</div>
+                        <p class="analogy-text">
+                            Trigger - bu <strong>signalizatsiya</strong> kabi. Siz uni o'rnatib qo'yasiz va 
+                        <div class="flow-step event">
+                        <div class="flow-step purple">
+                                            <div class="flow-step-icon">✏️</div>
+                                            <div class="flow-step-label">UPDATE</div>
+                                            <div class="flow-step-value">O'zgartirilganda</div>
+                                        </div>
+                    <div class="text-center mt-3">
+                        <p class="code-dim">
+                            <strong>BEFORE</strong> - amaldan oldin &nbsp;|&nbsp; <strong>AFTER</strong> - amaldan keyin
+                        </p>
+                    </div>
+                            <div class="flow-step-icon">🗑️</div>
+                            <div class="flow-step-label">DELETE</div>
+                            <div class="flow-step-value">O'chirilganda</div>
+                        </div>
+                            <div class="flow-step-label">INSERT</div>
+                    <div class="text-center-mt">
+                        <p class="code-dim">
+                        </div>
+                        <div class="flow-step delete">
+                            <div class="flow-step-icon">🗑️</div>
+                            <div class="flow-step-label">DELETE</div>
+                        </div>
+                        <div class="flow-step flow-step-red-border">
+                            <div class="flow-step-icon">🗑️</div>
+                            <div class="flow-step-label">DELETE</div>
+                    <div class="text-center-margin">
+                        <p class="code-dim">
+                    </div>
+
+                    <div class="text-center-mt">
+                        <p class="code-dim">
+                            <strong>BEFORE</strong> - amaldan oldin &nbsp;|&nbsp; <strong>AFTER</strong> - amaldan keyin
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visual-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">❓</span>
+                        Trigger nimaga kerak?
+                    </h3>
+                    
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <span class="use-case-icon">📝</span>
+                            <div class="use-case-content">
+                                <h4>Audit Log</h4>
+                                <p>Har bir o'zgarishni qayd qilish</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">🛡️</span>
+                            <div class="use-case-content">
+                                <h4>Validatsiya</h4>
+                                <p>Noto'g'ri ma'lumotni oldini olish</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">📊</span>
+                            <div class="use-case-content">
+                                <h4>Statistika</h4>
+                                <p>Avtomatik hisobni yangilash</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">🔔</span>
+                            <div class="use-case-content">
+                                <h4>Bildirishnoma</h4>
+                                <p>Muhim o'zgarish haqida xabar</p>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="demo-code">
+                                    UPDATE cars<br>
+                                    SET price = <span class="code-blue">12000</span><br>
+                                    WHERE id = 1;
+                                    <br><br>
+                                    <span class="code-dim">-- BMW narxi o'zgartirildi</span>
+                                </div>
+                        <span class="demo-title">Audit Log misoli</span>
+                    </div>
+                                <div class="demo-code">
+                                    UPDATE cars<br>
+                                    SET price = <span class="code-blue">12000</span><br>
+                                    WHERE id = 1;
+                                    <br><br>
+                                    <span class="code-dim">-- BMW narxi o'zgartirildi</span>
+                                    SET price = <span class="code-span-blue">12000</span><br>
+                                    WHERE id = 1;
+                                    <br><br>
+                                    <span class="code-span-dim">-- BMW narxi o'zgartirildi</span>
+                                </div>
+                            </div>
+                            <div class="demo-output">
+                                <div class="demo-label">⚡ TRIGGER AVTOMATIK</div>
+                                <div class="demo-result">
+                                    <strong>car_audit_log jadvaliga yozildi:</strong>
+                                    <br><br>
+                                    car_id: 1<br>
+                                    action: UPDATE<br>
+                                    old_price: 10000<br>
+                                    new_price: 12000<br>
+                                    changed_at: 2024-01-15 10:30:00
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-blue">TG_OP</span>
+                            <div class="use-case-content">
+                                <h4>Amal turi</h4>
+                                <p>INSERT, UPDATE yoki DELETE</p>
+                            </div>
+                        </div>
+                            <span class="use-case-icon icon-green">NEW</span>
+                            <div class="use-case-content">
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <span class="use-case-icon icon-green-new">NEW</span>
+                            <div class="use-case-content">
+                                <h4>Yangi qiymat</h4>
+                                <p>INSERT/UPDATE da kiritilayotgan ma'lumot</p>
+                            </div>
+                        <div class="use-case">
+                            <span class="use-case-icon blue-text">TG_OP</span>
+                            <div class="use-case-content">
+                            <div class="use-case-content">
+                        <div class="use-case">
+                            <span class="use-case-icon icon-blue">TG_OP</span>
+                            <div class="use-case-content">
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon icon-blue-tgop">TG_OP</span>
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-orange">1</span>
+                                <div class="practice-info">
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon purple-text">TG_TABLE</span>
+                            <div class="use-case-content">
+                                <h4>Jadval nomi</h4>
+                                <p>Qaysi jadvalda bo'lyapti</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TRIGGER PRACTICE -->
+                <div class="visual-box practice-box-trigger">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🎯</span>
+                        Amaliy mashqlar - TRIGGER
+                    </h3>
+                    
+                    <div class="practice-list">
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-orange">1</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Mashina audit log</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p>Mashinalar jadvalidagi har qanday o'zgarishni qayd qiluvchi trigger yarating.</p>
+                                    <ul>
+                                        <li>1-qadam: <code>hw4.car_audit_log</code> jadvali yarating:
+                                            <ul>
+                                                <li><code>id SERIAL PRIMARY KEY</code></li>
+                                                <li><code>car_id INT</code></li>
+                                                <li><code>action VARCHAR(10)</code> - INSERT/UPDATE/DELETE</li>
+                                                <li><code>old_price, new_price INT</code></li>
+                                                <li><code>old_count, new_count INT</code></li>
+                                                <li><code>changed_at TIMESTAMP DEFAULT NOW()</code></li>
+                                            </ul>
+                                        </li>
+                                        <li>2-qadam: <code>log_car_changes()</code> trigger function yarating</li>
+                                        <li>3-qadam: <code>AFTER INSERT OR UPDATE OR DELETE</code> trigger yarating</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>UPDATE hw4.cars SET price = 11000 WHERE id = 1;</code><br>
+                                        <small>car_audit_log ga avtomatik yoziladi:</small><br>
+                                        <small>action='UPDATE', old_price=10000, new_price=11000</small>
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">-- 1. Log jadvali yaratish
+CREATE TABLE hw4.car_audit_log (
+    id SERIAL PRIMARY KEY,
+    car_id INT,
+    action VARCHAR(10),
+    old_model VARCHAR(255),
+    new_model VARCHAR(255),
+    old_price INT,
+    new_price INT,
+    old_count INT,
+    new_count INT,
+    changed_at TIMESTAMP DEFAULT NOW()
+);
+
+-- 2. Trigger function
+CREATE OR REPLACE FUNCTION log_car_changes()
+   RETURNS TRIGGER
+   LANGUAGE plpgsql
+AS
+$$
+BEGIN
+   IF TG_OP = 'INSERT' THEN
+      INSERT INTO hw4.car_audit_log(car_id, action, new_model, new_price, new_count)
+      VALUES(NEW.id, 'INSERT', NEW.model, NEW.price, NEW.count);
+      RETURN NEW;
+      
+   ELSIF TG_OP = 'UPDATE' THEN
+      INSERT INTO hw4.car_audit_log(
+         car_id, action, 
+         old_model, new_model, 
+         old_price, new_price, 
+         old_count, new_count
+      )
+      VALUES(
+         OLD.id, 'UPDATE', 
+         OLD.model, NEW.model, 
+         OLD.price, NEW.price, 
+         OLD.count, NEW.count
+      );
+                            <div class="practice-header">
+                                <span class="practice-num bg-orange">2</span>
+                                <div class="practice-info">
+      INSERT INTO hw4.car_audit_log(car_id, action, old_model, old_price, old_count)
+      VALUES(OLD.id, 'DELETE', OLD.model, OLD.price, OLD.count);
+      RETURN OLD;
+   END IF;
+END;
+$$;
+
+-- 3. Triggerni jadvalga bog'lash
+CREATE TRIGGER car_audit_trigger
+   AFTER INSERT OR UPDATE OR DELETE
+   ON hw4.cars
+   FOR EACH ROW
+   EXECUTE FUNCTION log_car_changes();
+
+-- Test:
+UPDATE hw4.cars SET price = 11000 WHERE id = 1;
+SELECT * FROM hw4.car_audit_log;</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-orange">2</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Ma'lumot validatsiyasi</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p>Mashinalar jadvaliga noto'g'ri ma'lumot kiritilishini oldini oluvchi trigger yarating.</p>
+                                    <ul>
+                                        <li>Tekshiruvlar:
+                                            <ul>
+                                                <li>Narx musbat bo'lsin (> 0), aks holda <code>RAISE EXCEPTION</code></li>
+                                                <li>Count manfiy bo'lmasin (>= 0)</li>
+                                                <li>Model nomi bo'sh bo'lmasin</li>
+                                            </ul>
+                                        </li>
+                                        <li>Model nomini avtomatik KATTA HARFga o'zgartiring</li>
+                                        <li>BEFORE INSERT OR UPDATE da ishlashi kerak</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>INSERT INTO hw4.cars(model, price, count) VALUES('test', -100, 5);</code><br>
+                                        <small>→ Xato: "Narx musbat bo'lishi kerak!"</small><br><br>
+                                        <code>INSERT INTO hw4.cars(model, price, count) VALUES('lexus', 25000, 20);</code><br>
+                                        <small>→ OK, model = 'LEXUS' bo'lib saqlanadi</small>
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE FUNCTION validate_car_data()
+   RETURNS TRIGGER
+   LANGUAGE plpgsql
+AS
+$$
+BEGIN
+   -- Narx tekshiruvi
+   IF NEW.price <= 0 THEN
+      RAISE EXCEPTION '❌ Narx musbat bo''lishi kerak! Kiritilgan: %', NEW.price;
+   END IF;
+   
+   -- Count tekshiruvi
+   IF NEW.count < 0 THEN
+      RAISE EXCEPTION '❌ Soni manfiy bo''lishi mumkin emas! Kiritilgan: %', NEW.count;
+   END IF;
+   
+   -- Model nomini katta harfga
+                            <div class="practice-header">
+                                <span class="practice-num bg-orange">3</span>
+                                <div class="practice-info">
+   IF NEW.model = '' OR NEW.model IS NULL THEN
+      RAISE EXCEPTION '❌ Model nomi bo''sh bo''lishi mumkin emas!';
+   END IF;
+   
+   RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER validate_car_trigger
+   BEFORE INSERT OR UPDATE
+   ON hw4.cars
+   FOR EACH ROW
+   EXECUTE FUNCTION validate_car_data();
+
+-- Test:
+INSERT INTO hw4.cars(model, price, count) VALUES('test', -100, 5);  -- Xato!
+INSERT INTO hw4.cars(model, price, count) VALUES('lexus', 25000, 20); -- OK</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-orange">3</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Narx oshish limiti</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p>Bir martada narx 50% dan ko'p oshishini oldini oluvchi trigger yarating.</p>
+                                    <ul>
+                                        <li>Faqat UPDATE da ishlaydi</li>
+                                        <li>Faqat narx <strong>oshganda</strong> tekshiradi (kamaytirish mumkin)</li>
+                                        <li>Foizni hisoblang: <code>((NEW.price - OLD.price) / OLD.price) * 100</code></li>
+                                        <li>50% dan oshsa <code>RAISE EXCEPTION</code></li>
+                                        <li>BEFORE UPDATE da ishlashi kerak</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>UPDATE hw4.cars SET price = 20000 WHERE id = 1;</code><br>
+                                        <small>10000 → 20000 = 100% oshish → Xato!</small><br><br>
+                                        <code>UPDATE hw4.cars SET price = 14000 WHERE id = 1;</code><br>
+                                        <small>10000 → 14000 = 40% oshish → OK</small>
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE FUNCTION check_price_increase()
+   RETURNS TRIGGER
+   LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   increase_percent NUMERIC;
+BEGIN
+   -- Faqat UPDATE da va narx oshganda
+   IF TG_OP = 'UPDATE' AND NEW.price > OLD.price THEN
+      -- Foizni hisoblash
+      increase_percent := ((NEW.price - OLD.price)::NUMERIC / OLD.price) * 100;
+      
+                            <div class="practice-header">
+                                <span class="practice-num bg-orange">4</span>
+                                <div class="practice-info">
+      END IF;
+   END IF;
+   
+   RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER prevent_price_spike
+   BEFORE UPDATE
+   ON hw4.cars
+   FOR EACH ROW
+   EXECUTE FUNCTION check_price_increase();
+
+-- Test:
+UPDATE hw4.cars SET price = 20000 WHERE id = 1;  -- Xato: 100%
+UPDATE hw4.cars SET price = 14000 WHERE id = 1;  -- OK: 40%
+UPDATE hw4.cars SET price = 5000 WHERE id = 1;   -- OK: kamaytirish</pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-item" onclick="togglePractice(this)">
+                            <div class="practice-header">
+                                <span class="practice-num practice-num-orange">4</span>
+                                <div class="practice-info">
+                                    <h4>📝 Masala: Avtomatik chegirma</h4>
+                                </div>
+                                <span class="practice-toggle">▼</span>
+                            </div>
+                            <div class="practice-solution">
+                                <div class="task-box">
+                                    <div class="task-label">📋 TOPSHIRIQ:</div>
+                                    <p>Agar mashina soni 100 dan oshsa, narxni avtomatik 5% kamaytiruvchi trigger yarating.</p>
+                                    <ul>
+                                        <li>Shart: <code>NEW.count > 100</code> VA <code>OLD.count <= 100</code> (yoki INSERT)</li>
+                                        <li>Chegirma: <code>NEW.price * 0.95</code></li>
+                                        <li>BEFORE INSERT OR UPDATE da ishlashi kerak</li>
+                                        <li><code>RAISE NOTICE</code> bilan xabar bering</li>
+                                    </ul>
+                                    <div class="task-example">
+                                        <strong>Misol:</strong><br>
+                                        <code>UPDATE hw4.cars SET count = 150 WHERE id = 1;</code><br>
+                                        <small>BMW count: 50 → 150 (100 dan oshdi)</small><br>
+                                        <small>BMW price: 10000 → 9500 (avtomatik 5% chegirma)</small><br><br>
+                                        <code>INSERT INTO hw4.cars(model, price, count) VALUES('HONDA', 15000, 120);</code><br>
+                                        <small>HONDA price: 15000 → 14250 (avtomatik chegirma)</small>
+                                    </div>
+                                </div>
+                                <div class="solution-label">✅ Yechim:</div>
+                                <pre class="solution-code">CREATE OR REPLACE FUNCTION auto_discount()
+   RETURNS TRIGGER
+   LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   discounted_price INT;
+BEGIN
+   -- Faqat count oshganda va 100 dan o'tganda
+   IF NEW.count > 100 AND (OLD.count IS NULL OR OLD.count <= 100) THEN
+      -- 5% chegirma
+      discounted_price := ROUND(NEW.price * 0.95);
+      
+      RAISE NOTICE '🏷️ Avtomatik chegirma: % uchun narx % dan % ga tushdi', 
+         NEW.model, NEW.price, discounted_price;
+      
+      NEW.price := discounted_price;
+   END IF;
+   
+   RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER auto_discount_trigger
+   BEFORE INSERT OR UPDATE
+   ON hw4.cars
+   FOR EACH ROW
+   EXECUTE FUNCTION auto_discount();
+
+-- Test:
+UPDATE hw4.cars SET count = 150 WHERE id = 1;
+-- BMW: price 10000 → 9500
+
+INSERT INTO hw4.cars(model, price, count) VALUES('HONDA', 15000, 120);
+-- HONDA: price 15000 → 14250</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPARISON SECTION -->
+            <section id="compare" class="section">
+                <button class="back-btn" onclick="showSection('home')">← Ortga</button>
+                
+                <div class="section-hero">
+                    <div class="section-icon blue">📊</div>
+                    <h1 class="section-title">Taqqoslash</h1>
+                    <p class="section-subtitle">Function, Procedure va Trigger orasidagi asosiy farqlar</p>
+                </div>
+
+                <div class="comparison-section">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Xususiyat</th>
+                                <th>Function ƒ</th>
+                                <th>Procedure ⚙️</th>
+                                <th>Trigger ⚡</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Asosiy maqsad</strong></td>
+                                <td>Hisoblash va qiymat qaytarish</td>
+                                <td>Vazifa bajarish</td>
+                                <td>Avtomatik reaksiya</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Qiymat qaytaradimi?</strong></td>
+                                <td class="check">✓ Ha (majburiy)</td>
+                                <td>Yo'q / OUT params</td>
+                                <td>TRIGGER qaytaradi</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Qanday chaqiriladi?</strong></td>
+                                <td>SELECT func()</td>
+                                <td>CALL proc()</td>
+                                <td>Avtomatik</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SELECT ichida?</strong></td>
+                                <td class="check">✓ Ishlaydi</td>
+                                <td class="cross">✗ Ishlamaydi</td>
+                                <td class="cross">✗ Ishlamaydi</td>
+                            </tr>
+                            <tr>
+                                <td><strong>COMMIT/ROLLBACK?</strong></td>
+                                <td class="cross">✗ Yo'q</td>
+                                <td class="check">✓ Ha</td>
+                                <td class="cross">✗ Yo'q</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hayotiy misol</strong></td>
+                                <td>🧮 Kalkulyator</td>
+                                <td>👨‍🍳 Oshpaz</td>
+                                <td>🚨 Signalizatsiya</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="visual-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">🎯</span>
+                        Qaysi birini tanlash kerak?
+                    </h3>
+                    
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <span class="use-case-icon">ƒ</span>
+                            <div class="use-case-content">
+                                <h4>Function tanlang agar:</h4>
+                                <p>Hisoblash, ma'lumot olish, SELECT ichida ishlatish kerak bo'lsa</p>
+                            </div>
+                        </div>
+                        <div class="use-case">
+                            <span class="use-case-icon">⚙️</span>
+                            <div class="use-case-content">
+                                <h4>Procedure tanlang agar:</h4>
+                <div class="visual-box analogy-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">💡</span>
+                <div class="visual-box visual-box-gradient">
+                    <p class="font-large code-dim">
+                    <p class="font-large">
+                        <strong class="code-blue">Function</strong> = "Menga javob ber" (qiymat qaytaradi)<br>
+                        <strong class="code-green">Procedure</strong> = "Bu ishni qil" (amal bajaradi)<br>
+                <div class="visual-box remember-box">
+                    <h3 class="visual-title">
+                        <span class="visual-title-icon">💡</span>
+                        Eslab qoling!
+                    </h3>
+                <div class="visual-box visual-box-gradient">
+                    <p class="font-large-dim">
+                        <strong class="code-blue">Function</strong> = "Menga javob ber" (qiymat qaytaradi)<br>
+                        <strong class="code-green">Procedure</strong> = "Bu ishni qil" (amal bajaradi)<br>
+                        <strong class="strong-orange">Trigger</strong> = "Nimadir bo'lsa - xabar ber" (avtomatik)
+                    <p class="font-large-dim">
+                        <strong class="code-blue">Function</strong> = "Menga javob ber" (qiymat qaytaradi)<br>
+                        <strong class="code-green">Procedure</strong> = "Bu ishni qil" (amal bajaradi)<br>
+                        <strong class="strong-orange">Trigger</strong> = "Nimadir bo'lsa - xabar ber" (avtomatik)
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            // Show selected
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.textContent.toLowerCase().includes(sectionId) || 
+                    (sectionId === 'home' && tab.textContent.includes('Bosh')) ||
+                    (sectionId === 'compare' && tab.textContent.includes('Taqqos'))) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function runFunctionDemo() {
+            const btn = event.target;
+            btn.textContent = '⏳ Hisoblanmoqda...';
+            btn.style.background = 'var(--purple)';
+            
+            setTimeout(() => {
+                btn.textContent = '✅ Natija: 10000 qaytdi!';
+                btn.style.background = 'var(--green)';
+                
+                setTimeout(() => {
+                    btn.textContent = '▶️ Ishga tushirish';
+                    btn.style.background = 'var(--blue)';
+                }, 2000);
+            }, 1000);
+        }
+
+        function runProcedureDemo() {
+            const btn = event.target;
+            const steps = [
+                '1️⃣ Mashina tekshirilmoqda...',
+                '2️⃣ User tekshirilmoqda...',
+                '3️⃣ Balans tekshirilmoqda...',
+                '4️⃣ O\'zgarishlar qilinmoqda...',
+                '✅ COMMIT - Muvaffaqiyatli!'
+            ];
+            
+            let i = 0;
+            btn.style.background = 'var(--orange)';
+            
+            const interval = setInterval(() => {
+                btn.textContent = steps[i];
+                i++;
+                
+                if (i >= steps.length) {
+                    clearInterval(interval);
+                    btn.style.background = 'var(--green)';
+                    
+                    setTimeout(() => {
+                        btn.textContent = '▶️ Protsesni ko\'rish';
+                        btn.style.background = 'var(--green)';
+                    }, 2000);
+                }
+            }, 800);
+        }
+
+        function runTriggerDemo() {
+            const btn = event.target;
+            btn.textContent = '⚡ Trigger ishga tushdi!';
+            btn.style.background = 'var(--pink)';
+            
+            setTimeout(() => {
+                btn.textContent = '📝 Log yozildi!';
+                btn.style.background = 'var(--green)';
+                
+                setTimeout(() => {
+                    btn.textContent = '⚡ Trigger ishlashini ko\'rish';
+                    btn.style.background = 'var(--orange)';
+                }, 2000);
+            }, 1000);
+        }
+
+        function togglePractice(item) {
+            if (event.target.closest('.practice-solution')) return;
+            
+            item.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

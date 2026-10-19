@@ -1,0 +1,20 @@
+{
+  "name": "yuksalish-lms",
+  "version": "1.0.0",
+  "description": "Yuksalish Academy o'quv platformasi: kurslar, guruhlar, dars jadvali, uyga vazifa va baholash (administrator, o'qituvchi, o'quvchi rollari)",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/seed.js",
+    "import": "node src/import-courses.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.1.0"
+  }
+}

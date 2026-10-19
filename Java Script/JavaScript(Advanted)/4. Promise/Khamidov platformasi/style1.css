@@ -1,0 +1,228 @@
+body {
+  background: url("./img/Backgraund.jpg") no-repeat center center/100% 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  background-size: cover;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* background: url("./img/Backgraund.jpg") no-repeat center center fixed; */
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+@media (max-width: 600px) {
+  body {
+    /* background: url("./Backraund.jpg") no-repeat center center fixed; */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+pre {
+  color: aqua;
+}
+h1,
+h2,
+a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-family: "Lobster", cursive;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.accordion {
+  font-size: 23px;
+  color: #fff;
+  cursor: default;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+}
+
+.accordion span {
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s;
+}
+/* 
+.accordion:hover span,
+.accordion.active span {
+  color: rgb(0, 198, 76);
+} */
+
+.accordion span:hover {
+  color: rgb(0, 198, 76);
+}
+
+.accordion.open span {
+  color: rgb(0, 198, 76);
+}
+
+.panel,
+.image-panel {
+  display: none;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.image-toggle {
+  text-decoration: underline;
+  display: block;
+  margin-top: 5px;
+}
+
+img {
+  max-width: 100%;
+}
+
+div {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.social-logo {
+  width: 40px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+  body {
+    /* background: url("./img/Backraund.jpg") no-repeat center center; */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .social-links {
+    gap: 10px;
+    padding: 5px 0;
+  }
+
+  .social-text {
+    font-size: 40px;
+    margin-left: 30px;
+    color: #00c925;
+  }
+
+  .accordion {
+    cursor: default;
+  }
+
+  .accordion span {
+    cursor: pointer;
+  }
+
+  .accordion:hover span,
+  .accordion.active span {
+    color: rgb(0, 198, 76);
+  }
+
+  .social-links {
+    gap: 10px;
+    padding: 5px 0;
+  }
+
+  .social-text {
+    font-size: 40px;
+    margin-left: 30px;
+    color: #00c925;
+  }
+}
+
+.panel {
+  display: none;
+  margin-top: 10px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+p {
+  color: #ffffff;
+  font-size: medium;
+}
+
+.image-toggle {
+  font-size: 15px;
+}
+
+h3 {
+  color: rgb(170, 255, 0);
+}
+
+.btn {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  background-color: #00c925;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #00961c;
+}
+
+.sub-panel p {
+  margin: 5px 0;
+}
+
+/* Video fon */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* butun kenglik */
+  height: 100vh; /* butun balandlik */
+  object-fit: cover; /* ekran o'lchamiga mos qilib qirqadi */
+  object-position: center; /* markazda joylashadi */
+  z-index: -1; /* kontent orqasida bo‘lishi uchun */
+}
+
+/* Kontent ustida oq yoki rangli matn yaxshi ko‘rinsin */
+body {
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 600px) {
+  #bg-video {
+    object-fit: cover;
+  }
+}
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
+p {
+  font-family: "Satisfy", cursive;
+}
+li {
+  font-family: "Kalam", cursive;
+}

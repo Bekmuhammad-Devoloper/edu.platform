@@ -1,0 +1,184 @@
+body {
+  background: url("./img/Picnic.jpg") no-repeat center center/100% 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  margin-left: 60px;
+  margin-top: 40px;
+}
+
+h1 {
+  color: white;
+  font-size: 30px;
+  z-index: 10;
+  position: relative;
+}
+
+h2 {
+  font-family: "Lobster", cursive;
+  font-size: 25px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+h2:hover,
+h2.active {
+  color: rgb(0, 140, 255);
+}
+
+.accordion {
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+}
+
+.accordion:hover,
+.accordion.active {
+  color: rgb(0, 198, 76);
+}
+
+.panel,
+.image-panel {
+  display: none;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.panel.open,
+.image-panel.open {
+  display: block;
+}
+
+#problem-statement,
+#problem-statement1,
+#problem-statement2 {
+  font-size: 16px;
+  color: rgb(0, 255, 21);
+  font-weight: bold;
+}
+
+.panel {
+  display: none;
+  padding: 10px;
+  background-color: #f1f1f1;
+  margin-top: 5px;
+}
+
+.image-toggle {
+  text-decoration: underline;
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.social-logo {
+  width: 40px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+  .social-links {
+    gap: 10px;
+    padding: 5px 0;
+  }
+  .social-text {
+    color: #ffffff;
+    font-size: 40px;
+    margin-left: 30px;
+    color: #00c925;
+  }
+}
+
+.panel {
+  background-color: rgba(138, 123, 123, 0.5);
+  padding: 15px;
+  border: 1px solid white;
+  border-top: none;
+}
+
+p {
+  color: #ffffff;
+}
+
+h3 {
+  color: rgb(170, 255, 0);
+}
+
+.nav-btn {
+  color: aqua;
+  background-color: #000000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #ffffff;
+}
+
+.nav-btn:disabled {
+  cursor: not-allowed;
+  background-color: red;
+}
+
+.social-text {
+  color: white;
+}
+/* 
+---------------------------------
+*/
+html,
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+  background-attachment: fixed; 
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+@media (max-width: 600px) {
+  body {
+    background: url("./img/Picnic.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+.overlay {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5); 
+  box-sizing: border-box;
+}
+pre{
+color: aqua;
+}

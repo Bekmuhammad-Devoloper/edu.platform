@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy - JavaScript Kursi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./icons/webinar.gif" type="image/gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Background Selector -->
+    <div class="bg-selector">
+        <div class="bg-btn bg-code active" data-bg="code" title="Code Background"></div>
+        <div class="bg-btn bg-tech" data-bg="tech" title="Technology"></div>
+        <div class="bg-btn bg-matrix" data-bg="matrix" title="Matrix Style"></div>
+        <div class="bg-btn bg-circuit" data-bg="circuit" title="Circuit Board"></div>
+        <div class="bg-btn bg-myimage" data-bg="myimage" title="Mening Rasmim"></div>
+        <div class="bg-btn bg-gradient" data-bg="gradient" title="Gradient Only"></div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="main-title">JavaScript</h1>
+                <p class="subtitle">Mentor: Bekmuhammad Shokirjonov</p>
+            </div>
+        </section>
+
+        <!-- Course Content -->
+        <div class="course-wrapper">
+            <div class="lessons-container">
+
+                <!-- Lesson 1: JavaScript History -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">📚</span>
+                            Events (Hodisalar)
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <p class="content-text">
+                                Events (Hodisalar) — bu dasturda sodir boʻlgan voqealarga nisbatan reaksiyalarni
+                                boshqarish uchun ishlatiladigan mexanizm. Node.js ning asinxron ishlashini
+                                taʼminlaydigan asosiy tamoyillardan biridir.
+                            </p>
+                            <h3>Asosiy gʻoya:</h3>
+                            <div class="var-item">
+                                <strong>Hodisa Eʼlon Qilish (Emitter):</strong>
+                                <br>
+                                Biror obyektda (masalan, serverda) maʼlum bir vazifa (masalan, yangi ulanish kelishi)
+                                tugaganida, bu obyekt hodisa eʼlon qiladi (<code>emit</code>).
+                            </div>
+                            <div class="var-item">
+                                <strong>Hodisani Tinglash (Listener):</strong>
+                                <br>
+                                Boshqa bir funksiya esa bu hodisani tinglab turadi (<code>on</code>) va u eʼlon
+                                qilinganida belgilangan amallarni bajaradi.
+                            </div>
+                            <h3>Qoʻllanilishi:</h3>
+                            <ul>
+                                <li><strong>EventEmitter</strong> klassi orqali amalga oshiriladi.</li>
+                                <li><strong>Asinxron dasturlash:</strong> Kodning biror vazifani kutib turmasdan, boshqa
+                                    ishlarni bajarishiga imkon beradi. Hodisa sodir boʻlganida, dastur shu hodisa uchun
+                                    belgilangan funksiyani chaqiradi (callback).</li>
+                                <li><strong>Misol:</strong> HTTP serveri yangi soʻrovni qabul qilganida,
+                                    <code>request</code> hodisasi eʼlon qilinadi va biz bu hodisani tinglab, soʻrovga
+                                    javob berishimiz mumkin.
+                                </li>
+                            </ul>
+                            <h3>Misol:</h3>
+                            <pre><code>
+                    const http = require('http');
+                    
+                    const server = http.createServer((req, res) => {
+                      // Bu yerda `request` hodisasi ro'y berganda ishlaydi
+                      res.writeHead(200, { 'Content-Type': 'text/plain' });
+                      res.end('Salom Dunyo!');
+                    });
+                    
+                    server.listen(3000, () => {
+                      console.log('Server 3000-portda ishlayapti');
+                    });
+                            </code></pre>
+
+                            <div class="image-section">
+                                <!-- <div class="image-triggers">
+                                    <button class="image-btn" data-target="img1">📖 JavaScript tarixi</button>
+                                    <button class="image-btn" data-target="img2">🔄 Evolyutsiya jarayoni</button>
+                                </div>
+                                <div class="image-container" id="img1">
+                                    <img src="./images/1.jpg" alt="JavaScript Tarixi">
+                                </div>
+                                <div class="image-container" id="img2">
+                                    <img src="./images/1,1.jpg" alt="JavaScript Evolyutsiyasi">
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 2: Variables -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">🔧</span>
+                            Streams (Oqimlar)
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <p class="content-text">
+                                Streams (Oqimlar) — bu maʼlumotlarni kichik boʻlaklarga boʻlib, ularni ketma-ket qayta
+                                ishlashga imkon beradigan abstraksiya. Ular katta hajmdagi maʼlumotlar (fayllar, tarmoq
+                                maʼlumotlari) bilan samarali ishlash uchun yaratilgan.
+                            </p>
+                            <h3>Asosiy gʻoya:</h3>
+                            <div class="var-item">
+                                <p>Butun maʼlumotni (masalan, 10 GB hajmdagi faylni) birdaniga xotiraga yuklash oʻrniga,
+                                    ularni kichik qismlarga boʻlib, ularning birinchi qismi kelishi bilan qayta
+                                    ishlashni boshlash. Bu xotira va ishlash samaradorligini oshiradi.</p>
+                            </div>
+                            <h3>Stream turlari:</h3>
+                            <div class="var-item">
+                                <strong>Writable Stream:</strong> Maʼlumotlarni manzilga yozish uchun ishlatiladi
+                                (masalan, <code>fs.createWriteStream()</code>).
+                                <br>
+                                <strong>Metodlar:</strong> <code>write()</code>, <code>end()</code>.
+                                <br>
+                                <strong>Vazifasi:</strong> Maʼlumotni qabul qilib, uni faylga yoki tarmoqqa yozadi.
+                            </div>
+                            <div class="var-item">
+                                <strong>Readable Stream:</strong> Maʼlumotlarni manbadan oʻqish uchun ishlatiladi
+                                (masalan, <code>fs.createReadStream()</code>).
+                                <br>
+                                <strong>Hodisalar:</strong> <code>data</code>, <code>end</code>, <code>error</code>.
+                                <br>
+                                <strong>Vazifasi:</strong> Maʼlumotni manbadan olib, uni qismlarga boʻlib uzatadi.
+                            </div>
+                            <div class="var-item">
+                                <strong>Duplex Stream:</strong> Bir vaqtning oʻzida ham oʻqish, ham yozish imkoniyatiga
+                                ega.
+                                <br>
+                                <strong>Vazifasi:</strong> Ikkita alohida streamning (readable va writable)
+                                funksiyalarini birlashtiradi. TCP socketlari bunga misoldir.
+                            </div>
+                            <div class="var-item">
+                                <strong>Transform Stream:</strong> Bu Duplex Streamning bir turi boʻlib, maʼlumotni
+                                oʻqib, uni oʻzgartiradi (transformatsiya qiladi) va keyin yozadi.
+                                <br>
+                                <strong>Vazifasi:</strong> Maʼlumotni oʻzgartirish (siqish, shifrlash, konvertatsiya
+                                qilish) uchun ishlatiladi. <code>zlib</code> moduli bunga misol boʻla oladi.
+                            </div>
+                            <h3>Streamsning afzalliklari:</h3>
+                            <div class="var-item">
+                                <strong>Xotirani tejash:</strong> Katta fayllarni oʻqish yoki yozishda butun fayl
+                                xotiraga yuklanmaydi.
+                            </div>
+                            <div class="var-item">
+                                <strong>Samaradorlik:</strong> Maʼlumotlar toʻliq kelishini kutmasdan, ularni qayta
+                                ishlashni darhol boshlash mumkin.
+                            </div>
+                            <div class="var-item">
+                                <strong>Pipelining (Uzatish):</strong> Streams bir-biriga ulanishi (<code>pipe()</code>)
+                                mumkin, bu maʼlumotlarni bir oqimdan ikkinchisiga toʻgʻridan-toʻgʻri oʻtkazish imkonini
+                                beradi.
+                            </div>
+                            <h3>Qisqacha taqqoslash:</h3>
+                            <div class="var-item">
+                                <strong>Events</strong> — bu dasturdagi voqealarga reaksiyalarni boshqarish uchun.
+                            </div>
+                            <div class="var-item">
+                                <strong>Streams</strong> — bu maʼlumotlarni oqim shaklida boshqarish, yaʼni katta hajmli
+                                maʼlumotlar bilan samarali ishlash uchun.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 4: Practice -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">💻</span>
+                            Amaliyot
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <h2 class="section-title">Streams</h2>
+                            <h2 class="section-title">Oson Masalalar (3 ta)</h2>
+                            <div class="task-grid">
+                                <div class="task">
+                                    <h3><strong>1.</strong> Faylni oʻqib, boshqa faylga yozish</h3>
+                                    <p><strong>Vazifa:</strong> <code>input.txt</code> nomli katta matnli faylni
+                                        <strong>Readable Stream</strong> orqali oʻqing va uning mazmunini hech qanday
+                                        oʻzgartirishlarsiz <code>output.txt</code> nomli faylga <strong>Writable
+                                            Stream</strong> yordamida yozing.
+                                    </p>
+                                    <p><strong>Maqsad:</strong> Streamsning asosiy oqimini (<code>pipe()</code>)
+                                        tushunish va xotirani tejash.</p>
+                                    <p><strong>Real holat:</strong> Serverda yuklangan faylni saqlash.</p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>2.</strong> Katta faylni boʻlib oʻqish</h3>
+                                    <p><strong>Vazifa:</strong> <code>big_data.log</code> nomli faylning har bir satrini
+                                        alohida oʻqib chiqing. Har bir satr oʻqilganda uni konsolga chiqaring.</p>
+                                    <p><strong>Maqsad:</strong> <code>data</code> va <code>end</code> hodisalarini
+                                        ishlatish.</p>
+                                    <p><strong>Real holat:</strong> Katta log fayllarini tahlil qilish, har bir yozuvni
+                                        real vaqtda qayta ishlash.</p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>3.</strong> Matnni oʻzgartirib yozish</h3>
+                                    <p><strong>Vazifa:</strong> <code>input.txt</code> faylidan maʼlumotlarni oʻqing,
+                                        har bir harfni katta harfga oʻgirib (<strong>Transform Stream</strong>
+                                        yordamida), natijani <code>upper_case.txt</code> fayliga yozing.</p>
+                                    <p><strong>Maqsad:</strong> Maʼlumotlarni qayta ishlash uchun <strong>Transform
+                                            Stream</strong>ni qoʻllash.</p>
+                                    <p><strong>Real holat:</strong> Dasturga kiruvchi matnni standart formatga
+                                        keltirish.</p>
+                                </div>
+                            </div>
+
+                            <h2 class="section-title">Oʻrtacha Masalalar (2 ta)</h2>
+                            <div class="task-grid">
+                                <div class="task">
+                                    <h3><strong>4.</strong> CSV faylni JSONga oʻgirish</h3>
+                                    <p><strong>Vazifa:</strong> <code>users.csv</code> nomli CSV (Comma-Separated
+                                        Values) faylini oʻqing, undagi har bir qatorni JavaScript obyekti (JSON)ga
+                                        oʻtkazing va natijani <code>users.json</code> fayliga yozing.</p>
+                                    <p><strong>Maqsad:</strong> Maʼlumot turlarini oʻzgartirish uchun <strong>Transform
+                                            Stream</strong>dan foydalanish. CSV parsers kutubxonalari mavjud, lekin bu
+                                        vazifada ularni oʻzingiz qurishga harakat qiling.</p>
+                                    <p><strong>Real holat:</strong> Maʼlumotlarni bir formatdan boshqasiga konvertatsiya
+                                        qilish.</p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>5.</strong> HTTP soʻrovni streams orqali ishlash</h3>
+                                    <p><strong>Vazifa:</strong> HTTP server yarating. Mijoz serverga katta faylni
+                                        yuklaganida (<code>POST</code> soʻrovi), ushbu faylni <strong>Writable
+                                            Stream</strong> orqali toʻgʻridan-toʻgʻri <code>uploads/</code> papkasiga
+                                        saqlang. Mijoz soʻrovi toʻliq kelguncha kutib turmasdan, faylni qabul qilishni
+                                        boshlash kerak.</p>
+                                    <p><strong>Maqsad:</strong> Tarmoq oqimlari (HTTP soʻrovlar) bilan ishlash.</p>
+                                    <p><strong>Real holat:</strong> Serverga katta hajmdagi video yoki rasm yuklashni
+                                        boshqarish.</p>
+                                </div>
+                            </div>
+
+                            <h2 class="section-title">Qiyin Masalalar (2 ta)</h2>
+                            <div class="task-grid">
+                                <div class="task">
+                                    <h3><strong>6.</strong> Faylni siqish va tarmoq orqali uzatish</h3>
+                                    <p><strong>Vazifa:</strong> <code>document.pdf</code> nomli katta faylni oʻqing.
+                                        Faylni <code>zlib.createGzip()</code> yordamida siqing (<strong>Transform
+                                            Stream</strong>) va shu bilan birga faylni HTTP javobi orqali mijozga
+                                        yuboring (<strong>Writable Stream</strong>).</p>
+                                    <p><strong>Maqsad:</strong> Bir necha <strong>Stream</strong>larni bir-biriga ulash
+                                        (<code>pipe()</code>) va murakkab operatsiyalarni (siqish, shifrlash) oqimlar
+                                        orqali amalga oshirish.</p>
+                                    <p><strong>Real holat:</strong> Serverda katta fayllarni yigʻilgan (compressed)
+                                        holda taqdim etish.</p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>7.</strong> Custom Duplex Stream yaratish</h3>
+                                    <p><strong>Vazifa:</strong> <strong>Duplex Stream</strong> klassidan foydalanib,
+                                        oʻzingizning maxsus oqimingizni yarating. Bu oqim kiruvchi matnni oʻqib olsin,
+                                        undagi "Node.js" soʻzini "Node.js (awesome!)" ga oʻzgartirsin va oʻzgartirilgan
+                                        matnni qaytarib yozsin. Soʻng, bu custom oqimni biror fayl oqimiga ulab sinab
+                                        koʻring.</p>
+                                    <p><strong>Maqsad:</strong> <strong>Duplex Stream</strong>ning ichki ishlash
+                                        mexanizmini tushunish (<code>_read</code> va <code>_write</code> metodlarini
+                                        amalga oshirish).</p>
+                                    <p><strong>Real holat:</strong> Maʼlumotlarni real vaqtda qayta ishlash va
+                                        oʻzgartirish uchun murakkabroq, maxsus filtrlar yaratish.</p>
+                                </div>
+                            </div>
+
+                            <h2 class="section-title">Events Listenner</h2>
+                            <h2 class="section-title">Oson Masalalar (3 ta)</h2>
+                            <div class="task-grid">
+                                <div class="task">
+                                    <h3><strong>1.</strong> Oddiy hodisani tinglash va javob berish</h3>
+                                    <p><strong>Vazifa:</strong> <code>event.js</code> faylida <code>EventEmitter</code>
+                                        klassidan foydalanib, <code>buyurtma</code> (order) nomli hodisani yarating. Bu
+                                        hodisa <code>emit</code> qilinganda, "Yangi buyurtma qabul qilindi!" degan
+                                        matnni konsolga chiqaring.</p>
+                                    <p><strong>Maqsad:</strong> Eng oddiy <code>on()</code> va <code>emit()</code>
+                                        metodlarini tushunish.</p>
+                                    <p><strong>Real holat:</strong> Veb-serverda yangi soʻrov kelganini xabar qilish.
+                                    </p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>2.</strong> Parametrli hodisa</h3>
+                                    <p><strong>Vazifa:</strong> Yuqoridagi masalaga oʻzgartirish kiriting.
+                                        <code>buyurtma</code> hodisasini <code>emit</code> qilganda, unga
+                                        <code>id</code> va <code>miqdori</code> (amount) kabi parametrlar uzating.
+                                        Tinglovchi funksiya esa bu parametrlarni qabul qilib, "Buyurtma №[id] qabul
+                                        qilindi, miqdori: [miqdori]" degan xabarni konsolga chiqarsin.
+                                    </p>
+                                    <p><strong>Maqsad:</strong> Hodisa bilan birga maʼlumot uzatishni oʻrganish.</p>
+                                    <p><strong>Real holat:</strong> E-commerce saytida buyurtma maʼlumotlarini
+                                        boshqarish.</p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>3.</strong> Bir hodisaga bir nechta tinglovchi</h3>
+                                    <p><strong>Vazifa:</strong> <code>event.js</code> faylida
+                                        <code>foydalanuvchi_tizimga_kirdi</code> hodisasini yarating. Bu hodisani
+                                        tinglash uchun ikkita alohida funksiya yozing:
+                                    </p>
+                                    <ul>
+                                        <li>Birinchisi: "Xush kelibsiz, [foydalanuvchi nomi]!" deb chiqaradi.</li>
+                                        <li>Ikkinchisi: "Tizimga kirish vaqti: [hozirgi vaqt]" deb chiqaradi.</li>
+                                    </ul>
+                                    <p><strong>Maqsad:</strong> Bir hodisa yuz berganda bir nechta amallarni bajarish.
+                                    </p>
+                                    <p><strong>Real holat:</strong> Foydalanuvchi tizimga kirganda ham uni xush
+                                        kelibsizlash, ham uning oxirgi kirish vaqtini yangilash.</p>
+                                </div>
+                            </div>
+
+                            <h2 class="section-title">Oʻrtacha Masalalar (2 ta)</h2>
+                            <div class="task-grid">
+                                <div class="task">
+                                    <h3><strong>4.</strong> Hodisani bir marta tinglash</h3>
+                                    <p><strong>Vazifa:</strong> <code>xabar_yuborildi</code> nomli hodisa uchun
+                                        tinglovchi funksiya yozing. Bu funksiya faqat bir marta ishga tushishi kerak.
+                                        Yaʼni, hodisa birinchi marta <code>emit</code> qilinganda ishlaydi, ikkinchi va
+                                        undan keyingi safarlarda esa eʼtiborga olinmaydi.</p>
+                                    <p><strong>Maqsad:</strong> <code>once()</code> metodidan foydalanishni oʻrganish.
+                                    </p>
+                                    <p><strong>Real holat:</strong> Bir marta amalga oshiriladigan operatsiyalar
+                                        (masalan, dastur dastlabki sozlamalari bajarilganda).</p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>5.</strong> Hodisani oʻchirish</h3>
+                                    <p><strong>Vazifa:</strong> <code>event.js</code> faylida
+                                        <code>hisobot_tayyor</code> hodisasini yarating. Unga <code>tinglovchi()</code>
+                                        nomli funksiyani biriktiring. Belgilangan muddatdan keyin (masalan, 5 soniyadan
+                                        soʻng) <code>removeListener()</code> yoki <code>off()</code> metodidan
+                                        foydalanib bu tinglovchini oʻchirib tashlang.
+                                    </p>
+                                    <p><strong>Maqsad:</strong> Hodisa tinglovchilarini dinamik boshqarishni oʻrganish.
+                                    </p>
+                                    <p><strong>Real holat:</strong> Vaqtinchalik yoki shartli hodisa tinglovchilarini
+                                        boshqarish.</p>
+                                </div>
+                            </div>
+
+                            <h2 class="section-title">Qiyin Masalalar (2 ta)</h2>
+                            <div class="task-grid">
+                                <div class="task">
+                                    <h3><strong>6.</strong> Oʻz <code>EventEmitter</code> klassini yaratish</h3>
+                                    <p><strong>Vazifa:</strong> <code>EventEmitter</code>dan vorislik olgan
+                                        (<code>extends</code>) <code>Server</code> nomli klass yarating. Bu klass
+                                        <code>start()</code> metodiga ega boʻlsin. <code>start()</code> chaqirilganda, u
+                                        <code>listening</code> hodisasini va bir necha soniyadan soʻng
+                                        <code>request</code> hodisasini <code>emit</code> qilsin.
+                                    </p>
+                                    <p><strong>Maqsad:</strong> Oʻz obyektlaringizni hodisalarni tarqatishga qodir
+                                        qilish.</p>
+                                    <p><strong>Real holat:</strong> Dasturning turli qismlari (masalan, modul) bir-biri
+                                        bilan hodisalar orqali aloqa qilishi.</p>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>7.</strong> Sinxron va asinxron hodisalar</h3>
+                                    <p><strong>Vazifa:</strong> <code>progress</code> nomli hodisa yarating. Ushbu
+                                        hodisa <code>emit</code> qilinganda, <code>setTimeout()</code> ichida
+                                        ishlaydigan asinxron tinglovchi funksiya chaqirilsin. Shuningdek, boshqa sinxron
+                                        tinglovchi ham boʻlsin. Ikkala tinglovchi ham "Hodisa tinglandi" deb konsolga
+                                        chiqarsin. Dastur kodi ishga tushganda qaysi xabar birinchi chiqishini
+                                        tushuntiring.</p>
+                                    <p><strong>Maqsad:</strong> Node.js'ning Event Loop (Hodisalar aylanmasi) va
+                                        sinxron/asinxron hodisalarning ishlashini chuqurroq tushunish.</p>
+                                    <p><strong>Real holat:</strong> Bitta hodisa (masalan, fayl yuklandi) bir vaqtning
+                                        oʻzida ham maʼlumotlar bazasiga yozishni, ham foydalanuvchiga xabar yuborishni
+                                        talab qiladigan vaziyatlar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 5: Homework -->
+                <div class="lesson">
+                    <button class="lesson-trigger">
+                        <div class="lesson-title">
+                            <span class="lesson-emoji">📝</span>
+                            Uyga vazifa
+                        </div>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="lesson-content">
+                        <div class="lesson-body">
+                            <div class="task-grid">
+                                <div class="task">
+                                    <h3><strong>1.</strong> FS (Fayl tizimi)</h3>
+                                    <p><strong>Vazifa:</strong> Veb-saytga yuklangan har bir rasm uchun alohida papka
+                                        yaratish.</p>
+                                    <p><strong>Ssenariy:</strong> Tasavvur qiling, sizning veb-ilovangizga
+                                        foydalanuvchilar har xil rasmlarni yuklaydi. Sizning dasturingiz har bir rasm
+                                        uchun oʻsha rasm nomiga mos keladigan alohida papka yaratishi kerak. Masalan,
+                                        "user-photo-1.jpg" nomli rasm uchun "user-photo-1" nomli papka yaratilishi
+                                        lozim. Agar bu papka allaqachon mavjud boʻlsa, dastur xato berishi shart emas.
+                                    </p>
+                                    <p><strong>Talablar:</strong></p>
+                                    <ul>
+                                        <li>Fayl tizimi bilan ishlash uchun Node.js’ning **`fs`** modulidan foydalaning.
+                                        </li>
+                                        <li>Papkalar yaratish uchun **asinxron** funksiyadan (<code>fs.mkdir</code> yoki
+                                            <code>fs/promises</code> dan) foydalaning, sinxron funksiyalardan
+                                            (<code>fs.mkdirSync</code>) emas.</li>
+                                        <li>Fayl nomi (masalan, <code>photo.jpg</code>) berilganda, dastur faqat asosiy
+                                            nomini (<code>photo</code>) olib, shunga mos papka yaratishi kerak. Fayl
+                                            kengaytmasini eʼtiborsiz qoldiring.</li>
+                                        <li>Yaratilayotgan papka allaqachon mavjud boʻlsa, bu holatni toʻgʻri boshqaring
+                                            va xato chiqarishning oldini oling.</li>
+                                    </ul>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>2.</strong> Path (Yoʻl)</h3>
+                                    <p><strong>Vazifa:</strong> Fayl yoʻli maʼlumotlarini tahlil qilish.</p>
+                                    <p><strong>Ssenariy:</strong> Sizga turli operatsion tizimlardan (masalan, Windows
+                                        va Linux) fayllar yoʻllari kelib turadi. Sizning vazifangiz — bu yoʻllarni
+                                        tahlil qilish va ulardan papka yoʻli, fayl nomi, va fayl kengaytmasi kabi
+                                        alohida qismlarni ajratib olish. Soʻngra, bu qismlardan foydalanib, yangi,
+                                        standart yoʻl yaratishingiz kerak.</p>
+                                    <p><strong>Talablar:</strong></p>
+                                    <ul>
+                                        <li>Node.js’ning **`path`** modulidan foydalaning.</li>
+                                        <li>Berilgan yoʻldan (<code>C:\Users\data\file.txt</code> yoki
+                                            <code>/home/user/data/file.txt</code>) quyidagilarni ajratib oling:
+                                            <ul>
+                                                <li>Faylning toʻliq nomi (<code>file.txt</code>)</li>
+                                                <li>Fayl nomi (kengaytmasiz) (<code>file</code>)</li>
+                                                <li>Fayl kengaytmasi (<code>.txt</code>)</li>
+                                                <li>Fayl joylashgan papka yoʻli (<code>C:\Users\data</code> yoki
+                                                    <code>/home/user/data</code>)</li>
+                                            </ul>
+                                        </li>
+                                        <li>**`path.join()`** metodidan foydalanib, ajratib olingan qismlarni
+                                            birlashtirib, original fayl yoʻlini qayta hosil qiling.</li>
+                                    </ul>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>3.</strong> URL (Manzil)</h3>
+                                    <p><strong>Vazifa:</strong> Veb-sayt manzilini tahlil qilish.</p>
+                                    <p><strong>Ssenariy:</strong> Sizga veb-saytning toʻliq URL manzili berilgan.
+                                        Sizning vazifangiz bu manzilni komponentlarga (qismlarga) ajratish va kerakli
+                                        maʼlumotlarni olishdan iborat. Masalan, protokol, domenni nomi va soʻrov
+                                        parametrlarini chiqarib olish kerak.</p>
+                                    <p><strong>Talablar:</strong></p>
+                                    <ul>
+                                        <li>Node.js’ning **`url`** modulidagi **`URL`** klassidan foydalaning.</li>
+                                        <li>Berilgan URL
+                                            (<code>https://example.com/products?category=electronics&page=2#top</code>)
+                                            asosida quyidagi maʼlumotlarni ajratib oling:
+                                            <ul>
+                                                <li>Protokol: <code>https:</code></li>
+                                                <li>Hostname: <code>example.com</code></li>
+                                                <li>Yoʻl (pathname): <code>/products</code></li>
+                                                <li>Soʻrov parametrlari (query parameters): <code>category</code> va
+                                                    <code>page</code> ning qiymatlari.</li>
+                                            </ul>
+                                        </li>
+                                        <li>Olingan maʼlumotlarni konsolga aniq va tushunarli formatda chiqaring.</li>
+                                    </ul>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>4.</strong> Event (Hodisa)</h3>
+                                    <p><strong>Vazifa:</strong> Foydalanuvchi holati uchun hodisa tizimini yaratish.</p>
+                                    <p><strong>Ssenariy:</strong> Siz foydalanuvchining real vaqtdagi statusini
+                                        (holatini) kuzatadigan tizim yaratishingiz kerak. Foydalanuvchi tizimga kirganda
+                                        yoki yangi xabar olganda, dasturning boshqa qismlari bu haqda avtomatik ravishda
+                                        xabardor boʻlishi lozim. Bunga erishish uchun hodisalardan foydalaniladi.</p>
+                                    <p><strong>Talablar:</strong></p>
+                                    <ul>
+                                        <li>Node.js’ning **`events`** modulidagi **`EventEmitter`** klassidan
+                                            foydalaning.</li>
+                                        <li><code>userStatus</code> nomli obyekt yarating.</li>
+                                        <li>Bu obyekt <code>online</code> va <code>newMessage</code> nomli ikkita
+                                            hodisani tarqatishi (<code>emit</code>) kerak.</li>
+                                        <li><code>online</code> hodisasi foydalanuvchi nomi (<code>username</code>)
+                                            parametrini qabul qilsin.</li>
+                                        <li><code>newMessage</code> hodisasi esa foydalanuvchi nomi
+                                            (<code>username</code>) va xabar matni (<code>message</code>) parametrlarini
+                                            qabul qilsin.</li>
+                                        <li>Har bir hodisa uchun alohida tinglovchi (listener) funksiya yozing va ular
+                                            konsolga tegishli xabarlarni chiqarsin.</li>
+                                    </ul>
+                                </div>
+                                <div class="task">
+                                    <h3><strong>5.</strong> Stream (Oqim)</h3>
+                                    <p><strong>Vazifa:</strong> Katta faylni qismlarga boʻlib oʻqish va filtrlab yozish.
+                                    </p>
+                                    <p><strong>Ssenariy:</strong> Sizda juda katta hajmdagi (5 GB)
+                                        <code>financial_data.csv</code> fayli bor. Bu faylni toʻliq xotiraga yuklash
+                                        dasturning ishlashini sekinlashtirishi yoki umuman ishdan chiqarishi mumkin.
+                                        Sizning vazifangiz faylni oqimlar yordamida oʻqib, undagi maʼlumotlarni yil
+                                        boʻyicha filtrlab, yangi faylga yozish. Faqatgina "2024" yiliga oid qatorlar
+                                        yangi faylga oʻtkazilishi kerak.</p>
+                                    <p><strong>Talablar:</strong></p>
+                                    <ul>
+                                        <li>Fayllar bilan ishlash uchun **`fs.createReadStream()`** va
+                                            **`fs.createWriteStream()`** dan foydalaning.</li>
+                                        <li>Faylni qator-qator oʻqib chiqish va filtratsiya qilish uchun **`Transform
+                                            Stream`** dan foydalaning. Bu sizga maʼlumotlarni oʻqish va yozish
+                                            jarayonini bir-biriga ulashga yordam beradi.</li>
+                                        <li>Filtirlash mantiqi shunday boʻlishi kerakki, faqat "2024" yiliga tegishli
+                                            qatorlar yangi faylga yozilsin.</li>
+                                        <li>Butun faylni xotiraga yuklamasdan, oqimlar orqali ishlash tamoyiliga rioya
+                                            qiling.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Social Section -->
+        <section class="social-section">
+            <h2 class="social-title">Khamidov IT Academy</h2>
+            <div class="social-grid">
+                <a href="https://t.me/Kelajakka_Yuksalish" class="social-card" target="_blank">
+                    <img src="./icons/telegramm_logo.png" alt="Telegram">
+                    <span>Telegram</span>
+                </a>
+                <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                    class="social-card" target="_blank">
+                    <img src="./icons/instagramm_logo.png" alt="Instagram">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://github.com/Bekmuhammad-Devoloper" class="social-card" target="_blank">
+                    <img src="./icons/github-logo.png" alt="GitHub">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-card" target="_blank">
+                    <img src="./icons/youtube-logo.png" alt="YouTube">
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="scroll-top" id="scrollTop">↑</div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

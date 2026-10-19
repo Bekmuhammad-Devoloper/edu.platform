@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khamidov Academy</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="frontend.css">
+
+  <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+  <!-- Video fon -->
+  <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"
+    id="bg-video">
+    <source src="./video/pilot.mp4" type="video/mp4">
+  </video>
+
+
+  <div>
+    <h1>JavaScript</h1>
+    <ul>
+      <li>
+        <h2 class="accordion"> <span>Event Loop</span> </h2>
+        <div class="panel">
+          <ul>
+            <li>JavaScript bir oqimli (single-threaded) til <br>
+              Demak, u bir vaqtning o‘zida faqat bitta ishni bajaradi. <br>
+              Lekin biz asinxron (kechikadigan) ishlarni ham qilmoqchimiz: masalan, setTimeout, fetch, click event va
+              hokazo. <br></li>
+            <li>Asosiy bo‘laklar <br>
+
+              JavaScript ishlash jarayoni quyidagilardan iborat: <br>
+              <br>
+              Call Stack (chaqiruv steki) <br>
+              – Bu joyda kodlar birma-bir bajariladi. <br>
+              – Masalan: oddiy console.log("Hello") shu yerda bajariladi. <br>
+              <br>
+              Web APIs (brauzerning API’lari) <br>
+              – Asinxron vazifalar (setTimeout, DOM events, fetch, va h.k.) shu yerda bajarilib, navbatga qo‘yiladi.
+              <br>
+              <br>
+              Callback Queue (yoki Task Queue / Macrotask Queue) <br>
+              – Asinxron vazifalarning callback’lari shu yerga tushadi (masalan, setTimeout callback). <br>
+              <br>
+              Microtask Queue <br>
+              – Bu joyda Promise kabi “tezroq bajarilishi kerak” bo‘lgan ishlar turadi. <br>
+              – Microtask Queue Callback Queue’dan ustun! <br>
+              <br>
+              Event Loop <br>
+              – Bu “nazoratchi” bo‘lib, doimiy aylanib turadi: <br>
+              Call Stack bo‘sh bo‘lsa → Microtask Queue’dan vazifa olib bajaradi. <br>
+              Agar u ham bo‘sh bo‘lsa → Callback Queue’dan vazifa olib bajaradi. <br>
+            </li>
+            <li>
+              <p>Oddiy misol</p>
+              <pre>
+                console.log("1");
+
+                setTimeout(() => {
+                  console.log("2");
+                }, 0);
+                
+                Promise.resolve().then(() => {
+                  console.log("3");
+                });
+                
+                console.log("4");
+                </pre>
+              <p>natijalar:</p>
+              <p>
+                1 <br>
+                4 <br>
+                3 <br>
+                2 <br>
+              </p>
+              <p>Izoh: <br>
+                1 → darhol stack’da bajariladi. <br>
+                setTimeout → Web APIs’ga yuboriladi → 0ms kutib → Callback Queue’ga tushadi. <br>
+                Promise.then → Microtask Queue’ga tushadi. <br>
+                4 → darhol bajariladi. <br>
+                Stack bo‘sh → Microtask Queue’dagi 3 bajariladi. <br>
+                Keyin Callback Queue’dagi 2 bajariladi. <br></p>
+            </li>
+          </ul>
+        </div>
+
+
+      </li>
+      <li>
+        <h2 class="accordion"> <span>Amaliyot</span> </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <h4>Faktorial hisoblash</h4>
+              <p>Berilgan son uchun faktorialni hisoblash.</p>
+              <p><strong>Formula:</strong> n! = n × (n-1) × (n-2) × ... × 1</p>
+              <p><strong>Misol:</strong> 5! = 5 × 4 × 3 × 2 × 1 = 120</p>
+            </li>
+
+            <li>
+              <h4>Armstrong soni</h4>
+              <p>Berilgan son Armstrong soni ekanligini tekshirish.</p>
+              <p><strong>Ta’rif:</strong> Agar sonning raqamlari kubining yig‘indisi sonning o‘ziga teng bo‘lsa, u
+                Armstrong soni deyiladi.</p>
+              <p><strong>Misol:</strong> 153 → 1³ + 5³ + 3³ = 153</p>
+            </li>
+
+            <li>
+              <h4>Palindrom</h4>
+              <p>Berilgan satrning palindrom ekanligini tekshirish (ya'ni orqaga qarab o‘qiganda ham bir xil bo‘lsa).
+              </p>
+              <p><strong>Misol:</strong> "madam" → palindrom, "racecar" → palindrom</p>
+            </li>
+
+            <li>
+              <h4>Fibonaçchi qatori</h4>
+              <p>Fibonaçchi qatorining n-chi elementini hisoblash.</p>
+              <p><strong>Formula:</strong> F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)</p>
+              <p><strong>Misol:</strong> F(5) = 5 (0, 1, 1, 2, 3, 5)</p>
+            </li>
+
+            <li>
+              <h4>Maxsus tugunlarni o‘qish</h4>
+              <p>Berilgan massivdan eng katta va eng kichik sonlarni topib, ular orasidagi farqni hisoblash.</p>
+              <p><strong>Misol:</strong> [2, 7, 1, 9] → eng katta = 9, eng kichik = 1, farq = 9 - 1 = 8</p>
+            </li>
+            <li>
+              <h4>Teskari massiv</h4>
+              <p>Berilgan massivni teskari qilib chiqarish.</p>
+              <p><strong>Misol:</strong> [1, 2, 3] → [3, 2, 1]</p>
+            </li>
+
+            <li>
+              <h4>Birinchi unikal belgini topish</h4>
+              <p>Berilgan satrda faqat bitta martalab uchraydigan eng birinchi belgini topish.</p>
+              <p><strong>Misol:</strong> "aabbc" → "c"</p>
+            </li>
+
+            <li>
+              <h4>Anagramma</h4>
+              <p>Ikki satrning anagramma ekanligini tekshirish (ya'ni, har bir satrdagi harflar bir xil bo‘lishi kerak).
+              </p>
+              <p><strong>Misol:</strong> "listen" va "silent"</p>
+            </li>
+
+            <li>
+              <h4>Yig‘indi masalasi</h4>
+              <p>Berilgan massivdagi barcha <strong>juft sonlarning yig‘indisini</strong> hisoblash.</p>
+              <p><strong>Misol:</strong> [1, 2, 3, 4] → 2 + 4 = 6</p>
+            </li>
+
+            <li>
+              <h4>Harmonik sonlar</h4>
+              <p>Berilgan son uchun harmonik sonni hisoblash:</p>
+              <p><strong>Formula:</strong> H(n) = 1 + 1/2 + 1/3 + ⋯ + 1/n</p>
+              <p><strong>Misol:</strong> H(3) = 1 + 1/2 + 1/3</p>
+            </li>
+          </ol>
+          <ul>
+            <li>
+              <h4>1. Mahsulotlarni olib kelish va chiqarish</h4>
+              <ol>
+                <li>FakeStore API manzilidan <code>https://fakestoreapi.com/products</code> orqali barcha mahsulotlarni
+                  olib kelish.</li>
+                <li>Olingan natijani JSON formatga o‘tkazish.</li>
+                <li>JSON ma’lumotni brauzer konsoliga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>2. Mahsulot nomlarini chiqarish</h4>
+              <ol>
+                <li>API dan barcha mahsulotlarni olib kelish.</li>
+                <li>Olingan ma’lumotlardan faqat <code>title</code> qiymatini ajratib olish.</li>
+                <li>Har bir nomni konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>3. Kategoriyalarni chiqarish</h4>
+              <ol>
+                <li><code>https://fakestoreapi.com/products/categories</code> endpoint orqali kategoriyalarni olish.
+                </li>
+                <li>Olingan kategoriyalar ro‘yxatini konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>4. Eng qimmat mahsulotni topish</h4>
+              <ol>
+                <li>Barcha mahsulotlarni olib kelish.</li>
+                <li>Mahsulotlar ichidan narxi eng katta bo‘lganini topish.</li>
+                <li>O‘sha mahsulotning nomi va narxini konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>5. Mahsulotlarni kategoriya bo‘yicha filtrlash</h4>
+              <ol>
+                <li>Foydalanuvchi tanlagan kategoriya nomini olish.</li>
+                <li>API dan shu kategoriya bo‘yicha mahsulotlarni olish.</li>
+                <li>Olingan ro‘yxatni konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>6. Mahsulotlarni narx bo‘yicha saralash</h4>
+              <ol>
+                <li>Barcha mahsulotlarni olib kelish.</li>
+                <li>Mahsulotlarni <code>price</code> qiymati bo‘yicha tartiblash (kichikdan kattaga).</li>
+                <li>Tartiblangan ro‘yxatni konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>7. Ma’lum narxdan yuqori mahsulotlarni topish</h4>
+              <ol>
+                <li>Barcha mahsulotlarni API dan olib kelish.</li>
+                <li>Masalan, narxi $50 dan katta bo‘lgan mahsulotlarni filtrlash.</li>
+                <li>Filtrlangan natijalarni konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>8. ID bo‘yicha mahsulotni topish</h4>
+              <ol>
+                <li>Foydalanuvchidan mahsulot ID sini kiritishni so‘rash.</li>
+                <li><code>https://fakestoreapi.com/products/{id}</code> orqali ma’lumotni olish.</li>
+                <li>Topilgan mahsulot ma’lumotlarini konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>9. O‘rtacha narxni hisoblash</h4>
+              <ol>
+                <li>Barcha mahsulotlarni API dan olib kelish.</li>
+                <li>Barcha narxlarni qo‘shib, ularning soniga bo‘lish.</li>
+                <li>O‘rtacha qiymatni konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>10. Eng yaxshi baholangan mahsulotni topish</h4>
+              <ol>
+                <li>Barcha mahsulotlarni olib kelish.</li>
+                <li>Har bir mahsulotdagi <code>rating.rate</code> qiymatini solishtirish.</li>
+                <li>Eng yuqori reytingga ega mahsulotni konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>11. Har bir kategoriyadagi mahsulotlar sonini hisoblash</h4>
+              <ol>
+                <li>Barcha mahsulotlarni olib kelish.</li>
+                <li>Kategoriya bo‘yicha guruhlash.</li>
+                <li>Har bir kategoriya uchun mahsulotlar sonini konsolga chiqarish.</li>
+              </ol>
+            </li>
+
+            <li>
+              <h4>12. Savat tizimini yaratish (Array asosida)</h4>
+              <ol>
+                <li>Bo‘sh <code>cart</code> massivini yaratish.</li>
+                <li>Foydalanuvchi tanlagan mahsulot IDlarini savatga qo‘shish.</li>
+                <li>Savatdagi barcha mahsulotlarning umumiy narxini hisoblash.</li>
+                <li>Natijani konsolga chiqarish.</li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+
+
+      </li>
+
+
+
+      <li>
+        <h2 class="accordion"><span>Uyga Vazifa</span>
+        </h2>
+        <div class="panel">
+          <ol>
+            <li>
+              <h4>Maqsad</h4>
+              <p>Fake Store API bilan <strong>fetch()</strong> orqali ishlash va natijalarni konsolga chiqarish. Bitta
+                sahifada ikkita yondashuv ko‘rsatiladi: <em>then()</em> va <em>async/await</em>.</p>
+
+              <h4>API manzillari</h4>
+              <ul>
+                <li>GET — https://fakestoreapi.com/products</li>
+                <li>GET — https://fakestoreapi.com/products/1</li>
+                <li>POST — https://fakestoreapi.com/products</li>
+                <li>PUT — https://fakestoreapi.com/products/1</li>
+                <li>PATCH — https://fakestoreapi.com/products/1</li>
+                <li>DELETE — https://fakestoreapi.com/products/1</li>
+              </ul>
+
+              <h4>Talablar</h4>
+              <ol>
+                <li>Har bir endpoint uchun alohida so‘rov yuborish.</li>
+                <li>So‘rovlarni ikki xil usulda ko‘rsatish: <strong>then()</strong> va <strong>async/await</strong>.
+                </li>
+                <li>Har bir so‘rov natijasini <strong>brauzer konsoli</strong>ga chiqarish: muvaffaqiyatli javob va
+                  xatolar.</li>
+                <li>POST, PUT, PATCH uchun <strong>JSON body</strong> yuborish va <strong>Content-Type:
+                    application/json</strong> sarlavhasini qo‘yish.</li>
+                <li>DELETE so‘rovining javobini ham konsolga chiqarish.</li>
+              </ol>
+
+              <h4>Natijani chiqarish</h4>
+              <ul>
+                <li>Muvaffaqiyatli javobda status kodini va JSON ma’lumotni konsolga yozish.</li>
+                <li>Xatolik bo‘lsa, xatoni tushunarli xabar bilan konsolga yozish.</li>
+              </ul>
+
+              <h4>POST/PUT/PATCH uchun namunaviy ma’lumot tarkibi</h4>
+              <ul>
+                <li>title</li>
+                <li>price</li>
+                <li>description</li>
+                <li>image</li>
+                <li>category</li>
+              </ul>
+              <p>Qiymatlar ixtiyoriy test ma’lumotlari bo‘lishi mumkin.</p>
+
+              <h4>then() yondashuvi uchun qadamlar</h4>
+              <ol>
+                <li><strong>fetch(url, options)</strong> chaqirish.</li>
+                <li><strong>.then()</strong> ichida statusni tekshirish va <strong>res.json()</strong> qaytarish.</li>
+                <li>Keyingi <strong>.then()</strong> ichida olingan obyektni konsolga chiqarish.</li>
+                <li><strong>.catch()</strong> orqali xatolarni ushlash va konsolga yozish.</li>
+              </ol>
+
+              <h4>async/await yondashuvi uchun qadamlar</h4>
+              <ol>
+                <li><strong>async</strong> funksiya yaratish.</li>
+                <li><strong>await fetch(url, options)</strong> yordamida javobni olish.</li>
+                <li>Statusni tekshirish va <strong>await res.json()</strong> natijasini konsolga chiqarish.</li>
+                <li><strong>try/catch</strong> orqali xatolarni ushlash va konsolga yozish.</li>
+              </ol>
+
+              <h4>Header va body talablari</h4>
+              <ul>
+                <li>POST/PUT/PATCH da sarlavha: <em>Content-Type: application/json</em>.</li>
+                <li>JSON body: <em>JSON.stringify({ title, price, description, image, category })</em>.</li>
+              </ul>
+
+              <h4>Qo‘shimcha eslatmalar</h4>
+              <ul>
+                <li>DevTools → Console oynasini ochib natijalarni ko‘ring.</li>
+                <li>Har bir endpoint bo‘yicha alohida log yozing: usul nomi (then yoki async), status, va ma’lumot.</li>
+                <li>Agar javob <em>ok</em> bo‘lmasa, mos xabar bilan xato tashlang.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+
+    </ul>
+  </div>
+
+
+
+  <div class="social-links">
+    <a href="https://t.me/KhamidovAcademy" class="social-link" target="_blank">
+      <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+      <span class="social-text">Telegramm</span>
+    </a>
+
+    <a href="https://www.instagram.com/khamidov_academy?igsh=MTQ0czJvaWs2eTl1aw==" class="social-link" target="_blank">
+      <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://github.com/Khamidov-online" class="social-link" target="_blank">
+      <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+      <span class="social-text">GitHub</span>
+    </a>
+
+    <a href="https://youtube.com/@khamidovacademy?si=PravUgcb8PJ_QoAM" class="social-link" target="_blank">
+      <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+      <span class="social-text">You Tube</span>
+    </a>
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./frontend.js"></script>
+  <script src="./script3.js"></script>
+  <script src="./script4.js"></script>
+  <script src="./hover.js"></script>
+
+</body>
+
+</html>

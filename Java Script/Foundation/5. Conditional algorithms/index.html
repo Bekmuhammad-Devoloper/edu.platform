@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Tarmoqlanuvchi (shartli) algoritmlar</h2>
+                    <div class="panel">
+<p><strong>Tarmoqlanuvchi algoritm</strong> — bajarilish yo'li <em>shartga</em> bog'liq bo'lgan algoritm. Shart tekshiriladi: natija <strong>rost (ha)</strong> yoki <strong>yolg'on (yo'q)</strong> bo'ladi va shunga qarab turli qadamlar bajariladi.</p>
+<h4>Taqqoslash operatorlari</h4>
+<pre>a > b     katta           a >= b    katta yoki teng
+a < b     kichik          a <= b    kichik yoki teng
+a == b    teng            a != b    teng emas</pre>
+<h4>Mantiqiy amallar</h4>
+<pre>VA   (AND, &&)  - ikkala shart ham rost bo'lsa rost:   (x > 0) VA (x < 10)
+YOKI (OR,  ||)  - kamida bittasi rost bo'lsa rost:     (kun == "Shanba") YOKI (kun == "Yakshanba")
+EMAS (NOT, !)   - teskarisi:                           EMAS (yomg'ir)</pre>
+<h4>Shartning shakllari</h4>
+<pre>1) Qisqa shakl:                 2) To'liq shakl:
+AGAR shart BO'LSA               AGAR shart BO'LSA
+   amal                            amal_1
+TAMOM                           AKS HOLDA
+                                   amal_2
+                                TAMOM
+
+3) Ko'p tarmoqli:
+AGAR ball >= 90 BO'LSA  baho = "A"
+AKS HOLDA AGAR ball >= 80 BO'LSA  baho = "B"
+AKS HOLDA AGAR ball >= 70 BO'LSA  baho = "C"
+AKS HOLDA  baho = "F"</pre>
+<h4>Blok-sxemada shart</h4>
+<pre>            |
+      < a mod 2 == 0 ? >
+       ha /        \ yo'q
+         /          \
+ / "Juft" /      / "Toq" /
+         \          /
+            \      /
+               |</pre>
+<h4>Misol: uchta sonning eng kattasi</h4>
+<pre>BOSHLANISH
+  KIRIT a, b, c
+  max = a
+  AGAR b > max BO'LSA max = b
+  AGAR c > max BO'LSA max = c
+  CHIQAR max
+TUGASH</pre>
+<h4>Ichma-ich shartlar</h4>
+<pre>AGAR yosh >= 18 BO'LSA
+   AGAR pasport_bor BO'LSA
+      CHIQAR "Ovoz berishi mumkin"
+   AKS HOLDA
+      CHIQAR "Pasport kerak"
+   TAMOM
+AKS HOLDA
+   CHIQAR "Voyaga yetmagan"
+TAMOM</pre>
+<h4>Tanlov (switch / case)</h4>
+<p>Bitta o'zgaruvchi ko'p qiymatlar bilan solishtirilganda qulay:</p>
+<pre>TANLA kun
+  HOL 1: CHIQAR "Dushanba"
+  HOL 2: CHIQAR "Seshanba"
+  ...
+  AKS HOLDA: CHIQAR "Noto'g'ri kun"
+TAMOM</pre>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Amaliyot</h2>
+                    <div class="panel">
+<p class="hint">Har bir masalani avval daftarda (so'z bilan, blok-sxema yoki psevdokod) yeching, keyin kuzatuv jadvali bilan tekshiring.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Juft yoki toq</strong></p><p>Son kiritiladi. Juft bo'lsa «Juft», aks holda «Toq» chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Musbat yoki manfiy</strong></p><p>Son kiritiladi. Musbat, manfiy yoki nol ekanini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Kattasini toping</strong></p><p>Ikki son kiritiladi. Kattasini chiqaring. Teng bo'lsa «Teng» deb chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Voyaga yetganmi?</strong></p><p>Yosh kiritiladi. 18 va undan katta bo'lsa «Voyaga yetgan», aks holda «Voyaga yetmagan».</p></li>
+  <li class="lvl-oson"><p><strong>Imtihon</strong></p><p>Ball kiritiladi. 60 va undan yuqori bo'lsa «O'tdi», aks holda «Yiqildi».</p></li>
+  <li class="lvl-oson"><p><strong>Bo'linish</strong></p><p>Ikki son kiritiladi. Birinchisi ikkinchisiga qoldiqsiz bo'linadimi?</p></li>
+  <li class="lvl-orta"><p><strong>Bank kartasi</strong></p><p>Kartada 150000 so'm bor. Yechiladigan summa kiritiladi. Yetarli bo'lsa yechib, qoldiqni chiqaring, aks holda «Mablag' yetarli emas».</p></li>
+  <li class="lvl-orta"><p><strong>Baho harfi</strong></p><p>Ball kiritiladi: 90+ → A, 80+ → B, 70+ → C, 60+ → D, qolgani → F.</p></li>
+  <li class="lvl-orta"><p><strong>Svetofor</strong></p><p>Rang kiritiladi: qizil → «To'xtang», sariq → «Tayyorlaning», yashil → «Yuring», boshqa → «Noto'g'ri signal». TANLA (switch) bilan yozing.</p></li>
+  <li class="lvl-orta"><p><strong>Harorat</strong></p><p>Harorat kiritiladi: 0 dan past → «Juda sovuq», 0–10 → «Sovuq», 11–20 → «Salqin», 21–30 → «Iliq», 30 dan yuqori → «Issiq».</p></li>
+  <li class="lvl-orta"><p><strong>Hafta kuni</strong></p><p>1 dan 7 gacha son kiritiladi. Hafta kunining nomini chiqaring, boshqa son bo'lsa «Bunday kun yo'q».</p></li>
+  <li class="lvl-orta"><p><strong>Uchta sonning kattasi</strong></p><p>Uchta son kiritiladi. Eng kattasini chiqaring (blok-sxema bilan).</p></li>
+  <li class="lvl-qiyin"><p><strong>Uchburchak mavjudmi?</strong></p><p>Uch tomon kiritiladi. Uchburchak mavjudmi? Har bir tomon qolgan ikkitasining yig'indisidan kichik bo'lishi kerak (VA amalidan foydalaning).</p></li>
+  <li class="lvl-qiyin"><p><strong>Kabisa yili</strong></p><p>Yil kiritiladi. Kabisa yili ekanini aniqlang: 4 ga bo'linsa va 100 ga bo'linmasa, YOKI 400 ga bo'linsa.</p></li>
+  <li class="lvl-qiyin"><p><strong>Chegirma turi</strong></p><p>Mijoz turi (standard 5%, premium 10%, vip 20%) va narx kiritiladi. Chegirma faqat narx 200000 dan katta bo'lsa qo'llanadi. To'lov summasini chiqaring.</p></li>
+  <li class="lvl-qiyin"><p><strong>Uchburchak turi</strong></p><p>Uch tomon kiritiladi. Avval mavjudligini tekshiring, so'ng teng tomonli, teng yonli yoki turli tomonli ekanini aniqlang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Uyga vazifa</h2>
+                    <div class="panel">
+<p class="hint">Barcha masalalarni ketma-ket bajaring. Oxirgi masalalar qo'shimcha ball uchun.</p>
+<ol class="tasks">
+  <li class="lvl-oson"><p><strong>Kichigini toping</strong></p><p>Ikki son kiritiladi. Kichigini chiqaring.</p></li>
+  <li class="lvl-oson"><p><strong>Besh ga karrali</strong></p><p>Son kiritiladi. 5 ga karrali ekanini tekshiring.</p></li>
+  <li class="lvl-oson"><p><strong>Parol</strong></p><p>Parol kiritiladi. «12345» ga teng bo'lsa «Kirish ruxsat etildi», aks holda «Parol xato».</p></li>
+  <li class="lvl-oson"><p><strong>Ikki xonali</strong></p><p>Son kiritiladi. Ikki xonali son ekanini tekshiring (10 dan 99 gacha).</p></li>
+  <li class="lvl-oson"><p><strong>Modul</strong></p><p>Son kiritiladi. Uning modulini (manfiy bo'lsa musbatga aylantirib) chiqaring.</p></li>
+  <li class="lvl-orta"><p><strong>Yosh toifasi</strong></p><p>Yosh kiritiladi: 7 dan kichik → «Bola», 7–17 → «O'quvchi», 18–59 → «Katta», 60+ → «Keksa».</p></li>
+  <li class="lvl-orta"><p><strong>Kalkulyator</strong></p><p>Ikki son va amal belgisi (+, −, *, /) kiritiladi. Natijani chiqaring. 0 ga bo'lishda «Xato» chiqsin.</p></li>
+  <li class="lvl-orta"><p><strong>Fasl</strong></p><p>Oy raqami (1–12) kiritiladi. Faslni chiqaring (TANLA bilan).</p></li>
+  <li class="lvl-orta"><p><strong>Ekran o'lchami</strong></p><p>Ekran kengligi kiritiladi: 600 dan kichik → «Mobil», 600–1024 → «Planshet», 1024 dan katta → «Kompyuter».</p></li>
+  <li class="lvl-orta"><p><strong>Parol kuchi</strong></p><p>Parol uzunligi kiritiladi: 6 dan kam → «Juda qisqa», 6–10 → «O'rtacha», 10 dan ko'p → «Yaxshi».</p></li>
+  <li class="lvl-qiyin"><p><strong>Restoran</strong></p><p>Taom nomi va soni kiritiladi (pizza 50000, burger 30000, lavash 25000). Umumiy hisobni chiqaring; menyuda yo'q bo'lsa «Menyuda yo'q».</p></li>
+  <li class="lvl-qiyin"><p><strong>Oydagi kunlar</strong></p><p>Yil va oy kiritiladi. Shu oyda necha kun borligini chiqaring (kabisa yilini hisobga oling).</p></li>
+  <li class="lvl-qiyin"><p><strong>Uchta sonni tartiblash</strong></p><p>Uchta son kiritiladi. Ularni o'sish tartibida chiqaring (faqat shartlar bilan).</p></li>
+  <li class="lvl-qiyin"><p><strong>Kvadrat tenglama</strong></p><p>a, b, c kiritiladi. ax² + bx + c = 0 tenglamaning nechta yechimi borligini diskriminant (D = b² − 4ac) orqali aniqlang.</p></li>
+</ol>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Interview savollari</h2>
+                    <div class="panel">
+<ol class="iv"><li><p class="q">1. Tarmoqlanuvchi algoritm nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Bajarilish yo'li shart natijasiga (rost/yolg'on) bog'liq bo'lgan algoritm.</p></details></li><li><p class="q">2. VA va YOKI farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>VA — ikkala shart ham rost bo'lishi kerak; YOKI — kamida bittasi rost bo'lsa yetarli.</p></details></li><li><p class="q">3. Qisqa va to'liq shakl farqi?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Qisqa shaklda faqat 'agar' qismi bor; to'liq shaklda 'aks holda' ham bor.</p></details></li><li><p class="q">4. Qachon switch (TANLA) qulay?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Bitta o'zgaruvchi ko'p aniq qiymatlar bilan solishtirilganda (kun, oy, rang).</p></details></li><li><p class="q">5. Ichma-ich shart nima?</p><details class="answer"><summary>Javobni ko'rish</summary><p>Bir shart ichida yana shart tekshirilishi. Masalan, yosh tekshirilgach, pasport tekshiriladi.</p></details></li><li><p class="q">6. Uchta sonning eng kattasini topish algoritmini ayting.</p><details class="answer"><summary>Javobni ko'rish</summary><p>max = a; agar b > max bo'lsa max = b; agar c > max bo'lsa max = c.</p></details></li><li><p class="q">7. Kabisa yili sharti?</p><details class="answer"><summary>Javobni ko'rish</summary><p>(yil mod 4 == 0 VA yil mod 100 != 0) YOKI yil mod 400 == 0.</p></details></li></ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

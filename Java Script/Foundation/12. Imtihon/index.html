@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="../_assets/style.css">
+    <link rel="stylesheet" href="../_assets/foundation.css">
+    <link rel="icon" href="../_assets/icons/webinar.gif" type="image/gif">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div>
+            <h1>Foundation</h1>
+            <ul>
+                <li>
+                    <h2 class="accordion">Imtihon tuzilishi va baholash</h2>
+                    <div class="panel">
+<p>Foundation imtihoni modulning barcha mavzularini qamrab oladi va 4 qismdan iborat:</p>
+<table>
+  <tr><th>Qism</th><th>Mazmuni</th><th>Ball</th><th>Vaqt</th></tr>
+  <tr><td>1. Test</td><td>20 ta savol: hardware/software, algoritm xossalari, HTML/CSS</td><td>20</td><td>20 daq</td></tr>
+  <tr><td>2. Algoritm</td><td>3 ta masala: psevdokod + blok-sxema + kuzatuv jadvali (chiziqli, shartli, siklik)</td><td>30</td><td>40 daq</td></tr>
+  <tr><td>3. Debug</td><td>3 ta xato algoritm — xatoni toping va tuzating</td><td>15</td><td>15 daq</td></tr>
+  <tr><td>4. HTML/CSS amaliy</td><td>Berilgan maket bo'yicha sahifa yasash (semantik tuzilma, flexbox, box model)</td><td>35</td><td>60 daq</td></tr>
+</table>
+<p><strong>O'tish bali:</strong> 60. <strong>A'lo:</strong> 90+. Imtihondan keyin <strong>Interview</strong> (og'zaki) bo'ladi.</p>
+<h4>Qoidalar</h4>
+<ul>
+  <li>Algoritm qismi qog'ozda yoki matn faylda; HTML/CSS — VS Code da, Live Server bilan ko'rsatiladi.</li>
+  <li>Internetdan tayyor kod ko'chirish taqiqlanadi; hujjatlardan (MDN) foydalanish mumkin.</li>
+  <li>Ishni <code>Foundation/imtihon</code> papkasida saqlab, platformaga topshiring.</li>
+</ul>
+                    </div>
+                </li>
+
+                <li>
+                    <h2 class="accordion">Namunaviy variant</h2>
+                    <div class="panel">
+<h4>1-qism: Test (namuna)</h4>
+<ol>
+  <li>1 KB necha bayt? <em>a) 1000 b) 1024 c) 8 d) 512</em></li>
+  <li>Blok-sxemada romb nimani bildiradi? <em>a) amal b) kiritish c) shart d) boshlanish</em></li>
+  <li>Qaysi sikl kamida bir marta bajariladi? <em>a) for b) while c) do-while d) hech biri</em></li>
+  <li>Qaysi teg abzats uchun? <em>a) &lt;a&gt; b) &lt;p&gt; c) &lt;h1&gt; d) &lt;div&gt;</em></li>
+  <li>padding nima? <em>a) tashqi masofa b) ichki masofa c) chegara d) kenglik</em></li>
+</ol>
+
+<h4>2-qism: Algoritm</h4>
+<ol>
+  <li><strong>Chiziqli:</strong> Besh xonali sonning birinchi va oxirgi raqamlari o'rnini almashtiring: 12345 → 52341.</li>
+  <li><strong>Shartli:</strong> Uchta son kiritiladi — ularni o'sish tartibida chiqaring (faqat shartlar bilan).</li>
+  <li><strong>Siklik:</strong> N ta son kiritiladi. Musbatlar yig'indisi, manfiylar soni va eng kattasini chiqaring. Kuzatuv jadvali: 3, -1, 7, -4, 2.</li>
+</ol>
+<h4>3-qism: Debug</h4>
+<pre>// A) 1 dan 10 gacha juft sonlar yig'indisi — nima xato?
+s = 0
+UCHUN i = 1 DAN 10 GACHA
+   AGAR i mod 2 == 0 BO'LSA s = i
+TAMOM
+CHIQAR s
+
+// B) Eng katta son — nima xato?
+KIRIT a, b, c
+max = 0
+AGAR a > max BO'LSA max = a
+AGAR b > max BO'LSA max = b
+AGAR c > max BO'LSA max = c
+CHIQAR max      // a = -5, b = -2, c = -9 bo'lsa?
+
+// C) Parol tekshirish — nima xato?
+TOKI parol == "123" BO'LSA
+   KIRIT parol
+TAMOM</pre>
+
+<h4>4-qism: HTML/CSS amaliy</h4>
+<p>"Kurs sahifasi" maketi: header (logo + 4 havola), hero (sarlavha, matn, 2 ta tugma), "Modullar" — 4 ta kartochka flex bilan (icon, nom, 2 jumla), "Natijalar" — jadval, footer. Talablar: semantik teglar, external CSS, :root o'zgaruvchilar, hover/transition, 600px dan kichik ekranda kartochkalar ustun bo'lsin.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+                <img src="../_assets/icons/telegramm_logo.png" alt="Telegram" class="social-logo">
+                <span class="social-text">Telegram</span>
+            </a>
+
+            <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet"
+                class="social-link" target="_blank">
+                <img src="../_assets/icons/instagramm_logo.png" alt="Instagram" class="social-logo">
+                <span class="social-text">Instagram</span>
+            </a>
+
+            <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/github-logo.png" alt="GitHub" class="social-logo">
+                <span class="social-text">GitHub</span>
+            </a>
+
+            <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+                <img src="../_assets/icons/youtube-logo.png" alt="YouTube" class="social-logo">
+                <span class="social-text">YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../_assets/script.js"></script>
+</body>
+
+</html>

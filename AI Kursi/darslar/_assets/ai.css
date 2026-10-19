@@ -1,0 +1,4 @@
+/* AI kursi: dars maqsadi bloki */
+.panel .dars-info { margin: 4px 0 16px; padding: 12px 16px; border-left: 4px solid #14c7d7; background: rgba(0, 0, 0, 0.45); border-radius: 0 8px 8px 0; }
+.panel .dars-info p { margin: 4px 0; }
+.panel .dars-info strong { color: #7ff1ff; }

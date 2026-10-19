@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamidov Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./icon/webinar.gif" type="image/gif">
+
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript</h1>
+        <ul>
+            <li>
+                <h2 class="accordion">JS internals (Heap and stack)</h2>
+                <div class="panel">
+                    <p>Heap – dinamik xotira maydoni bo‘lib, unda murakkab va o‘lchami oldindan noma'lum bo‘lgan
+                        ma'lumotlar saqlanadi.
+                        <br><br>Primitiv bo‘lmagan ma'lumotlar heapda saqlanadi, lekin ularga ishora qiluvchi
+                        referenslar stackda joylashadi.
+                        <br><br>Heapda xotira boshqaruvi Garbage Collector tomonidan avtomatik ravishda tozalanadi,
+                        ya'ni ishlatilmayotgan ob'ektlar xotiradan olib tashlanadi.
+                    </p>
+                    <p>------------------------------------------------------------------------------------------------------------------
+                    </p>
+                    <p>Stack – bu LIFO (Last In, First Out) tuzilmasiga ega xotira maydoni. Ya'ni, oxirgi qo‘shilgan
+                        ma'lumot birinchi olinadi. JavaScript'da stack odatda funksiyalar chaqiruvi (call stack) va
+                        o‘zgaruvchilar uchun ishlatiladi.
+                        <br><br>Stackda statik xotira ajratiladi, ya'ni o‘zgaruvchilar va ularning qiymatlari oldindan
+                        belgilangan hajmda saqlanadi.
+                        <br><br>Oddiy (primitiv) ma'lumot turlari (masalan, number, string, boolean, null, undefined)
+                        stackda saqlanadi.
+                        <br><br>Funksiyalar chaqirilganda ularning konteksti (local variables, arguments) stackga
+                        joylashadi va funksiya tugagach, stackdan o‘chiriladi.
+                    </p>
+                    <h2 class="image-toggle">Heap and stack</h2>
+                    <div class="image-panel">
+                        <img src="2.jpg" alt="Heap and stack" style="width:100%;">
+                    </div>
+                    <h2 class="image-toggle">LIFO</h2>
+                    <div class="image-panel">
+                        <img src="2.jpg" alt="LIFO" style="width:100%;">
+                    </div>
+                    <h2 class="image-toggle">FIFO</h2>
+                    <div class="image-panel">
+                        <img src="2.jpg" alt="FIFO" style="width:100%;">
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <h2 class="accordion">Shallow copy and Deep copy</h2>
+                <div class="panel">
+                    <p>Shallow(Yuzaki nusxa) copy obyektdagi faqat yuqori darajadagi qiymatlarni nusxalaydi. Bu shuni
+                        anglatadiki,
+                        agar obyekt ichida boshqa obyekt yoki massiv bo'lsa, ular faqat havola (reference) orqali
+                        nusxalanadi, lekin haqiqiy qiymatlar nusxalanmaydi.</p>
+
+                    <p>Deep(Chuqur nusxa) copy obyektdagi barcha qiymatlarni, shu jumladan ichki obyektlar yoki
+                        massivlarni ham
+                        nusxalaydi. Bunda har bir element uchun alohida xotira ajratiladi, shuning uchun original va
+                        nusxa bir-biridan mustaqil bo'ladi.</p>
+
+                    <!-- <h2 class="image-toggle">2-rasm</h2>
+                    <div class="image-panel">
+                        <img src="2-2.jpg" alt="Var, Const, Let 2" style="width:100%;">
+                    </div> -->
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Array Methods</h2>
+                <div class="panel">
+                    <p>Array Methodlarini takrorlash toldirish.</p>
+                    <h2 class="image-toggle">Array Methods</h2>
+                    <div class="image-panel">
+                        <img src="./img/photo_2024-12-24_18-36-22.jpg" alt=" true " style="width:100%;">
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot (Copy)</h2>
+                <div class="panel">
+                    <h3>Shallow copy</h3>
+                    <ol>
+                        <li>Massivni shallow copy qilish:
+                            <p>// Berilgan massivni shallow copy qiling.</p>
+                            <p>const arr = [1, 2, 3, 4];</p>
+
+                        </li>
+                        <li>Obyektni Object.assign() yordamida shallow copy qilish:
+                            <p>// Berilgan obyektni `Object.assign()` yordamida nusxa oling.
+                            </p>
+                            <p>const obj = { a: 1, b: 2, c: 3 };
+                            </p>
+
+                        </li>
+                        <li>Shallow copy spread operator bilan:
+                            <p>// Obyektdan nusxa oling va uni konsolda tekshiring.
+                            </p>
+                            <p>const person = { name: "Ali", age: 25 };
+                            </p>
+
+                        </li>
+                        <li>Shallow copy va chuqur obyekt:
+                            <p>// Quyidagi obyektni shallow copy qiling va `address`ni o'zgartiring.
+                            </p>
+                            <p>const user = { name: "Bek", address: { city: "Toshkent" } };
+                            </p>
+                            <p>Shellow copy oling!(copiedUser)</p>
+                            <p>copiedUser.address.city = "Samarqand";
+                            </p>
+                            <p>console.log(user.address.city); // Nima chiqadi?
+                            </p>
+                        </li>
+                        <li>Mahsulotlar ro‘yxatini nusxalash:
+                            E-tijorat saytida mahsulotlar ro‘yxatini shallow copy qilib, keyin nusxa bilan ishlash
+                            kerak.
+                            <p>const products = [</p>
+                            <p> { id: 1, name: "Telefon", price: 500 },
+                            </p>
+                            <p> { id: 2, name: "Laptop", price: 1000 },
+                            </p>
+                            <p>];</p>
+                            <p>Shellow copy oling!(copiedProducts)</p>
+
+                            <p>copiedProducts[0].price = 600;
+                            </p>
+                            <p></p>
+                            <p>console.log(products[0].price); // Nima chiqadi?
+                            </p>
+                        </li>
+
+
+                    </ol>
+
+                    <h3>Deep copy</h3>
+                    <ol>
+                        <li>Kompleks obyektni nusxalash:
+                            Agar obyekt ichida boshqa obyektlar yoki massivlar bo‘lsa, deep copy qilish zarur bo‘ladi,
+                            chunki shallow copy faqat yuqori darajadagi qiymatlarni nusxalaydi.
+                            <p>const student = {
+                            </p>
+                            <p> name: "Bek",
+                            </p>
+                            <p> subjects: ["Math", "Physics", "Chemistry"],
+                            </p>
+                            <p> address: { city: "Toshkent", country: "Uzbekistan" },
+                            </p>
+                            <p>};
+                            </p>
+                            <p>// Deep copy qilish
+                            </p>
+
+                        </li>
+                        <li>Mahsulotlar ro‘yxatidagi obyektlarni chuqur nusxalash:
+                            Onlayn do‘konda mahsulotlar ro‘yxatini chuqur nusxalab, mahsulotning narxini yangilash.
+                            <p>const products = [
+                            </p>
+                            <p> { name: "Laptop", price: 1000, specs: { processor: "Intel i7", ram: "16GB" } },
+                            </p>
+                            <p> { name: "Phone", price: 500, specs: { processor: "Snapdragon", ram: "8GB" } }
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Deep copy qilish
+                            </p>
+                        </li>
+                        <li>Foydalanuvchi ma'lumotlarini chuqur nusxalash:
+                            Foydalanuvchi profilini chuqur nusxalab, foydalanuvchining barcha ma'lumotlarini
+                            o‘zgartirish.
+                            <p>const user = {
+                            </p>
+                            <p> id: 1,
+                            </p>
+                            <p> name: "Ali",
+                            </p>
+                            <p> preferences: {
+                            </p>
+                            <p> theme: "dark",
+                            </p>
+                            <p> language: "uzbek"
+                            </p>
+                            <p> }
+                            </p>
+                            <p>};
+                            </p>
+                            <p>// Deep copy qilish
+                            </p>
+                        </li>
+                        <li>O‘quvchilarni va ularning baholarini chuqur nusxalash:
+                            Talabalar va ularning baholarini chuqur nusxalab, faqat bir o‘quvchining baholarini
+                            yangilash.
+                            <p>const students = [
+                            </p>
+                            <p> { name: "Anvar", grades: { math: 90, physics: 85 } },
+                            </p>
+                            <p> { name: "Zarina", grades: { math: 95, physics: 90 } }
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Deep copy qilish
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+
+
+            </li>
+            <li>
+                <h2 class="accordion">Amaliyot (Array)</h2>
+                <div class="panel">
+                    <h3>sort() (Tartiblash metod)</h3>
+                    <ol>
+                        <li> Mahsulotlar ro‘yxatini narx bo‘yicha tartiblash
+                            <p>const products = [
+                            </p>
+                            <p> { name: "Phone", price: 500 },
+                            </p>
+                            <p> { name: "Laptop", price: 1500 },
+                            </p>
+                            <p> { name: "Watch", price: 250 },
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Mahsulotlarni narx bo‘yicha tartiblang
+                            </p>
+                        </li>
+                    </ol>
+                    <h3>reverse() (Teskari tartiblash metod)</h3>
+                    <ol>
+                        <li> Sonlar massivini teskari qilish
+                            <p>const numbers = [1, 2, 3, 4, 5];
+                            </p>
+                            <p>// Sonlar massivini teskari tartibda ko‘rsatish
+                            </p>
+
+                        </li>
+                    </ol>
+                    <h3>toSorted() (Tartiblash metodining yangi versiyasi)</h3>
+                    <ol>
+                        <li> Yangi arzon narxlar ro‘yxatini yaratish
+
+
+                            <p>const prices = [500, 200, 1500, 700];
+                            </p>
+                            <p>// Tartiblangan yangi massiv yaratish
+                            </p>
+
+                        </li>
+                    </ol>
+                    <h3>every() (Barcha elementlarni tekshirish)</h3>
+                    <ol>
+                        <li> Barcha mahsulotlar 18+ yosh uchun mo‘ljallanganligini tekshirish
+                            <p>const products = [
+                            </p>
+                            <p> { name: "Game", ageLimit: 16 },
+                            </p>
+                            <p> { name: "Movie", ageLimit: 18 },
+                            </p>
+                            <p> { name: "Book", ageLimit: 12 }
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Barcha mahsulotlar 18+ uchun mosligini tekshirish
+                            </p>
+                        </li>
+                    </ol>
+                    <h3>some() (Ba'zi elementlarni tekshirish)</h3>
+                    <ol>
+                        <li> Biron bir mahsulot 18+ uchun mosligini tekshirish
+
+                            <p>const products = [
+                            </p>
+                            <p> { name: "Game", ageLimit: 16 },
+                            </p>
+                            <p> { name: "Movie", ageLimit: 18 },
+                            </p>
+                            <p> { name: "Book", ageLimit: 12 }
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Hech bo‘lmaganda bir mahsulot 18+ uchun mosligini tekshirish
+                            </p>
+                        </li>
+                    </ol>
+                    <h3>from() (Massivdan yangi massiv yaratish)</h3>
+                    <ol>
+                        <li> Setdan massivga o‘tkazish
+                            <p>const uniqueNumbers = new Set([1, 2, 3, 4]);
+                            </p>
+                            <p>// Set dan massiv yaratish
+                            </p>
+
+                        </li>
+                    </ol>
+                    <h3>entries() (Indeks va qiymatni olish)</h3>
+                    <ol>
+                        <li>Massivdagi elementlarni indekslari bilan ko‘rsatish
+                            <p>const fruits = ["Apple", "Banana", "Cherry"];</p>
+                            <p>// Indeks va qiymatni olish
+                            </p>
+
+                        </li>
+                    </ol>
+
+                    <h3>Spread (...) operatori</h3>
+                    <ol>
+                        <li>Obyektni birlashtirish
+                            <p>const person = { name: "Ali", age: 25 };</p>
+                            <p>const job = { title: "Developer", company: "TechCorp" };
+                            </p>
+                            <p>// Obyektlarni spread operatori yordamida birlashtirish
+                            </p>
+
+                        </li>
+                    </ol>
+
+
+
+                    <!-- <img src="4.jpg" alt="Amaliyot" style="width:100%;"> -->
+                </div>
+            </li>
+            <li>
+                <h2 class="accordion">Uyga Vazifa</h2>
+                <div class="panel">
+                    <h3>Shallow copy</h3>
+                    <ol>
+                        <li>Oddiy massivni nusxalash
+                            <p>const numbers = [1, 2, 3, 4, 5];</p>
+                            <p>// Shallow copy</p>
+                        </li>
+                        <li>Obyektni nusxalash
+                            <p>const person = {
+                            </p>
+                            <p>name: "Ali",</p>
+                            <p>age: 25,</p>
+                            <p> address: { city: "Toshkent", country: "Uzbekistan" }
+                            </p>
+                            <p>};
+                            </p>
+                            <p>// Shallow copy
+                            </p>
+                        </li>
+                        <li>Massiv va obyektni birgalikda nusxalash
+                            <p>const students = [
+                            </p>
+                            <p> { name: "Ali", grade: 85 },
+                            </p>
+                            <p> { name: "Zarina", grade: 95 }
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Shallow copy
+                            </p>
+                        </li>
+
+                    </ol>
+                    <h3>Deep copy</h3>
+                    <ol>
+                        <li> Massivni chuqur nusxalash
+                            <p>const numbers = [1, 2, 3, 4, 5];</p>
+                            <p>// Chuqur nusxa olish
+                            </p>
+                        </li>
+                        <li>Obyektni chuqur nusxalash
+                            <p>const person = {
+                            </p>
+                            <p>name: "Ali",</p>
+                            <p>age: 25,</p>
+                            <p>address: { city: "Toshkent", country: "Uzbekistan" }</p>
+                            <p>};
+                            </p>
+                            <p>// Chuqur nusxa olish
+                            </p>
+                        </li>
+                        <li>Massiv va obyektni chuqur nusxalash
+                            <p>const students = [
+                            </p>
+                            <p> { name: "Ali", grade: 85 },
+                            </p>
+                            <p> { name: "Zarina", grade: 95 }
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Chuqur nusxa olish
+                            </p>
+                        </li>
+                        <li>Nested obyektni chuqur nusxalash
+                            <p>const company = {
+                            </p>
+                            <p>name: "TechCorp",</p>
+                            <p>employees: [</p>
+                            <p> { name: "Ali", role: "Developer" },
+                            </p>
+                            <p> { name: "Zarina", role: "Manager" }
+                            </p>
+                            <p> ]
+                            </p>
+                            <p>};
+                            </p>
+                            <p>// Chuqur nusxa olish
+                            </p>
+                        </li>
+                    </ol>
+
+
+
+
+
+                    <h3>sort() (Tartiblash metod)</h3>
+                    <ol>
+                        <li>Talabalar ro‘yxatini baholariga qarab tartiblash
+                            <p>const students = [</p>
+                            <p> { name: "Ali", grade: 85 },</p>
+                            <p> { name: "Zarina", grade: 95 },</p>
+                            <p>{ name: "Anvar", grade: 78 },</p>
+                            <p>];</p>
+                            <p>// Talabalarni baholariga qarab tartiblang</p>
+                        </li>
+                    </ol>
+                    <h3>reverse() (Teskari tartiblash metod)</h3>
+                    <ol>
+                        <li>Kalendar oylarini teskari ko‘rsatish
+                            <p>const months = ["January", "February", "March", "April", "May"];
+
+                            </p>
+                            <p>// Oylarni teskari ko‘rsating
+                            </p>
+
+                        </li>
+                    </ol>
+
+                    <h3>every() (Barcha elementlarni tekshirish)</h3>
+                    <ol>
+                        <li> Barcha talabalar o‘qishga tayyorligini tekshirish
+                            <p>const students = [</p>
+                            <p> { name: "Ali", readyForExam: true },
+                            </p>
+                            <p> { name: "Zarina", readyForExam: true },
+                            </p>
+                            <p> { name: "Anvar", readyForExam: false }
+                            </p>
+                            <p>];</p>
+                            <p>// Barcha talabalar imtihonga tayyorligini tekshirish
+                            </p>
+                        </li>
+                    </ol>
+                    <h3>some() (Ba'zi elementlarni tekshirish)</h3>
+                    <ol>
+                        <li>Biror talabada imtihonga tayyorligini tekshirish
+
+                            <p>const students = [
+                            </p>
+                            <p> { name: "Ali", readyForExam: true },
+                            </p>
+                            <p> { name: "Zarina", readyForExam: false },
+                            </p>
+                            <p> { name: "Anvar", readyForExam: false }
+                            </p>
+                            <p>];
+                            </p>
+                            <p>// Bir talabada imtihonga tayyorligini tekshirish
+                            </p>
+                        </li>
+                    </ol>
+                    <h3>from() (Massivdan yangi massiv yaratish)</h3>
+                    <ol>
+                        <li> Stringni massivga aylantirish
+                            <p>const name = "Ali";
+                            </p>
+                            <p>// Stringni massivga aylantirish
+                            </p>
+
+
+                        </li>
+                    </ol>
+                    <h3>entries() (Indeks va qiymatni olish)</h3>
+                    <ol>
+                        <li>O‘quvchilarni va ularning baholarini indekslari bilan ko‘rsatish
+                            <p>const students = [</p>
+                            <p>{ name: "Ali", grade: 85 },</p>
+                            <p> { name: "Zarina", grade: 95 },</p>
+                            <p> { name: "Anvar", grade: 78 }</p>
+                            <p>];
+                            </p>
+                            <p>// Talabalar va ularning baholarini indekslari bilan ko‘rsatish
+
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h3>Spread (...) operatori</h3>
+                    <ol>
+                        <li>Massivni nusxalash
+                            <p>const numbers = [1, 2, 3, 4];
+                            </p>
+                            <p>// Spread operatori yordamida massivni nusxalash
+                            </p>
+
+                        </li>
+                    </ol>
+
+
+
+
+
+                    <!-- <img src="5.jpg" alt="Uyga Vazifa" style="width:100%;"> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="social-links">
+        <a href="https://t.me/Kelajakka_Yuksalish" class="social-link" target="_blank">
+            <img src="./icon/telegramm_logo.png" alt="Telegramm" class="social-logo">
+            <span class="social-text">Telegramm</span>
+        </a>
+
+        <a href="https://www.instagram.com/bekmuhammad.dev/?utm_source=ig_web_button_share_sheet" class="social-link"
+            target="_blank">
+            <img src="./icon/instagramm_logo.png" alt="Instagram" class="social-logo">
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="https://github.com/Bekmuhammad-Devoloper" class="social-link" target="_blank">
+            <img src="./icon/github-logo.png" alt="GitHub" class="social-logo">
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="https://www.youtube.com/@Bekmuhammad-Devoloper" class="social-link" target="_blank">
+            <img src="./icon/youtube-logo.png" alt="YouTube" class="social-logo">
+            <span class="social-text">You Tube</span>
+        </a>
+    </div>
+    </div>
+
+    <script src="./script.js"></script>
+
+    <script src="./hover.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL Funksiya Masalalari</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .header p { color: #a0a0a0; font-size: 1.1rem; }
+        
+        .progress-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            border-radius: 20px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #00ff88;
+            font-weight: 600;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px 30px;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .stat-card .number { font-size: 2rem; font-weight: 700; color: #00d9ff; }
+        .stat-card .label { color: #888; font-size: 0.9rem; margin-top: 5px; }
+        
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
+        }
+        
+        .challenge-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .challenge-card.completed { border-color: #00ff88; }
+        
+        .card-header {
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .challenge-number {
+            background: linear-gradient(135deg, #00d9ff, #00ff88);
+            color: #1a1a2e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .difficulty {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .difficulty.easy { background: rgba(0,255,136,0.2); color: #00ff88; }
+        .difficulty.medium { background: rgba(255,200,0,0.2); color: #ffc800; }
+        .difficulty.hard { background: rgba(255,100,100,0.2); color: #ff6464; }
+        
+        .card-body { padding: 20px; }
+        .challenge-title { font-size: 1.2rem; margin-bottom: 15px; color: #fff; }
+        
+        .challenge-description {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .example-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .example-box .label {
+            color: #00d9ff;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .example-box code { color: #00ff88; white-space: pre-wrap; }
+        
+        .code-editor textarea {
+            width: 100%;
+            min-height: 180px;
+            background: #0d1117;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 15px;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+            margin-bottom: 15px;
+        }
+        
+        .code-editor textarea:focus { border-color: #00d9ff; }
+        .code-editor textarea::placeholder { color: #484f58; }
+        
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        
+        .btn {
+            flex: 1;
+            min-width: 100px;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00d9ff, #00ff88);
+            color: #1a1a2e;
+        }
+        
+        .btn-primary:hover { transform: scale(1.02); box-shadow: 0 5px 20px rgba(0,217,255,0.4); }
+        .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+        .btn-hint { background: rgba(255,200,0,0.2); color: #ffc800; }
+        .btn-hint:hover { background: rgba(255,200,0,0.3); }
+        
+        .result-box {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .result-box.show { display: block; }
+        .result-box.success { background: rgba(0,255,136,0.1); border: 1px solid #00ff88; }
+        .result-box.error { background: rgba(255,100,100,0.1); border: 1px solid #ff6464; }
+        .result-box.hint { background: rgba(255,200,0,0.1); border: 1px solid #ffc800; }
+        
+        .result-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .result-icon { font-size: 1.5rem; }
+        .result-title { font-weight: 600; }
+        .result-message { font-size: 0.95rem; color: #ccc; }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        
+        .modal-overlay.show { display: flex; }
+        
+        .modal {
+            background: #1a1a2e;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 { color: #00d9ff; }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        
+        .modal-body { padding: 20px; }
+        
+        .modal-body pre {
+            background: #0d1117;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            color: #c9d1d9;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .challenges-grid { grid-template-columns: 1fr; }
+            .stats { gap: 15px; }
+            .stat-card { padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>PostgreSQL Funksiya Masalalari</h1>
+            <p>8 ta interaktiv masala orqali PL/pgSQL funksiyalarni o'rganing</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p class="progress-text" id="progressText">0 / 8 masala bajarildi</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number" id="completedCount">0</div>
+                <div class="label">Bajarildi</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="remainingCount">8</div>
+                <div class="label">Qoldi</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="hintsUsed">0</div>
+                <div class="label">Maslahatlar</div>
+            </div>
+        </div>
+
+        <div class="challenges-grid" id="challengesGrid"></div>
+    </div>
+
+    <div class="modal-overlay" id="solutionModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Yechim</h3>
+                <button class="modal-close" onclick="closeModal()">X</button>
+            </div>
+            <div class="modal-body">
+                <pre id="modalCode"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var challenges = [
+            {
+                id: 1,
+                title: "Toq sonlarni qaytarish",
+                difficulty: "easy",
+                difficultyText: "Oson",
+                description: "4 ta son beriladi. Faqat TOQ sonlarni massiv sifatida qaytaruvchi funksiya yozing.",
+                example: "get_odd_numbers(1, 4, 7, 10) = {1, 7}",
+                hint: "Toq sonlar uchun: number % 2 != 0 shartidan foydalaning. array_append() funksiyasi massivga element qoshadi.",
+                solution: "CREATE FUNCTION get_odd_numbers(a INT, b INT, c INT, d INT)\nRETURNS INT[] AS $$\nDECLARE\n    result INT[] DEFAULT '{}';\nBEGIN\n    IF a % 2 != 0 THEN\n        result := array_append(result, a);\n    END IF;\n    \n    IF b % 2 != 0 THEN\n        result := array_append(result, b);\n    END IF;\n    \n    IF c % 2 != 0 THEN\n        result := array_append(result, c);\n    END IF;\n    \n    IF d % 2 != 0 THEN\n        result := array_append(result, d);\n    END IF;\n    \n    RETURN result;\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT get_odd_numbers(1, 4, 7, 10);",
+                keywords: ["get_odd_numbers", "int[]", "array_append", "% 2"]
+            },
+            {
+                id: 2,
+                title: "Yigindi va Ortacha",
+                difficulty: "medium",
+                difficultyText: "Orta",
+                description: "5 ta son beriladi. Ularning yigindisi va ortachasini OUT parametrlar orqali qaytaring.",
+                example: "get_sum_avg(10, 20, 30, 40, 50)\n= total: 150, average: 30.0",
+                hint: "OUT parametrlaridan foydalaning: OUT total INT, OUT average NUMERIC. Ortacha = yigindi / 5.0",
+                solution: "CREATE FUNCTION get_sum_avg(\n    a INT, b INT, c INT, d INT, e INT,\n    OUT total INT,\n    OUT average NUMERIC\n) AS $$\nBEGIN\n    total := a + b + c + d + e;\n    average := total / 5.0;\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT * FROM get_sum_avg(10, 20, 30, 40, 50);",
+                keywords: ["get_sum_avg", "out", "total", "average"]
+            },
+            {
+                id: 3,
+                title: "Eng katta va Eng kichik",
+                difficulty: "easy",
+                difficultyText: "Oson",
+                description: "3 ta son beriladi. Eng katta va eng kichik sonni {min, max} massiv sifatida qaytaring.",
+                example: "get_min_max(15, 8, 23) = {8, 23}",
+                hint: "LEAST() va GREATEST() funksiyalaridan foydalaning yoki IF-ELSIF bilan solishtiring.",
+                solution: "CREATE FUNCTION get_min_max(a INT, b INT, c INT)\nRETURNS INT[] AS $$\nDECLARE\n    min_val INT;\n    max_val INT;\nBEGIN\n    min_val := LEAST(a, b, c);\n    max_val := GREATEST(a, b, c);\n    \n    RETURN ARRAY[min_val, max_val];\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT get_min_max(15, 8, 23);",
+                keywords: ["get_min_max", "least", "greatest", "array"]
+            },
+            {
+                id: 4,
+                title: "Sonni Sozga aylantirish",
+                difficulty: "medium",
+                difficultyText: "Orta",
+                description: "1 dan 5 gacha son beriladi. Uni ozbek tilida soz sifatida qaytaring. Boshqa sonlar uchun 'xato' qaytaring.",
+                example: "number_to_word(3) = 'uch'\nnumber_to_word(7) = 'xato'",
+                hint: "CASE WHEN ... THEN ... ELSE ... END konstruksiyasidan foydalaning.",
+                solution: "CREATE FUNCTION number_to_word(n INT)\nRETURNS VARCHAR AS $$\nBEGIN\n    RETURN CASE n\n        WHEN 1 THEN 'bir'\n        WHEN 2 THEN 'ikki'\n        WHEN 3 THEN 'uch'\n        WHEN 4 THEN 'tort'\n        WHEN 5 THEN 'besh'\n        ELSE 'xato'\n    END;\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT number_to_word(3);",
+                keywords: ["number_to_word", "case", "when", "then"]
+            },
+            {
+                id: 5,
+                title: "Musbat sonlarni sanash",
+                difficulty: "easy",
+                difficultyText: "Oson",
+                description: "6 ta son beriladi. Nechta musbat son borligini qaytaring (0 musbat emas).",
+                example: "count_positive(-5, 10, 0, 8, -3, 15) = 3",
+                hint: "Counter ozgaruvchi yarating va har bir son > 0 bolsa, counterni oshiring.",
+                solution: "CREATE FUNCTION count_positive(\n    a INT, b INT, c INT, d INT, e INT, f INT\n) RETURNS INT AS $$\nDECLARE\n    counter INT := 0;\nBEGIN\n    IF a > 0 THEN counter := counter + 1; END IF;\n    IF b > 0 THEN counter := counter + 1; END IF;\n    IF c > 0 THEN counter := counter + 1; END IF;\n    IF d > 0 THEN counter := counter + 1; END IF;\n    IF e > 0 THEN counter := counter + 1; END IF;\n    IF f > 0 THEN counter := counter + 1; END IF;\n    \n    RETURN counter;\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT count_positive(-5, 10, 0, 8, -3, 15);",
+                keywords: ["count_positive", "counter", "> 0"]
+            },
+            {
+                id: 6,
+                title: "3 ga va 5 ga bolinadigan",
+                difficulty: "medium",
+                difficultyText: "Orta",
+                description: "4 ta son beriladi. 3 ga HAM 5 ga HAM bolinadigan sonlarni massiv sifatida qaytaring.",
+                example: "divisible_by_3_and_5(15, 7, 30, 9) = {15, 30}",
+                hint: "Shart: number % 3 = 0 AND number % 5 = 0. Bu 15 ga bolinish bilan bir xil!",
+                solution: "CREATE FUNCTION divisible_by_3_and_5(a INT, b INT, c INT, d INT)\nRETURNS INT[] AS $$\nDECLARE\n    result INT[] DEFAULT '{}';\nBEGIN\n    IF a % 3 = 0 AND a % 5 = 0 THEN\n        result := array_append(result, a);\n    END IF;\n    \n    IF b % 3 = 0 AND b % 5 = 0 THEN\n        result := array_append(result, b);\n    END IF;\n    \n    IF c % 3 = 0 AND c % 5 = 0 THEN\n        result := array_append(result, c);\n    END IF;\n    \n    IF d % 3 = 0 AND d % 5 = 0 THEN\n        result := array_append(result, d);\n    END IF;\n    \n    RETURN result;\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT divisible_by_3_and_5(15, 7, 30, 9);",
+                keywords: ["divisible", "% 3", "% 5", "and"]
+            },
+            {
+                id: 7,
+                title: "Tartibni tekshirish",
+                difficulty: "medium",
+                difficultyText: "Orta",
+                description: "3 ta son beriladi. Osish tartibida bolsa 'ascending', kamayish tartibida bolsa 'descending', aks holda 'unordered' qaytaring.",
+                example: "check_order(1, 5, 9) = 'ascending'\ncheck_order(9, 5, 1) = 'descending'",
+                hint: "Osish: a < b AND b < c. Kamayish: a > b AND b > c. Qolgan holat: unordered.",
+                solution: "CREATE FUNCTION check_order(a INT, b INT, c INT)\nRETURNS VARCHAR AS $$\nBEGIN\n    IF a < b AND b < c THEN\n        RETURN 'ascending';\n    ELSIF a > b AND b > c THEN\n        RETURN 'descending';\n    ELSE\n        RETURN 'unordered';\n    END IF;\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT check_order(1, 5, 9);",
+                keywords: ["check_order", "ascending", "descending", "unordered"]
+            },
+            {
+                id: 8,
+                title: "Faktorial hisoblash",
+                difficulty: "hard",
+                difficultyText: "Qiyin",
+                description: "Bitta musbat butun son beriladi (0-10 oraligida). Uning faktorialini qaytaring. 0! = 1",
+                example: "factorial(5) = 120\nfactorial(0) = 1",
+                hint: "FOR tsiklidan foydalaning: FOR i IN 1..n LOOP. Faktorial: n! = n * (n-1) * ... * 1",
+                solution: "CREATE FUNCTION calculate_factorial(n INT)\nRETURNS BIGINT AS $$\nDECLARE\n    result BIGINT := 1;\n    i INT;\nBEGIN\n    IF n < 0 THEN\n        RETURN NULL;\n    END IF;\n    \n    FOR i IN 1..n LOOP\n        result := result * i;\n    END LOOP;\n    \n    RETURN result;\nEND;\n$$ LANGUAGE plpgsql;\n\n-- Test: SELECT calculate_factorial(5);\n-- Test: SELECT calculate_factorial(0);",
+                keywords: ["factorial", "bigint", "for", "loop", "result"]
+            }
+        ];
+
+        var completedChallenges = [];
+        var hintsUsedCount = 0;
+
+        function loadProgress() {
+            try {
+                var saved = localStorage.getItem('pg_challenges_v2');
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    completedChallenges = data.completed || [];
+                    hintsUsedCount = data.hints || 0;
+                }
+            } catch(e) {
+                console.log('Load error:', e);
+            }
+            updateStats();
+        }
+
+        function saveProgress() {
+            try {
+                localStorage.setItem('pg_challenges_v2', JSON.stringify({
+                    completed: completedChallenges,
+                    hints: hintsUsedCount
+                }));
+            } catch(e) {
+                console.log('Save error:', e);
+            }
+        }
+
+        function isCompleted(id) {
+            return completedChallenges.indexOf(id) !== -1;
+        }
+
+        function markCompleted(id) {
+            if (!isCompleted(id)) {
+                completedChallenges.push(id);
+                saveProgress();
+            }
+        }
+
+        function updateStats() {
+            var completed = completedChallenges.length;
+            document.getElementById('completedCount').textContent = completed;
+            document.getElementById('remainingCount').textContent = 8 - completed;
+            document.getElementById('hintsUsed').textContent = hintsUsedCount;
+            document.getElementById('progressBar').style.width = (completed / 8 * 100) + '%';
+            document.getElementById('progressText').textContent = completed + ' / 8 masala bajarildi';
+        }
+
+        function renderChallenges() {
+            var grid = document.getElementById('challengesGrid');
+            var html = '';
+            
+            for (var i = 0; i < challenges.length; i++) {
+                var ch = challenges[i];
+                var completed = isCompleted(ch.id);
+                
+                html += '<div class="challenge-card ' + (completed ? 'completed' : '') + '" data-id="' + ch.id + '">';
+                html += '<div class="card-header">';
+                html += '<div class="challenge-number">' + ch.id + '</div>';
+                html += '<span class="difficulty ' + ch.difficulty + '">' + ch.difficultyText + '</span>';
+                html += '</div>';
+                html += '<div class="card-body">';
+                html += '<h3 class="challenge-title">' + ch.title + '</h3>';
+                html += '<p class="challenge-description">' + ch.description + '</p>';
+                html += '<div class="example-box">';
+                html += '<div class="label">Misol:</div>';
+                html += '<code>' + ch.example + '</code>';
+                html += '</div>';
+                html += '<div class="code-editor">';
+                html += '<textarea id="code-' + ch.id + '" placeholder="-- SQL kodingizni shu yerga yozing..."></textarea>';
+                html += '</div>';
+                html += '<div class="btn-group">';
+                html += '<button class="btn btn-primary" onclick="checkSolution(' + ch.id + ')">Tekshirish</button>';
+                html += '<button class="btn btn-hint" onclick="showHint(' + ch.id + ')">Maslahat</button>';
+                html += '<button class="btn btn-secondary" onclick="showSolution(' + ch.id + ')">Yechim</button>';
+                html += '</div>';
+                html += '<div class="result-box" id="result-' + ch.id + '"></div>';
+                html += '</div></div>';
+            }
+            
+            grid.innerHTML = html;
+        }
+
+        function findChallenge(id) {
+            for (var i = 0; i < challenges.length; i++) {
+                if (challenges[i].id === id) return challenges[i];
+            }
+            return null;
+        }
+
+        function checkSolution(id) {
+            var ch = findChallenge(id);
+            var textarea = document.getElementById('code-' + id);
+            var code = textarea.value.toLowerCase();
+            var resultBox = document.getElementById('result-' + id);
+            
+            var matched = 0;
+            for (var i = 0; i < ch.keywords.length; i++) {
+                if (code.indexOf(ch.keywords[i].toLowerCase()) !== -1) {
+                    matched++;
+                }
+            }
+            
+            var hasBasics = code.indexOf('create function') !== -1 && code.indexOf('language plpgsql') !== -1;
+            var score = matched / ch.keywords.length;
+            
+            if (score >= 0.5 && hasBasics) {
+                markCompleted(id);
+                updateStats();
+                
+                resultBox.className = 'result-box success show';
+                resultBox.innerHTML = '<div class="result-header"><span class="result-icon">&#127881;</span><span class="result-title" style="color:#00ff88">Barakalla!</span></div><p class="result-message">Funksiyangiz togri! ' + ch.title + ' masalasi bajarildi.</p>';
+                
+                var card = document.querySelector('[data-id="' + id + '"]');
+                if (card) card.classList.add('completed');
+                
+                if (completedChallenges.length === 8) {
+                    setTimeout(function() {
+                        alert('Tabriklaymiz! Barcha 8 ta masalani bajardingiz!');
+                    }, 300);
+                }
+            } else if (score >= 0.25) {
+                resultBox.className = 'result-box error show';
+                resultBox.innerHTML = '<div class="result-header"><span class="result-icon">&#128260;</span><span class="result-title" style="color:#ffc800">Deyarli togri!</span></div><p class="result-message">Yaxshi boshladingiz, lekin bazi qismlar etishmayapti. Maslahat tugmasini bosing.</p>';
+            } else {
+                resultBox.className = 'result-box error show';
+                resultBox.innerHTML = '<div class="result-header"><span class="result-icon">&#10060;</span><span class="result-title" style="color:#ff6464">Qayta urinib koring</span></div><p class="result-message">Kodingiz togri emas. Maslahat yoki Yechim tugmasidan foydalaning.</p>';
+            }
+        }
+
+        function showHint(id) {
+            var ch = findChallenge(id);
+            var resultBox = document.getElementById('result-' + id);
+            
+            hintsUsedCount++;
+            saveProgress();
+            updateStats();
+            
+            resultBox.className = 'result-box hint show';
+            resultBox.innerHTML = '<div class="result-header"><span class="result-icon">&#128161;</span><span class="result-title" style="color:#ffc800">Maslahat</span></div><p class="result-message">' + ch.hint + '</p>';
+        }
+
+        function showSolution(id) {
+            var ch = findChallenge(id);
+            document.getElementById('modalTitle').textContent = ch.id + '-masala: ' + ch.title;
+            document.getElementById('modalCode').textContent = ch.solution;
+            document.getElementById('solutionModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('solutionModal').classList.remove('show');
+        }
+
+        document.getElementById('solutionModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        loadProgress();
+        renderChallenges();
+    </script>
+</body>
+</html>
