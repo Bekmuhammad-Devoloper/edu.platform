@@ -16,6 +16,7 @@ const PORT = Number(process.env.PORT) || 3000;
 const SESSION_DAYS = 30;
 const app = express();
 app.disable('x-powered-by');
+app.set('trust proxy', 'loopback'); // nginx orqasida — haqiqiy IP (kirish urinishlarini cheklash uchun)
 app.use(express.json({ limit: '800kb' }));
 
 // ------------------------------------------------------------------ yordamchilar
@@ -1852,7 +1853,8 @@ if (require.main === module) {
   if (!one("SELECT 1 FROM users WHERE role = 'admin'")) {
     console.log("\nAdministrator yo'q. Avval:  npm run seed\n");
   }
-  app.listen(PORT, () => {
+  // HOST=127.0.0.1 — faqat nginx orqali (serverda); bo'sh bo'lsa hamma interfeyslar (lokal)
+  app.listen(PORT, process.env.HOST || undefined, () => {
     console.log(summary.map((s) => '  ' + s).join('\n'));
     console.log(`\nYuksalish LMS ishlayapti:  http://localhost:${PORT}\n`);
   });
