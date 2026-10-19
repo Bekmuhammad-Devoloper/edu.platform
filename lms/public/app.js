@@ -2130,7 +2130,7 @@ async function viewAiSettings() {
         <form id="aiForm">
           <label class="f"><span>${c.has_key ? 'Yangi kalit (almashtirish uchun)' : 'API kalit'}</span><input name="key" type="password" autocomplete="off" placeholder="AIza..."></label>
           <label class="f"><span>Model</span><input name="model" value="${esc(c.model)}" placeholder="${esc(c.default_model)}"></label>
-          <p class="hint">Tavsiya: <code>${esc(c.default_model)}</code> — tez va arzon. Kuchliroq tekshiruv uchun <code>gemini-2.5-pro</code>.</p>
+          <p class="hint">Tavsiya: <code>${esc(c.default_model)}</code> — tez va arzon. Yangi modellar chiqsa, nomini shu yerda o'zgartirish mumkin.</p>
           <label class="switch-row"><input type="checkbox" class="switch" name="auto" ${c.auto ? 'checked' : ''}><span><b>Avtomatik tekshirish</b><small>O'quvchi topshirishi bilan AI tekshiradi va o'qituvchiga tavsiya yuboradi</small></span></label>
           <div class="row" style="margin-top:14px"><button class="btn primary">${ic('check')}Saqlash</button><button type="button" class="btn" id="aiTest">${ic('sparkles')}Ulanishni tekshirish</button>
             ${c.has_key && !c.from_env ? '<button type="button" class="btn ghost" id="aiDel">Kalitni o\'chirish</button>' : ''}</div>

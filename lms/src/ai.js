@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { one, run } = require('./db');
 
-const DEFAULT_MODEL = 'gemini-2.5-flash';
+const DEFAULT_MODEL = 'gemini-3.8-flash';
 const getSetting = (k) => (one('SELECT value FROM settings WHERE key = ?', k) || {}).value ?? null;
 const setSetting = (k, v) => run('INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value', k, v);
 
