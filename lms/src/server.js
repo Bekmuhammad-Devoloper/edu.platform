@@ -1839,7 +1839,18 @@ app.get('/api/assets', auth(), wrap(() => {
 }));
 
 // ------------------------------------------------------------------ interfeys (SPA)
-app.use(express.static(path.join(__dirname, '..', 'public'), { index: 'index.html' }));
+// Statik fayllar keshi: rasm/shrift/media uzoq muddat (nomi o'zgarmaydi), app.js/css esa
+// har safar qayta tekshiriladi (deploydan keyin darhol yangilanishi uchun).
+app.use(express.static(path.join(__dirname, '..', 'public'), {
+  index: 'index.html',
+  setHeaders: (res, filePath) => {
+    if (/\.(png|jpe?g|gif|webp|svg|ico|woff2?|ttf|otf|mp4|webm|m4v)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=2592000, immutable'); // 30 kun
+    } else if (/\.(js|css)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate'); // ETag bo'yicha 304
+    }
+  },
+}));
 app.use('/api', (req, res) => res.status(404).json({ error: 'Topilmadi' }));
 
 app.use((err, req, res, next) => {
