@@ -1839,15 +1839,35 @@ app.get('/api/assets', auth(), wrap(() => {
 }));
 
 // ------------------------------------------------------------------ interfeys (SPA)
-// Statik fayllar keshi: rasm/shrift/media uzoq muddat (nomi o'zgarmaydi), app.js/css esa
-// har safar qayta tekshiriladi (deploydan keyin darhol yangilanishi uchun).
-app.use(express.static(path.join(__dirname, '..', 'public'), {
+// Interfeys fayllariga kontent bo'yicha versiya: app.js/app.css o'zgarsa URL ham o'zgaradi,
+// shuning uchun brauzer deploydan keyin eski faylni ko'rsatmaydi (kesh «buzuq ochilish»ining oldini oladi)
+// va ayni paytda fayllarni uzoq (immutable) keshlab tezlikni oshiradi.
+const PUB_DIR = path.join(__dirname, '..', 'public');
+const ASSET_VER = (() => {
+  try {
+    const h = crypto.createHash('md5');
+    for (const f of ['app.js', 'app.css']) h.update(fs.readFileSync(path.join(PUB_DIR, f)));
+    return h.digest('hex').slice(0, 10);
+  } catch { return String(Date.now()); }
+})();
+const INDEX_HTML = (() => {
+  try {
+    return fs.readFileSync(path.join(PUB_DIR, 'index.html'), 'utf8')
+      .replace('href="/app.css"', `href="/app.css?v=${ASSET_VER}"`)
+      .replace('src="/app.js"', `src="/app.js?v=${ASSET_VER}"`);
+  } catch { return null; }
+})();
+// index.html har doim tarmoqdan (versiyalangan havolalar bilan), fayllarning o'zi uzoq keshda
+app.get(['/', '/index.html'], (req, res, next) => {
+  if (!INDEX_HTML) return next();
+  res.setHeader('Cache-Control', 'no-cache');
+  res.type('html').send(INDEX_HTML);
+});
+app.use(express.static(PUB_DIR, {
   index: 'index.html',
   setHeaders: (res, filePath) => {
-    if (/\.(png|jpe?g|gif|webp|svg|ico|woff2?|ttf|otf|mp4|webm|m4v)$/i.test(filePath)) {
-      res.setHeader('Cache-Control', 'public, max-age=2592000, immutable'); // 30 kun
-    } else if (/\.(js|css)$/i.test(filePath)) {
-      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate'); // ETag bo'yicha 304
+    if (/\.(js|css|png|jpe?g|gif|webp|svg|ico|woff2?|ttf|otf|mp4|webm|m4v)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 yil (app.js/css versiya bilan buziladi)
     }
   },
 }));

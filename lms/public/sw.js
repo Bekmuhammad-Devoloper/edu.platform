@@ -1,5 +1,5 @@
 /* yuksalish.dev — oddiy service worker: interfeys fayllari keshda, API har doim tarmoqdan */
-const CACHE = 'yd-shell-v1';
+const CACHE = 'yd-shell-v2';
 const SHELL = ['/', '/app.css', '/app.js', '/img/yuksalish-logo-light.png', '/img/icon-192.png', '/img/background.jpg'];
 
 self.addEventListener('install', (e) => {
