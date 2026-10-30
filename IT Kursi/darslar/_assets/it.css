@@ -1,0 +1,22 @@
+/* IT kursi: boyitilgan dars bloklari */
+.panel .dars-info { margin: 4px 0 16px; padding: 12px 16px; border-left: 4px solid #35c7a0; background: rgba(0, 0, 0, 0.45); border-radius: 0 8px 8px 0; }
+.panel .dars-info p { margin: 4px 0; }
+.panel .dars-info strong { color: #8ff3d6; }
+.panel .vositalar { margin: 12px 0 18px; padding: 12px 16px; background: rgba(53, 199, 160, 0.08); border: 1px solid rgba(53, 199, 160, 0.28); border-radius: 10px; }
+.panel .vositalar > strong { display: block; color: #8ff3d6; margin-bottom: 6px; }
+.panel .vositalar ul { margin: 0; padding-left: 20px; }
+.panel .vositalar li { margin: 3px 0; }
+.panel .vositalar a { color: #8ff3d6; text-decoration: underline; text-underline-offset: 2px; }
+.panel .namuna { margin: 16px 0; padding: 14px 16px; border-left: 4px solid #ffd166; background: rgba(0, 0, 0, 0.42); border-radius: 0 8px 8px 0; }
+.panel .namuna h3 { margin: 0 0 8px; color: #ffd166; }
+.panel .namuna p { margin: 6px 0; }
+.panel pre.prompt { background: rgba(0, 0, 0, 0.55); border: 1px dashed rgba(143, 243, 214, 0.4); color: #dffff5; border-radius: 8px; white-space: pre-wrap; }
+.panel .namuna .rol { color: #ffd166; font-weight: 600; }
+.panel table.rubrika { width: 100%; border-collapse: collapse; margin: 10px 0; }
+.panel table.rubrika th, .panel table.rubrika td { border: 1px solid rgba(255, 255, 255, 0.16); padding: 8px 12px; text-align: left; vertical-align: top; }
+.panel table.rubrika th { background: rgba(53, 199, 160, 0.12); color: #cdfff0; }
+.panel table.rubrika td:last-child, .panel table.rubrika th:last-child { text-align: center; width: 72px; white-space: nowrap; }
+.panel table.rubrika tr.jami td { font-weight: 700; color: #8ff3d6; background: rgba(255, 255, 255, 0.04); }
+.panel .metod { padding: 12px 16px; border-left: 4px solid #a78bfa; background: rgba(167, 139, 250, 0.1); border-radius: 0 8px 8px 0; }
+.panel .metod p { margin: 6px 0; }
+.panel .metod strong { color: #c4b5fd; }
