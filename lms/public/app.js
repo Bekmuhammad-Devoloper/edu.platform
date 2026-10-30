@@ -1289,12 +1289,23 @@ async function viewCourse(cid) {
   const withMat = modules.reduce((a, m) => a + m.lessons.filter((l) => l.url).length, 0);
   layout(`<div class="crumbs"><a href="#/courses">Kurslar</a>${ic('right')}<span>${esc(course.title)}</span></div>
     <div class="page-head"><div><h1>${esc(course.title)}</h1><p>${esc(course.subtitle || '')}</p></div>
-    ${course.plan_url ? `<a class="btn" href="${esc(course.plan_url)}" target="_blank" rel="noopener">${ic('clipboard')}Reja sahifasi</a>` : ''}</div>
+    ${course.plan_url ? `<div class="row"><a class="btn" href="${esc(course.plan_url)}" target="_blank" rel="noopener">${ic('clipboard')}Reja sahifasi</a>
+      <button class="btn primary" id="shareReja" title="Login talab qilmaydigan ochiq havola">${ic('link')}HR havolasi</button></div>` : ''}</div>
+    ${course.plan_url ? `<div class="card share-reja"><div class="grow"><b>${ic('link')}Ochiq havola (HR uchun)</b><div class="muted small">Bu havola login talab qilmaydi — reja va darslarni istalgan kishi ko'ra oladi. Yechim fayllari ochilmaydi.</div>
+      <div class="share-url mono" id="shareUrl">${esc(location.origin + course.plan_url.replace('/m/', '/reja/'))}</div></div>
+      <button class="btn" id="copyReja">${ic('copy')}Nusxalash</button></div>` : ''}
     <div class="stats">${stat('violet', 'layers', modules.length, 'Modul')}${stat('blue', 'book', total, 'Dars')}${stat('green', 'file', withMat, 'Tayyor material')}</div>
     ${modules.map((m) => `<div class="card">${cardHead('layers', `${String(m.position).padStart(2, '0')}. ${esc(m.title)}`, `<span class="chip">${m.lessons.length} dars</span>`)}
       <div class="table-wrap"><table>${m.lessons.map((l) => `<tr><td><span class="num">${String(l.num).padStart(2, '0')}</span>${esc(l.title)}${l.tag ? `<span class="tag">${esc(l.tag)}</span>` : ''}
         ${l.week ? `<div class="small muted">${esc(l.week)}${l.day ? ' · ' + esc(l.day) : ''}</div>` : ''}</td>
         <td style="width:1%">${l.url ? `<a class="btn sm" href="${esc(l.url)}" target="_blank" rel="noopener">${ic('external')}Material</a>` : '<span class="muted small nowrap">tayyorlanmoqda</span>'}</td></tr>`).join('')}</table></div></div>`).join('')}`);
+  if (course.plan_url) {
+    const shareUrl = location.origin + course.plan_url.replace('/m/', '/reja/');
+    const copy = () => { (navigator.clipboard ? navigator.clipboard.writeText(shareUrl) : Promise.reject()).then(() => toast('Havola nusxalandi')).catch(() => prompt('Havolani nusxalang:', shareUrl)); };
+    const c1 = $('#copyReja'), c2 = $('#shareReja');
+    if (c1) c1.onclick = copy;
+    if (c2) c2.onclick = copy;
+  }
 }
 
 // ------------------------------------------------------------------ foydalanuvchilar

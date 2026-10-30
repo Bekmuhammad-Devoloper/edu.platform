@@ -1799,6 +1799,81 @@ app.get('/m/*splat', (req, res, next) => {
   res.sendFile(file, { dotfiles: 'deny' }, (err) => { if (err && !res.headersSent) res.status(404).send('Topilmadi'); });
 });
 
+// ------------------------------------------------------------------ ochiq o'quv rejalari (/reja/...)
+// Login shart emas — HR / hamkorlarga ulashish uchun. Yechim fayllari bu yerda ham berilmaydi (DENY).
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const publicPlanUrl = (planUrl) => (planUrl ? planUrl.replace(/^\/m\//, '/reja/') : null);
+
+// /reja — barcha ochiq rejalar ro'yxati (bitta havola HR uchun)
+app.get(['/reja', '/reja/'], (req, res) => {
+  const courses = all(`SELECT c.*,
+      (SELECT count(*) FROM modules WHERE course_id = c.id) AS mc,
+      (SELECT count(*) FROM lessons WHERE course_id = c.id) AS lc
+    FROM courses c WHERE c.plan_url IS NOT NULL ORDER BY c.id`);
+  const cards = courses.map((c) => `
+    <a class="rc" href="${esc(publicPlanUrl(c.plan_url))}">
+      <div class="rc-top"><h2>${esc(c.title)}</h2><span class="rc-open">Rejani ochish →</span></div>
+      ${c.subtitle ? `<p>${esc(c.subtitle)}</p>` : ''}
+      <div class="rc-foot"><span>${c.mc} modul</span><span>${c.lc} dars</span></div>
+    </a>`).join('');
+  res.type('html').setHeader('Cache-Control', 'public, max-age=300');
+  res.send(`<!DOCTYPE html><html lang="uz"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O'quv rejalari — yuksalish.dev</title>
+<meta name="description" content="Yuksalish o'quv markazi kurslari va o'quv rejalari">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Poppins",system-ui,sans-serif;color:#eef1fb;background:#0f1229;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60vw 50vw at 85% -5%,rgba(108,124,255,.25),transparent 60%),radial-gradient(50vw 45vw at -10% 40%,rgba(34,197,139,.14),transparent 60%),linear-gradient(180deg,#121533,#0f1229 60%)}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;gap:12px;padding:26px 0}
+header img{width:38px;height:38px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(255,255,255,.3))}
+header b{font-size:1.2rem;font-weight:700}header b i{color:#f6c343;font-style:normal}
+.hero{padding:30px 0 26px}
+.hero h1{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.hero p{color:#9aa3c0;margin-top:10px;max-width:560px}
+.grid{display:grid;gap:16px;padding-bottom:50px}
+.rc{display:block;padding:24px;border-radius:22px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);text-decoration:none;color:inherit;transition:background .2s,transform .15s,border-color .2s}
+.rc:hover{background:rgba(255,255,255,.09);border-color:rgba(108,124,255,.4);transform:translateY(-2px)}
+.rc-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.rc-top h2{font-size:1.3rem;font-weight:700}
+.rc-open{color:#7ff0c3;font-weight:600;font-size:.92rem;white-space:nowrap}
+.rc p{color:#9aa3c0;margin-top:8px}
+.rc-foot{display:flex;gap:10px;margin-top:16px}
+.rc-foot span{font-size:.82rem;color:#c7cfe2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:5px 12px;border-radius:999px}
+footer{color:#717899;font-size:.84rem;padding:0 0 34px;text-align:center}
+footer a{color:#9aa3c0}
+@media(max-width:560px){.rc{padding:20px}.rc-top h2{font-size:1.15rem}}
+</style></head><body>
+<div class="wrap">
+  <header><img src="/img/yuksalish-logo-light.png" alt=""><b>yuksalish<i>.dev</i></b></header>
+  <section class="hero"><h1>O'quv rejalari</h1><p>Yuksalish o'quv markazi kurslarining to'liq dastur va dars rejalari.</p></section>
+  <div class="grid">${cards || '<p style="color:#9aa3c0">Hozircha reja yo\'q.</p>'}</div>
+  <footer>© ${new Date().getFullYear()} yuksalish.dev · <a href="/#/login">Platformaga kirish</a></footer>
+</div>
+</body></html>`);
+});
+
+// /reja/... — reja va dars sahifalari (fayllar), login shart emas
+app.get('/reja/*splat', (req, res) => {
+  let rel;
+  try { rel = decodeURIComponent(req.path.replace(/^\/reja\//, '')); } catch { return res.status(400).end(); }
+  const abs = path.resolve(ROOT, rel);
+  if (!abs.startsWith(ROOT + path.sep)) return res.status(403).end();
+  const relFromRoot = path.relative(ROOT, abs);
+  const inLessonDir = materialDirs.some((d) => abs === d || abs.startsWith(d + path.sep));
+  const inSharedAssets = relFromRoot.split(path.sep).includes('_assets');
+  if ((!inLessonDir && !inSharedAssets) || DENY.test(relFromRoot)) return res.status(404).send('Topilmadi');
+  let file = abs;
+  try { if (fs.statSync(file).isDirectory()) file = path.join(file, 'index.html'); } catch { return res.status(404).send('Topilmadi'); }
+  res.setHeader('Cache-Control', 'public, max-age=300');
+  res.sendFile(file, { dotfiles: 'deny' }, (err) => { if (err && !res.headersSent) res.status(404).send('Topilmadi'); });
+});
+
 // ------------------------------------------------------------------ profil rasmi
 const AVATAR_DIR = path.join(DATA_DIR, 'avatars');
 fs.mkdirSync(AVATAR_DIR, { recursive: true });
