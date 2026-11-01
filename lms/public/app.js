@@ -286,7 +286,7 @@ function layout(html) {
       </main>
     </div>
   </div>${tabbar}`;
-  $('#logout').onclick = async () => { await api('POST', '/api/logout').catch(() => {}); state.user = null; go('#/login'); };
+  $('#logout').onclick = async () => { await pushUnsubscribe(); await api('POST', '/api/logout').catch(() => {}); state.user = null; go('#/login'); };
   $('#menuBtn').onclick = (e) => { e.stopPropagation(); $('#sidebar').classList.toggle('open'); };
   $$('[data-bell]').forEach((b) => { b.onclick = (e) => { e.stopPropagation(); toggleNotifications(); }; });
 }
@@ -368,7 +368,7 @@ function viewLogin() {
   $('#pwEye').onclick = () => { const i = $('input[name=password]'); i.type = i.type === 'password' ? 'text' : 'password'; };
   $('#loginForm').onsubmit = async (e) => {
     e.preventDefault();
-    try { const r = await api('POST', '/api/login', formData(e.target)); state.user = adoptUser(r.user); state.unread = 0; go('#/'); refreshUnread(); }
+    try { const r = await api('POST', '/api/login', formData(e.target)); state.user = adoptUser(r.user); state.unread = 0; go('#/'); refreshUnread(); syncPush(); }
     catch (err) { toast(err.message, true); }
   };
 }
@@ -598,6 +598,7 @@ async function viewDashboard() {
         const img = lb && state.assets && state.assets.badges[lb.key];
         return `<a href="${h}" class="qa ${cls} ${img ? 'qa-medal' : ''}" ${lb ? `title="Oxirgi yutuq: ${esc(lb.title)}"` : ''}><span>${img ? `<img src="${esc(img)}" alt="">` : ic(lb ? lb.icon : icon)}</span><em>${lb ? esc(lb.title) : t}</em></a>`;
       }).join('')}</nav>
+      ${pushCard()}
       ${installCard()}
       ${!hasGroup ? `<div class="onb card">
           <div class="onb-ico">${ic('users')}</div>
@@ -1872,7 +1873,9 @@ async function viewMarket(tab = 'items') {
       <div class="m-img">${it.image ? `<img src="${esc(it.image)}" alt="" loading="lazy">` : ic('gift')}</div>
       <div class="m-body"><h3>${esc(it.title)}</h3>${it.description ? `<p>${esc(it.description)}</p>` : ''}
         <div class="m-foot">${coinHtml(it.price)}<span class="small muted">${left === null ? '' : left ? `${left} ta qoldi` : 'tugagan'}</span></div>
-        ${u.role === 'student' ? `<button class="btn ${need > 0 || left === 0 ? '' : 'primary'} m-buy" data-buy="${it.id}" ${need > 0 || left === 0 ? 'disabled' : ''}>${left === 0 ? 'Tugagan' : need > 0 ? `Yana ${need} coin kerak` : `${ic('bag')}Sotib olish`}</button>` : ''}
+        ${u.role === 'student' ? (left === 0 ? `<button class="btn m-buy" disabled>Tugagan</button>`
+          : need > 0 ? `<div class="m-need"><div class="m-bar"><i style="width:${Math.max(4, Math.min(100, Math.round(d.balance / it.price * 100)))}%"></i></div><span>${ic('lock')}Yana <b>${need}</b> coin kerak</span></div>`
+          : `<button class="btn primary m-buy" data-buy="${it.id}">${ic('bag')}Sotib olish</button>`) : ''}
         ${admin ? `<div class="row" style="margin-top:10px">${!it.active ? '<span class="chip">yashirin</span>' : ''}<span class="small muted">${it.sold} ta sotilgan</span><span class="spacer"></span><button class="icon-btn sm" data-edit-item="${it.id}" title="Tahrirlash">${ic('edit')}</button><button class="icon-btn sm danger-h" data-del-item="${it.id}" title="O'chirish">${ic('trash')}</button></div>` : ''}
       </div></div>`;
   };
@@ -1985,7 +1988,67 @@ function bindInstall() {
   if (h) h.onclick = () => { try { localStorage.setItem('yd-install-hide', '1'); } catch { /* jim */ } $('#installCard').remove(); };
   const b = $('#installApp');
   if (b) b.onclick = async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; b.hidden = true; };
+  bindPush();
 }
+
+// ------------------------------------------------------------------ push-bildirishnomalar
+// Ruxsat berilgan qurilmaga uyga vazifa berilganda va tekshirilganda tizim bildirishnomasi keladi (ilova yopiq bo'lsa ham)
+const pushSupported = () => 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+const pushRoles = () => state.user && ['student', 'parent'].includes(state.user.role);
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
+const b64ToBytes = (s) => {
+  const raw = atob((s + '='.repeat((4 - (s.length % 4)) % 4)).replace(/-/g, '+').replace(/_/g, '/'));
+  return Uint8Array.from(raw, (c) => c.charCodeAt(0));
+};
+async function pushSubscribe() {
+  const { key } = await api('GET', '/api/push/key');
+  if (!key) throw new Error('Bildirishnomalar serverda sozlanmagan');
+  const reg = await navigator.serviceWorker.ready;
+  const sub = (await reg.pushManager.getSubscription()) || await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64ToBytes(key) });
+  await api('POST', '/api/push/subscribe', { subscription: sub.toJSON() });
+}
+async function enablePush() {
+  if (!pushSupported()) {
+    toast(isIOS() && !isStandalone() ? "iPhone'da bildirishnoma uchun avval ilovani bosh ekranga o'rnating" : "Bu brauzer bildirishnomalarni qo'llamaydi", true);
+    return false;
+  }
+  if (Notification.permission === 'denied') { toast("Bildirishnomalar bloklangan — brauzer sozlamalarida shu sayt uchun ruxsat bering", true); return false; }
+  if ((await Notification.requestPermission()) !== 'granted') { toast('Ruxsat berilmadi', true); return false; }
+  try { await pushSubscribe(); toast('Bildirishnomalar yoqildi'); return true; }
+  catch (e) { toast(e.message, true); return false; }
+}
+// Ruxsat oldin berilgan bo'lsa — obunani jimgina yangilaymiz (yangi qurilma, boshqa hisob, yangilangan kalit)
+function syncPush() { if (pushRoles() && pushSupported() && Notification.permission === 'granted') pushSubscribe().catch(() => {}); }
+// Chiqishda shu qurilmaning obunasi o'chiriladi — boshqa odam kirsa, avvalgi hisob xabarlari kelmaydi
+async function pushUnsubscribe() {
+  try {
+    if (!pushSupported()) return;
+    const sub = await (await navigator.serviceWorker.ready).pushManager.getSubscription();
+    if (!sub) return;
+    await api('POST', '/api/push/unsubscribe', { endpoint: sub.endpoint }).catch(() => {});
+    await sub.unsubscribe();
+  } catch { /* jim */ }
+}
+const pushStatus = () => (!pushSupported() ? "Qo'llanmaydi" : Notification.permission === 'granted' ? 'Yoqilgan' : Notification.permission === 'denied' ? 'Bloklangan' : 'Yoqish');
+function pushCard() {
+  let hidden = false; try { hidden = localStorage.getItem('yd-push-hide') === '1'; } catch { /* yo'q */ }
+  if (!pushRoles() || hidden || !pushSupported() || Notification.permission !== 'default') return '';
+  const parent = state.user.role === 'parent';
+  return `<div class="install-card" id="pushCard"><span class="ic-ico">${ic('bell')}</span><div class="grow"><b>Bildirishnomalarni yoqing</b>
+    <span>${parent ? "Farzandingizga vazifa berilganda va baholanganda darhol bilasiz" : 'Uyga vazifa berilganda va tekshirilganda darhol xabar keladi'}</span></div>
+    <button class="btn primary sm" id="pushOn">Yoqish</button>
+    <button class="icon-btn sm" id="pushHide" title="Yopish">${ic('x')}</button></div>`;
+}
+function bindPush() {
+  const on = $('#pushOn');
+  if (on) on.onclick = async () => { if (await enablePush()) $('#pushCard').remove(); };
+  const h = $('#pushHide');
+  if (h) h.onclick = () => { try { localStorage.setItem('yd-push-hide', '1'); } catch { /* jim */ } $('#pushCard').remove(); };
+}
+// Bildirishnoma bosilganda service worker ochiq oynaga xabar beradi — kerakli sahifaga o'tamiz
+if ('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('message', (e) => {
+  if (e.data && e.data.type === 'open' && state.user) { go(e.data.link || '#/'); refreshUnread(); }
+});
 
 // ------------------------------------------------------------------ gamifikatsiya: daraja, seriya, yutuqlar
 // Har bir daraja uchun karta dizayni: img/levels/level-N.* bo'lsa — rasm, bo'lmasa — darajaga xos rang
@@ -2071,6 +2134,7 @@ async function viewProfile() {
           ${btnRow('camera', 'Profil rasmi', 'data-av-up', '', u.avatar ? "O'zgartirish" : 'Yuklash')}
           ${u.avatar ? btnRow('trash', "Rasmni o'chirish", 'data-av-del') : ''}
           ${btnRow('lock', "Parolni o'zgartirish", 'id="pwBtn"')}
+          ${pushRoles() ? btnRow('bell', 'Bildirishnomalar', 'id="pushRow"', '', pushStatus()) : ''}
           ${canInstall ? btnRow('smartphone', "Ilovani o'rnatish", 'id="installRow"', '', /iphone|ipad|ipod/i.test(navigator.userAgent) ? 'Ulashish → Bosh ekran' : '') : ''}
           ${btnRow('logout', 'Chiqish', 'id="logoutRow"', 'danger')}
         </div>
@@ -2086,7 +2150,12 @@ async function viewProfile() {
       <label class="f"><span>Joriy parol</span><input type="password" name="current" required autocomplete="current-password"></label>
       <label class="f"><span>Yangi parol (kamida 6 belgi)</span><input type="password" name="next" required minlength="6" autocomplete="new-password"></label>`,
     async (form, close) => { await api('POST', '/api/me/password', formData(form)); close(); toast("Parol o'zgartirildi"); });
-  $('#logoutRow').onclick = async () => { if (!confirm('Hisobdan chiqasizmi?')) return; await api('POST', '/api/logout').catch(() => {}); state.user = null; go('#/login'); };
+  $('#logoutRow').onclick = async () => { if (!confirm('Hisobdan chiqasizmi?')) return; await pushUnsubscribe(); await api('POST', '/api/logout').catch(() => {}); state.user = null; go('#/login'); };
+  const pr = $('#pushRow');
+  if (pr) pr.onclick = async () => {
+    if (pushSupported() && Notification.permission === 'granted') { toast("Bildirishnomalar yoqilgan — o'chirish uchun brauzer sozlamalaridan foydalaning"); return; }
+    if (await enablePush()) viewProfile();
+  };
   const ir = $('#installRow');
   if (ir) ir.onclick = async () => {
     if (installEvt) { installEvt.prompt(); await installEvt.userChoice; installEvt = null; return; }
@@ -2291,6 +2360,7 @@ async function viewParentHome(wanted) {
     ${k.next ? `<a class="next-card" href="#/p/attendance/${ch.id}"><div class="nc-date"><span>${WD_SHORT[nd.getDay()]}</span><b>${nd.getDate()}</b><span>${MONTHS[nd.getMonth()]}</span></div>
       <div class="grow"><small>Keyingi dars${k.next.date === todayStr() ? ' · bugun' : ''}</small><div class="t">${esc(k.next.title)}</div><div class="s">${esc(k.next.group_name)}${k.next.time ? ' · ' + esc(k.next.time) : ''}</div></div>${ic('right')}</a>` : ''}
     ${g0 ? `<div class="set-title">O'qituvchi</div><a class="pa-teacher" href="#/p/messages/${ch.id}"><span class="pa-t-av">${avatar(g0.teacher_name || '?', g0.teacher_id || 0, 'md', 'teacher', g0.teacher_avatar)}<i></i></span><div class="grow"><b>${esc(g0.teacher_name || '—')}</b><span>${esc(g0.course_title)} · ${esc(g0.name)}</span></div><span class="pa-t-btn">${ic('message')}</span></a>` : ''}
+    ${pushCard()}
     ${installCard()}`);
   bindInstall();
 }
@@ -2443,7 +2513,7 @@ async function route() {
   const certM = hash.match(/^#\/cert\/([\w-]+)$/);
   if (certM) return viewCert(certM[1]);
   if (!state.user && hash !== '#/login') {
-    try { state.user = adoptUser((await api('GET', '/api/me')).user); refreshUnread(); } catch { return viewLogin(); }
+    try { state.user = adoptUser((await api('GET', '/api/me')).user); refreshUnread(); syncPush(); } catch { return viewLogin(); }
   }
   if (hash === '#/login') return state.user ? go('#/') : viewLogin();
   if (state.user && !state.assets) { try { state.assets = await api('GET', '/api/assets'); } catch { state.assets = { levels: {}, badges: {} }; } }
