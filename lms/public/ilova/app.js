@@ -1,3 +1,26 @@
+/* Brauzer zoom'ini tenglashtirish: kompyuterda Ctrl + bilan kattalashtirilgan bo'lsa ham sahifa 100% dagidek ko'rinsin.
+ * O'chirish: localStorage.setItem('yd-zoomfix', '0') */
+(function () {
+  var STEPS = [1.1, 1.25, 1.33, 1.5, 1.75, 2, 2.5, 3];
+  function fixZoom() {
+    var z = 1;
+    try {
+      var off = localStorage.getItem('yd-zoomfix') === '0';
+      var r = window.outerWidth / window.innerWidth;
+      var step = STEPS.filter(function (s) { return Math.abs(r - s) / s < 0.035; })[0];
+      if (!off && step && matchMedia('(pointer: fine)').matches && window.outerWidth >= 1000) z = 1 / step;
+    } catch (e) { /* o'zgartirmaymiz */ }
+    var root = document.documentElement;
+    root.style.zoom = z === 1 ? '' : String(z);
+    root.style.setProperty('--zf', String(z));
+    var w = window.innerWidth / z;
+    root.classList.toggle('zf-desk', z !== 1 && w > 1080);
+    root.classList.toggle('zf-tab', z !== 1 && w > 640);
+  }
+  fixZoom();
+  window.addEventListener('resize', fixZoom);
+})();
+
 /* yuksalish.dev — ilovani o'rnatish sahifasi */
 (function () {
   'use strict';

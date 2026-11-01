@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>/* zoom'ni sahifa chizilishidan oldin tenglashtirish (to'liq versiya app.js'da) */(function(){try{if(localStorage.getItem('yd-zoomfix')==='0')return;var r=outerWidth/innerWidth,S=[1.1,1.25,1.33,1.5,1.75,2,2.5,3];for(var i=0;i<S.length;i++){if(Math.abs(r-S[i])/S[i]<0.035&&matchMedia('(pointer: fine)').matches&&outerWidth>=1000){document.documentElement.style.zoom=String(1/S[i]);document.documentElement.style.setProperty('--zf',String(1/S[i]));var w=innerWidth*S[i],c=document.documentElement.classList;if(w>1080)c.add('zf-desk');if(w>640)c.add('zf-tab');break;}}}catch(e){}})();</script>
 <title>yuksalish.dev ilovasi — o'quv markazi telefoningizda</title>
 <meta name="description" content="yuksalish.dev — o'quvchi, ota-ona va o'qituvchi uchun bitta ilova: dars jadvali, vazifalar, AI tekshiruv, coin va reyting, davomat va to'lovlar. Android, iPhone va kompyuterga bepul o'rnating.">
 <meta name="theme-color" content="#0b0e24">
@@ -19,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -362,6 +363,6 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
