@@ -2198,14 +2198,14 @@ async function viewRating(scope = 'all', gid = '') {
             ${i === 0 ? `<span class="rk-crown">${ic('crown')}</span>` : ''}
             <div class="rk-av">${avatar(r.name, r.id, 'lg', 'student', r.avatar)}<span class="rk-place">${i + 1}</span></div>
             <b>${esc(r.name.split(' ')[0])}</b>${coinHtml(r.earned)}
-            <div class="rk-step"></div></div>`;
+            <div class="rk-step"><span>${i + 1}</span></div></div>`;
         }).join('')}</div>
       </section>
       ${u.role === 'student' && me ? `<div class="rk-me">
           <span class="rk-me-pos">${me.rank}<small>o'rin</small></span>
-          <div class="grow"><b>${me.rank === 1 ? 'Siz yetakchisiz!' : `Keyingi o'ringacha ${toNext} coin`}</b>
-            <span>${me.accepted} ta vazifa qabul qilingan · ${items.length} kishidan</span></div>
-          ${coinHtml(me.earned)}</div>` : ''}
+          <div class="grow"><b>${me.rank === 1 ? 'Siz yetakchisiz!' : `${me.rank - 1}-o'ringa <em>${toNext}</em> coin qoldi`}</b>
+            <span>${items.length} kishidan · ${me.accepted} ta vazifa qabul qilingan</span></div>
+          <span class="rk-me-coin">${coinHtml(me.earned)}</span></div>` : ''}
       ${items.length > 3 ? `<div class="set-title">Barcha o'rinlar</div><div class="rk-list">${items.slice(3).map((r) => rkRow(r, r.rank, u)).join('')}</div>` : ''}`;
   }
   layout(`<div class="rk-head"><div><h1>Reyting</h1><p>${scope === 'all' ? "Barcha o'quvchilar" : esc(d.group ? d.group.name : 'Guruh')} · yig'ilgan coin bo'yicha</p></div>${groupSel}</div>

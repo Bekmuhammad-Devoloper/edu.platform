@@ -135,7 +135,7 @@ h1 em {
 .f1 { right: 4%; top: -4%; }
 .f2 { right: -3%; top: 46%; animation-delay: -2s; }
 .f3 { left: 22%; bottom: -2%; animation-delay: -4s; }
-.coin { width: 34px; height: 34px; border-radius: 50%; flex: none; background: url("/img/coin.svg?v=1") center / 100% 100% no-repeat; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 10px rgba(251, 191, 36, 0.35)); }
+.coin { width: 34px; height: 34px; border-radius: 50%; flex: none; background: url("/img/coin.png?v=2") center / 100% 100% no-repeat; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 10px rgba(251, 191, 36, 0.35)); }
 .f-ico { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; flex: none; }
 .f-ico svg { width: 18px; height: 18px; stroke-width: 2.4; }
 .f-ai { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; }
