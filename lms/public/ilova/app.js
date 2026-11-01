@@ -89,6 +89,6 @@
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.perk, .step, .role, details, .final').forEach(function (el) { el.classList.add('rv'); io.observe(el); });
+    document.querySelectorAll('[data-rv]').forEach(function (el) { el.classList.add('rv'); io.observe(el); });
   }
 })();
