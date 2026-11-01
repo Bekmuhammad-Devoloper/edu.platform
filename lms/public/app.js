@@ -243,8 +243,9 @@ const NAV = {
 // telefonda o'quvchi uchun pastki menyu (ilova kabi)
 const PTABBAR = [['#/', 'home', 'Asosiy'], ['#/p/attendance', 'checkCircle', 'Davomat'], ['#/p/tasks', 'clipboard', 'Baholar'], ['#/p/pay', 'wallet', "To'lov"], ['#/p/messages', 'message', 'Xabar']];
 const TABBAR = [['#/', 'home', 'Asosiy'], ['#/groups', 'layers', 'Kurslar'], ['#/rating', 'trophy', 'Reyting'], ['#/market', 'gift', 'Market'], ['#/profile', 'user', 'Profil']];
-// o'qituvchi ilovasi: oxirgi «Yana» — qolgan bo'limlarni (Kurslar, Reyting, E'lonlar, Profil) yon panelda ochadi
-const TTABBAR = [['#/', 'home', 'Asosiy'], ['#/groups', 'users', 'Guruhlar'], ['#/schedule', 'calendar', 'Jadval'], ['#/inbox', 'message', 'Xabarlar'], ['#more', 'menu', 'Yana']];
+// o'qituvchi ilovasi: qolgan bo'limlar (Kurslar, Reyting, E'lonlar) Profil sahifasida
+const TTABBAR = [['#/', 'home', 'Asosiy'], ['#/groups', 'users', 'Guruhlar'], ['#/schedule', 'calendar', 'Jadval'], ['#/inbox', 'message', 'Xabarlar'], ['#/profile', 'user', 'Profil']];
+const TMORE = ['#/profile', '#/courses', '#/rating', '#/news'];
 const coinHtml = (n, cls = '') => `<span class="coin ${cls}"><i></i>${Number(n || 0).toLocaleString('ru-RU')}</span>`;
 
 function layout(html) {
@@ -260,8 +261,7 @@ function layout(html) {
   const isTe = u.role === 'teacher';
   const tabs = isPa ? PTABBAR : isTe ? TTABBAR : TABBAR;
   const tabbar = isSt || isPa || isTe ? `<nav class="tabbar">${tabs.map(([h, icon, t]) => {
-    if (h === '#more') { const inMore = ['#/courses', '#/rating', '#/news', '#/profile'].some((x) => hash.startsWith(x)); return `<a href="#" data-more class="${inMore ? 'active' : ''}">${ic(icon)}<span>${t}</span></a>`; }
-    const a = h === '#/' ? (hash === '#/' || hash === '#') : hash.startsWith(h) || (h === '#/groups' && hash.startsWith('#/tests'));
+    const a = h === '#/' ? (hash === '#/' || hash === '#') : hash.startsWith(h) || (h === '#/groups' && hash.startsWith('#/tests')) || (isTe && h === '#/profile' && TMORE.some((x) => hash.startsWith(x)));
     return `<a href="${h}" class="${a ? 'active' : ''}">${ic(icon)}<span>${t}</span></a>`;
   }).join('')}</nav>` : '';
   document.body.classList.toggle('app-student', isSt || isPa || isTe);
@@ -288,7 +288,6 @@ function layout(html) {
   </div>${tabbar}`;
   $('#logout').onclick = async () => { await api('POST', '/api/logout').catch(() => {}); state.user = null; go('#/login'); };
   $('#menuBtn').onclick = (e) => { e.stopPropagation(); $('#sidebar').classList.toggle('open'); };
-  const more = $('[data-more]'); if (more) more.onclick = (e) => { e.preventDefault(); e.stopPropagation(); $('#sidebar').classList.toggle('open'); };
   $$('[data-bell]').forEach((b) => { b.onclick = (e) => { e.stopPropagation(); toggleNotifications(); }; });
 }
 
@@ -2035,7 +2034,8 @@ async function viewProfile() {
   const [p, g] = st ? await Promise.all([api('GET', `/api/users/${u.id}/profile`).catch(() => null), api('GET', '/api/game/me').catch(() => null)]) : [null, null];
   const row = (icon, label, value, extra = '') => `<div class="set-row" ${extra}><span class="set-ico">${ic(icon)}</span><span class="set-l">${label}</span><span class="set-v">${value}</span></div>`;
   const btnRow = (icon, label, attrs, cls = '', value = '') => `<button type="button" class="set-row ${cls}" ${attrs}><span class="set-ico">${ic(icon)}</span><span class="set-l">${label}</span>${value ? `<span class="set-v">${value}</span>` : ''}${cls.includes('danger') ? '' : `<span class="set-go">${ic('right')}</span>`}</button>`;
-  const canInstall = st && !isStandalone();
+  const linkRow = (href, icon, label) => `<a class="set-row set-link" href="${href}"><span class="set-ico">${ic(icon)}</span><span class="set-l">${label}</span><span class="set-v">${ic('right')}</span></a>`;
+  const canInstall = (st || u.role === 'teacher') && !isStandalone();
   const s = p ? profileSections(p) : null;
   layout(`
     <section class="pf-hero ${g ? lvlClass(g.level.level) : ''} ${g && lvlStyle(g.level.level) ? 'has-img' : ''}" ${g ? lvlStyle(g.level.level) : ''}>
@@ -2050,6 +2050,15 @@ async function viewProfile() {
     </section>
     <div class="pf-cols">
       <div>
+        ${u.role === 'teacher' ? `<div class="mob-only">
+          <div class="set-title">Bo'limlar</div>
+          <div class="set-group">
+            ${linkRow('#/inbox', 'message', 'Ota-onalar bilan yozishma')}
+            ${linkRow('#/courses', 'book', "Kurslar va o'quv rejalari")}
+            ${linkRow('#/rating', 'trophy', 'Reyting')}
+            ${linkRow('#/news', 'megaphone', "E'lonlar")}
+          </div>
+        </div>` : ''}
         <div class="set-title">Shaxsiy ma'lumotlar</div>
         <div class="set-group">
           ${row('user', 'Ism', esc(u.name))}
