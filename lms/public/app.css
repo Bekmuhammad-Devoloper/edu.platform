@@ -383,30 +383,18 @@ tr.module-row td { background: none; padding: 16px 4px 2px; color: var(--accent)
   .notif-panel { top: 60px; right: 12px; }
 }
 
-/* Admin/o'qituvchi/dev: tor ekranda ham (yuqori masshtab yoki zoom) yon menyu ko'rinib, ixcham va chiroyli ko'rinsin — mobil "hamburger"ga o'tmasin */
-@media (min-width: 680px) and (max-width: 1100px) {
-  body:not(.app-student) .layout { grid-template-columns: 210px 1fr; }
-  body:not(.app-student) .sidebar { position: sticky; top: 0; height: 100vh; transform: none; width: auto; box-shadow: none; z-index: auto; padding: 16px 11px 13px; }
+/* Admin/o'qituvchi/dev: tor ekranda ham (yuqori masshtab/zoom) xuddi keng ekrandagidek to'liq o'lchamli yon menyu va elementlar — mobil "hamburger"ga o'tmasin */
+@media (min-width: 680px) and (max-width: 900px) {
+  body:not(.app-student) .layout { grid-template-columns: 264px 1fr; }
+  body:not(.app-student) .sidebar { position: sticky; top: 0; height: 100vh; transform: none; width: auto; box-shadow: none; z-index: auto; }
   body:not(.app-student) .topbar { display: none; }
-  body:not(.app-student) .topline { display: flex; margin-bottom: 14px; }
-  body:not(.app-student) .main { padding: 18px 20px 40px; }
-  body:not(.app-student) .brand { font-size: 0.95rem; gap: 9px; margin-bottom: 14px; padding: 0 6px; }
-  body:not(.app-student) .brand .logo-glow img { width: 30px; height: 30px; }
-  body:not(.app-student) .nav-label { padding: 9px 10px 5px; font-size: 0.62rem; }
-  body:not(.app-student) .nav a { padding: 8px 10px; gap: 10px; font-size: 0.85rem; border-radius: 10px; }
-  body:not(.app-student) .nav a svg { width: 18px; height: 18px; }
-  body:not(.app-student) .nav a.active::before { left: -11px; }
-  body:not(.app-student) .me { padding: 9px 10px; gap: 8px; border-radius: 13px; }
-  body:not(.app-student) .me b { font-size: 0.8rem; }
-  body:not(.app-student) .me span { font-size: 0.7rem; }
-  body:not(.app-student) .page-head h1 { font-size: 1.32rem; }
-  body:not(.app-student) .page-head p { font-size: 0.88rem; }
-  body:not(.app-student) .stats { gap: 11px; margin-bottom: 14px; }
-  body:not(.app-student) .stat { padding: 13px 15px; border-radius: 14px; }
-  body:not(.app-student) .stat-val { font-size: 1.35rem; }
-  body:not(.app-student) .card { padding: 15px; border-radius: 14px; }
-  body:not(.app-student) .card-head h2 { font-size: 0.98rem; }
-  body:not(.app-student) .top-av .avatar { width: 34px; height: 34px; }
+  body:not(.app-student) .topline { display: flex; }
+  body:not(.app-student) .main { padding: 22px 26px 60px; }
+  body:not(.app-student) .page-head h1 { font-size: 1.6rem; }
+  body:not(.app-student) .stats { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  body:not(.app-student) .stat { padding: 16px 18px; }
+  body:not(.app-student) .stat .ico { width: 32px; height: 32px; }
+  body:not(.app-student) .stat-val { font-size: 1.6rem; }
 }
 
 /* ---------- testlar ---------- */
