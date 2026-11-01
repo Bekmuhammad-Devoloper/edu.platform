@@ -80,7 +80,9 @@ const badge = (st) => `<span class="badge st-${esc(st)}">${esc(STATUS[st] || st)
 const initials = (n) => String(n || '?').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 // Profil rasmi bo'lmasa — rolga mos ikonka (administrator / o'qituvchi / o'quvchi)
 const ROLE_ICON = { dev: 'code', admin: 'shieldCheck', teacher: 'presentation', student: 'graduation', parent: 'heart' };
-const avatar = (name, uid, cls = '', role = 'student', photo = null) => (photo
+const avatar = (name, uid, cls = '', role = 'student', photo = null) => (!photo && role === 'student' && uid
+  ? `<span class="avatar ${cls} has-photo av-kid" title="${esc(name)}"><img src="${kidAvatar(uid, name)}" alt="" loading="lazy"></span>`
+  : photo
   ? `<span class="avatar ${cls} has-photo" title="${esc(name)}"><img src="${esc(photo)}" alt="" loading="lazy"></span>`
   : `<span class="avatar ${cls} av-${ROLE_ICON[role] ? role : 'student'}" title="${esc(name)} · ${ROLE[role] || ''}">${ic(ROLE_ICON[role] || 'graduation')}</span>`);
 const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
@@ -233,7 +235,24 @@ const cardHead = (icon, title, extra = '') => `<div class="card-head"><h2>${ic(i
 const empty = (text, icon = 'inbox') => `<div class="empty">${ic(icon)}${text}</div>`;
 
 // ------------------------------------------------------------------ holat va layout
-const state = { user: null, unread: 0, coins: null };
+const state = { user: null, unread: 0, coins: null, genders: {} };
+// Rasm qo'ymagan o'quvchi avatari: o'g'il yoki qiz. Admin qo'lda belgilagan jins (state.genders) ustun,
+// bo'lmasa ismdan taxmin: familiya -ova/-eva → qiz, -ov/-ev → o'g'il; ism -a/-oy/-gul... → qiz.
+const FEMALE_NAMES = ['nilufar', 'mohinur', 'gulnur', 'marjon', 'gulshan', 'durdona', 'sabrina', 'bahor', 'oydin', 'nurxon'];
+const MALE_A = ['musa', 'mustafa', 'hamza', 'taha', 'yahya', 'zakariya', 'isa', 'ota', 'murtaza', 'muso'];
+function guessGender(name) {
+  const w = String(name || '').toLowerCase().replace(/[‘’ʻʼ`']/g, '').split(/\s+/).filter(Boolean);
+  for (const x of w) if (/(ova|eva|yeva)$/.test(x)) return 'f';
+  for (const x of w) if (/(ov|ev|yev)$/.test(x)) return 'm';
+  for (const x of w) {
+    if (FEMALE_NAMES.includes(x)) return 'f';
+    if (MALE_A.includes(x)) continue;
+    if (/(a|oy|gul|niso|bonu|bibi|xonim)$/.test(x)) return 'f';
+  }
+  return 'm';
+}
+const kidAvatar = (uid, name) => `/img/avatar-${(state.genders[uid] || guessGender(name)) === 'f' ? 'girl' : 'boy'}.webp?v=1`;
+async function loadGenders() { try { state.genders = await api('GET', '/api/genders'); } catch { state.genders = {}; } }
 const NAV = {
   admin: [['#/', 'home', 'Bosh sahifa'], ['#/groups', 'users', 'Guruhlar'], ['#/schedule', 'calendar', 'Dars jadvali'], ['#/courses', 'book', 'Kurslar'], ['#/users', 'shield', 'Foydalanuvchilar'], ['#/payments', 'wallet', "To'lovlar"], ['#/market', 'gift', 'Market'], ['#/rating', 'trophy', 'Reyting'], ['#/activity', 'clock', 'Faoliyat tarixi'], ['#/ai', 'sparkles', 'AI sozlamalari'], ['#/news', 'megaphone', "E'lonlar"], ['#/profile', 'settings', 'Profil']],
   parent: [['#/', 'home', 'Bosh sahifa'], ['#/p/attendance', 'checkCircle', 'Davomat'], ['#/p/tasks', 'clipboard', 'Vazifalar va baholar'], ['#/p/pay', 'wallet', "To'lovlar"], ['#/p/messages', 'message', "O'qituvchi bilan"], ['#/news', 'megaphone', "E'lonlar"], ['#/profile', 'settings', 'Profil']],
@@ -368,7 +387,7 @@ function viewLogin() {
   $('#pwEye').onclick = () => { const i = $('input[name=password]'); i.type = i.type === 'password' ? 'text' : 'password'; };
   $('#loginForm').onsubmit = async (e) => {
     e.preventDefault();
-    try { const r = await api('POST', '/api/login', formData(e.target)); state.user = adoptUser(r.user); state.unread = 0; go('#/'); refreshUnread(); syncPush(); }
+    try { const r = await api('POST', '/api/login', formData(e.target)); state.user = adoptUser(r.user); await loadGenders(); state.unread = 0; go('#/'); refreshUnread(); syncPush(); }
     catch (err) { toast(err.message, true); }
   };
 }
@@ -1382,13 +1401,17 @@ async function userForm(u, currentRole) {
       <label class="f"><span>Telefon</span><input name="phone" value="${esc(u?.phone || '')}" placeholder="+998 90 123 45 67"></label>
       <label class="f"><span>${u ? 'Yangi parol (ixtiyoriy)' : 'Parol'}</span><input name="password" ${u ? '' : 'required'} minlength="6" autocomplete="new-password" value="${u ? '' : Math.random().toString(36).slice(2, 10)}"></label>
     </div>
+    <label class="f" id="genderBox"><span>Jinsi (rasm qo'yilmasa avatar uchun)</span><select name="gender">
+      <option value="">Avtomatik — ismdan aniqlanadi</option>
+      <option value="m" ${u?.gender === 'm' ? 'selected' : ''}>O'g'il bola</option>
+      <option value="f" ${u?.gender === 'f' ? 'selected' : ''}>Qiz bola</option></select></label>
     <div class="f" id="kidsBox"><span class="f-label">Farzandlari (ota-ona uchun)</span><div class="check-list" style="max-height:180px">${students.filter((x) => x.active).map((x) => `<label><input type="checkbox" name="k${x.id}" ${kids.has(x.id) ? 'checked' : ''}> ${avatar(x.name, x.id, 'sm', 'student', x.avatar)} ${esc(x.name)} <span class="muted small">${esc(x.login)}</span></label>`).join('') || '<div class="muted small" style="padding:8px">O\'quvchilar yo\'q</div>'}</div></div>
     ${u ? `<label class="switch-row"><input type="checkbox" class="switch" name="active" ${u.active ? 'checked' : ''}><span><b>Faol</b><small>O'chirilsa — tizimga kira olmaydi</small></span></label>` : '<p class="hint">Parol avtomatik taklif qilindi — xohlasangiz o\'zgartiring.</p>'}`;
   modal(u ? 'Foydalanuvchini tahrirlash' : 'Yangi foydalanuvchi', body, async (form, close) => {
     const f = formData(form);
     const kidIds = Object.keys(f).filter((k) => /^k\d+$/.test(k)).map((k) => Number(k.slice(1)));
     if (u) {
-      const p = { name: f.name, role: f.role, phone: f.phone, active: !!f.active };
+      const p = { name: f.name, role: f.role, phone: f.phone, active: !!f.active, gender: f.role === 'student' ? (f.gender || '') : '' };
       if (f.password) p.password = f.password;
       await api('PATCH', `/api/users/${u.id}`, p);
       if (f.role === 'parent') await api('PUT', `/api/users/${u.id}/children`, { student_ids: kidIds });
@@ -1399,10 +1422,11 @@ async function userForm(u, currentRole) {
       close();
       showCreds([{ name: f.name, login: f.login.toLowerCase(), password: f.password }]);
     }
+    await loadGenders();
     viewUsers(currentRole);
   });
-  const rs = $('select[name=role]'), kb = $('#kidsBox');
-  const syncKids = () => { kb.style.display = rs.value === 'parent' ? '' : 'none'; };
+  const rs = $('select[name=role]'), kb = $('#kidsBox'), gb = $('#genderBox');
+  const syncKids = () => { kb.style.display = rs.value === 'parent' ? '' : 'none'; gb.style.display = rs.value === 'student' ? '' : 'none'; };
   rs.addEventListener('change', syncKids); syncKids();
 }
 
@@ -2515,7 +2539,7 @@ async function route() {
   const certM = hash.match(/^#\/cert\/([\w-]+)$/);
   if (certM) return viewCert(certM[1]);
   if (!state.user && hash !== '#/login') {
-    try { state.user = adoptUser((await api('GET', '/api/me')).user); refreshUnread(); syncPush(); } catch { return viewLogin(); }
+    try { state.user = adoptUser((await api('GET', '/api/me')).user); await loadGenders(); refreshUnread(); syncPush(); } catch { return viewLogin(); }
   }
   if (hash === '#/login') return state.user ? go('#/') : viewLogin();
   if (state.user && !state.assets) { try { state.assets = await api('GET', '/api/assets'); } catch { state.assets = { levels: {}, badges: {} }; } }

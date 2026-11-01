@@ -30,7 +30,7 @@ const wrap = (fn) => (req, res, next) => { try { const r = fn(req, res, next); i
 const str = (v, max = 5000) => (v === undefined || v === null ? '' : String(v).trim().slice(0, max));
 const id = (v) => { const n = Number(v); if (!Number.isInteger(n) || n <= 0) fail(400, "Noto'g'ri ID"); return n; };
 const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s || '');
-const publicUser = (u) => u && ({ id: u.id, name: u.name, login: u.login, role: u.is_dev ? 'dev' : u.role, phone: u.phone, avatar: u.avatar || null, active: !!u.active, created_at: u.created_at });
+const publicUser = (u) => u && ({ id: u.id, name: u.name, login: u.login, role: u.is_dev ? 'dev' : u.role, phone: u.phone, avatar: u.avatar || null, gender: u.gender || null, active: !!u.active, created_at: u.created_at });
 
 // Bildirishnoma: bir yoki bir nechta foydalanuvchiga
 function notify(userIds, kind, text, link) {
@@ -100,6 +100,8 @@ app.post('/api/logout', wrap((req, res) => {
 }));
 
 app.get('/api/me', auth(), wrap((req) => ({ user: publicUser(req.user) })));
+// qo'lda belgilangan jinslar (rasm qo'ymagan o'quvchi avatari uchun); qolganlari ismdan aniqlanadi
+app.get('/api/genders', auth(), wrap(() => Object.fromEntries(all("SELECT id, gender FROM users WHERE gender IN ('m','f')").map((r) => [r.id, r.gender]))));
 
 app.post('/api/me/password', auth(), wrap((req) => {
   const { current, next: nextPw } = req.body;
@@ -127,6 +129,7 @@ app.post('/api/users', auth('admin'), wrap((req) => {
   if (password.length < 6) fail(400, 'Parol kamida 6 ta belgi');
   if (one('SELECT 1 FROM users WHERE lower(login) = ?', login)) fail(409, 'Bu login band');
   const r = run('INSERT INTO users (name, login, password_hash, role, phone) VALUES (?,?,?,?,?)', name, login, bcrypt.hashSync(password, 10), role, str(req.body.phone, 30) || null);
+  if (['m', 'f'].includes(req.body.gender)) run('UPDATE users SET gender = ? WHERE id = ?', req.body.gender, Number(r.lastInsertRowid));
   audit(req.user, 'create', 'user', Number(r.lastInsertRowid), name, `${login} · ${role}`);
   return { user: publicUser(one('SELECT * FROM users WHERE id = ?', r.lastInsertRowid)) };
 }));
@@ -144,6 +147,7 @@ app.patch('/api/users/:id', auth('admin'), wrap((req) => {
   const phone = b.phone !== undefined ? (str(b.phone, 30) || null) : u.phone;
   const active = b.active !== undefined ? (b.active ? 1 : 0) : u.active;
   run('UPDATE users SET name=?, role=?, phone=?, active=? WHERE id=?', name || u.name, role, phone, active, uid);
+  if (b.gender !== undefined) run('UPDATE users SET gender = ? WHERE id = ?', ['m', 'f'].includes(b.gender) ? b.gender : null, uid);
   if (b.password) {
     if (String(b.password).length < 6) fail(400, 'Parol kamida 6 ta belgi');
     run('UPDATE users SET password_hash = ? WHERE id = ?', bcrypt.hashSync(String(b.password), 10), uid);
