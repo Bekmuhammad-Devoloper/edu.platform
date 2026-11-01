@@ -1,6 +1,28 @@
 /* Yuksalish Academy LMS — interfeys (vanilla JS, hash router) */
 'use strict';
 
+// ------------------------------------------------------------------ brauzer zoom'ini tenglashtirish
+// Kompyuterda Ctrl + / Ctrl - bilan kattalashtirilgan bo'lsa ham panel 100% dagidek ko'rinsin
+// (Chrome'da har profilning zoom'i alohida — shu sabab bir profil "katta", boshqasi "normal" ko'rinardi).
+// O'chirish: localStorage.setItem('yd-zoomfix', '0')
+const ZOOM_STEPS = [1.1, 1.25, 1.33, 1.5, 1.75, 2, 2.5, 3];
+function fixZoom() {
+  const root = document.documentElement;
+  let z = 1;
+  try {
+    const off = localStorage.getItem('yd-zoomfix') === '0';
+    const r = window.outerWidth / window.innerWidth;
+    const step = ZOOM_STEPS.find((s) => Math.abs(r - s) / s < 0.035);
+    if (!off && step && matchMedia('(pointer: fine)').matches && window.outerWidth >= 1000) z = 1 / step;
+  } catch { /* xato bo'lsa — o'zgartirmaymiz */ }
+  root.style.zoom = z === 1 ? '' : String(z);
+  root.style.setProperty('--zf', String(z));
+  root.classList.toggle('zf', z !== 1);
+  root.classList.toggle('zf-wide', z !== 1 && window.innerWidth / z > 1150);
+}
+fixZoom();
+window.addEventListener('resize', fixZoom);
+
 // ------------------------------------------------------------------ yordamchilar
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];

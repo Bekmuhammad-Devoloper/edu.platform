@@ -1711,3 +1711,11 @@ body::after { z-index: -2; }
 .share-reja b { display: flex; align-items: center; gap: 8px; font-size: 0.98rem; margin-bottom: 4px; }
 .share-reja b svg { width: 18px; height: 18px; color: var(--accent); }
 .share-url { margin-top: 10px; padding: 9px 12px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--line); font-size: 0.82rem; color: #c7cfe2; word-break: break-all; }
+
+/* Brauzer zoom'i tenglashtirilganda (html.zf, --zf = 1/zoom) — ekran balandligi to'g'ri qolsin */
+html.zf body, html.zf .layout, html.zf .login-wrap, html.zf .cert-wrap { min-height: calc(100vh / var(--zf)); }
+html.zf body .sidebar { height: calc(100vh / var(--zf)); }
+html.zf .tg { height: calc(100vh / var(--zf) - 140px); }
+html.zf body.chat-open .tg { height: calc(100vh / var(--zf)); }
+/* zoom tufayli brauzer ekranni torroq deb hisoblaydi — keng ekrandagi 2 ustunli joylashuvni qaytaramiz */
+html.zf-wide .grid.two, html.zf-wide .grid.half { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
