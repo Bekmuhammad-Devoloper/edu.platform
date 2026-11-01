@@ -1719,3 +1719,9 @@ html.zf .tg { height: calc(100vh / var(--zf) - 140px); }
 html.zf body.chat-open .tg { height: calc(100vh / var(--zf)); }
 /* zoom tufayli brauzer ekranni torroq deb hisoblaydi — keng ekrandagi 2 ustunli joylashuvni qaytaramiz */
 html.zf-wide .grid.two, html.zf-wide .grid.half { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+/* O'qituvchi ilovasi (telefon): pastki menyu + «Yana» tugmasi bilan ochiladigan yon panel */
+@media (max-width: 900px) {
+  body.app-teacher.app-student .sidebar { display: flex; z-index: 80; padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
+  body.app-teacher .install-card { margin-bottom: 14px; }
+}

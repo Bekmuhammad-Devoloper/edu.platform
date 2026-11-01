@@ -1,6 +1,6 @@
 /* yuksalish.dev — oddiy service worker: interfeys fayllari keshda, API har doim tarmoqdan */
-const CACHE = 'yd-shell-v2';
-const SHELL = ['/', '/app.css', '/app.js', '/img/yuksalish-logo-light.png', '/img/icon-192.png', '/img/background.jpg'];
+const CACHE = 'yd-shell-v3';
+const SHELL = ['/', '/app.css', '/app.js', '/img/yuksalish-logo-light.png', '/img/icon-192.png?v=2', '/img/background.jpg'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
