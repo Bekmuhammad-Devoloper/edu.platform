@@ -1757,3 +1757,21 @@ a.set-row:hover { background: rgba(255, 255, 255, 0.04); }
   .m-foot .coin { font-size: 0.95rem; }
   .m-foot .small { font-size: 0.72rem; }
 }
+
+/* Market kartasi: matnlar sig'sin va chiqib ketmasin */
+.m-body h3 { overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.m-body p { overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.m-foot { gap: 8px; flex-wrap: wrap; }
+.m-foot .coin { flex: none; }
+.m-foot .small { white-space: nowrap; margin-left: auto; }
+.m-need span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-need span svg { display: inline-block; vertical-align: -2px; margin-right: 4px; }
+@media (max-width: 420px) { .m-need span { font-size: 0.7rem; } }
+
+/* Market banneri: fon rasmi (img/market-hero.webp) bo'lsa */
+.mk-hero.has-bg {
+  background: linear-gradient(90deg, rgba(40, 12, 92, 0.92) 0%, rgba(52, 16, 110, 0.7) 45%, rgba(52, 16, 110, 0.1) 100%),
+    url("/img/market-hero.webp?v=1") center right / cover no-repeat;
+  min-height: 190px;
+}
+.mk-hero.has-bg .mk-art { display: none; }

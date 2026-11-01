@@ -1895,11 +1895,13 @@ async function viewMarket(tab = 'items') {
   }
   layout(`${u.role === 'student' ? '' : `<div class="page-head"><div><h1>Market</h1><p>Coin evaziga beriladigan sovg'alar</p></div>
       ${admin ? `<button class="btn primary" id="newItem">${ic('plus')}Mahsulot qo'shish</button>` : ''}</div>`}
-    ${u.role === 'student' ? `<section class="mk-hero"><div class="mk-text"><span>Market</span><h1>Coinlaringizni<br>sovg'alarga almashtiring</h1>
+    ${u.role === 'student' ? `<section class="mk-hero" id="mkHero"><div class="mk-text"><span>Market</span><h1>Coinlaringizni<br>sovg'alarga almashtiring</h1>
       <a href="#/coins" class="mk-bal"><span class="cw-coin sm"></span><b>${Number(d.balance).toLocaleString('ru-RU')}</b><em>coin</em>${ic('right')}</a></div><div class="mk-art">${ic('gift')}</div></section>` : ''}
     ${admin ? `<div class="tabs"><a href="#/market" class="${tab !== 'orders' ? 'active' : ''}">${ic('gift')}Mahsulotlar (${d.items.length})</a><a href="#/market/orders" class="${tab === 'orders' ? 'active' : ''}">${ic('bag')}Buyurtmalar${pendingN ? ` <span class="chip warn">${pendingN}</span>` : ''}</a></div>` : ''}
     ${body}`);
 
+  const hero = $('#mkHero');
+  if (hero) { const bg = new Image(); bg.onload = () => hero.classList.add('has-bg'); bg.src = '/img/market-hero.webp?v=1'; }
   $$('[data-buy]').forEach((b) => {
     b.onclick = async () => {
       const it = d.items.find((x) => x.id === Number(b.dataset.buy));
