@@ -383,6 +383,15 @@ tr.module-row td { background: none; padding: 16px 4px 2px; color: var(--accent)
   .notif-panel { top: 60px; right: 12px; }
 }
 
+/* Admin/o'qituvchi/dev: tor ekranda ham (yuqori masshtab yoki zoom) yon menyu ko'rinib tursin — mobil "hamburger"ga o'tmasin */
+@media (min-width: 680px) and (max-width: 900px) {
+  body:not(.app-student) .layout { grid-template-columns: 240px 1fr; }
+  body:not(.app-student) .sidebar { position: sticky; top: 0; height: 100vh; transform: none; width: auto; box-shadow: none; z-index: auto; }
+  body:not(.app-student) .topbar { display: none; }
+  body:not(.app-student) .topline { display: flex; }
+  body:not(.app-student) .main { padding: 22px 20px 40px; }
+}
+
 /* ---------- testlar ---------- */
 .ni-ico { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; flex: none; background: var(--ibg); color: var(--ic); }
 .sec-title { margin: 24px 0 12px; display: flex; gap: 10px; align-items: center; font-size: 1.1rem; }
