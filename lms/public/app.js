@@ -83,7 +83,7 @@ const ROLE_ICON = { dev: 'code', admin: 'shieldCheck', teacher: 'presentation', 
 const avatar = (name, uid, cls = '', role = 'student', photo = null) => (!photo && role === 'student' && uid
   ? `<span class="avatar ${cls} has-photo av-kid" title="${esc(name)}"><img src="${kidAvatar(uid, name)}" alt="" loading="lazy"></span>`
   : photo
-  ? `<span class="avatar ${cls} has-photo" title="${esc(name)}"><img src="${esc(photo)}" alt="" loading="lazy"></span>`
+  ? `<span class="avatar ${cls} has-photo" title="${esc(name)}"><img src="${esc(photo)}" alt="" loading="lazy" ${role === 'student' && uid ? `onerror="this.onerror=null;this.src='${kidAvatar(uid, name)}'"` : ''}></span>`
   : `<span class="avatar ${cls} av-${ROLE_ICON[role] ? role : 'student'}" title="${esc(name)} · ${ROLE[role] || ''}">${ic(ROLE_ICON[role] || 'graduation')}</span>`);
 const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
 const greeting = () => { const h = new Date().getHours(); return h < 5 ? 'Xayrli tun' : h < 11 ? 'Xayrli tong' : h < 17 ? 'Xayrli kun' : h < 22 ? 'Xayrli kech' : 'Xayrli tun'; };
@@ -1869,7 +1869,7 @@ async function viewCoins() {
     (groups[k] = groups[k] || []).push(h);
   }
   const dayLabel = (k) => (k === todayStr() ? 'Bugun' : daysBetween(k, todayStr()) === 1 ? 'Kecha' : fmtDate(k));
-  const hIcon = (h) => (h.amount < 0 ? ['t-rose', 'bag'] : /Test/.test(h.reason) ? ['t-violet', 'quiz'] : /Darsga/.test(h.reason) ? ['t-blue', 'calendar'] : /Yutuq/.test(h.reason) ? ['t-amber', 'award'] : /Vazifa/.test(h.reason) ? ['t-green', 'checkCircle'] : ['t-amber', 'star']);
+  const hIcon = (h) => (h.amount < 0 ? (/^Market/.test(h.reason || '') ? ['t-rose', 'bag'] : ['t-rose', 'alert']) : /Test/.test(h.reason) ? ['t-violet', 'quiz'] : /Darsga/.test(h.reason) ? ['t-blue', 'calendar'] : /Yutuq/.test(h.reason) ? ['t-amber', 'award'] : /Vazifa/.test(h.reason) ? ['t-green', 'checkCircle'] : ['t-amber', 'star']);
   layout(`<section class="cw-hero">
       <div class="cw-top"><span>Balansingiz</span><a href="#/market" class="cw-mk">${ic('gift')}Market</a></div>
       <div class="cw-bal"><span class="cw-coin"></span><b>${Number(d.balance).toLocaleString('ru-RU')}</b><small>coin</small></div>
@@ -2235,7 +2235,7 @@ async function viewRating(scope = 'all', gid = '') {
   layout(`<div class="rk-head"><div><h1>Reyting</h1><p>${scope === 'all' ? "Barcha o'quvchilar" : esc(d.group ? d.group.name : 'Guruh')} · yig'ilgan coin bo'yicha</p></div>${groupSel}</div>
     <div class="seg-full"><a href="#/rating" class="${scope === 'all' ? 'active' : ''}">${ic('trophy')}Umumiy</a><a href="#/rating/group" class="${scope === 'group' ? 'active' : ''}">${ic('users')}Guruhim</a></div>
     ${body}
-    <p class="hint rk-hint">${ic('alert')}Marketda sarflangan coinlar o'rinni tushirmaydi — hisobga jami yig'ilgani olinadi.</p>`);
+    <p class="hint rk-hint">${ic('alert')}Marketda sarflangan coinlar o'rinni tushirmaydi. O'qituvchi ayirgan (jarima) coinlar reytingdan ham ayiriladi.</p>`);
   const rg = $('#rgGroup'); if (rg) rg.onchange = () => viewRating('group', rg.value);
 }
 const rkRow = (r, rank, u) => `<div class="rk-row ${r.id === u.id ? 'is-me' : ''}">

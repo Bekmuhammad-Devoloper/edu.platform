@@ -138,6 +138,16 @@ CREATE TABLE IF NOT EXISTS notifications (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+-- Push-bildirishnoma obunalari: foydalanuvchining har bir qurilmasi (brauzeri) uchun bitta yozuv
+CREATE TABLE IF NOT EXISTS push_subs (
+  id         INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  endpoint   TEXT NOT NULL UNIQUE,
+  p256dh     TEXT NOT NULL,
+  auth       TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS payments (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   student_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -283,6 +293,7 @@ CREATE INDEX IF NOT EXISTS idx_pmsg ON parent_msgs(parent_id, student_id, teache
 
 CREATE INDEX IF NOT EXISTS idx_pay_month ON payments(month, student_id);
 CREATE INDEX IF NOT EXISTS idx_notif_user ON notifications(user_id, read, id);
+CREATE INDEX IF NOT EXISTS idx_push_user ON push_subs(user_id);
 CREATE INDEX IF NOT EXISTS idx_lessons_course ON lessons(course_id, position);
 CREATE INDEX IF NOT EXISTS idx_sub_group ON submissions(group_id, lesson_id);
 CREATE INDEX IF NOT EXISTS idx_comments ON comments(group_id, lesson_id, student_id);

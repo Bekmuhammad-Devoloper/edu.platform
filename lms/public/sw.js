@@ -1,5 +1,5 @@
 /* yuksalish.dev — oddiy service worker: interfeys fayllari keshda, API har doim tarmoqdan */
-const CACHE = 'yd-shell-v3';
+const CACHE = 'yd-shell-v4';
 const SHELL = ['/', '/app.css', '/app.js', '/img/yuksalish-logo-light.png', '/img/icon-192.png?v=2', '/img/background.jpg'];
 
 self.addEventListener('install', (e) => {
@@ -20,4 +20,27 @@ self.addEventListener('fetch', (e) => {
       return res;
     }).catch(() => caches.match(e.request).then((r) => r || caches.match('/')))
   );
+});
+
+// Push-bildirishnoma: uyga vazifa berildi / tekshirildi (ilova yopiq bo'lsa ham keladi)
+self.addEventListener('push', (e) => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; } catch { d = { body: e.data ? e.data.text() : '' }; }
+  e.waitUntil(self.registration.showNotification(d.title || 'yuksalish.dev', {
+    body: d.body || '',
+    icon: '/img/icon-192.png?v=2',
+    badge: '/img/icon-192.png?v=2',
+    data: { link: d.link || '#/' },
+  }));
+});
+
+// Bildirishnoma bosilganda: ochiq oyna bo'lsa — o'sha sahifaga o'tadi, bo'lmasa ilova ochiladi
+self.addEventListener('notificationclick', (e) => {
+  e.notification.close();
+  const link = (e.notification.data && e.notification.data.link) || '#/';
+  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((wins) => {
+    const w = wins.find((c) => new URL(c.url).origin === self.location.origin);
+    if (w) { w.postMessage({ type: 'open', link }); return w.focus(); }
+    return self.clients.openWindow('/' + link);
+  }));
 });

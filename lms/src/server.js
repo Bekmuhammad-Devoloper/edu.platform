@@ -30,14 +30,58 @@ const wrap = (fn) => (req, res, next) => { try { const r = fn(req, res, next); i
 const str = (v, max = 5000) => (v === undefined || v === null ? '' : String(v).trim().slice(0, max));
 const id = (v) => { const n = Number(v); if (!Number.isInteger(n) || n <= 0) fail(400, "Noto'g'ri ID"); return n; };
 const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s || '');
+// Reyting balli (XP): barcha coinlar — vazifa, test, davomat, nishon, rag'bat va JARIMA ham;
+// faqat market xaridlari (ref 'order:...') hisobga olinmaydi, sovg'a olish o'rinni tushirmaydi.
+const SCORE_SQL = (col) => `max(0, coalesce((SELECT sum(c.amount) FROM coin_tx c WHERE c.student_id = ${col} AND (c.ref IS NULL OR c.ref NOT LIKE 'order:%')), 0))`;
 const publicUser = (u) => u && ({ id: u.id, name: u.name, login: u.login, role: u.is_dev ? 'dev' : u.role, phone: u.phone, avatar: u.avatar || null, gender: u.gender || null, active: !!u.active, created_at: u.created_at });
 
-// Bildirishnoma: bir yoki bir nechta foydalanuvchiga
-function notify(userIds, kind, text, link) {
-  for (const uid of [].concat(userIds).filter(Boolean)) {
+// Bildirishnoma: bir yoki bir nechta foydalanuvchiga.
+// push — ruxsat bergan qurilmalarga tizim bildirishnomasi ham yuboriladi (standart: uyga vazifa va baholash)
+const PUSH_KINDS = new Set(['task', 'grade']);
+function notify(userIds, kind, text, link, push = PUSH_KINDS.has(kind)) {
+  const ids = [].concat(userIds).filter(Boolean);
+  for (const uid of ids) {
     run('INSERT INTO notifications (user_id, kind, text, link) VALUES (?,?,?,?)', uid, kind, String(text).slice(0, 300), link || null);
   }
+  if (push) sendPush(ids, kind, text, link);
 }
+
+// ------------------------------------------------------------------ push-bildirishnomalar (Web Push)
+// Kalitlar: VAPID_PUBLIC_KEY / VAPID_PRIVATE_KEY muhit o'zgaruvchilari, bo'lmasa data/vapid.json
+// (birinchi ishga tushishda yaratiladi; data/ repoga tushmaydi). web-push o'rnatilmagan bo'lsa push o'chiq, qolgani ishlaydi.
+let webpush = null;
+try { webpush = require('web-push'); } catch { console.warn("web-push o'rnatilmagan — push-bildirishnomalar o'chiq (npm install)"); }
+const vapid = (() => {
+  if (!webpush) return null;
+  try {
+    let keys = process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY ? { publicKey: process.env.VAPID_PUBLIC_KEY, privateKey: process.env.VAPID_PRIVATE_KEY } : null;
+    const file = path.join(DATA_DIR, 'vapid.json');
+    if (!keys && fs.existsSync(file)) keys = JSON.parse(fs.readFileSync(file, 'utf8'));
+    if (!keys) { keys = webpush.generateVAPIDKeys(); fs.writeFileSync(file, JSON.stringify(keys, null, 2)); }
+    webpush.setVapidDetails(process.env.VAPID_SUBJECT || 'https://edu.platform.yuksalish.tech', keys.publicKey, keys.privateKey);
+    return keys;
+  } catch (e) { console.error('Push kalitlari:', e.message); return null; }
+})();
+const PUSH_TITLE = { task: 'Yangi uyga vazifa', grade: 'Vazifa tekshirildi', video: 'Uyga vazifa' };
+function sendPush(userIds, kind, text, link) {
+  if (!vapid || !userIds.length) return;
+  const payload = JSON.stringify({ title: PUSH_TITLE[kind] || 'yuksalish.dev', body: String(text).slice(0, 300), link: link || '#/' });
+  for (const uid of userIds) {
+    for (const s of all('SELECT * FROM push_subs WHERE user_id = ?', uid)) {
+      webpush.sendNotification({ endpoint: s.endpoint, keys: { p256dh: s.p256dh, auth: s.auth } }, payload, { TTL: 86400 })
+        .catch((e) => {
+          // obuna eskirgan yoki bekor qilingan — o'chiramiz
+          if (e.statusCode === 404 || e.statusCode === 410) run('DELETE FROM push_subs WHERE id = ?', s.id);
+          else console.error('Push:', e.statusCode || e.message);
+        });
+    }
+  }
+}
+
+// Darsga uyga vazifa berilganmi: matn, vazifa fayli yoki vazifaga video tushuntirish (gl — group_lessons)
+const HAS_TASK = `(trim(coalesce(gl.task_text, '')) <> ''
+  OR EXISTS (SELECT 1 FROM attachments ta WHERE ta.group_id = gl.group_id AND ta.lesson_id = gl.lesson_id AND ta.kind = 'task')
+  OR EXISTS (SELECT 1 FROM lesson_videos tv WHERE tv.group_id = gl.group_id AND tv.lesson_id = gl.lesson_id AND tv.kind = 'task'))`;
 const groupStudentIds = (gid) => all('SELECT student_id FROM group_students WHERE group_id = ?', gid).map((r) => r.student_id);
 const lessonTitle = (lid) => (one('SELECT title FROM lessons WHERE id = ?', lid) || {}).title || 'Dars';
 
@@ -511,9 +555,11 @@ app.put('/api/groups/:gid/lessons/:lid/task', auth('teacher', 'admin'), wrap((re
   const g = groupFor(req.user, gid);
   one('SELECT 1 FROM group_lessons WHERE group_id = ? AND lesson_id = ?', gid, lid) || fail(404, 'Dars topilmadi');
   const text = str(req.body.text, 20000) || null;
+  // had — vazifa avval berilgan (o'quvchilarga xabar ketgan); bo'sh saqlash vazifa berilgan deb belgilamaydi,
+  // aks holda keyin haqiqiy vazifa yozilganda xabar ketmay qolardi
   const had = one('SELECT task_updated_at FROM group_lessons WHERE group_id = ? AND lesson_id = ?', gid, lid).task_updated_at;
-  const hasFiles = filesFor(gid, lid, 'task').length > 0;
-  run("UPDATE group_lessons SET task_text = ?, task_updated_at = datetime('now') WHERE group_id = ? AND lesson_id = ?", text, gid, lid);
+  const hasFiles = filesFor(gid, lid, 'task').length > 0 || !!one("SELECT 1 FROM lesson_videos WHERE group_id = ? AND lesson_id = ? AND kind = 'task'", gid, lid);
+  run('UPDATE group_lessons SET task_text = ?, task_updated_at = ? WHERE group_id = ? AND lesson_id = ?', text, text || hasFiles ? nowIso() : null, gid, lid);
   if (req.body.max_attempts !== undefined) {
     const m = req.body.max_attempts === '' || req.body.max_attempts === null ? null : Number(req.body.max_attempts);
     if (m !== null && (!Number.isInteger(m) || m < 0 || m > 50)) fail(400, 'Topshirishlar soni 0 dan 50 gacha');
@@ -622,7 +668,9 @@ app.post('/api/groups/:gid/lessons/:lid/videos', auth('teacher', 'admin'), (req,
       try {
         const vkind = req.headers['x-video-kind'] === 'task' ? 'task' : 'lesson';
         const r = run('INSERT INTO lesson_videos (group_id, lesson_id, name, mime, size, stored, owner_id, kind) VALUES (?,?,?,?,?,?,?,?)', gid, lid, name, VIDEO_EXT[ext], size, stored, req.user.id, vkind);
-        notify(groupStudentIds(gid), 'video', vkind === 'task' ? `Uyga vazifaga video tushuntirish: ${lessonTitle(lid)}` : `Dars videosi yuklandi: ${lessonTitle(lid)}`, `#/groups/${gid}/lessons/${lid}`);
+        // vazifaga video — bu ham uyga vazifa: push ketadi va vazifa berilgan deb belgilanadi (keyingi «Saqlash» ikkinchi xabar yubormaydi)
+        if (vkind === 'task') run('UPDATE group_lessons SET task_updated_at = coalesce(task_updated_at, ?) WHERE group_id = ? AND lesson_id = ?', nowIso(), gid, lid);
+        notify(groupStudentIds(gid), 'video', vkind === 'task' ? `Uyga vazifaga video tushuntirish: ${lessonTitle(lid)}` : `Dars videosi yuklandi: ${lessonTitle(lid)}`, `#/groups/${gid}/lessons/${lid}`, vkind === 'task');
         audit(req.user, 'update', 'group', gid, g.name, `«${lessonTitle(lid)}» darsiga video yuklandi`);
         finish(null, { video: { id: Number(r.lastInsertRowid), name, size, mime: VIDEO_EXT[ext] } });
       } catch (e) { finish(e); }
@@ -875,15 +923,17 @@ app.put('/api/groups/:gid/lessons/:lid/attendance', auth('teacher', 'admin'), wr
 }));
 
 // ------------------------------------------------------------------ reyting va baholar jurnali
+// Guruh reytingi — coin reytingi bilan bir xil qoida (SCORE_SQL), ball va qabul qilinganlar qo'shimcha ma'lumot
 function ranking(gid) {
-  const rows = all(`SELECT u.id, u.name, u.avatar,
+  const rows = all(`SELECT u.id, u.name, u.avatar, ${SCORE_SQL('u.id')} AS earned,
                       coalesce(sum(CASE WHEN s.status = 'qabul' THEN coalesce(s.score, 0) END), 0) AS points,
                       coalesce(sum(s.status = 'qabul'), 0) AS accepted, count(s.id) AS submitted,
                       round(avg(s.score)) AS avg_score
                     FROM group_students gs JOIN users u ON u.id = gs.student_id
                     LEFT JOIN submissions s ON s.group_id = gs.group_id AND s.student_id = u.id
-                    WHERE gs.group_id = ? GROUP BY u.id ORDER BY points DESC, accepted DESC, u.name`, gid);
-  rows.forEach((r, i) => { r.rank = i + 1; });
+                    WHERE gs.group_id = ? GROUP BY u.id ORDER BY earned DESC, points DESC, accepted DESC, u.name`, gid);
+  let prev = null, rank = 0;
+  rows.forEach((r, i) => { if (r.earned !== prev) { rank = i + 1; prev = r.earned; } r.rank = rank; });
   return rows;
 }
 
@@ -1000,6 +1050,23 @@ app.get('/api/notifications', auth(), wrap((req) => ({
 app.post('/api/notifications/read', auth(), wrap((req) => {
   if (req.body.id) run('UPDATE notifications SET read = 1 WHERE id = ? AND user_id = ?', id(req.body.id), req.user.id);
   else run('UPDATE notifications SET read = 1 WHERE user_id = ?', req.user.id);
+  return { ok: true };
+}));
+
+// Push obunasi: ilova ochiq kalitni oladi, brauzer obunasini saqlaydi; chiqishda obuna o'chiriladi
+app.get('/api/push/key', auth(), wrap(() => ({ key: vapid ? vapid.publicKey : null })));
+app.post('/api/push/subscribe', auth(), wrap((req) => {
+  if (!vapid) fail(503, 'Bildirishnomalar serverda sozlanmagan');
+  const s = req.body.subscription || {};
+  const endpoint = str(s.endpoint, 1000), p256dh = str(s.keys && s.keys.p256dh, 200), authKey = str(s.keys && s.keys.auth, 100);
+  if (!/^https:\/\//.test(endpoint) || !p256dh || !authKey) fail(400, "Obuna ma'lumoti noto'g'ri");
+  // shu qurilmada boshqa hisob bilan kirilgan bo'lsa — obuna yangi egasiga o'tadi
+  run(`INSERT INTO push_subs (user_id, endpoint, p256dh, auth) VALUES (?,?,?,?)
+       ON CONFLICT(endpoint) DO UPDATE SET user_id = excluded.user_id, p256dh = excluded.p256dh, auth = excluded.auth`, req.user.id, endpoint, p256dh, authKey);
+  return { ok: true };
+}));
+app.post('/api/push/unsubscribe', auth(), wrap((req) => {
+  run('DELETE FROM push_subs WHERE endpoint = ? AND user_id = ?', str(req.body.endpoint, 1000), req.user.id);
   return { ok: true };
 }));
 
@@ -1291,7 +1358,7 @@ function setCoins(studentId, ref, amount, reason, byId) {
   if (amount) run('INSERT INTO coin_tx (student_id, amount, reason, ref, created_by) VALUES (?,?,?,?,?)', studentId, amount, reason, ref || null, byId || null);
 }
 const coinBalance = (sid) => one('SELECT coalesce(sum(amount), 0) AS n FROM coin_tx WHERE student_id = ?', sid).n;
-const coinEarned = (sid) => one('SELECT coalesce(sum(amount), 0) AS n FROM coin_tx WHERE student_id = ? AND amount > 0', sid).n;
+const coinEarned = (sid) => one(`SELECT ${SCORE_SQL('?')} AS n`, sid).n;
 function syncSubmissionCoins(subId) {
   const s = one('SELECT s.*, l.title FROM submissions s JOIN lessons l ON l.id = s.lesson_id WHERE s.id = ?', subId);
   if (!s) return;
@@ -1331,7 +1398,7 @@ app.get('/api/leaderboard', auth(), wrap((req) => {
     groupFor(req.user, gid);
   }
   const rows = all(`SELECT u.id, u.name, u.avatar,
-                      coalesce((SELECT sum(amount) FROM coin_tx c WHERE c.student_id = u.id AND c.amount > 0), 0) AS earned,
+                      ${SCORE_SQL('u.id')} AS earned,
                       (SELECT count(*) FROM submissions s WHERE s.student_id = u.id AND s.status = 'qabul') AS accepted,
                       (SELECT g.name FROM group_students gs JOIN groups g ON g.id = gs.group_id WHERE gs.student_id = u.id AND g.deleted_at IS NULL ORDER BY g.active DESC LIMIT 1) AS group_name
                     FROM users u WHERE u.role = 'student' AND u.active = 1
@@ -1488,7 +1555,7 @@ function gameOf(uid, { award = true } = {}) {
   const xp = coinEarned(uid);
   const groups = all('SELECT gs.group_id FROM group_students gs JOIN groups g ON g.id = gs.group_id WHERE gs.student_id = ? AND g.deleted_at IS NULL', uid);
   const top3 = groups.some((g) => {
-    const r = all(`SELECT u.id, coalesce((SELECT sum(amount) FROM coin_tx c WHERE c.student_id = u.id AND c.amount > 0), 0) AS e
+    const r = all(`SELECT u.id, ${SCORE_SQL('u.id')} AS e
                    FROM group_students gs JOIN users u ON u.id = gs.student_id WHERE gs.group_id = ? ORDER BY e DESC LIMIT 3`, g.group_id);
     return r.some((x) => x.id === uid && x.e > 0);
   }) ? 1 : 0;
@@ -1568,13 +1635,15 @@ function childSummary(sid) {
   const att = one('SELECT count(*) AS total, coalesce(sum(present), 0) AS present FROM attendance WHERE student_id = ?', sid);
   const lastAtt = one(`SELECT a.present, gl.date, l.title FROM attendance a JOIN group_lessons gl ON gl.group_id = a.group_id AND gl.lesson_id = a.lesson_id
                        JOIN lessons l ON l.id = a.lesson_id WHERE a.student_id = ? ORDER BY gl.date DESC LIMIT 1`, sid);
-  const given = groups.reduce((a, g) => a + one('SELECT count(*) AS n FROM group_lessons WHERE group_id = ? AND (opened = 1 OR date <= ?)', g.id, t).n, 0);
+  // berilgan vazifalar — faqat uyga vazifa qo'yilgan darslar (vazifasiz dars «bajarilmagan» bo'lib chiqmasin)
+  const given = groups.reduce((a, g) => a + one(`SELECT count(*) AS n FROM group_lessons gl WHERE gl.group_id = ? AND (gl.opened = 1 OR gl.date <= ?) AND ${HAS_TASK}`, g.id, t).n, 0);
   const acc = one("SELECT count(*) AS n FROM submissions WHERE student_id = ? AND status = 'qabul'", sid).n;
   const avg = one('SELECT round(avg(score)) AS n FROM submissions WHERE student_id = ? AND score IS NOT NULL', sid).n;
   const overdue = all(`SELECT gl.deadline, l.title, g.id AS group_id, l.id AS lesson_id FROM group_lessons gl JOIN groups g ON g.id = gl.group_id
                        JOIN lessons l ON l.id = gl.lesson_id JOIN group_students gs ON gs.group_id = g.id AND gs.student_id = ?
                        LEFT JOIN submissions s ON s.group_id = g.id AND s.lesson_id = l.id AND s.student_id = gs.student_id
-                       WHERE g.active = 1 AND g.deleted_at IS NULL AND (gl.opened = 1 OR gl.date <= ?) AND gl.deadline < ? AND (s.id IS NULL OR s.status = 'qaytarilgan')
+                       WHERE g.active = 1 AND g.deleted_at IS NULL AND (gl.opened = 1 OR gl.date <= ?) AND gl.deadline < ?
+                         AND ((s.id IS NULL AND ${HAS_TASK}) OR s.status = 'qaytarilgan')
                        ORDER BY gl.deadline DESC`, sid, t, t);
   const next = one(`SELECT gl.date, l.title, g.name AS group_name, g.time FROM group_lessons gl JOIN groups g ON g.id = gl.group_id JOIN lessons l ON l.id = gl.lesson_id
                     JOIN group_students gs ON gs.group_id = g.id AND gs.student_id = ? WHERE g.active = 1 AND g.deleted_at IS NULL AND gl.date >= ? ORDER BY gl.date, g.time LIMIT 1`, sid, t);
@@ -1584,7 +1653,7 @@ function childSummary(sid) {
   return {
     user: publicUser(u), groups: groups.map((g) => ({ id: g.id, name: g.name, course_title: g.course_title, slug: g.slug, teacher_name: g.teacher_name, teacher_id: g.teacher_id, teacher_avatar: g.teacher_id ? (one('SELECT avatar FROM users WHERE id = ?', g.teacher_id) || {}).avatar : null, teacher_phone: null, days: g.days, time: g.time })),
     att: { total: att.total, present: att.present, pct: att.total ? Math.round((att.present / att.total) * 100) : null, last: lastAtt || null },
-    tasks: { given, accepted: acc, pct: given ? Math.round((acc / given) * 100) : null, avg, overdue: overdue.length, overdue_list: overdue.slice(0, 5) },
+    tasks: { given, accepted: acc, pct: given ? Math.min(100, Math.round((acc / given) * 100)) : null, avg, overdue: overdue.length, overdue_list: overdue.slice(0, 5) },
     next: next || null, debt, coins: coinBalance(sid), game: gameOf(sid, { award: false }), rank: rk.rank || null, of: g0 ? ranking(g0.id).length : 0,
   };
 }
@@ -1608,7 +1677,8 @@ app.get('/api/parent/child/:id/tasks', auth('parent'), wrap((req) => {
                     FROM group_lessons gl JOIN groups g ON g.id = gl.group_id JOIN lessons l ON l.id = gl.lesson_id
                     JOIN group_students gs ON gs.group_id = g.id AND gs.student_id = ?
                     LEFT JOIN submissions s ON s.group_id = g.id AND s.lesson_id = l.id AND s.student_id = gs.student_id
-                    WHERE g.deleted_at IS NULL AND (gl.opened = 1 OR gl.date <= ?) ORDER BY gl.date DESC LIMIT 80`, sid, t);
+                    WHERE g.deleted_at IS NULL AND (gl.opened = 1 OR gl.date <= ?) AND (s.id IS NOT NULL OR ${HAS_TASK})
+                    ORDER BY gl.date DESC LIMIT 80`, sid, t);
   for (const x of rows) x.state = x.status || (x.deadline && x.deadline < t ? 'bajarilmagan' : 'kutilmoqda');
   const tests = all(`SELECT t.title, a.score, a.finished_at FROM test_attempts a JOIN tests t ON t.id = a.test_id WHERE a.student_id = ? AND a.finished_at IS NOT NULL ORDER BY a.finished_at DESC LIMIT 20`, sid);
   return { items: rows, tests };
@@ -1751,7 +1821,8 @@ app.get('/api/dashboard', auth(), wrap((req) => {
                FROM group_lessons gl JOIN groups g ON g.id = gl.group_id JOIN lessons l ON l.id = gl.lesson_id
                JOIN group_students gs ON gs.group_id = g.id AND gs.student_id = ?
                LEFT JOIN submissions s ON s.group_id = g.id AND s.lesson_id = l.id AND s.student_id = gs.student_id
-               WHERE g.active = 1 AND (gl.opened = 1 OR gl.date <= ?) AND (s.id IS NULL OR s.status = 'qaytarilgan')
+               WHERE g.active = 1 AND (gl.opened = 1 OR gl.date <= ?)
+                 AND ((s.id IS NULL AND ${HAS_TASK}) OR s.status = 'qaytarilgan')
                ORDER BY gl.deadline LIMIT 12`, u.id, t);
   const my = one(`SELECT coalesce(sum(status='qabul'),0) AS accepted, coalesce(sum(status='tekshirilmoqda'),0) AS pending, round(avg(score)) AS avg_score
                   FROM submissions WHERE student_id = ?`, u.id);
